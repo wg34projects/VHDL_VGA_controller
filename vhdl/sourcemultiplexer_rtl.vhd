@@ -15,13 +15,17 @@
 -- 2018.02.18	0.1		Resch	Projectstart
 ---------------------------------------------------------------------------- 
 
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+
 architecture rtl of sourcemultiplexer is
 
-  signal s_rgb : std_logic_vector(11 downto 0);
+  signal s_rgb : std_logic_vector(11 downto 0) := (others => '0');
 
 begin
 
-  p_sourcemultiplexer : process (clk_i, reset_i)
+  p_sourcemultiplexer: process (clk_i, reset_i)
 
   begin
 
@@ -32,19 +36,21 @@ begin
     elsif clk_i'event and clk_i = '1' then
 
       if sel_i = "00" then
+
           s_rgb <= memory1_i;
-      end if;
 
-      if sel_i = "01" then
+      elsif sel_i = "01" then
+
           s_rgb <= memory2_i;
-      end if;
 
-      if sel_i = "10" then
-          s_rgb <= pattern1_i;
-      end if;
+      elsif sel_i = "10" then
 
-      if sel_i = "11" then
           s_rgb <= pattern1_i;
+
+      else
+
+          s_rgb <= pattern2_i;
+
       end if;
 
 	end if;

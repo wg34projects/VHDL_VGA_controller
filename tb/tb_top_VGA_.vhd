@@ -18,6 +18,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity tb_sourcemultiplexer is 
+entity tb_top_VGA is
 
-end tb_sourcemultiplexer;
+end tb_top_VGA;

@@ -19,7 +19,7 @@ use IEEE.std_logic_1164.all;
 
 architecture sim of tb_sourcemultiplexer is
 
-component sourcemultiplexter
+component sourcemultiplexer
   port (
     clk_i : in std_logic;
     reset_i : in std_logic;
@@ -43,7 +43,7 @@ signal rgb_o : std_logic_vector(11 downto 0);
 
 begin
 
-  i_sourcemultiplexter : sourcemultiplexter
+  i_sourcemultiplexer : sourcemultiplexer
 
   port map (
             clk_i => clk_i,
@@ -68,18 +68,19 @@ begin
   end process p_clk;
 
   run : process
+
   begin
 
+    reset_i <= '1';
     sel_i <= "00";
     memory1_i <= "000000000000";
     memory2_i <= "000000000000";
     pattern1_i <= "000000000000";
     pattern2_i <= "000000000000";
-    rgb_o <= "000000000000";
-    reset_i <= '1';
     wait for 10 ns;
 
     reset_i <= '0';
+    wait for 10 ns;
 
     sel_i <= "00";
     memory1_i <= "111111111111";
@@ -90,7 +91,7 @@ begin
 
     sel_i <= "01";
     memory1_i <= "000000000000";
-    memory2_i <= "111111111111";
+    memory2_i <= "010101010101";
     pattern1_i <= "000000000000";
     pattern2_i <= "000000000000";
     wait for 100 ns;
@@ -98,7 +99,7 @@ begin
     sel_i <= "10";
     memory1_i <= "000000000000";
     memory2_i <= "000000000000";
-    pattern1_i <= "111111111111";
+    pattern1_i <= "110011001100";
     pattern2_i <= "000000000000";
     wait for 100 ns;
 
@@ -106,7 +107,7 @@ begin
     memory1_i <= "000000000000";
     memory2_i <= "000000000000";
     pattern1_i <= "000000000000";
-    pattern2_i <= "111111111111";
+    pattern2_i <= "001100110011";
     wait for 100 ns;
 
   end process run;
