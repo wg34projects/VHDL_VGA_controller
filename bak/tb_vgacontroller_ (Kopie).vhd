@@ -18,19 +18,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity top_VGA is
+entity tb_vgacontroller is 
 
-  port
-  (
-    clk_i : in std_logic;
-    reset_i : in std_logic;
-    sw_i : in std_logic_vector(15 downto 0);
-    pb_i : in std_logic_vector(3 downto 0);
-	red_o : out std_logic_vector(3 downto 0);
-	green_o : out std_logic_vector(3 downto 0);
-	blue_o : out std_logic_vector(3 downto 0);
-    hsync_o : out std_logic;
-    vsync_o : out std_logic
-  );
-
-end top_VGA;
+end tb_vgacontroller;

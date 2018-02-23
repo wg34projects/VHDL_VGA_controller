@@ -28,12 +28,7 @@ component top_VGA
     clk_i : in std_logic;
     reset_i : in std_logic;
     sw_i : in std_logic_vector(15 downto 0);
-    pb_i : in std_logic_vector(3 downto 0);
-	red_o : out std_logic_vector(3 downto 0);
-	green_o : out std_logic_vector(3 downto 0);
-	blue_o : out std_logic_vector(3 downto 0);
-	h_sync : out std_logic;
-	v_sync : out std_logic
+    pb_i : in std_logic_vector(3 downto 0)
   );
 
 end component;
@@ -42,27 +37,17 @@ signal clk_i : std_logic;
 signal reset_i : std_logic;
 signal sw_i : std_logic_vector(15 downto 0);
 signal pb_i : std_logic_vector(3 downto 0);
-signal red_o :std_logic_vector(3 downto 0);
-signal green_o :std_logic_vector(3 downto 0);
-signal blue_o :std_logic_vector(3 downto 0);
-signal h_sync :std_logic;
-signal v_sync :std_logic;
 
 begin
 
-  i_calc_top : calc_top
+  i_top_VGA : top_VGA
 
   port map
   (
     clk_i => clk_i,
     reset_i => reset_i,
     sw_i => sw_i,
-    pb_i => pb_i,
-    red_o => led_o,
-    green_o => led_o,
-    blue_o => led_o,
-    h_sync => led_o,
-    v_sync => led_o
+    pb_i => pb_i
   );
 
   p_clk : process
@@ -83,23 +68,25 @@ begin
     sw_i <= "0000000000000000";
     pb_i <= "0000";
     reset_i <= '1';
-    wait for 1 ms;
-
+    wait for 50 ns;
 
     reset_i <= '0';
-    wait for 1 ms;
+--    wait for 1 ms;
 
 	sw_i <= "0000000000000000";
-    wait for 1 ms;
+    wait for 35 ms;
 
-	sw_i <= "0100000000000000";
-    wait for 1 ms;
+	sw_i <= "0000000000000010";
+    wait for 1000 ms;
 
-	sw_i <= "1000000000000000";
-    wait for 1 ms;
+--	sw_i <= "0100000000000000";
+--    wait for 1 ms;
 
-	sw_i <= "1100000000000000";
-    wait for 1 ms;
+--	sw_i <= "1000000000000000";
+--    wait for 1 ms;
+
+--	sw_i <= "1100000000000000";
+--    wait for 1 ms;
 
   end process run;
 

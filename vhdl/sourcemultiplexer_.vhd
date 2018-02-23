@@ -23,10 +23,20 @@ entity sourcemultiplexer is
     clk_i : in std_logic;
     reset_i : in std_logic;
     sel_i : in std_logic_vector(1 downto 0);
-    memory1_i : in std_logic_vector(11 downto 0);
-    memory2_i : in std_logic_vector(11 downto 0);
-    pattern1_i : in std_logic_vector(11 downto 0);
-    pattern2_i : in std_logic_vector(11 downto 0);
-    rgb_o : out std_logic_vector(11 downto 0)
+    memory1_r_i : in std_logic_vector(3 downto 0);
+    memory1_g_i : in std_logic_vector(3 downto 0);
+    memory1_b_i : in std_logic_vector(3 downto 0);
+    memory2_r_i : in std_logic_vector(3 downto 0);
+    memory2_g_i : in std_logic_vector(3 downto 0);
+    memory2_b_i : in std_logic_vector(3 downto 0);
+    pattern1_r_i : in std_logic_vector(3 downto 0);
+    pattern1_g_i : in std_logic_vector(3 downto 0);
+    pattern1_b_i : in std_logic_vector(3 downto 0);
+    pattern2_r_i : in std_logic_vector(3 downto 0);
+    pattern2_g_i : in std_logic_vector(3 downto 0);
+    pattern2_b_i : in std_logic_vector(3 downto 0);
+    red_mux_o : out std_logic_vector(3 downto 0);
+	green_mux_o : out std_logic_vector(3 downto 0);
+	blue_mux_o : out std_logic_vector(3 downto 0)
   );
 end sourcemultiplexer;

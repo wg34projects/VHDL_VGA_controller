@@ -24,22 +24,42 @@ component sourcemultiplexer
     clk_i : in std_logic;
     reset_i : in std_logic;
     sel_i : in std_logic_vector(1 downto 0);
-    memory1_i : in std_logic_vector(11 downto 0);
-    memory2_i : in std_logic_vector(11 downto 0);
-    pattern1_i : in std_logic_vector(11 downto 0);
-    pattern2_i : in std_logic_vector(11 downto 0);
-    rgb_o : out std_logic_vector(11 downto 0)
+    memory1_r_i : in std_logic_vector(3 downto 0);
+    memory1_g_i : in std_logic_vector(3 downto 0);
+    memory1_b_i : in std_logic_vector(3 downto 0);
+    memory2_r_i : in std_logic_vector(3 downto 0);
+    memory2_g_i : in std_logic_vector(3 downto 0);
+    memory2_b_i : in std_logic_vector(3 downto 0);
+    pattern1_r_i : in std_logic_vector(3 downto 0);
+    pattern1_g_i : in std_logic_vector(3 downto 0);
+    pattern1_b_i : in std_logic_vector(3 downto 0);
+    pattern2_r_i : in std_logic_vector(3 downto 0);
+    pattern2_g_i : in std_logic_vector(3 downto 0);
+    pattern2_b_i : in std_logic_vector(3 downto 0);
+    red_mux_o : out std_logic_vector(3 downto 0);
+	green_mux_o : out std_logic_vector(3 downto 0);
+	blue_mux_o : out std_logic_vector(3 downto 0)
   );
 end component;
 
 signal clk_i : std_logic;
 signal reset_i : std_logic;
 signal sel_i : std_logic_vector(1 downto 0);
-signal memory1_i : std_logic_vector(11 downto 0);
-signal memory2_i : std_logic_vector(11 downto 0);
-signal pattern1_i : std_logic_vector(11 downto 0);
-signal pattern2_i : std_logic_vector(11 downto 0);
-signal rgb_o : std_logic_vector(11 downto 0);
+signal memory1_r_i : std_logic_vector(3 downto 0);
+signal memory1_g_i : std_logic_vector(3 downto 0);
+signal memory1_b_i : std_logic_vector(3 downto 0);
+signal memory2_r_i : std_logic_vector(3 downto 0);
+signal memory2_g_i : std_logic_vector(3 downto 0);
+signal memory2_b_i : std_logic_vector(3 downto 0);
+signal pattern1_r_i : std_logic_vector(3 downto 0);
+signal pattern1_g_i : std_logic_vector(3 downto 0);
+signal pattern1_b_i : std_logic_vector(3 downto 0);
+signal pattern2_r_i : std_logic_vector(3 downto 0);
+signal pattern2_g_i : std_logic_vector(3 downto 0);
+signal pattern2_b_i : std_logic_vector(3 downto 0);
+signal red_mux_o : std_logic_vector(3 downto 0);
+signal green_mux_o : std_logic_vector(3 downto 0);
+signal blue_mux_o : std_logic_vector(3 downto 0);
 
 begin
 
@@ -49,11 +69,21 @@ begin
             clk_i => clk_i,
             reset_i => reset_i,
             sel_i => sel_i,
-            memory1_i => memory1_i,
-            memory2_i => memory2_i,
-            pattern1_i => pattern1_i,
-            pattern2_i => pattern2_i,
-            rgb_o => rgb_o
+            memory1_r_i => memory1_r_i,
+            memory1_g_i => memory1_g_i,
+            memory1_b_i => memory1_b_i,
+            memory2_r_i => memory2_r_i,
+            memory2_g_i => memory2_g_i,
+            memory2_b_i => memory2_b_i,
+            pattern1_r_i => pattern1_r_i,
+            pattern1_g_i => pattern1_g_i,
+            pattern1_b_i => pattern1_b_i,
+            pattern2_r_i => pattern2_r_i,
+            pattern2_g_i => pattern2_g_i,
+            pattern2_b_i => pattern2_b_i,
+            red_mux_o => red_mux_o,
+            green_mux_o => green_mux_o,
+            blue_mux_o => blue_mux_o
            );
 
   p_clk : process
@@ -73,41 +103,81 @@ begin
 
     reset_i <= '1';
     sel_i <= "00";
-    memory1_i <= "000000000000";
-    memory2_i <= "000000000000";
-    pattern1_i <= "000000000000";
-    pattern2_i <= "000000000000";
+    memory1_r_i <= "0000";
+    memory1_g_i <= "0000";
+    memory1_b_i <= "0000";
+    memory2_r_i <= "0000";
+    memory2_g_i <= "0000";
+    memory2_b_i <= "0000";
+    pattern1_r_i <= "0000";
+    pattern1_g_i <= "0000";
+    pattern1_b_i <= "0000";
+    pattern2_r_i <= "0000";
+    pattern2_g_i <= "0000";
+    pattern2_b_i <= "0000";
     wait for 10 ns;
 
     reset_i <= '0';
     wait for 10 ns;
 
     sel_i <= "00";
-    memory1_i <= "111111111111";
-    memory2_i <= "000000000000";
-    pattern1_i <= "000000000000";
-    pattern2_i <= "000000000000";
+    memory1_r_i <= "1111";
+    memory1_g_i <= "0000";
+    memory1_b_i <= "0000";
+    memory2_r_i <= "0000";
+    memory2_g_i <= "0000";
+    memory2_b_i <= "0000";
+    pattern1_r_i <= "0000";
+    pattern1_g_i <= "0000";
+    pattern1_b_i <= "0000";
+    pattern2_r_i <= "0000";
+    pattern2_g_i <= "0000";
+    pattern2_b_i <= "0000";
     wait for 100 ns;
 
     sel_i <= "01";
-    memory1_i <= "000000000000";
-    memory2_i <= "010101010101";
-    pattern1_i <= "000000000000";
-    pattern2_i <= "000000000000";
+    memory1_r_i <= "0000";
+    memory1_g_i <= "0000";
+    memory1_b_i <= "0000";
+    memory2_r_i <= "0000";
+    memory2_g_i <= "1111";
+    memory2_b_i <= "0000";
+    pattern1_r_i <= "0000";
+    pattern1_g_i <= "0000";
+    pattern1_b_i <= "0000";
+    pattern2_r_i <= "0000";
+    pattern2_g_i <= "0000";
+    pattern2_b_i <= "0000";
     wait for 100 ns;
 
     sel_i <= "10";
-    memory1_i <= "000000000000";
-    memory2_i <= "000000000000";
-    pattern1_i <= "110011001100";
-    pattern2_i <= "000000000000";
+    memory1_r_i <= "0000";
+    memory1_g_i <= "0000";
+    memory1_b_i <= "0000";
+    memory2_r_i <= "0000";
+    memory2_g_i <= "0000";
+    memory2_b_i <= "0000";
+    pattern1_r_i <= "0000";
+    pattern1_g_i <= "0000";
+    pattern1_b_i <= "1111";
+    pattern2_r_i <= "0000";
+    pattern2_g_i <= "0000";
+    pattern2_b_i <= "0000";
     wait for 100 ns;
 
     sel_i <= "11";
-    memory1_i <= "000000000000";
-    memory2_i <= "000000000000";
-    pattern1_i <= "000000000000";
-    pattern2_i <= "001100110011";
+    memory1_r_i <= "0000";
+    memory1_g_i <= "0000";
+    memory1_b_i <= "0000";
+    memory2_r_i <= "0000";
+    memory2_g_i <= "0000";
+    memory2_b_i <= "0000";
+    pattern1_r_i <= "0000";
+    pattern1_g_i <= "0000";
+    pattern1_b_i <= "0000";
+    pattern2_r_i <= "1111";
+    pattern2_g_i <= "1111";
+    pattern2_b_i <= "1111";
     wait for 100 ns;
 
   end process run;

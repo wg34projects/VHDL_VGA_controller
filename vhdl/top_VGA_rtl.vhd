@@ -52,17 +52,100 @@ component sourcemultiplexer is
     clk_i : in std_logic;
     reset_i : in std_logic;
     sel_i : in std_logic_vector(1 downto 0);
-    memory1_i : in std_logic_vector(11 downto 0);
-    memory2_i : in std_logic_vector(11 downto 0);
-    pattern1_i : in std_logic_vector(11 downto 0);
-    pattern2_i : in std_logic_vector(11 downto 0);
-    rgb_o : out std_logic_vector(11 downto 0)
+    memory1_r_i : in std_logic_vector(3 downto 0);
+    memory1_g_i : in std_logic_vector(3 downto 0);
+    memory1_b_i : in std_logic_vector(3 downto 0);
+    memory2_r_i : in std_logic_vector(3 downto 0);
+    memory2_g_i : in std_logic_vector(3 downto 0);
+    memory2_b_i : in std_logic_vector(3 downto 0);
+    pattern1_r_i : in std_logic_vector(3 downto 0);
+    pattern1_g_i : in std_logic_vector(3 downto 0);
+    pattern1_b_i : in std_logic_vector(3 downto 0);
+    pattern2_r_i : in std_logic_vector(3 downto 0);
+    pattern2_g_i : in std_logic_vector(3 downto 0);
+    pattern2_b_i : in std_logic_vector(3 downto 0);
+    red_mux_o : out std_logic_vector(3 downto 0);
+	green_mux_o : out std_logic_vector(3 downto 0);
+	blue_mux_o : out std_logic_vector(3 downto 0)
   );
 
 end component;
 
+component vgacontroller
+  port (
+    clk_i : in std_logic;
+    reset_i : in std_logic;
+	pixenable_i : in std_logic;
+	hsync_o : out std_logic;
+	vsync_o : out std_logic;
+	pixelhorizontal_o : out std_logic_vector(9 downto 0);
+	pixelvertical_o : out std_logic_vector(9 downto 0)
+  );
+end component;
+
+component vga_monitor
+  port(
+    s_reset_i     : in std_logic;
+    s_vga_red_i   : in std_logic_vector(3 downto 0);
+    s_vga_green_i : in std_logic_vector(3 downto 0);
+    s_vga_blue_i  : in std_logic_vector(3 downto 0);
+    s_vga_hsync_i : in std_logic;
+    s_vga_vsync_i : in std_logic
+    ); 
+end component;
+
+component pattern1
+  port
+  (
+	pixelhorizontal_i : in std_logic_vector(9 downto 0);
+	pixelvertical_i : in std_logic_vector(9 downto 0);
+    pattern1_r_o : out std_logic_vector(3 downto 0);
+	pattern1_g_o : out std_logic_vector(3 downto 0);
+	pattern1_b_o : out std_logic_vector(3 downto 0)
+  );
+end component;
+
+component pattern2
+  port
+  (
+	pixelhorizontal_i : in std_logic_vector(9 downto 0);
+	pixelvertical_i : in std_logic_vector(9 downto 0);
+    pattern2_r_o : out std_logic_vector(3 downto 0);
+	pattern2_g_o : out std_logic_vector(3 downto 0);
+	pattern2_b_o : out std_logic_vector(3 downto 0)
+  );
+end component;
+
 signal swsync : std_logic_vector(15 downto 0);
 signal pbsync : std_logic_vector(3 downto 0);
+signal pixenable : std_logic;
+
+signal memory1_r : std_logic_vector(3 downto 0);
+signal memory1_g : std_logic_vector(3 downto 0);
+signal memory1_b : std_logic_vector(3 downto 0);
+
+signal memory2_r : std_logic_vector(3 downto 0);
+signal memory2_g : std_logic_vector(3 downto 0);
+signal memory2_b : std_logic_vector(3 downto 0);
+
+signal pattern1_r : std_logic_vector(3 downto 0);
+signal pattern1_g : std_logic_vector(3 downto 0);
+signal pattern1_b : std_logic_vector(3 downto 0);
+
+signal pattern2_r : std_logic_vector(3 downto 0);
+signal pattern2_g : std_logic_vector(3 downto 0);
+signal pattern2_b : std_logic_vector(3 downto 0);
+
+signal red : std_logic_vector(3 downto 0);
+signal green : std_logic_vector(3 downto 0);
+signal blue : std_logic_vector(3 downto 0);
+
+signal hsync : std_logic;
+signal vsync : std_logic;
+
+signal pixelhorizontal : std_logic_vector(9 downto 0);
+signal pixelvertical : std_logic_vector(9 downto 0);
+
 
 begin
 
@@ -84,8 +167,28 @@ begin
   (
     clk_i => clk_i,
     reset_i => reset_i,
-    pixenable_o => pixenable_o
+    pixenable_o => pixenable
   );
+
+  i_pattern1 : pattern1
+
+  port map (
+            pixelhorizontal_i => pixelhorizontal,
+            pixelvertical_i => pixelvertical,
+            pattern1_r_o => pattern1_r,
+            pattern1_g_o => pattern1_g,
+            pattern1_b_o => pattern1_b
+           );
+
+  i_pattern2 : pattern2
+
+  port map (
+            pixelhorizontal_i => pixelhorizontal,
+            pixelvertical_i => pixelvertical,
+            pattern2_r_o => pattern2_r,
+            pattern2_g_o => pattern2_g,
+            pattern2_b_o => pattern2_b
+           );
 
   i_sourcemultiplexer : sourcemultiplexer
 
@@ -93,12 +196,51 @@ begin
   (
     clk_i => clk_i,
     reset_i => reset_i,
-    sel_i => swsync(15 downto 14),
-    memory1_i => memory1_i,
-    memory2_i => memory2_i,
-    pattern1_i => pattern1_i,
-    pattern2_i => pattern2_i,
-    rgb_o => rgb_o
+    sel_i => swsync(1 downto 0),
+    memory1_r_i => memory1_r,
+    memory1_g_i => memory1_g,
+    memory1_b_i => memory1_b,
+    memory2_r_i => memory2_r,
+    memory2_g_i => memory2_g,
+    memory2_b_i => memory2_b,
+    pattern1_r_i => pattern1_r,
+    pattern1_g_i => pattern1_g,
+    pattern1_b_i => pattern1_b,
+    pattern2_r_i => pattern2_r,
+    pattern2_g_i => pattern2_g,
+    pattern2_b_i => pattern2_b,
+    red_mux_o => red,
+    green_mux_o => green,
+    blue_mux_o => blue
   );
+
+  i_vgacontroller : vgacontroller
+
+  port map (
+            clk_i => clk_i,
+            reset_i => reset_i,
+            pixenable_i => pixenable,
+            hsync_o => hsync,
+            vsync_o => vsync,
+            pixelhorizontal_o => pixelhorizontal,
+            pixelvertical_o => pixelvertical
+           );
+
+  i_vga_monitor : vga_monitor
+
+  port map (
+            s_reset_i => reset_i,
+            s_vga_red_i => red,
+            s_vga_green_i => green,
+            s_vga_blue_i => blue,
+            s_vga_hsync_i => hsync,
+            s_vga_vsync_i => vsync
+           );
+
+  red_o <= red;
+  green_o <= green;
+  blue_o <= blue;
+  hsync_o <= hsync;
+  vsync_o <= vsync;
 
 end struc;

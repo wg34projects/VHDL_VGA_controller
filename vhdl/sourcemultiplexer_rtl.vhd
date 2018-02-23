@@ -21,8 +21,6 @@ use IEEE.std_logic_arith.all;
 
 architecture rtl of sourcemultiplexer is
 
-  signal s_rgb : std_logic_vector(11 downto 0) := (others => '0');
-
 begin
 
   p_sourcemultiplexer: process (clk_i, reset_i)
@@ -31,32 +29,41 @@ begin
 
     if reset_i = '1' then
 
-      s_rgb <= (others => '0');
+      red_mux_o <= (others => '0');
+      green_mux_o <= (others => '0');
+      blue_mux_o <= (others => '0');
 
     elsif clk_i'event and clk_i = '1' then
 
       if sel_i = "00" then
 
-          s_rgb <= memory1_i;
-
-      elsif sel_i = "01" then
-
-          s_rgb <= memory2_i;
+          red_mux_o <= pattern1_r_i;
+          green_mux_o <= pattern1_g_i;
+          blue_mux_o <= pattern1_b_i;
 
       elsif sel_i = "10" then
 
-          s_rgb <= pattern1_i;
+          red_mux_o <= pattern2_r_i;
+          green_mux_o <= pattern2_g_i;
+          blue_mux_o <= pattern2_b_i;
+
+
+      elsif sel_i = "01" or sel_i = "11" then
+
+          red_mux_o <= memory1_r_i;
+          green_mux_o <= memory1_g_i;
+          blue_mux_o <= memory1_b_i;
 
       else
 
-          s_rgb <= pattern2_i;
+          red_mux_o <= memory2_r_i;
+          green_mux_o <= memory2_g_i;
+          blue_mux_o <= memory2_b_i;
 
       end if;
 
 	end if;
 
   end process p_sourcemultiplexer;
-
-  rgb_o <= s_rgb;
 
 end rtl;
