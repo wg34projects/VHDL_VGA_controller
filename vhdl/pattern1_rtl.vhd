@@ -2,17 +2,20 @@
 -- Title : VGA Controller
 -- Project : Chip Design BEL4
 ----------------------------------------------------------------------------
--- File : prescaler_.vhd
+-- File : pattern1_rtl.vhd
 -- Author : Resch
 -- Company : FHTW
 -- Last update: 19.02.2018
 -- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
 ----------------------------------------------------------------------------
--- Description: Prescaler to generat 25MHz signal
+-- Description: ARCHITECTURE RTL Pattern Generator 1
 ----------------------------------------------------------------------------
--- Revisions : 0
+-- Revisions : 1
 -- Date 		Version	Author 	Description
--- 2018.02.18	0.1		Resch	Projectstart
+-- 2018.02.19	0.1		Resch	Projectstart VGA Controller, first Timings
+-- 2018.02.21	0.2		Resch	Added Pattern Generators and TOP Design
+-- 2018.02.22	0.3		Resch	Update TOP Design and first output via
+--                              the nice vga app from FHTW to disk
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -26,9 +29,11 @@ architecture rtl of pattern1 is
 
 begin
 
-  P_color: process (pixelhorizontal_i, pixelvertical_i)
+  P_color: process (pixelhorizontal_i, pixelvertical_i, reset_i)
 
   begin
+
+    if reset_i = '0' then
 
     if (unsigned(pixelvertical_i) <= unsigned(C_vpicture)) and 
        (unsigned(pixelhorizontal_i) <= unsigned(C_hpicture)) then
@@ -82,6 +87,14 @@ begin
         pattern1_b_o <= (others => '0');
 
       end if;
+
+    else
+
+      pattern1_r_o <= (others => '0');
+      pattern1_g_o <= (others => '0');
+      pattern1_b_o <= (others => '0');
+
+    end if;
 
     else
 

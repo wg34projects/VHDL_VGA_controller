@@ -2,17 +2,20 @@
 -- Title : VGA Controller
 -- Project : Chip Design BEL4
 ----------------------------------------------------------------------------
--- File : prescaler_.vhd
+-- File : vgacontroller_rtl.vhd
 -- Author : Resch
 -- Company : FHTW
 -- Last update: 19.02.2018
 -- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
 ----------------------------------------------------------------------------
--- Description: Prescaler to generat 25MHz signal
+-- Description: ARCHITECTURE RTL VGA Controller
 ----------------------------------------------------------------------------
--- Revisions : 0
+-- Revisions : 1
 -- Date 		Version	Author 	Description
--- 2018.02.18	0.1		Resch	Projectstart
+-- 2018.02.19	0.1		Resch	Projectstart VGA Controller, first Timings
+-- 2018.02.21	0.2		Resch	Added Pattern Generators and TOP Design
+-- 2018.02.22	0.3		Resch	Update TOP Design and first output via
+--                              the nice vga app from FHTW to disk
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -78,9 +81,11 @@ begin
   pixelhorizontal_o <= s_pixelhorizontal;
   pixelvertical_o <= s_pixelvertical;
 
-  P_sync: process (s_pixelhorizontal, s_pixelvertical)
+  P_sync: process (s_pixelhorizontal, s_pixelvertical, reset_i)
 
   begin
+
+    if reset_i = '0' then
 
     if (unsigned(s_pixelhorizontal) <= unsigned(C_hsyncstart)) or 
        (unsigned(s_pixelhorizontal) > unsigned(C_hsyncend)) then
@@ -101,6 +106,13 @@ begin
     else
 
       vsync_o <= '1';
+
+    end if;
+
+    else
+  
+      hsync_o <= '0';
+      vsync_o <= '0';
 
     end if;
 

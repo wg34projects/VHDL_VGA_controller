@@ -2,28 +2,33 @@
 -- Title : VGA Controller
 -- Project : Chip Design BEL4
 ----------------------------------------------------------------------------
--- File : prescaler_.vhd
+-- File : tb_sourcemultiplexer_sim.vhd
 -- Author : Resch
 -- Company : FHTW
 -- Last update: 19.02.2018
 -- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
 ----------------------------------------------------------------------------
--- Description: Prescaler to generat 25MHz signal
+-- Description: TESTBENCH SIM Sourcemultiplexer to switch the inputs
 ----------------------------------------------------------------------------
 -- Revisions : 0
 -- Date 		Version	Author 	Description
 -- 2018.02.18	0.1		Resch	Projectstart
+-- 2018.02.20	0.2		Resch	Update to include signal-mix feature
 ---------------------------------------------------------------------------- 
+
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
 
 architecture sim of tb_sourcemultiplexer is
 
 component sourcemultiplexer
-  port (
+
+  port 
+  (
     clk_i : in std_logic;
     reset_i : in std_logic;
-    sel_i : in std_logic_vector(1 downto 0);
+    sel_i : in std_logic_vector(2 downto 0);
     memory1_r_i : in std_logic_vector(3 downto 0);
     memory1_g_i : in std_logic_vector(3 downto 0);
     memory1_b_i : in std_logic_vector(3 downto 0);
@@ -40,11 +45,12 @@ component sourcemultiplexer
 	green_mux_o : out std_logic_vector(3 downto 0);
 	blue_mux_o : out std_logic_vector(3 downto 0)
   );
+
 end component;
 
 signal clk_i : std_logic;
 signal reset_i : std_logic;
-signal sel_i : std_logic_vector(1 downto 0);
+signal sel_i : std_logic_vector(2 downto 0);
 signal memory1_r_i : std_logic_vector(3 downto 0);
 signal memory1_g_i : std_logic_vector(3 downto 0);
 signal memory1_b_i : std_logic_vector(3 downto 0);
@@ -65,26 +71,27 @@ begin
 
   i_sourcemultiplexer : sourcemultiplexer
 
-  port map (
-            clk_i => clk_i,
-            reset_i => reset_i,
-            sel_i => sel_i,
-            memory1_r_i => memory1_r_i,
-            memory1_g_i => memory1_g_i,
-            memory1_b_i => memory1_b_i,
-            memory2_r_i => memory2_r_i,
-            memory2_g_i => memory2_g_i,
-            memory2_b_i => memory2_b_i,
-            pattern1_r_i => pattern1_r_i,
-            pattern1_g_i => pattern1_g_i,
-            pattern1_b_i => pattern1_b_i,
-            pattern2_r_i => pattern2_r_i,
-            pattern2_g_i => pattern2_g_i,
-            pattern2_b_i => pattern2_b_i,
-            red_mux_o => red_mux_o,
-            green_mux_o => green_mux_o,
-            blue_mux_o => blue_mux_o
-           );
+  port map 
+  (
+    clk_i => clk_i,
+    reset_i => reset_i,
+    sel_i => sel_i,
+    memory1_r_i => memory1_r_i,
+    memory1_g_i => memory1_g_i,
+    memory1_b_i => memory1_b_i,
+    memory2_r_i => memory2_r_i,
+    memory2_g_i => memory2_g_i,
+    memory2_b_i => memory2_b_i,
+    pattern1_r_i => pattern1_r_i,
+    pattern1_g_i => pattern1_g_i,
+    pattern1_b_i => pattern1_b_i,
+    pattern2_r_i => pattern2_r_i,
+    pattern2_g_i => pattern2_g_i,
+    pattern2_b_i => pattern2_b_i,
+    red_mux_o => red_mux_o,
+    green_mux_o => green_mux_o,
+    blue_mux_o => blue_mux_o
+  );
 
   p_clk : process
 
@@ -102,7 +109,7 @@ begin
   begin
 
     reset_i <= '1';
-    sel_i <= "00";
+    sel_i <= "000";
     memory1_r_i <= "0000";
     memory1_g_i <= "0000";
     memory1_b_i <= "0000";
@@ -120,7 +127,73 @@ begin
     reset_i <= '0';
     wait for 10 ns;
 
-    sel_i <= "00";
+-- pattern 1 x00
+
+    sel_i <= "000";
+    memory1_r_i <= "0000";
+    memory1_g_i <= "0000";
+    memory1_b_i <= "0000";
+    memory2_r_i <= "0000";
+    memory2_g_i <= "0000";
+    memory2_b_i <= "0000";
+    pattern1_r_i <= "1111";
+    pattern1_g_i <= "0000";
+    pattern1_b_i <= "0000";
+    pattern2_r_i <= "0000";
+    pattern2_g_i <= "0000";
+    pattern2_b_i <= "0000";
+    wait for 100 ns;
+
+    sel_i <= "100";
+    memory1_r_i <= "0000";
+    memory1_g_i <= "0000";
+    memory1_b_i <= "0000";
+    memory2_r_i <= "0000";
+    memory2_g_i <= "0000";
+    memory2_b_i <= "0000";
+    pattern1_r_i <= "1111";
+    pattern1_g_i <= "1111";
+    pattern1_b_i <= "1111";
+    pattern2_r_i <= "0000";
+    pattern2_g_i <= "0000";
+    pattern2_b_i <= "0000";
+    wait for 100 ns;
+
+-- pattern 2 x10
+
+    sel_i <= "010";
+    memory1_r_i <= "0000";
+    memory1_g_i <= "0000";
+    memory1_b_i <= "0000";
+    memory2_r_i <= "0000";
+    memory2_g_i <= "0000";
+    memory2_b_i <= "0000";
+    pattern1_r_i <= "0000";
+    pattern1_g_i <= "0000";
+    pattern1_b_i <= "0000";
+    pattern2_r_i <= "1111";
+    pattern2_g_i <= "0000";
+    pattern2_b_i <= "0000";
+    wait for 100 ns;
+
+    sel_i <= "110";
+    memory1_r_i <= "0000";
+    memory1_g_i <= "0000";
+    memory1_b_i <= "0000";
+    memory2_r_i <= "0000";
+    memory2_g_i <= "1111";
+    memory2_b_i <= "1111";
+    pattern1_r_i <= "0000";
+    pattern1_g_i <= "0000";
+    pattern1_b_i <= "0000";
+    pattern2_r_i <= "1111";
+    pattern2_g_i <= "1111";
+    pattern2_b_i <= "1111";
+    wait for 100 ns;
+
+-- memory1 xx1
+
+    sel_i <= "001";
     memory1_r_i <= "1111";
     memory1_g_i <= "0000";
     memory1_b_i <= "0000";
@@ -135,12 +208,12 @@ begin
     pattern2_b_i <= "0000";
     wait for 100 ns;
 
-    sel_i <= "01";
+    sel_i <= "011";
     memory1_r_i <= "0000";
-    memory1_g_i <= "0000";
+    memory1_g_i <= "1111";
     memory1_b_i <= "0000";
     memory2_r_i <= "0000";
-    memory2_g_i <= "1111";
+    memory2_g_i <= "0000";
     memory2_b_i <= "0000";
     pattern1_r_i <= "0000";
     pattern1_g_i <= "0000";
@@ -150,22 +223,39 @@ begin
     pattern2_b_i <= "0000";
     wait for 100 ns;
 
-    sel_i <= "10";
+    sel_i <= "101";
     memory1_r_i <= "0000";
-    memory1_g_i <= "0000";
+    memory1_g_i <= "1111";
     memory1_b_i <= "0000";
     memory2_r_i <= "0000";
     memory2_g_i <= "0000";
     memory2_b_i <= "0000";
     pattern1_r_i <= "0000";
     pattern1_g_i <= "0000";
-    pattern1_b_i <= "1111";
+    pattern1_b_i <= "0000";
     pattern2_r_i <= "0000";
     pattern2_g_i <= "0000";
     pattern2_b_i <= "0000";
     wait for 100 ns;
 
-    sel_i <= "11";
+    sel_i <= "111";
+    memory1_r_i <= "1111";
+    memory1_g_i <= "1111";
+    memory1_b_i <= "1111";
+    memory2_r_i <= "0000";
+    memory2_g_i <= "0000";
+    memory2_b_i <= "0000";
+    pattern1_r_i <= "0000";
+    pattern1_g_i <= "0000";
+    pattern1_b_i <= "0000";
+    pattern2_r_i <= "0000";
+    pattern2_g_i <= "0000";
+    pattern2_b_i <= "0000";
+    wait for 100 ns;
+
+-- memory2 1xx
+
+    sel_i <= "011";
     memory1_r_i <= "0000";
     memory1_g_i <= "0000";
     memory1_b_i <= "0000";

@@ -2,27 +2,31 @@
 -- Title : VGA Controller
 -- Project : Chip Design BEL4
 ----------------------------------------------------------------------------
--- File : prescaler_.vhd
+-- File : sourcemultplexer_.vhd
 -- Author : Resch
 -- Company : FHTW
 -- Last update: 19.02.2018
 -- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
 ----------------------------------------------------------------------------
--- Description: Prescaler to generat 25MHz signal
+-- Description: ENTITY Sourcemultiplexer to switch the inputs
 ----------------------------------------------------------------------------
 -- Revisions : 0
 -- Date 		Version	Author 	Description
 -- 2018.02.18	0.1		Resch	Projectstart
+-- 2018.02.20	0.2		Resch	Update to include signal-mix feature
 ---------------------------------------------------------------------------- 
 
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
 
 entity sourcemultiplexer is
-  port (
+
+  port 
+  (
     clk_i : in std_logic;
     reset_i : in std_logic;
-    sel_i : in std_logic_vector(1 downto 0);
+    sel_i : in std_logic_vector(2 downto 0);
     memory1_r_i : in std_logic_vector(3 downto 0);
     memory1_g_i : in std_logic_vector(3 downto 0);
     memory1_b_i : in std_logic_vector(3 downto 0);
@@ -39,4 +43,5 @@ entity sourcemultiplexer is
 	green_mux_o : out std_logic_vector(3 downto 0);
 	blue_mux_o : out std_logic_vector(3 downto 0)
   );
+
 end sourcemultiplexer;

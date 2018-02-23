@@ -2,13 +2,13 @@
 -- Title : VGA Controller
 -- Project : Chip Design BEL4
 ----------------------------------------------------------------------------
--- File : prescaler_.vhd
+-- File : iologic_rtl.vhd
 -- Author : Resch
 -- Company : FHTW
 -- Last update: 19.02.2018
 -- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
 ----------------------------------------------------------------------------
--- Description: Prescaler to generat 25MHz signal
+-- Description: ARCHITECTURE RTL IOLogic for buttons and switches
 ----------------------------------------------------------------------------
 -- Revisions : 0
 -- Date 		Version	Author 	Description

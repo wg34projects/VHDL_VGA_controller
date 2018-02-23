@@ -14,11 +14,11 @@ add wave -noupdate -height 30 -format Logic /tb_iologic/swsync_o
 add wave -noupdate -height 30 -format Logic /tb_iologic/pbsync_o
 
 add wave -divider -height 30 "INTERNALS"
-add wave -noupdate -height 30 -format Unsigned /tb_iologic/i_iologic/s_enctr
+add wave -noupdate -height 30 -format Logic /tb_iologic/i_iologic/s_enctr
 add wave -noupdate -height 30 -format Logic /tb_iologic/i_iologic/s_1khzen
 add wave -noupdate -height 30 -format Logic /tb_iologic/i_iologic/s_swsync
 add wave -noupdate -height 30 -format Logic /tb_iologic/i_iologic/s_pbsync
-add wave -noupdate -height 30 -format Unsigned /tb_iologic/i_iologic/s_button
+add wave -noupdate -height 30 -format Logic /tb_iologic/i_iologic/s_button
 
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {0 ps}

@@ -8,7 +8,7 @@
 -- Last update: 19.02.2018
 -- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
 ----------------------------------------------------------------------------
--- Description: Prescaler to generat 25MHz signal
+-- Description: RTL ARCHITECTURE Prescaler to generate 25MHz signal
 ----------------------------------------------------------------------------
 -- Revisions : 0
 -- Date 		Version	Author 	Description
