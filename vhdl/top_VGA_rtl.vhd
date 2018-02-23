@@ -90,25 +90,24 @@ component vgacontroller
 
 end component;
 
-component vga_monitor
+--component vga_monitor
 
-  port
-  (
-    s_reset_i     : in std_logic;
-    s_vga_red_i   : in std_logic_vector(3 downto 0);
-    s_vga_green_i : in std_logic_vector(3 downto 0);
-    s_vga_blue_i  : in std_logic_vector(3 downto 0);
-    s_vga_hsync_i : in std_logic;
-    s_vga_vsync_i : in std_logic
-    ); 
+--  port
+--  (
+--    s_reset_i     : in std_logic;
+--    s_vga_red_i   : in std_logic_vector(3 downto 0);
+--    s_vga_green_i : in std_logic_vector(3 downto 0);
+--    s_vga_blue_i  : in std_logic_vector(3 downto 0);
+--    s_vga_hsync_i : in std_logic;
+--    s_vga_vsync_i : in std_logic
+--    ); 
 
-end component;
+--end component;
 
 component pattern1
 
   port
   (
-    clk_i : in std_logic;
     reset_i : in std_logic;
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);
@@ -123,7 +122,6 @@ component pattern2
 
   port
   (
-    clk_i : in std_logic;
     reset_i : in std_logic;
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);
@@ -191,7 +189,6 @@ begin
 
   port map 
   (
-    clk_i => clk_i,
     reset_i => reset_i,
     pixelhorizontal_i => pixelhorizontal,
     pixelvertical_i => pixelvertical,
@@ -204,7 +201,6 @@ begin
 
   port map 
   (
-    clk_i => clk_i,
     reset_i => reset_i,
     pixelhorizontal_i => pixelhorizontal,
     pixelvertical_i => pixelvertical,
@@ -250,17 +246,17 @@ begin
     pixelvertical_o => pixelvertical
    );
 
-  i_vga_monitor : vga_monitor
+--  i_vga_monitor : vga_monitor
 
-  port map 
-  (
-    s_reset_i => reset_i,
-    s_vga_red_i => red,
-    s_vga_green_i => green,
-    s_vga_blue_i => blue,
-    s_vga_hsync_i => hsync,
-    s_vga_vsync_i => vsync
-  );
+--  port map 
+--  (
+--    s_reset_i => reset_i,
+--    s_vga_red_i => red,
+--    s_vga_green_i => green,
+--    s_vga_blue_i => blue,
+--    s_vga_hsync_i => hsync,
+--    s_vga_vsync_i => vsync
+--  );
 
   red_o <= red;
   green_o <= green;

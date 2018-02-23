@@ -26,7 +26,6 @@ entity pattern2 is
 
   port
   (
-    clk_i : in std_logic;
     reset_i : in std_logic;
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);

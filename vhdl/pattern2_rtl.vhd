@@ -43,7 +43,7 @@ architecture rtl of pattern2 is
 
 begin
 
-  P_chessboard: process (pixelhorizontal_i, pixelvertical_i) 
+  P_chessboard: process (pixelhorizontal_i, pixelvertical_i, reset_i, s_chessboardcolorlist) 
 
   variable v_i : natural := 0;
   variable v_j : natural := 0;
@@ -100,7 +100,7 @@ begin
 
   end process P_chessboard;
 
-  P_color: process (pixelhorizontal_i, pixelvertical_i)
+  P_color: process (pixelhorizontal_i, pixelvertical_i, reset_i, s_chessboardcolor)
 
   begin
 

@@ -29,9 +29,6 @@ entity vgacontroller is
     clk_i : in std_logic;
     reset_i : in std_logic;
 	pixenable_i : in std_logic;
-	red_o : out std_logic_vector(3 downto 0);
-	green_o : out std_logic_vector(3 downto 0);
-	blue_o : out std_logic_vector(3 downto 0);
 	hsync_o : out std_logic;
 	vsync_o : out std_logic;
 	pixelhorizontal_o : out std_logic_vector(9 downto 0);
