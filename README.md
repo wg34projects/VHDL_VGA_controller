@@ -80,3 +80,7 @@ Status 23.02.2018 23:00 Output is working
 | pattern 1+2 |  ![alt text](doku/frame02.png "pattern 1+2") |
 | pattern 2 |  ![alt text](doku/frame03.png "pattern 2") |
 
+### output VGA real monitor Samsung
+
+https://www.youtube.com/watch?v=7fyMXrCMvPQ&feature=youtu.be
+
