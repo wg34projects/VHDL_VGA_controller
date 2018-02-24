@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Fri Feb 23 23:29:34 2018">
+<application name="pa" timeStamp="Sat Feb 24 01:36:31 2018">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="36accf763ba946cbaaf12580545d76a6" type="ProjectID"/>
-<property name="ProjectIteration" value="2" type="ProjectIteration"/>
+<property name="ProjectIteration" value="4" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -18,14 +18,78 @@ This means code written to parse this file will need to be revisited each subseq
 </item>
 <item name="Java Command Handlers">
 <property name="AddSources" value="1" type="JavaHandler"/>
+<property name="ArchiveProject" value="1" type="JavaHandler"/>
+<property name="AutoConnectTarget" value="1" type="JavaHandler"/>
 <property name="ConfigureBitstream" value="1" type="JavaHandler"/>
+<property name="FitSelection" value="1" type="JavaHandler"/>
+<property name="LaunchProgramFpga" value="2" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
+<property name="OpenHardwareManager" value="3" type="JavaHandler"/>
+<property name="OpenRecentTarget" value="1" type="JavaHandler"/>
+<property name="ProgramDevice" value="2" type="JavaHandler"/>
 <property name="ProjectSettingsCmdHandler" value="1" type="JavaHandler"/>
-<property name="RunBitgen" value="1" type="JavaHandler"/>
+<property name="ReportClockInteraction" value="1" type="JavaHandler"/>
+<property name="ReportDRC" value="1" type="JavaHandler"/>
+<property name="ReportTimingSummary" value="1" type="JavaHandler"/>
+<property name="ReportUtilization" value="2" type="JavaHandler"/>
+<property name="ResetLayout" value="2" type="JavaHandler"/>
+<property name="RunBitgen" value="3" type="JavaHandler"/>
+<property name="RunNoiseAnalysis" value="1" type="JavaHandler"/>
+<property name="RunPowerEstimation" value="3" type="JavaHandler"/>
+<property name="RunSchematic" value="4" type="JavaHandler"/>
 <property name="RunSynthesis" value="12" type="JavaHandler"/>
 <property name="SetTargetConstrFile" value="1" type="JavaHandler"/>
-<property name="ShowView" value="3" type="JavaHandler"/>
+<property name="ShowPowerEstimation" value="3" type="JavaHandler"/>
+<property name="ShowView" value="4" type="JavaHandler"/>
 <property name="TimingConstraintsWizard" value="1" type="JavaHandler"/>
+<property name="ToggleAutoFitSelection" value="1" type="JavaHandler"/>
+<property name="ViewLayoutCmd" value="8" type="JavaHandler"/>
+<property name="ViewTaskImplementation" value="1" type="JavaHandler"/>
+<property name="ZoomFit" value="3" type="JavaHandler"/>
+<property name="ZoomIn" value="10" type="JavaHandler"/>
+<property name="ZoomOut" value="4" type="JavaHandler"/>
+</item>
+<item name="Gui Resources Info">
+<property name="PAResourceAtoD.ArchiveProjectDialog_ARCHIVE_NAME, 2018.025.24_VGA_Controller" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.ArchiveProjectDialog_CHOOSE_ARCHIVE_LOCATION, (String" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.ArchiveProjectDialog_INCLUDE_CONFIGURATION_SETTINGS, Include configuration settings, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.DeviceConstraintsView_INTERNAL_VREF_TREE, [NONE, I/O Bank 14], 5" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.DeviceConstraintsView_INTERNAL_VREF_TREE, [NONE, I/O Bank 16], 6" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.DeviceConstraintsView_INTERNAL_VREF_TREE, [NONE, I/O Bank 35], 8" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_ARCHIVE_PROJECT, Archive Project..." value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, RTL Analysis, Open Elaborated Design], 14" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_FILE, File" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_HIGHLIGHT, Highlight" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_MARK, Mark" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, Open Recent Project" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_UNSELECT_TYPE, Unselect Type" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_VIEW, View" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_WINDOW, Window" value="4" type="GuiResourceData"/>
+<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Synthesis, [Synth 8-3332] Sequential element (i_sourcemultiplexer/red_mux_o_reg[2]" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, synth_1, refresh_hw_device [lindex [get_hw_devices] 0]. , [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.. Resolution: . 1. Make sure the clock connected to the debug hub (dbg_hub" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, synth_1, refresh_hw_device [lindex [get_hw_devices] 0]. ], 6" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MsgTreePanel_SUPPRESS_THIS_MESSAGE, Suppress this Message" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.NetlistTreeView_NETLIST_TREE, [top_VGA, i_prescaler (prescaler" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.NetlistTreeView_NETLIST_TREE, [top_VGA, i_sourcemultiplexer (sourcemultiplexer" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.NetlistTreeView_NETLIST_TREE, [top_VGA, i_vgacontroller (vgacontroller" value="2" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PAViews_PACKAGE, 1890, 2896" value="1" type="GuiResourceData"/>
+<property name="PAResourceOtoP.ProjectSummaryUtilizationGadget_PROJECT_SUMMARY_UTILIZATION_GADGET_TABBED, PAResourceOtoP.ProjectSummaryUtilizationGadget_POST_IMPLEMENTATION, Post-Implementation, 1" value="1" type="GuiResourceData"/>
+<property name="PAResourceOtoP.ProjectSummaryUtilizationGadget_PROJECT_SUMMARY_UTILIZATION_GADGET_TABBED, PAResourceOtoP.ProjectSummaryUtilizationGadget_POST_SYNTHESIS, Post-Synthesis, 0" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.RunGadget_SHOW_WARNING_AND_ERROR_MESSAGES_IN_MESSAGES, 51 warnings" value="1" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_CANCEL, Cancel" value="1" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="1" type="GuiResourceData"/>
+<property name="RDIResource.MainWinMenuMgr_LAYOUT, Layout" value="3" type="GuiResourceData"/>
+<property name="RDIResource.MainWinToolbarMgr_SELECT_OR_SAVE_WINDOW_LAYOUT, Clock Planning, 2" value="1" type="GuiResourceData"/>
+<property name="RDIResource.MainWinToolbarMgr_SELECT_OR_SAVE_WINDOW_LAYOUT, Default Layout, 0" value="3" type="GuiResourceData"/>
+<property name="RDIResource.MainWinToolbarMgr_SELECT_OR_SAVE_WINDOW_LAYOUT, Floorplanning, 3" value="2" type="GuiResourceData"/>
+<property name="RDIResource.MainWinToolbarMgr_SELECT_OR_SAVE_WINDOW_LAYOUT, I/O Planning, 1" value="2" type="GuiResourceData"/>
+<property name="RDIResource.MainWinToolbarMgr_SELECT_OR_SAVE_WINDOW_LAYOUT, Reset Layout, 7" value="1" type="GuiResourceData"/>
+<property name="RDIResourceCommand.RDICommands_RESET_LAYOUT, Reset Layout" value="1" type="GuiResourceData"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="40" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="30" type="TclMode"/>
 </item>
 </section>
 </application>
