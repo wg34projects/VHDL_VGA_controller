@@ -88,6 +88,5 @@ https://www.youtube.com/watch?v=7fyMXrCMvPQ&feature=youtu.be
 
 | pattern | 640x480 |
 |-------- | ------- |
-| pattern 1 | ![alt text](doku/fotopattern01.png "pattern 1") |
-| pattern 2 | ![alt text](doku/fotopattern02.png "pattern 2") |
-
+| pattern 1 | ![alt text](doku/fotopattern01.jpg "pattern 1") |
+| pattern 2 | ![alt text](doku/fotopattern02.jpg "pattern 2") |
