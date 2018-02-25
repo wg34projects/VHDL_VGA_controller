@@ -69,7 +69,7 @@ Status 23.02.2018 23:00 Output is working
 | 1 | VGA | pattern1_ | 0.3 | 22.02 | 99% | pattern1_rtl | 99% | - |
 | 1 | VGA | pattern2_ | 0.3 | 22.02 | 99% | pattern2_rtl | 99% | done with loop |
 | 1 | VGA | top_VGA_ | 0.3 | 22.02 | 99% | top_VGA_rtl | 99% | synthesized |
-| 2 | MEM | memory1_ | - | - | 00% | memory1_rtl | 00% | start week 9 |
+| 2 | MEM | memory1_ | 0.1 | 25.2 | 99% | memory1_rtl | 99% | working |
 | 2 | MEM | memory2_ | - | - | 00% | memory2_rtl | 00% | start week 9 |
 
 ### output monitor FHTW
@@ -90,3 +90,14 @@ https://www.youtube.com/watch?v=7fyMXrCMvPQ&feature=youtu.be
 |-------- | ------- |
 | pattern 1 | ![alt text](doku/fotopattern01.jpg "pattern 1") |
 | pattern 2 | ![alt text](doku/fotopattern02.jpg "pattern 2") |
+
+### output monitor FHTW with testpicture from ROM
+
+| pattern | 640x480 |
+|-------- | ------- |
+| pattern 2+3 | ![alt text](doku/frame04.png "pattern 1") |
+| pattern 3 |  ![alt text](doku/frame05.png "pattern 1+2") |
+
+### output VGA real monitor Samsung Vienna with testpicture from ROM
+
+https://www.youtube.com/watch?v=oO-Cmue0pPw

@@ -132,6 +132,22 @@ component pattern2
 
 end component;
 
+component memory1
+
+  port
+  (
+    clk_i : in std_logic;
+    reset_i : in std_logic;
+    pixenable_i : in std_logic;
+	pixelhorizontal_i : in std_logic_vector(9 downto 0);
+	pixelvertical_i : in std_logic_vector(9 downto 0);
+    memory1_r_o : out std_logic_vector(3 downto 0);
+	memory1_g_o : out std_logic_vector(3 downto 0);
+	memory1_b_o : out std_logic_vector(3 downto 0)
+  );
+
+end component;
+
 signal swsync : std_logic_vector(15 downto 0);
 signal pbsync : std_logic_vector(3 downto 0);
 signal pixenable : std_logic;
@@ -208,6 +224,20 @@ begin
     pattern2_g_o => pattern2_g,
     pattern2_b_o => pattern2_b
    );
+
+  i_memory1 : memory1
+
+  port map
+  (
+    clk_i => clk_i,
+    reset_i => reset_i,
+    pixenable_i => pixenable,
+	pixelhorizontal_i => pixelhorizontal,
+	pixelvertical_i => pixelvertical,
+    memory1_r_o => memory1_r,
+	memory1_g_o => memory1_g,
+	memory1_b_o => memory1_b
+  );
 
   i_sourcemultiplexer : sourcemultiplexer
 

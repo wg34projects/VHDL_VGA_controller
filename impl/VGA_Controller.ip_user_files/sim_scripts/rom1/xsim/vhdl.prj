@@ -1,0 +1,4 @@
+vhdl xpm "/home/helmutresch/Xilinx/Vivado/2016.1/data/ip/xpm/xpm_VCOMP.vhd" 
+vhdl xil_defaultlib "../../../../VGA_Controller.srcs/sources_1/ip/rom1/rom1_sim_netlist.vhdl" 
+
+nosort

@@ -4,29 +4,43 @@
 
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config  -ruleid {1}  -id {Labtools 27-3123}  -string {{WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].}}  -suppress 
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
+set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_Controller.cache/wt [current_project]
 set_property parent.project_path /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_Controller.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
+add_files /home/helmutresch/WorkDir/VHDL_VGA_controller/images/Testbild_320x240.coe
+add_files -quiet /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_Controller.srcs/sources_1/ip/rom1/rom1.dcp
+set_property used_in_implementation false [get_files /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_Controller.srcs/sources_1/ip/rom1/rom1.dcp]
+read_ip -quiet /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_Controller.srcs/sources_1/ip/rom1/rom1.xci
+set_property used_in_implementation false [get_files -all /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_Controller.srcs/sources_1/ip/rom1/rom1_ooc.xdc]
+set_property is_locked true [get_files /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_Controller.srcs/sources_1/ip/rom1/rom1.xci]
+
 read_vhdl -library xil_defaultlib {
+  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/prescaler_.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern2_.vhd
+  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern1_.vhd
+  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/iologic_.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/sourcemultiplexer_.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/vgacontroller_.vhd
-  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/iologic_.vhd
-  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern1_.vhd
-  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/prescaler_.vhd
+  /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_Controller.srcs/sources_1/imports/vhdl/memory1_.vhd
+  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/prescaler_rtl.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern2_rtl.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern1_rtl.vhd
+  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/iologic_rtl.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/sourcemultiplexer_rtl.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/vgacontroller_rtl.vhd
-  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/iologic_rtl.vhd
-  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/prescaler_rtl.vhd
+  /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_Controller.srcs/sources_1/imports/vhdl/memory1_rtl.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd
 }
 foreach dcp [get_files -quiet -all *.dcp] {
@@ -35,6 +49,8 @@ foreach dcp [get_files -quiet -all *.dcp] {
 read_xdc /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_Controller.srcs/constrs_1/new/vga_constrs.xdc
 set_property used_in_implementation false [get_files /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_Controller.srcs/constrs_1/new/vga_constrs.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 
 synth_design -top top_VGA -part xc7a35tcpg236-1
 
