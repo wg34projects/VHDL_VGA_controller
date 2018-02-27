@@ -1,7 +1,7 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
--- Date        : Sun Feb 25 20:09:24 2018
+-- Date        : Tue Feb 27 00:09:37 2018
 -- Host        : localhost.localdomain running 64-bit Fedora release 27 (Twenty Seven)
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom1/rom1/rom1_sim_netlist.vhdl
@@ -16,9 +16,8 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity rom1_bindec is
   port (
-    ena_array : out STD_LOGIC_VECTOR ( 18 downto 0 );
-    addra : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    ena : in STD_LOGIC
+    ena_array : out STD_LOGIC_VECTOR ( 14 downto 0 );
+    addra : in STD_LOGIC_VECTOR ( 4 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of rom1_bindec : entity is "bindec";
@@ -26,251 +25,184 @@ end rom1_bindec;
 
 architecture STRUCTURE of rom1_bindec is
 begin
-ENOUT: unisim.vcomponents.LUT6
+ENOUT: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"0000000000000100"
+      INIT => X"00000001"
     )
         port map (
-      I0 => addra(0),
+      I0 => addra(3),
       I1 => addra(4),
-      I2 => addra(1),
-      I3 => ena,
-      I4 => addra(3),
-      I5 => addra(2),
+      I2 => addra(0),
+      I3 => addra(1),
+      I4 => addra(2),
       O => ena_array(0)
     );
-\ENOUT_inferred__0\: unisim.vcomponents.LUT6
+\ENOUT__0\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"0000000000001000"
+      INIT => X"00000010"
     )
         port map (
-      I0 => addra(1),
+      I0 => addra(3),
       I1 => addra(4),
-      I2 => ena,
-      I3 => addra(0),
-      I4 => addra(3),
-      I5 => addra(2),
+      I2 => addra(0),
+      I3 => addra(1),
+      I4 => addra(2),
       O => ena_array(1)
     );
-\ENOUT_inferred__1\: unisim.vcomponents.LUT6
+\ENOUT__1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"0000000000001000"
-    )
-        port map (
-      I0 => addra(0),
-      I1 => addra(4),
-      I2 => ena,
-      I3 => addra(1),
-      I4 => addra(3),
-      I5 => addra(2),
-      O => ena_array(2)
-    );
-\ENOUT_inferred__10\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"1000000000000000"
-    )
-        port map (
-      I0 => addra(2),
-      I1 => addra(4),
-      I2 => addra(1),
-      I3 => addra(0),
-      I4 => ena,
-      I5 => addra(3),
-      O => ena_array(11)
-    );
-\ENOUT_inferred__11\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0000100000000000"
-    )
-        port map (
-      I0 => addra(1),
-      I1 => addra(4),
-      I2 => addra(2),
-      I3 => addra(3),
-      I4 => addra(0),
-      I5 => ena,
-      O => ena_array(12)
-    );
-\ENOUT_inferred__12\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"1000000000000000"
-    )
-        port map (
-      I0 => addra(1),
-      I1 => addra(4),
-      I2 => addra(3),
-      I3 => addra(0),
-      I4 => ena,
-      I5 => addra(2),
-      O => ena_array(13)
-    );
-\ENOUT_inferred__13\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"1000000000000000"
-    )
-        port map (
-      I0 => addra(0),
-      I1 => addra(4),
-      I2 => addra(1),
-      I3 => addra(3),
-      I4 => ena,
-      I5 => addra(2),
-      O => ena_array(14)
-    );
-\ENOUT_inferred__14\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"2000000000000000"
-    )
-        port map (
-      I0 => ena,
-      I1 => addra(4),
-      I2 => addra(1),
-      I3 => addra(0),
-      I4 => addra(3),
-      I5 => addra(2),
-      O => ena_array(15)
-    );
-\ENOUT_inferred__15\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0000000000001000"
-    )
-        port map (
-      I0 => addra(0),
-      I1 => addra(1),
-      I2 => addra(4),
-      I3 => ena,
-      I4 => addra(3),
-      I5 => addra(2),
-      O => ena_array(16)
-    );
-\ENOUT_inferred__16\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0000100000000000"
-    )
-        port map (
-      I0 => addra(1),
-      I1 => addra(2),
-      I2 => ena,
-      I3 => addra(0),
-      I4 => addra(3),
-      I5 => addra(4),
-      O => ena_array(17)
-    );
-\ENOUT_inferred__17\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0000100000000000"
-    )
-        port map (
-      I0 => addra(0),
-      I1 => addra(2),
-      I2 => addra(1),
-      I3 => ena,
-      I4 => addra(3),
-      I5 => addra(4),
-      O => ena_array(18)
-    );
-\ENOUT_inferred__2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0000100000000000"
-    )
-        port map (
-      I0 => addra(2),
-      I1 => addra(4),
-      I2 => addra(1),
-      I3 => addra(0),
-      I4 => addra(3),
-      I5 => ena,
-      O => ena_array(3)
-    );
-\ENOUT_inferred__3\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0000000000001000"
-    )
-        port map (
-      I0 => addra(1),
-      I1 => addra(4),
-      I2 => ena,
-      I3 => addra(2),
-      I4 => addra(3),
-      I5 => addra(0),
-      O => ena_array(4)
-    );
-\ENOUT_inferred__4\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0000100000000000"
-    )
-        port map (
-      I0 => addra(1),
-      I1 => addra(4),
-      I2 => addra(2),
-      I3 => addra(0),
-      I4 => addra(3),
-      I5 => ena,
-      O => ena_array(5)
-    );
-\ENOUT_inferred__5\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0000100000000000"
-    )
-        port map (
-      I0 => addra(0),
-      I1 => addra(4),
-      I2 => addra(1),
-      I3 => addra(2),
-      I4 => addra(3),
-      I5 => ena,
-      O => ena_array(6)
-    );
-\ENOUT_inferred__6\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"1000000000000000"
+      INIT => X"00000010"
     )
         port map (
       I0 => addra(3),
       I1 => addra(4),
       I2 => addra(1),
       I3 => addra(0),
-      I4 => ena,
-      I5 => addra(2),
-      O => ena_array(7)
+      I4 => addra(2),
+      O => ena_array(2)
     );
-\ENOUT_inferred__7\: unisim.vcomponents.LUT6
+\ENOUT__10\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"0000000000001000"
+      INIT => X"01000000"
     )
         port map (
-      I0 => addra(1),
-      I1 => addra(4),
-      I2 => ena,
-      I3 => addra(3),
-      I4 => addra(0),
-      I5 => addra(2),
-      O => ena_array(8)
+      I0 => addra(4),
+      I1 => addra(1),
+      I2 => addra(0),
+      I3 => addra(2),
+      I4 => addra(3),
+      O => ena_array(11)
     );
-\ENOUT_inferred__8\: unisim.vcomponents.LUT6
+\ENOUT__11\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"0000100000000000"
+      INIT => X"10000000"
     )
         port map (
-      I0 => addra(2),
+      I0 => addra(4),
+      I1 => addra(1),
+      I2 => addra(3),
+      I3 => addra(0),
+      I4 => addra(2),
+      O => ena_array(12)
+    );
+\ENOUT__12\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"10000000"
+    )
+        port map (
+      I0 => addra(4),
+      I1 => addra(0),
+      I2 => addra(3),
+      I3 => addra(1),
+      I4 => addra(2),
+      O => ena_array(13)
+    );
+\ENOUT__13\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"40000000"
+    )
+        port map (
+      I0 => addra(4),
+      I1 => addra(3),
+      I2 => addra(2),
+      I3 => addra(0),
+      I4 => addra(1),
+      O => ena_array(14)
+    );
+\ENOUT__2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"01000000"
+    )
+        port map (
+      I0 => addra(3),
       I1 => addra(4),
+      I2 => addra(2),
+      I3 => addra(0),
+      I4 => addra(1),
+      O => ena_array(3)
+    );
+\ENOUT__3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000010"
+    )
+        port map (
+      I0 => addra(3),
+      I1 => addra(4),
+      I2 => addra(2),
+      I3 => addra(0),
+      I4 => addra(1),
+      O => ena_array(4)
+    );
+\ENOUT__4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"01000000"
+    )
+        port map (
+      I0 => addra(3),
+      I1 => addra(4),
+      I2 => addra(1),
+      I3 => addra(0),
+      I4 => addra(2),
+      O => ena_array(5)
+    );
+\ENOUT__5\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"01000000"
+    )
+        port map (
+      I0 => addra(3),
+      I1 => addra(4),
+      I2 => addra(0),
+      I3 => addra(1),
+      I4 => addra(2),
+      O => ena_array(6)
+    );
+\ENOUT__6\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000010"
+    )
+        port map (
+      I0 => addra(4),
+      I1 => addra(2),
       I2 => addra(3),
       I3 => addra(0),
       I4 => addra(1),
-      I5 => ena,
-      O => ena_array(9)
+      O => ena_array(7)
     );
-\ENOUT_inferred__9\: unisim.vcomponents.LUT6
+\ENOUT__7\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"0000100000000000"
+      INIT => X"01000000"
     )
         port map (
-      I0 => addra(2),
-      I1 => addra(4),
+      I0 => addra(4),
+      I1 => addra(2),
       I2 => addra(1),
-      I3 => addra(3),
-      I4 => addra(0),
-      I5 => ena,
+      I3 => addra(0),
+      I4 => addra(3),
+      O => ena_array(8)
+    );
+\ENOUT__8\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"01000000"
+    )
+        port map (
+      I0 => addra(4),
+      I1 => addra(2),
+      I2 => addra(0),
+      I3 => addra(1),
+      I4 => addra(3),
+      O => ena_array(9)
+    );
+\ENOUT__9\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"10000000"
+    )
+        port map (
+      I0 => addra(4),
+      I1 => addra(2),
+      I2 => addra(3),
+      I3 => addra(0),
+      I4 => addra(1),
       O => ena_array(10)
     );
 end STRUCTURE;
@@ -287,7 +219,6 @@ entity rom1_blk_mem_gen_mux is
     DOPADOP : in STD_LOGIC_VECTOR ( 0 to 0 );
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2\ : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 4 downto 0 );
     clka : in STD_LOGIC;
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram\ : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -1260,7 +1191,7 @@ begin
     )
         port map (
       C => clka,
-      CE => ena,
+      CE => '1',
       D => sel_pipe(0),
       Q => sel_pipe_d1(0),
       R => '0'
@@ -1271,7 +1202,7 @@ begin
     )
         port map (
       C => clka,
-      CE => ena,
+      CE => '1',
       D => sel_pipe(1),
       Q => sel_pipe_d1(1),
       R => '0'
@@ -1282,7 +1213,7 @@ begin
     )
         port map (
       C => clka,
-      CE => ena,
+      CE => '1',
       D => sel_pipe(2),
       Q => sel_pipe_d1(2),
       R => '0'
@@ -1293,7 +1224,7 @@ begin
     )
         port map (
       C => clka,
-      CE => ena,
+      CE => '1',
       D => sel_pipe(3),
       Q => sel_pipe_d1(3),
       R => '0'
@@ -1304,7 +1235,7 @@ begin
     )
         port map (
       C => clka,
-      CE => ena,
+      CE => '1',
       D => sel_pipe(4),
       Q => sel_pipe_d1(4),
       R => '0'
@@ -1315,7 +1246,7 @@ begin
     )
         port map (
       C => clka,
-      CE => ena,
+      CE => '1',
       D => addra(0),
       Q => sel_pipe(0),
       R => '0'
@@ -1326,7 +1257,7 @@ begin
     )
         port map (
       C => clka,
-      CE => ena,
+      CE => '1',
       D => addra(1),
       Q => sel_pipe(1),
       R => '0'
@@ -1337,7 +1268,7 @@ begin
     )
         port map (
       C => clka,
-      CE => ena,
+      CE => '1',
       D => addra(2),
       Q => sel_pipe(2),
       R => '0'
@@ -1348,7 +1279,7 @@ begin
     )
         port map (
       C => clka,
-      CE => ena,
+      CE => '1',
       D => addra(3),
       Q => sel_pipe(3),
       R => '0'
@@ -1359,7 +1290,7 @@ begin
     )
         port map (
       C => clka,
-      CE => ena,
+      CE => '1',
       D => addra(4),
       Q => sel_pipe(4),
       R => '0'
@@ -1374,7 +1305,6 @@ entity rom1_blk_mem_gen_prim_wrapper_init is
     DOUTA : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ENA : in STD_LOGIC;
-    \^ena\ : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -1611,7 +1541,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => \^ena\,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -1824,7 +1754,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => \^ena\,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -1844,7 +1774,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized0\ is
     \douta[0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ram_ena : in STD_LOGIC;
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -1979,7 +1908,7 @@ begin
       DOPBDOP(1 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOPBDOP_UNCONNECTED\(1 downto 0),
       ENARDEN => ram_ena,
       ENBWREN => '0',
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -1998,7 +1927,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized1\ is
     DOUTA : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ENA : in STD_LOGIC;
-    \^ena\ : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -2235,7 +2163,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => \^ena\,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -2448,7 +2376,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => \^ena\,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -2469,7 +2397,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized10\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -2698,7 +2625,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -2718,15 +2645,14 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized11\ is
     \douta[10]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 16 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \rom1_blk_mem_gen_prim_wrapper_init__parameterized11\ : entity is "blk_mem_gen_prim_wrapper_init";
 end \rom1_blk_mem_gen_prim_wrapper_init__parameterized11\;
 
 architecture STRUCTURE of \rom1_blk_mem_gen_prim_wrapper_init__parameterized11\ is
+  signal ena_array : STD_LOGIC_VECTOR ( 7 to 7 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -2943,12 +2869,12 @@ begin
       DOPADOP(0) => \douta[11]\(0),
       DOPBDOP(3 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED\(3 downto 0),
       ECCPARITY(7 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED\(7 downto 0),
-      ENARDEN => ena_array(0),
+      ENARDEN => ena_array(7),
       ENBWREN => '0',
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -2957,6 +2883,18 @@ begin
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
       WEA(3 downto 0) => B"0000",
       WEBWE(7 downto 0) => B"00000000"
+    );
+\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"10000000"
+    )
+        port map (
+      I0 => addra(15),
+      I1 => addra(16),
+      I2 => addra(14),
+      I3 => addra(12),
+      I4 => addra(13),
+      O => ena_array(7)
     );
 end STRUCTURE;
 library IEEE;
@@ -2969,7 +2907,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized12\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -3198,7 +3135,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -3219,7 +3156,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized13\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -3448,7 +3384,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -3469,7 +3405,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized14\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -3698,7 +3633,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -3719,7 +3654,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized15\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -3948,7 +3882,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -3969,7 +3903,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized16\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -4198,7 +4131,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -4219,7 +4152,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized17\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -4448,7 +4380,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -4469,7 +4401,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized18\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -4698,7 +4629,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -4719,7 +4650,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized19\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -4948,7 +4878,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -4968,7 +4898,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized2\ is
     \douta[2]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
     clka : in STD_LOGIC;
     ram_ena : in STD_LOGIC;
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -5196,7 +5125,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -5216,15 +5145,14 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized20\ is
     DOADO : out STD_LOGIC_VECTOR ( 7 downto 0 );
     DOPADOP : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 16 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \rom1_blk_mem_gen_prim_wrapper_init__parameterized20\ : entity is "blk_mem_gen_prim_wrapper_init";
 end \rom1_blk_mem_gen_prim_wrapper_init__parameterized20\;
 
 architecture STRUCTURE of \rom1_blk_mem_gen_prim_wrapper_init__parameterized20\ is
+  signal ena_array : STD_LOGIC_VECTOR ( 16 to 16 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -5441,12 +5369,12 @@ begin
       DOPADOP(0) => DOPADOP(0),
       DOPBDOP(3 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED\(3 downto 0),
       ECCPARITY(7 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED\(7 downto 0),
-      ENARDEN => ena_array(0),
+      ENARDEN => ena_array(16),
       ENBWREN => '0',
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -5455,6 +5383,18 @@ begin
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
       WEA(3 downto 0) => B"0000",
       WEBWE(7 downto 0) => B"00000000"
+    );
+\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__0\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000010"
+    )
+        port map (
+      I0 => addra(15),
+      I1 => addra(14),
+      I2 => addra(16),
+      I3 => addra(12),
+      I4 => addra(13),
+      O => ena_array(16)
     );
 end STRUCTURE;
 library IEEE;
@@ -5466,15 +5406,14 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized21\ is
     \douta[10]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 16 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \rom1_blk_mem_gen_prim_wrapper_init__parameterized21\ : entity is "blk_mem_gen_prim_wrapper_init";
 end \rom1_blk_mem_gen_prim_wrapper_init__parameterized21\;
 
 architecture STRUCTURE of \rom1_blk_mem_gen_prim_wrapper_init__parameterized21\ is
+  signal ena_array : STD_LOGIC_VECTOR ( 17 to 17 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -5691,12 +5630,12 @@ begin
       DOPADOP(0) => \douta[11]\(0),
       DOPBDOP(3 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED\(3 downto 0),
       ECCPARITY(7 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED\(7 downto 0),
-      ENARDEN => ena_array(0),
+      ENARDEN => ena_array(17),
       ENBWREN => '0',
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -5705,6 +5644,18 @@ begin
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
       WEA(3 downto 0) => B"0000",
       WEBWE(7 downto 0) => B"00000000"
+    );
+\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"01000000"
+    )
+        port map (
+      I0 => addra(15),
+      I1 => addra(14),
+      I2 => addra(13),
+      I3 => addra(12),
+      I4 => addra(16),
+      O => ena_array(17)
     );
 end STRUCTURE;
 library IEEE;
@@ -5716,15 +5667,14 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized22\ is
     \douta[10]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 16 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \rom1_blk_mem_gen_prim_wrapper_init__parameterized22\ : entity is "blk_mem_gen_prim_wrapper_init";
 end \rom1_blk_mem_gen_prim_wrapper_init__parameterized22\;
 
 architecture STRUCTURE of \rom1_blk_mem_gen_prim_wrapper_init__parameterized22\ is
+  signal ena_array : STD_LOGIC_VECTOR ( 18 to 18 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -5941,12 +5891,12 @@ begin
       DOPADOP(0) => \douta[11]\(0),
       DOPBDOP(3 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED\(3 downto 0),
       ECCPARITY(7 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED\(7 downto 0),
-      ENARDEN => ena_array(0),
+      ENARDEN => ena_array(18),
       ENBWREN => '0',
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -5955,6 +5905,18 @@ begin
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
       WEA(3 downto 0) => B"0000",
       WEBWE(7 downto 0) => B"00000000"
+    );
+\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"01000000"
+    )
+        port map (
+      I0 => addra(15),
+      I1 => addra(14),
+      I2 => addra(12),
+      I3 => addra(13),
+      I4 => addra(16),
+      O => ena_array(18)
     );
 end STRUCTURE;
 library IEEE;
@@ -5966,7 +5928,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized3\ is
     DOUTA : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ENA : in STD_LOGIC;
-    \^ena\ : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -6203,7 +6164,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => \^ena\,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -6416,7 +6377,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => \^ena\,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -6437,7 +6398,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized4\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -6666,7 +6626,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -6687,7 +6647,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized5\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -6916,7 +6875,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -6937,7 +6896,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized6\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -7166,7 +7124,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -7187,7 +7145,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized7\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -7416,7 +7373,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -7437,7 +7394,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized8\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -7666,7 +7622,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -7687,7 +7643,6 @@ entity \rom1_blk_mem_gen_prim_wrapper_init__parameterized9\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -7916,7 +7871,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '1',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -7936,7 +7891,6 @@ entity rom1_blk_mem_gen_prim_width is
     DOUTA : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ENA : in STD_LOGIC;
-    \^ena\ : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -7950,8 +7904,7 @@ begin
       DOUTA(0) => DOUTA(0),
       ENA => ENA,
       addra(15 downto 0) => addra(15 downto 0),
-      clka => clka,
-      \^ena\ => \^ena\
+      clka => clka
     );
 end STRUCTURE;
 library IEEE;
@@ -7963,7 +7916,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized0\ is
     \douta[0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ram_ena : in STD_LOGIC;
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -7977,7 +7929,6 @@ begin
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
       \douta[0]\(0) => \douta[0]\(0),
-      ena => ena,
       ram_ena => ram_ena
     );
 end STRUCTURE;
@@ -7990,7 +7941,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized1\ is
     DOUTA : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ENA : in STD_LOGIC;
-    \^ena\ : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8004,8 +7954,7 @@ begin
       DOUTA(0) => DOUTA(0),
       ENA => ENA,
       addra(15 downto 0) => addra(15 downto 0),
-      clka => clka,
-      \^ena\ => \^ena\
+      clka => clka
     );
 end STRUCTURE;
 library IEEE;
@@ -8018,7 +7967,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized10\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8033,7 +7981,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8046,9 +7993,7 @@ entity \rom1_blk_mem_gen_prim_width__parameterized11\ is
     \douta[10]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 16 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \rom1_blk_mem_gen_prim_width__parameterized11\ : entity is "blk_mem_gen_prim_width";
@@ -8058,12 +8003,10 @@ architecture STRUCTURE of \rom1_blk_mem_gen_prim_width__parameterized11\ is
 begin
 \prim_init.ram\: entity work.\rom1_blk_mem_gen_prim_wrapper_init__parameterized11\
      port map (
-      addra(11 downto 0) => addra(11 downto 0),
+      addra(16 downto 0) => addra(16 downto 0),
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
-      \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
-      ena_array(0) => ena_array(0)
+      \douta[11]\(0) => \douta[11]\(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -8076,7 +8019,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized12\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8091,7 +8033,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8105,7 +8046,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized13\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8120,7 +8060,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8134,7 +8073,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized14\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8149,7 +8087,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8163,7 +8100,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized15\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8178,7 +8114,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8192,7 +8127,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized16\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8207,7 +8141,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8221,7 +8154,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized17\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8236,7 +8168,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8250,7 +8181,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized18\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8265,7 +8195,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8279,7 +8208,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized19\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8294,7 +8222,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8307,7 +8234,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized2\ is
     \douta[2]\ : out STD_LOGIC_VECTOR ( 1 downto 0 );
     clka : in STD_LOGIC;
     ram_ena : in STD_LOGIC;
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8321,7 +8247,6 @@ begin
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
       \douta[2]\(1 downto 0) => \douta[2]\(1 downto 0),
-      ena => ena,
       ram_ena => ram_ena
     );
 end STRUCTURE;
@@ -8334,9 +8259,7 @@ entity \rom1_blk_mem_gen_prim_width__parameterized20\ is
     DOADO : out STD_LOGIC_VECTOR ( 7 downto 0 );
     DOPADOP : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 16 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \rom1_blk_mem_gen_prim_width__parameterized20\ : entity is "blk_mem_gen_prim_width";
@@ -8348,10 +8271,8 @@ begin
      port map (
       DOADO(7 downto 0) => DOADO(7 downto 0),
       DOPADOP(0) => DOPADOP(0),
-      addra(11 downto 0) => addra(11 downto 0),
-      clka => clka,
-      ena => ena,
-      ena_array(0) => ena_array(0)
+      addra(16 downto 0) => addra(16 downto 0),
+      clka => clka
     );
 end STRUCTURE;
 library IEEE;
@@ -8363,9 +8284,7 @@ entity \rom1_blk_mem_gen_prim_width__parameterized21\ is
     \douta[10]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 16 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \rom1_blk_mem_gen_prim_width__parameterized21\ : entity is "blk_mem_gen_prim_width";
@@ -8375,12 +8294,10 @@ architecture STRUCTURE of \rom1_blk_mem_gen_prim_width__parameterized21\ is
 begin
 \prim_init.ram\: entity work.\rom1_blk_mem_gen_prim_wrapper_init__parameterized21\
      port map (
-      addra(11 downto 0) => addra(11 downto 0),
+      addra(16 downto 0) => addra(16 downto 0),
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
-      \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
-      ena_array(0) => ena_array(0)
+      \douta[11]\(0) => \douta[11]\(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -8392,9 +8309,7 @@ entity \rom1_blk_mem_gen_prim_width__parameterized22\ is
     \douta[10]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 16 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \rom1_blk_mem_gen_prim_width__parameterized22\ : entity is "blk_mem_gen_prim_width";
@@ -8404,12 +8319,10 @@ architecture STRUCTURE of \rom1_blk_mem_gen_prim_width__parameterized22\ is
 begin
 \prim_init.ram\: entity work.\rom1_blk_mem_gen_prim_wrapper_init__parameterized22\
      port map (
-      addra(11 downto 0) => addra(11 downto 0),
+      addra(16 downto 0) => addra(16 downto 0),
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
-      \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
-      ena_array(0) => ena_array(0)
+      \douta[11]\(0) => \douta[11]\(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -8421,7 +8334,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized3\ is
     DOUTA : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ENA : in STD_LOGIC;
-    \^ena\ : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8435,8 +8347,7 @@ begin
       DOUTA(0) => DOUTA(0),
       ENA => ENA,
       addra(15 downto 0) => addra(15 downto 0),
-      clka => clka,
-      \^ena\ => \^ena\
+      clka => clka
     );
 end STRUCTURE;
 library IEEE;
@@ -8449,7 +8360,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized4\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8464,7 +8374,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8478,7 +8387,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized5\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8493,7 +8401,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8507,7 +8414,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized6\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8522,7 +8428,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8536,7 +8441,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized7\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8551,7 +8455,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8565,7 +8468,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized8\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8580,7 +8482,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8594,7 +8495,6 @@ entity \rom1_blk_mem_gen_prim_width__parameterized9\ is
     \douta[11]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8609,7 +8509,6 @@ begin
       clka => clka,
       \douta[10]\(7 downto 0) => \douta[10]\(7 downto 0),
       \douta[11]\(0) => \douta[11]\(0),
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 end STRUCTURE;
@@ -8621,7 +8520,6 @@ entity rom1_blk_mem_gen_generic_cstr is
   port (
     douta : out STD_LOGIC_VECTOR ( 11 downto 0 );
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 16 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -8629,9 +8527,9 @@ entity rom1_blk_mem_gen_generic_cstr is
 end rom1_blk_mem_gen_generic_cstr;
 
 architecture STRUCTURE of rom1_blk_mem_gen_generic_cstr is
-  signal ena_array : STD_LOGIC_VECTOR ( 18 downto 0 );
+  signal ena_array : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal ram_douta : STD_LOGIC;
-  signal \ram_ena__0\ : STD_LOGIC;
+  signal \ram_ena__1\ : STD_LOGIC;
   signal ram_ena_n_0 : STD_LOGIC;
   signal \ramloop[10].ram.r_n_0\ : STD_LOGIC;
   signal \ramloop[10].ram.r_n_1\ : STD_LOGIC;
@@ -8813,8 +8711,8 @@ begin
 \bindec_a.bindec_inst_a\: entity work.rom1_bindec
      port map (
       addra(4 downto 0) => addra(16 downto 12),
-      ena => ena,
-      ena_array(18 downto 0) => ena_array(18 downto 0)
+      ena_array(14 downto 7) => ena_array(15 downto 8),
+      ena_array(6 downto 0) => ena_array(6 downto 0)
     );
 \has_mux_a.A\: entity work.rom1_blk_mem_gen_mux
      port map (
@@ -8997,36 +8895,32 @@ begin
       DOUTA(0) => ram_douta,
       addra(4 downto 0) => addra(16 downto 12),
       clka => clka,
-      \^douta\(11 downto 0) => douta(11 downto 0),
-      ena => ena
+      \^douta\(11 downto 0) => douta(11 downto 0)
     );
-ram_ena: unisim.vcomponents.LUT2
+ram_ena: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"4"
+      INIT => X"1"
     )
         port map (
       I0 => addra(16),
-      I1 => ena,
       O => ram_ena_n_0
     );
-\ram_ena_inferred__0\: unisim.vcomponents.LUT4
+\ram_ena__0\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"0400"
+      INIT => X"10"
     )
         port map (
-      I0 => addra(14),
-      I1 => ena,
-      I2 => addra(15),
-      I3 => addra(16),
-      O => \ram_ena__0\
+      I0 => addra(15),
+      I1 => addra(14),
+      I2 => addra(16),
+      O => \ram_ena__1\
     );
 \ramloop[0].ram.r\: entity work.rom1_blk_mem_gen_prim_width
      port map (
       DOUTA(0) => ram_douta,
       ENA => ram_ena_n_0,
       addra(15 downto 0) => addra(15 downto 0),
-      clka => clka,
-      \^ena\ => ena
+      clka => clka
     );
 \ramloop[10].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized9\
      port map (
@@ -9041,7 +8935,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[10].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[10].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[10].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(5)
     );
 \ramloop[11].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized10\
@@ -9057,12 +8950,11 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[11].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[11].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[11].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(6)
     );
 \ramloop[12].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized11\
      port map (
-      addra(11 downto 0) => addra(11 downto 0),
+      addra(16 downto 0) => addra(16 downto 0),
       clka => clka,
       \douta[10]\(7) => \ramloop[12].ram.r_n_0\,
       \douta[10]\(6) => \ramloop[12].ram.r_n_1\,
@@ -9072,9 +8964,7 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(2) => \ramloop[12].ram.r_n_5\,
       \douta[10]\(1) => \ramloop[12].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[12].ram.r_n_7\,
-      \douta[11]\(0) => \ramloop[12].ram.r_n_8\,
-      ena => ena,
-      ena_array(0) => ena_array(7)
+      \douta[11]\(0) => \ramloop[12].ram.r_n_8\
     );
 \ramloop[13].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized12\
      port map (
@@ -9089,7 +8979,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[13].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[13].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[13].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(8)
     );
 \ramloop[14].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized13\
@@ -9105,7 +8994,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[14].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[14].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[14].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(9)
     );
 \ramloop[15].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized14\
@@ -9121,7 +9009,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[15].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[15].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[15].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(10)
     );
 \ramloop[16].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized15\
@@ -9137,7 +9024,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[16].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[16].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[16].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(11)
     );
 \ramloop[17].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized16\
@@ -9153,7 +9039,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[17].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[17].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[17].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(12)
     );
 \ramloop[18].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized17\
@@ -9169,7 +9054,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[18].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[18].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[18].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(13)
     );
 \ramloop[19].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized18\
@@ -9185,7 +9069,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[19].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[19].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[19].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(14)
     );
 \ramloop[1].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized0\
@@ -9193,8 +9076,7 @@ ram_ena: unisim.vcomponents.LUT2
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
       \douta[0]\(0) => \ramloop[1].ram.r_n_0\,
-      ena => ena,
-      ram_ena => \ram_ena__0\
+      ram_ena => \ram_ena__1\
     );
 \ramloop[20].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized19\
      port map (
@@ -9209,7 +9091,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[20].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[20].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[20].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(15)
     );
 \ramloop[21].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized20\
@@ -9223,14 +9104,12 @@ ram_ena: unisim.vcomponents.LUT2
       DOADO(1) => \ramloop[21].ram.r_n_6\,
       DOADO(0) => \ramloop[21].ram.r_n_7\,
       DOPADOP(0) => \ramloop[21].ram.r_n_8\,
-      addra(11 downto 0) => addra(11 downto 0),
-      clka => clka,
-      ena => ena,
-      ena_array(0) => ena_array(16)
+      addra(16 downto 0) => addra(16 downto 0),
+      clka => clka
     );
 \ramloop[22].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized21\
      port map (
-      addra(11 downto 0) => addra(11 downto 0),
+      addra(16 downto 0) => addra(16 downto 0),
       clka => clka,
       \douta[10]\(7) => \ramloop[22].ram.r_n_0\,
       \douta[10]\(6) => \ramloop[22].ram.r_n_1\,
@@ -9240,13 +9119,11 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(2) => \ramloop[22].ram.r_n_5\,
       \douta[10]\(1) => \ramloop[22].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[22].ram.r_n_7\,
-      \douta[11]\(0) => \ramloop[22].ram.r_n_8\,
-      ena => ena,
-      ena_array(0) => ena_array(17)
+      \douta[11]\(0) => \ramloop[22].ram.r_n_8\
     );
 \ramloop[23].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized22\
      port map (
-      addra(11 downto 0) => addra(11 downto 0),
+      addra(16 downto 0) => addra(16 downto 0),
       clka => clka,
       \douta[10]\(7) => \ramloop[23].ram.r_n_0\,
       \douta[10]\(6) => \ramloop[23].ram.r_n_1\,
@@ -9256,17 +9133,14 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(2) => \ramloop[23].ram.r_n_5\,
       \douta[10]\(1) => \ramloop[23].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[23].ram.r_n_7\,
-      \douta[11]\(0) => \ramloop[23].ram.r_n_8\,
-      ena => ena,
-      ena_array(0) => ena_array(18)
+      \douta[11]\(0) => \ramloop[23].ram.r_n_8\
     );
 \ramloop[2].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized1\
      port map (
       DOUTA(0) => \ramloop[2].ram.r_n_0\,
       ENA => ram_ena_n_0,
       addra(15 downto 0) => addra(15 downto 0),
-      clka => clka,
-      \^ena\ => ena
+      clka => clka
     );
 \ramloop[3].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized2\
      port map (
@@ -9274,16 +9148,14 @@ ram_ena: unisim.vcomponents.LUT2
       clka => clka,
       \douta[2]\(1) => \ramloop[3].ram.r_n_0\,
       \douta[2]\(0) => \ramloop[3].ram.r_n_1\,
-      ena => ena,
-      ram_ena => \ram_ena__0\
+      ram_ena => \ram_ena__1\
     );
 \ramloop[4].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized3\
      port map (
       DOUTA(0) => \ramloop[4].ram.r_n_0\,
       ENA => ram_ena_n_0,
       addra(15 downto 0) => addra(15 downto 0),
-      clka => clka,
-      \^ena\ => ena
+      clka => clka
     );
 \ramloop[5].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized4\
      port map (
@@ -9298,7 +9170,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[5].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[5].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[5].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(0)
     );
 \ramloop[6].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized5\
@@ -9314,7 +9185,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[6].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[6].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[6].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(1)
     );
 \ramloop[7].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized6\
@@ -9330,7 +9200,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[7].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[7].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[7].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(2)
     );
 \ramloop[8].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized7\
@@ -9346,7 +9215,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[8].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[8].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[8].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(3)
     );
 \ramloop[9].ram.r\: entity work.\rom1_blk_mem_gen_prim_width__parameterized8\
@@ -9362,7 +9230,6 @@ ram_ena: unisim.vcomponents.LUT2
       \douta[10]\(1) => \ramloop[9].ram.r_n_6\,
       \douta[10]\(0) => \ramloop[9].ram.r_n_7\,
       \douta[11]\(0) => \ramloop[9].ram.r_n_8\,
-      ena => ena,
       ena_array(0) => ena_array(4)
     );
 end STRUCTURE;
@@ -9374,7 +9241,6 @@ entity rom1_blk_mem_gen_top is
   port (
     douta : out STD_LOGIC_VECTOR ( 11 downto 0 );
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 16 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -9387,8 +9253,7 @@ begin
      port map (
       addra(16 downto 0) => addra(16 downto 0),
       clka => clka,
-      douta(11 downto 0) => douta(11 downto 0),
-      ena => ena
+      douta(11 downto 0) => douta(11 downto 0)
     );
 end STRUCTURE;
 library IEEE;
@@ -9399,7 +9264,6 @@ entity rom1_blk_mem_gen_v8_3_2_synth is
   port (
     douta : out STD_LOGIC_VECTOR ( 11 downto 0 );
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 16 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -9412,8 +9276,7 @@ begin
      port map (
       addra(16 downto 0) => addra(16 downto 0),
       clka => clka,
-      douta(11 downto 0) => douta(11 downto 0),
-      ena => ena
+      douta(11 downto 0) => douta(11 downto 0)
     );
 end STRUCTURE;
 library IEEE;
@@ -9539,7 +9402,7 @@ entity rom1_blk_mem_gen_v8_3_2 is
   attribute C_HAS_AXI_ID : integer;
   attribute C_HAS_AXI_ID of rom1_blk_mem_gen_v8_3_2 : entity is 0;
   attribute C_HAS_ENA : integer;
-  attribute C_HAS_ENA of rom1_blk_mem_gen_v8_3_2 : entity is 1;
+  attribute C_HAS_ENA of rom1_blk_mem_gen_v8_3_2 : entity is 0;
   attribute C_HAS_ENB : integer;
   attribute C_HAS_ENB of rom1_blk_mem_gen_v8_3_2 : entity is 0;
   attribute C_HAS_INJECTERR : integer;
@@ -9731,8 +9594,7 @@ inst_blk_mem_gen: entity work.rom1_blk_mem_gen_v8_3_2_synth
      port map (
       addra(16 downto 0) => addra(16 downto 0),
       clka => clka,
-      douta(11 downto 0) => douta(11 downto 0),
-      ena => ena
+      douta(11 downto 0) => douta(11 downto 0)
     );
 end STRUCTURE;
 library IEEE;
@@ -9742,7 +9604,6 @@ use UNISIM.VCOMPONENTS.ALL;
 entity rom1 is
   port (
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 16 downto 0 );
     douta : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -9830,7 +9691,7 @@ architecture STRUCTURE of rom1 is
   attribute C_HAS_AXI_ID : integer;
   attribute C_HAS_AXI_ID of U0 : label is 0;
   attribute C_HAS_ENA : integer;
-  attribute C_HAS_ENA of U0 : label is 1;
+  attribute C_HAS_ENA of U0 : label is 0;
   attribute C_HAS_ENB : integer;
   attribute C_HAS_ENB of U0 : label is 0;
   attribute C_HAS_INJECTERR : integer;
@@ -9940,7 +9801,7 @@ U0: entity work.rom1_blk_mem_gen_v8_3_2
       douta(11 downto 0) => douta(11 downto 0),
       doutb(11 downto 0) => NLW_U0_doutb_UNCONNECTED(11 downto 0),
       eccpipece => '0',
-      ena => ena,
+      ena => '0',
       enb => '0',
       injectdbiterr => '0',
       injectsbiterr => '0',

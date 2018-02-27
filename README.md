@@ -56,27 +56,27 @@ Status 23.02.2018 23:00 Output is working
 ### code parts and latest revision
 
 - 1% for documentation (code style check, comments, header)
-- 10% for necessary adaption memory part for R 0 and R 1
+- 5% for timing check and necessary updates
 - R = revision in header = used to divide project into units
 - U = unit = steps in the project
 
 | R | U | entity | v | date | % entity | architecture | % code | remark |
 | -------- | ---- | ------ | ------- | ---- | -------- | ------------ | ------ | ------ |
-| 0 | I/O | prescaler_ | 0.2 | 20.02 | 89% | prescaler_rtl | 89% | updates memory |
-| 0 | I/O | iologic_ | 0.2 | 20.02 | 99% | iologic_rtl | 99% | - |
-| 0 | I/O | sourcemultiplexer_ | 0.2 | 20.02 | 99% | sourcemultiplexer_rtl | 89% | overlay memory |
+| 0 | I/O | prescaler_ | 0.4 | 27.02 | 99% | prescaler_rtl | 99% | - |
+| 0 | I/O | iologic_ | 0.4 | 27.02 | 99% | iologic_rtl | 99% | - |
+| 0 | I/O | sourcemultiplexer_ | 0.4 | 27.02 | 99% | sourcemultiplexer_rtl | 99% | - |
 | 1 | VGA | vgacontroller_ | 0.3 | 22.02 | 99% | vgacontroller_rtl | 99% | - |
-| 1 | VGA | pattern1_ | 0.3 | 22.02 | 99% | pattern1_rtl | 99% | - |
-| 1 | VGA | pattern2_ | 0.3 | 22.02 | 99% | pattern2_rtl | 99% | done with loop |
+| 1 | VGA | pattern1_ | 0.3 | 22.02 | 99% | pattern1_rtl | 94% | timing-check |
+| 1 | VGA | pattern2_ | 0.3 | 22.02 | 99% | pattern2_rtl | 94% | timing-check |
 | 1 | VGA | top_VGA_ | 0.3 | 22.02 | 99% | top_VGA_rtl | 99% | synthesized |
-| 2 | MEM | memory1_ | 0.1 | 25.2 | 99% | memory1_rtl | 99% | working |
-| 2 | MEM | memory2_ | - | - | 00% | memory2_rtl | 00% | start week 9 |
+| 2 | MEM | memory1_ | 0.2 | 27.2 | 99% | memory1_rtl | 94% | timing-check |
+| 2 | MEM | memory2_ | 0.2 | 27.2 | 99% | memory2_rtl | 94% | timing-check |
 
 ### output monitor FHTW
 
 | pattern | 640x480 |
 |-------- | ------- |
-| pattern 1 | ![alt text](doku/frame01.png "pattern 1") |
+| pattern 1 	| ![alt text](doku/frame01.png "pattern 1") |
 | pattern 1+2 |  ![alt text](doku/frame02.png "pattern 1+2") |
 | pattern 2 |  ![alt text](doku/frame03.png "pattern 2") |
 
@@ -101,3 +101,7 @@ https://www.youtube.com/watch?v=7fyMXrCMvPQ&feature=youtu.be
 ### output VGA real monitor Samsung Vienna with testpicture from ROM
 
 https://www.youtube.com/watch?v=oO-Cmue0pPw
+
+### output VGA real monitor Samsung Vienna with all features
+
+https://www.youtube.com/watch?v=oO-Cmue0pPwhttps://www.youtube.com/watch?v=A3abx1It04A

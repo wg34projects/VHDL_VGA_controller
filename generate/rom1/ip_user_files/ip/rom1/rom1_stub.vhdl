@@ -1,7 +1,7 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
--- Date        : Sun Feb 25 20:09:24 2018
+-- Date        : Mon Feb 26 17:54:05 2018
 -- Host        : localhost.localdomain running 64-bit Fedora release 27 (Twenty Seven)
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom1/rom1/rom1_stub.vhdl

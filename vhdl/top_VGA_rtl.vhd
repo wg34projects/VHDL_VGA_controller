@@ -24,6 +24,24 @@ use IEEE.std_logic_arith.all;
 
 architecture struc of top_VGA is
 
+COMPONENT rom2 IS
+  PORT (
+    clka : IN STD_LOGIC;
+    addra : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
+    douta : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
+  );
+
+END COMPONENT;
+
+COMPONENT rom1 IS
+  PORT (
+    clka : IN STD_LOGIC;
+    addra : IN STD_LOGIC_VECTOR(16 DOWNTO 0);
+    douta : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
+  );
+
+END COMPONENT;
+
 component iologic is
 
   port
@@ -56,6 +74,7 @@ component sourcemultiplexer is
     clk_i : in std_logic;
     reset_i : in std_logic;
     sel_i : in std_logic_vector(2 downto 0);
+    pbsync_i : in std_logic_vector(3 downto 0);
     memory1_r_i : in std_logic_vector(3 downto 0);
     memory1_g_i : in std_logic_vector(3 downto 0);
     memory1_b_i : in std_logic_vector(3 downto 0);
@@ -70,7 +89,10 @@ component sourcemultiplexer is
     pattern2_b_i : in std_logic_vector(3 downto 0);
     red_mux_o : out std_logic_vector(3 downto 0);
 	green_mux_o : out std_logic_vector(3 downto 0);
-	blue_mux_o : out std_logic_vector(3 downto 0)
+	blue_mux_o : out std_logic_vector(3 downto 0);
+	pixelhorizontal_i : in std_logic_vector(9 downto 0);
+	pixelvertical_i : in std_logic_vector(9 downto 0);
+    countstart_o : out std_logic
   );
 
 end component;
@@ -138,12 +160,31 @@ component memory1
   (
     clk_i : in std_logic;
     reset_i : in std_logic;
-    pixenable_i : in std_logic;
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);
     memory1_r_o : out std_logic_vector(3 downto 0);
 	memory1_g_o : out std_logic_vector(3 downto 0);
-	memory1_b_o : out std_logic_vector(3 downto 0)
+	memory1_b_o : out std_logic_vector(3 downto 0);
+    addr_rom1_o : out std_logic_vector(16 downto 0);
+    data_rom1_i : in std_logic_vector(11 downto 0)
+  );
+
+end component;	
+
+component memory2
+
+  port
+  (
+    clk_i : in std_logic;
+    reset_i : in std_logic;
+	pixelhorizontal_i : in std_logic_vector(9 downto 0);
+	pixelvertical_i : in std_logic_vector(9 downto 0);
+    memory2_r_o : out std_logic_vector(3 downto 0);
+	memory2_g_o : out std_logic_vector(3 downto 0);
+	memory2_b_o : out std_logic_vector(3 downto 0);
+    addr_rom2_o : out std_logic_vector(13 downto 0);
+    data_rom2_i : in std_logic_vector(11 downto 0);
+    countstart_i : in std_logic
   );
 
 end component;
@@ -177,8 +218,34 @@ signal vsync : std_logic;
 
 signal pixelhorizontal : std_logic_vector(9 downto 0);
 signal pixelvertical : std_logic_vector(9 downto 0);
+signal countstart : std_logic;
+
+signal data_rom1 : std_logic_vector(11 downto 0);
+signal data_rom2 : std_logic_vector(11 downto 0);
+
+signal addr_rom1 : std_logic_vector(16 downto 0);
+signal addr_rom2 : std_logic_vector(13 downto 0);
 
 begin
+
+  i_rom1 : rom1
+
+  port map
+  (
+    clka => clk_i,
+    addra => addr_rom1,
+    douta => data_rom1
+  );
+
+  i_rom2 : rom2
+
+  port map
+  (
+    clka => clk_i,
+    addra => addr_rom2,
+    douta => data_rom2
+  );
+
 
   i_iologic : iologic
 
@@ -231,12 +298,29 @@ begin
   (
     clk_i => clk_i,
     reset_i => reset_i,
-    pixenable_i => pixenable,
 	pixelhorizontal_i => pixelhorizontal,
 	pixelvertical_i => pixelvertical,
     memory1_r_o => memory1_r,
 	memory1_g_o => memory1_g,
-	memory1_b_o => memory1_b
+	memory1_b_o => memory1_b,
+    addr_rom1_o => addr_rom1,
+    data_rom1_i => data_rom1
+  );
+
+  i_memory2 : memory2
+
+  port map
+  (
+    clk_i => clk_i,
+    reset_i => reset_i,
+	pixelhorizontal_i => pixelhorizontal,
+	pixelvertical_i => pixelvertical,
+    memory2_r_o => memory2_r,
+	memory2_g_o => memory2_g,
+	memory2_b_o => memory2_b,
+    countstart_i => countstart,
+    addr_rom2_o => addr_rom2,
+    data_rom2_i => data_rom2
   );
 
   i_sourcemultiplexer : sourcemultiplexer
@@ -246,6 +330,7 @@ begin
     clk_i => clk_i,
     reset_i => reset_i,
     sel_i => swsync(2 downto 0),
+    pbsync_i => pbsync,
     memory1_r_i => memory1_r,
     memory1_g_i => memory1_g,
     memory1_b_i => memory1_b,
@@ -260,7 +345,10 @@ begin
     pattern2_b_i => pattern2_b,
     red_mux_o => red,
     green_mux_o => green,
-    blue_mux_o => blue
+    blue_mux_o => blue,
+    pixelhorizontal_i => pixelhorizontal,
+    pixelvertical_i => pixelvertical,
+    countstart_o => countstart
   );
 
   i_vgacontroller : vgacontroller

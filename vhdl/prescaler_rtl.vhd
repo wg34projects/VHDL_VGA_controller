@@ -13,6 +13,9 @@
 -- Revisions : 0
 -- Date 		Version	Author 	Description
 -- 2018.02.18	0.1		Resch	Projectstart
+-- 2018.02.20	0.2		Resch	Update to include signal-mix feature
+-- 2018.02.25	0.3		Resch	Update to include overlay feature
+-- 2018.02.27	0.4		Resch	Update to include moving overlay feature
 ---------------------------------------------------------------------------- 
 
 library IEEE;

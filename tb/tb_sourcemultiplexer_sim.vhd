@@ -43,7 +43,9 @@ component sourcemultiplexer
     pattern2_b_i : in std_logic_vector(3 downto 0);
     red_mux_o : out std_logic_vector(3 downto 0);
 	green_mux_o : out std_logic_vector(3 downto 0);
-	blue_mux_o : out std_logic_vector(3 downto 0)
+	blue_mux_o : out std_logic_vector(3 downto 0);
+	pixelhorizontal_i : in std_logic_vector(9 downto 0);
+	pixelvertical_i : in std_logic_vector(9 downto 0)
   );
 
 end component;
@@ -90,7 +92,9 @@ begin
     pattern2_b_i => pattern2_b_i,
     red_mux_o => red_mux_o,
     green_mux_o => green_mux_o,
-    blue_mux_o => blue_mux_o
+    blue_mux_o => blue_mux_o,
+    pixelhorizontal_i => pixelhorizontal_i,
+    pixelvertical_i => pixelvertical_i
   );
 
   p_clk : process

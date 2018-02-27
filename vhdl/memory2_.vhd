@@ -1,0 +1,41 @@
+----------------------------------------------------------------------------
+-- Title : VGA Controller
+-- Project : Chip Design BEL4
+----------------------------------------------------------------------------
+-- File : memory2_.vhd
+-- Author : Resch
+-- Company : FHTW
+-- Last update: 19.02.2018
+-- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
+----------------------------------------------------------------------------
+-- Description: ENTITY Memory 2
+----------------------------------------------------------------------------
+-- Revisions : 2
+-- Date 		Version	Author 	Description
+-- 2018.02.25	0.1		Resch	Implementation ROM1, working output
+--                              also syntesized with success
+-- 2018.02.27   0.2     Resch   Update error in main process memory1
+--                              Update error in main process memory2
+---------------------------------------------------------------------------- 
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+
+entity memory2 is
+
+  port
+  (
+    clk_i : in std_logic;
+    reset_i : in std_logic;
+	pixelhorizontal_i : in std_logic_vector(9 downto 0);
+	pixelvertical_i : in std_logic_vector(9 downto 0);
+    memory2_r_o : out std_logic_vector(3 downto 0);
+	memory2_g_o : out std_logic_vector(3 downto 0);
+	memory2_b_o : out std_logic_vector(3 downto 0);
+    addr_rom2_o : out std_logic_vector(13 downto 0);
+    data_rom2_i : in std_logic_vector(11 downto 0);
+    countstart_i : in std_logic
+  );
+
+end memory2;

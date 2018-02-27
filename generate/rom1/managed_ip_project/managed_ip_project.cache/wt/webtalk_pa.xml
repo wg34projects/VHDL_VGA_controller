@@ -3,9 +3,9 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sun Feb 25 23:53:35 2018">
+<application name="pa" timeStamp="Mon Feb 26 17:52:36 2018">
 <section name="Project Information" visible="false">
-<property name="ProjectID" value="60468d7f3ddd414eac37215874bb2d78" type="ProjectID"/>
+<property name="ProjectID" value="5ba360ebeb1b4e76b20b391792d1e9ff" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
@@ -17,45 +17,40 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="AddSources" value="1" type="JavaHandler"/>
-<property name="CloseProject" value="2" type="JavaHandler"/>
-<property name="CustomizeCore" value="2" type="JavaHandler"/>
-<property name="EditDelete" value="1" type="JavaHandler"/>
-<property name="OpenIPLocationHandler" value="1" type="JavaHandler"/>
-<property name="OpenPreviousIPHandler" value="3" type="JavaHandler"/>
-<property name="RecustomizeCore" value="2" type="JavaHandler"/>
+<property name="CustomizeCore" value="1" type="JavaHandler"/>
+<property name="NewIPLocationHandler" value="1" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
-<property name="BACK,  Back" value="1" type="GuiResourceData"/>
-<property name="CANCEL, Cancel" value="1" type="GuiResourceData"/>
-<property name="NEXT, Next " value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.AddSrcWizard_SPECIFY_EXISTING_CONFIGURABLE_IP, Add existing IP" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_ADD_SOURCES, Add Sources..." value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, Hierarchy Update" value="2" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_OPEN_IP_LOCATION, Open IP Location..." value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Constraints], 3" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources], 0, true, false, false, false, true, false" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, IP, rom1], 1, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1], 5" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources], 4" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_FILE, File" value="4" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_IP_LOCATION, /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom1" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_IP_LOCATION, Open Recent IP Location" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, Open Recent Project" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Synthesis, [Project 1-486] Could not resolve non-primitive black box cell 'memory1' instantiated as 'i_memory1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:228]. ], 3, false" value="3" type="GuiResourceData"/>
-<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Synthesis, [Synth 8-3331] design sourcemultiplexer has unconnected port memory2_r_i[3]. ], 2" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Synthesis, [Synth 8-3848] Net memory2_r in module/entity top_VGA does not have driver. [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:159]. ], 1" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcMenu_IP_DOCUMENTATION, IP Documentation" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcMenu_IP_HIERARCHY, IP Hierarchy" value="3" type="GuiResourceData"/>
-<property name="RDIResource.BaseDialog_CANCEL, Cancel" value="1" type="GuiResourceData"/>
+<property name="Component Name, rom1" value="1" type="GuiResourceData"/>
+<property name="Defines the PortA Write Width(DINA" value="1" type="GuiResourceData"/>
+<property name="FINISH, Finish" value="1" type="GuiResourceData"/>
+<property name="Memory Type (Memory_Type" value="1" type="GuiResourceData"/>
+<property name="NEXT, Next " value="2" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, Block Memory Generator ; AXI4 ; Production ; Included ; xilinx.com:ip:blk_mem_gen:8.3, 19" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, Block Memory Generator ; AXI4 ; Production ; Included ; xilinx.com:ip:blk_mem_gen:8.3, 19, Block Memory Generator, 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, Block Memory Generator ; AXI4 ; Production ; Included ; xilinx.com:ip:blk_mem_gen:8.3, 19, Block Memory Generator, 0, true, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, Memories  Storage Elements ;  ;  ;  ; , 12" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, Memories  Storage Elements ;  ;  ;  ; , 12, Memories  Storage Elements, 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, Memories  Storage Elements ;  ;  ;  ; , 12, Memories  Storage Elements, 0, true, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, RAMs  ROMs  BRAM ;  ;  ;  ; , 18" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, RAMs  ROMs  BRAM ;  ;  ;  ; , 18, RAMs  ROMs  BRAM, 0, false, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, RAMs  ROMs  BRAM ;  ;  ;  ; , 18, RAMs  ROMs  BRAM, 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.GettingStartedView_CLEAR_LIST, Clear List" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.GettingStartedView_MANAGE_IP, Manage IP" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.GettingStartedView_RECENT_IP_LOCATIONS, /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom1, 0, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.GettingStartedView_START_USING_VIVADO_WITH_IP_CATALOG, New IP Location..." value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.HACGCCoeFileWidget_BROWSE, Browse" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.NewIPProjectWizard_IP_LOCATION, (String" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.NewIPProjectWizard_IP_LOCATION, /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom1" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.NumJobsChooser_NUMBER_OF_JOBS, 4, 3" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimpleOutputProductDialog_GENERATE_OUTPUT_PRODUCTS_IMMEDIATELY, Generate" value="1" type="GuiResourceData"/>
 <property name="RDIResource.BaseDialog_OK, OK" value="1" type="GuiResourceData"/>
-<property name="RDIResource.MessageWithOptionDialog_DONT_SHOW_THIS_DIALOG_AGAIN, Don't show this dialog again, false" value="1" type="GuiResourceData"/>
-<property name="RDIResource.MessageWithOptionDialog_DONT_SHOW_THIS_DIALOG_AGAIN, Don't show this dialog again, true" value="1" type="GuiResourceData"/>
+<property name="Write Depth, 76800" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="51" type="GuiMode"/>
+<property name="GuiMode" value="69" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="34" type="TclMode"/>
+<property name="TclMode" value="45" type="TclMode"/>
 </item>
 </section>
 </application>
