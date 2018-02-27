@@ -45,6 +45,46 @@ Status 23.02.2018 23:00 Output is working
 	  778 insgesamt
 	~/WorkDir/VHDL_VGA_controller/tb helmutresch > 
 
+Status 27.02.2018 21:00 Full feature synthesized
+
+	~/WorkDir/VHDL_VGA_controller helmutresch > wc ./vhdl/*.vhd -l
+	  119 ./vhdl/iologic_rtl.vhd
+	   37 ./vhdl/iologic_.vhd
+	  102 ./vhdl/memory1_rtl.vhd
+	   40 ./vhdl/memory1_.vhd
+	   83 ./vhdl/memory2_rtl.vhd
+	   41 ./vhdl/memory2_.vhd
+	  109 ./vhdl/pattern1_rtl.vhd
+	   37 ./vhdl/pattern1_.vhd
+	  145 ./vhdl/pattern2_rtl.vhd
+	   37 ./vhdl/pattern2_.vhd
+	   59 ./vhdl/prescaler_rtl.vhd
+	   34 ./vhdl/prescaler_.vhd
+	  246 ./vhdl/sourcemultiplexer_rtl.vhd
+	   53 ./vhdl/sourcemultiplexer_.vhd
+	  385 ./vhdl/top_VGA_rtl.vhd
+	   40 ./vhdl/top_VGA_.vhd
+	  121 ./vhdl/vgacontroller_rtl.vhd
+	   38 ./vhdl/vgacontroller_.vhd
+	  476 ./vhdl/vga_monitor_sim.vhd
+	   60 ./vhdl/vga_monitor_.vhd
+	 2262 insgesamt
+	~/WorkDir/VHDL_VGA_controller helmutresch > 
+
+	~/WorkDir/VHDL_VGA_controller helmutresch > wc ./tb/*.vhd -l
+	  104 ./tb/tb_iologic_sim.vhd
+	   24 ./tb/tb_iologic_.vhd
+	   73 ./tb/tb_prescaler_sim.vhd
+	   24 ./tb/tb_prescaler_.vhd
+	  279 ./tb/tb_sourcemultiplexer_sim.vhd
+	   25 ./tb/tb_sourcemultiplexer_.vhd
+	  105 ./tb/tb_top_VGA_sim.vhd
+	   27 ./tb/tb_top_VGA_.vhd
+	  105 ./tb/tb_vgacontroller_sim.vhd
+	   27 ./tb/tb_vgacontroller_.vhd
+	  793 insgesamt
+	~/WorkDir/VHDL_VGA_controller helmutresch > 
+
 ### schematic
 
 [PDF Download VIVADO 22.02](doku/22.02.2018_schematic.pdf)
@@ -104,4 +144,4 @@ https://www.youtube.com/watch?v=oO-Cmue0pPw
 
 ### output VGA real monitor Samsung Vienna with all features
 
-https://www.youtube.com/watch?v=oO-Cmue0pPwhttps://www.youtube.com/watch?v=A3abx1It04A
+https://www.youtube.com/watch?v=A3abx1It04A
