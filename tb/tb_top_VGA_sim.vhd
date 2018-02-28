@@ -81,19 +81,19 @@ begin
 --	sw_i <= "0000000000000110";
 --    wait for 35 ms;
 
-	sw_i <= "0000000000000100";
+	sw_i <= "0000000000000111";
     wait for 35 ms;
 
-    pb_i <= "0001";
-    wait for 6 ms;
-    pb_i <= "0000";
-    wait for 6 ms;
-    pb_i <= "0001";
-    wait for 6 ms;
-    pb_i <= "0000";
-    pb_i <= "0100";
-    wait for 6 ms;
-    pb_i <= "0000";
+--    pb_i <= "0001";
+--    wait for 6 ms;
+--    pb_i <= "0000";
+--    wait for 6 ms;
+--    pb_i <= "0001";
+--    wait for 6 ms;
+--    pb_i <= "0000";
+--    pb_i <= "0100";
+--    wait for 6 ms;
+--    pb_i <= "0000";
 
 --	sw_i <= "0000000000000000";
 --    wait for 35 ms;

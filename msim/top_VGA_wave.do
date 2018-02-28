@@ -27,8 +27,6 @@ add wave -noupdate -height 30 -format Logic /tb_top_vga/i_top_VGA/i_sourcemultip
 add wave -noupdate -height 30 -format Logic /tb_top_vga/i_top_VGA/i_sourcemultiplexer/position_horizontal2
 add wave -noupdate -height 30 -format Logic /tb_top_vga/i_top_VGA/i_sourcemultiplexer/position_vertical1
 add wave -noupdate -height 30 -format Logic /tb_top_vga/i_top_VGA/i_sourcemultiplexer/position_vertical2
-add wave -noupdate -height 30 -format Logic /tb_top_vga/i_top_VGA/i_sourcemultiplexer/position_horizontal_counter
-add wave -noupdate -height 30 -format Logic /tb_top_vga/i_top_VGA/i_sourcemultiplexer/position_vertical_counter
 add wave -noupdate -height 30 -format Logic /tb_top_vga/i_top_VGA/i_sourcemultiplexer/buttonstate_s
 
 TreeUpdate [SetDefaultTree]

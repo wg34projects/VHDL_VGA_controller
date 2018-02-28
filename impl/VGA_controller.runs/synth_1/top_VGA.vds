@@ -2,8 +2,8 @@
 # Vivado v2016.1 (64-bit)
 # SW Build 1538259 on Fri Apr  8 15:45:23 MDT 2016
 # IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
-# Start of session at: Tue Feb 27 20:43:23 2018
-# Process ID: 27247
+# Start of session at: Wed Feb 28 23:53:55 2018
+# Process ID: 7876
 # Current directory: /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1
 # Command line: vivado -log top_VGA.vds -mode batch -messageDb vivado.pb -notrace -source top_VGA.tcl
 # Log file: /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/top_VGA.vds
@@ -15,15 +15,15 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 27288 
+INFO: Helper process launched with PID 7908 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1108.133 ; gain = 124.078 ; free physical = 1105 ; free virtual = 10261
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1108.137 ; gain = 124.078 ; free physical = 1118 ; free virtual = 10984
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'top_VGA' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:25]
-INFO: [Synth 8-3491] module 'rom1' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-27247-localhost.localdomain/realtime/rom1_stub.vhdl:5' bound to instance 'i_rom1' of component 'rom1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:231]
-INFO: [Synth 8-638] synthesizing module 'rom1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-27247-localhost.localdomain/realtime/rom1_stub.vhdl:14]
-INFO: [Synth 8-3491] module 'rom2' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-27247-localhost.localdomain/realtime/rom2_stub.vhdl:5' bound to instance 'i_rom2' of component 'rom2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:240]
-INFO: [Synth 8-638] synthesizing module 'rom2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-27247-localhost.localdomain/realtime/rom2_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'rom1' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-7876-localhost.localdomain/realtime/rom1_stub.vhdl:5' bound to instance 'i_rom1' of component 'rom1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:231]
+INFO: [Synth 8-638] synthesizing module 'rom1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-7876-localhost.localdomain/realtime/rom1_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'rom2' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-7876-localhost.localdomain/realtime/rom2_stub.vhdl:5' bound to instance 'i_rom2' of component 'rom2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:240]
+INFO: [Synth 8-638] synthesizing module 'rom2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-7876-localhost.localdomain/realtime/rom2_stub.vhdl:14]
 INFO: [Synth 8-3491] module 'iologic' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/iologic_.vhd:25' bound to instance 'i_iologic' of component 'iologic' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:250]
 INFO: [Synth 8-638] synthesizing module 'iologic' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/iologic_rtl.vhd:25]
 INFO: [Synth 8-256] done synthesizing module 'iologic' (1#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/iologic_rtl.vhd:25]
@@ -36,12 +36,12 @@ INFO: [Synth 8-256] done synthesizing module 'pattern1' (3#1) [/home/helmutresch
 INFO: [Synth 8-3491] module 'pattern2' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern2_.vhd:25' bound to instance 'i_pattern2' of component 'pattern2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:283]
 INFO: [Synth 8-638] synthesizing module 'pattern2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern2_rtl.vhd:25]
 INFO: [Synth 8-256] done synthesizing module 'pattern2' (4#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern2_rtl.vhd:25]
-INFO: [Synth 8-3491] module 'memory1' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_.vhd:23' bound to instance 'i_memory1' of component 'memory1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:295]
-INFO: [Synth 8-638] synthesizing module 'memory1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_rtl.vhd:25]
-INFO: [Synth 8-256] done synthesizing module 'memory1' (5#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_rtl.vhd:25]
-INFO: [Synth 8-3491] module 'memory2' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory2_.vhd:23' bound to instance 'i_memory2' of component 'memory2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:310]
-INFO: [Synth 8-638] synthesizing module 'memory2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory2_rtl.vhd:25]
-INFO: [Synth 8-256] done synthesizing module 'memory2' (6#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory2_rtl.vhd:25]
+INFO: [Synth 8-3491] module 'memory1' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_.vhd:26' bound to instance 'i_memory1' of component 'memory1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:295]
+INFO: [Synth 8-638] synthesizing module 'memory1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_rtl.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'memory1' (5#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_rtl.vhd:26]
+INFO: [Synth 8-3491] module 'memory2' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory2_.vhd:26' bound to instance 'i_memory2' of component 'memory2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:310]
+INFO: [Synth 8-638] synthesizing module 'memory2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory2_rtl.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'memory2' (6#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory2_rtl.vhd:26]
 INFO: [Synth 8-3491] module 'sourcemultiplexer' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/sourcemultiplexer_.vhd:25' bound to instance 'i_sourcemultiplexer' of component 'sourcemultiplexer' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:326]
 INFO: [Synth 8-638] synthesizing module 'sourcemultiplexer' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/sourcemultiplexer_rtl.vhd:25]
 INFO: [Synth 8-256] done synthesizing module 'sourcemultiplexer' (7#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/sourcemultiplexer_rtl.vhd:25]
@@ -50,7 +50,7 @@ INFO: [Synth 8-638] synthesizing module 'vgacontroller' [/home/helmutresch/WorkD
 INFO: [Synth 8-256] done synthesizing module 'vgacontroller' (8#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/vgacontroller_rtl.vhd:25]
 INFO: [Synth 8-256] done synthesizing module 'top_VGA' (9#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:25]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1149.570 ; gain = 165.516 ; free physical = 1081 ; free virtual = 10237
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1149.574 ; gain = 165.516 ; free physical = 1073 ; free virtual = 10940
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -60,7 +60,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1149.570 ; gain = 165.516 ; free physical = 1081 ; free virtual = 10237
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1149.574 ; gain = 165.516 ; free physical = 1073 ; free virtual = 10940
 ---------------------------------------------------------------------------------
 WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'rom1' instantiated as 'i_rom1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:231]
 WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'rom2' instantiated as 'i_rom2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:240]
@@ -69,10 +69,10 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-27247-localhost.localdomain/dcp/rom1_in_context.xdc] for cell 'i_rom1'
-Finished Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-27247-localhost.localdomain/dcp/rom1_in_context.xdc] for cell 'i_rom1'
-Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-27247-localhost.localdomain/dcp_2/rom2_in_context.xdc] for cell 'i_rom2'
-Finished Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-27247-localhost.localdomain/dcp_2/rom2_in_context.xdc] for cell 'i_rom2'
+Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-7876-localhost.localdomain/dcp/rom1_in_context.xdc] for cell 'i_rom1'
+Finished Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-7876-localhost.localdomain/dcp/rom1_in_context.xdc] for cell 'i_rom1'
+Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-7876-localhost.localdomain/dcp_2/rom2_in_context.xdc] for cell 'i_rom2'
+Finished Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-7876-localhost.localdomain/dcp_2/rom2_in_context.xdc] for cell 'i_rom2'
 Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.srcs/constrs_1/new/vga_constrs.xdc]
 Finished Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.srcs/constrs_1/new/vga_constrs.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.srcs/constrs_1/new/vga_constrs.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_VGA_propImpl.xdc].
@@ -82,38 +82,35 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1447.055 ; gain = 0.000 ; free physical = 913 ; free virtual = 10069
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1447.059 ; gain = 0.000 ; free physical = 904 ; free virtual = 10770
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'i_rom1' at clock pin 'clka' is different from the actual clock period '10.000', this can result in different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'i_rom2' at clock pin 'clka' is different from the actual clock period '10.000', this can result in different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1447.055 ; gain = 463.000 ; free physical = 911 ; free virtual = 10067
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1447.059 ; gain = 463.000 ; free physical = 900 ; free virtual = 10767
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1447.055 ; gain = 463.000 ; free physical = 911 ; free virtual = 10067
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1447.059 ; gain = 463.000 ; free physical = 900 ; free virtual = 10767
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1447.055 ; gain = 463.000 ; free physical = 911 ; free virtual = 10067
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1447.059 ; gain = 463.000 ; free physical = 900 ; free virtual = 10767
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "s_1khzen" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "s_button" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "s_swsync" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5545] ROM "pattern2_r_o" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "pattern2_r_o" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_rtl.vhd:54]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_rtl.vhd:54]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_rtl.vhd:54]
 INFO: [Synth 8-5544] ROM "countstart_o" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "countstart_o" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "s_pixelvertical" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1447.055 ; gain = 463.000 ; free physical = 895 ; free virtual = 10052
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1447.059 ; gain = 463.000 ; free physical = 885 ; free virtual = 10752
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -126,8 +123,8 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     17 Bit       Adders := 2     
-	   2 Input     10 Bit       Adders := 8     
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 6     
 	   2 Input      2 Bit       Adders := 1     
 +---Registers : 
 	               17 Bit    Registers := 2     
@@ -137,20 +134,19 @@ Detailed RTL Component Info :
 	                4 Bit    Registers := 10    
 	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 7     
+	                1 Bit    Registers := 8     
 +---Muxes : 
-	   2 Input     17 Bit        Muxes := 3     
-	   2 Input     10 Bit        Muxes := 3     
+	   2 Input     17 Bit        Muxes := 2     
 	   2 Input      6 Bit        Muxes := 2     
-	   2 Input      4 Bit        Muxes := 25    
+	   2 Input      4 Bit        Muxes := 37    
 	   3 Input      4 Bit        Muxes := 1     
 	   4 Input      4 Bit        Muxes := 1     
-	   5 Input      4 Bit        Muxes := 4     
+	   5 Input      4 Bit        Muxes := 1     
 	   5 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 124   
 	  10 Input      2 Bit        Muxes := 1     
 	  11 Input      2 Bit        Muxes := 5     
-	   2 Input      1 Bit        Muxes := 18    
+	   2 Input      1 Bit        Muxes := 19    
 	   4 Input      1 Bit        Muxes := 1     
 	   5 Input      1 Bit        Muxes := 1     
 	   3 Input      1 Bit        Muxes := 1     
@@ -196,17 +192,14 @@ Detailed RTL Component Info :
 	   2 Input      2 Bit        Muxes := 122   
 Module memory1 
 Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     17 Bit       Adders := 1     
-	   2 Input     10 Bit       Adders := 2     
 +---Registers : 
 	               17 Bit    Registers := 1     
 	                4 Bit    Registers := 3     
+	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input     17 Bit        Muxes := 2     
-	   2 Input     10 Bit        Muxes := 3     
-	   5 Input      4 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 3     
+	   2 Input     17 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 12    
+	   2 Input      1 Bit        Muxes := 4     
 Module memory2 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -255,21 +248,16 @@ BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1447.055 ; gain = 463.000 ; free physical = 895 ; free virtual = 10051
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1447.059 ; gain = 463.000 ; free physical = 882 ; free virtual = 10749
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "s_1khzen" won't be mapped to RAM because it is too sparse
-DSP Report: Generating DSP multOp, operation Mode is: A*(B:0x140).
-DSP Report: operator multOp is absorbed into DSP multOp.
-DSP Report: Generating DSP p_1_out0, operation Mode is: (C or 0)+(0 or (((InmodeCtrl[2]:0=>D) or (InmodeCtrl[2]:1=>0))+((InmodeCtrl[1]:0=>0) or (InmodeCtrl[1]:1=>A)))*(B:0x140)).
-DSP Report: operator multOp is absorbed into DSP p_1_out0.
-DSP Report: operator multOp is absorbed into DSP p_1_out0.
 INFO: [Synth 8-5546] ROM "s_pixelvertical" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1447.055 ; gain = 463.000 ; free physical = 895 ; free virtual = 10051
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1447.059 ; gain = 463.000 ; free physical = 882 ; free virtual = 10749
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1447.055 ; gain = 463.000 ; free physical = 895 ; free virtual = 10051
+Finished Parallel Reinference  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1447.059 ; gain = 463.000 ; free physical = 882 ; free virtual = 10749
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -277,28 +265,12 @@ Report RTL Partitions:
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
 ---------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-DSP: Preliminary Mapping  Report (see note below)
-+------------+---------------------------------------------------------------------------------------------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping                                                                                                               | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+---------------------------------------------------------------------------------------------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|memory1     | A*(B:0x140)                                                                                                               | 10     | 9      | -      | -      | 19     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|memory1     | (C or 0)+(0 or (((InmodeCtrl[2]:0=>D) or (InmodeCtrl[2]:1=>0))+((InmodeCtrl[1]:0=>0) or (InmodeCtrl[1]:1=>A)))*(B:0x140)) | 10     | 9      | 17     | 10     | 17     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
-+------------+---------------------------------------------------------------------------------------------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
-Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1447.055 ; gain = 463.000 ; free physical = 871 ; free virtual = 10028
+Finished Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1447.059 ; gain = 463.000 ; free physical = 860 ; free virtual = 10726
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1447.055 ; gain = 463.000 ; free physical = 871 ; free virtual = 10028
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1447.059 ; gain = 463.000 ; free physical = 860 ; free virtual = 10726
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -312,10 +284,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1463.055 ; gain = 479.000 ; free physical = 786 ; free virtual = 9943
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1447.059 ; gain = 463.000 ; free physical = 833 ; free virtual = 10702
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1494.070 ; gain = 510.016 ; free physical = 740 ; free virtual = 9909
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1457.730 ; gain = 473.672 ; free physical = 801 ; free virtual = 10670
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -327,16 +299,16 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1504.086 ; gain = 520.031 ; free physical = 731 ; free virtual = 9900
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1466.746 ; gain = 482.688 ; free physical = 792 ; free virtual = 10661
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1504.086 ; gain = 520.031 ; free physical = 731 ; free virtual = 9900
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1466.746 ; gain = 482.688 ; free physical = 792 ; free virtual = 10661
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1504.086 ; gain = 520.031 ; free physical = 731 ; free virtual = 9900
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1466.746 ; gain = 482.688 ; free physical = 792 ; free virtual = 10661
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -353,7 +325,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1504.086 ; gain = 520.031 ; free physical = 731 ; free virtual = 9900
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1466.746 ; gain = 482.688 ; free physical = 792 ; free virtual = 10661
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -366,7 +338,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1504.086 ; gain = 520.031 ; free physical = 730 ; free virtual = 9899
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1466.746 ; gain = 482.688 ; free physical = 792 ; free virtual = 10661
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -378,25 +350,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1504.086 ; gain = 520.031 ; free physical = 730 ; free virtual = 9899
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1466.746 ; gain = 482.688 ; free physical = 792 ; free virtual = 10661
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1504.086 ; gain = 520.031 ; free physical = 730 ; free virtual = 9899
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1466.746 ; gain = 482.688 ; free physical = 792 ; free virtual = 10661
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1504.086 ; gain = 520.031 ; free physical = 730 ; free virtual = 9899
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1466.746 ; gain = 482.688 ; free physical = 792 ; free virtual = 10661
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1504.086 ; gain = 520.031 ; free physical = 730 ; free virtual = 9899
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1466.746 ; gain = 482.688 ; free physical = 792 ; free virtual = 10661
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -417,43 +389,40 @@ Report Cell Usage:
 |1     |rom1_bbox |     1|
 |2     |rom2_bbox |     1|
 |3     |BUFG      |     1|
-|4     |CARRY4    |    35|
-|5     |DSP48E1   |     1|
-|6     |DSP48E1_1 |     1|
-|7     |LUT1      |    35|
-|8     |LUT2      |    87|
-|9     |LUT3      |    24|
-|10    |LUT4      |    87|
-|11    |LUT5      |    50|
-|12    |LUT6      |    98|
-|13    |MUXF7     |     1|
-|14    |FDCE      |   156|
-|15    |FDPE      |    18|
-|16    |FDRE      |    18|
-|17    |IBUF      |    22|
-|18    |OBUF      |    14|
+|4     |CARRY4    |    40|
+|5     |LUT1      |    27|
+|6     |LUT2      |    77|
+|7     |LUT3      |    53|
+|8     |LUT4      |    81|
+|9     |LUT5      |    46|
+|10    |LUT6      |   111|
+|11    |FDCE      |   208|
+|12    |FDPE      |    18|
+|13    |FDRE      |     1|
+|14    |IBUF      |    22|
+|15    |OBUF      |    14|
 +------+----------+------+
 
 Report Instance Areas: 
 +------+----------------------+------------------+------+
 |      |Instance              |Module            |Cells |
 +------+----------------------+------------------+------+
-|1     |top                   |                  |   672|
-|2     |  i_iologic           |iologic           |   154|
-|3     |  i_memory1           |memory1           |    54|
-|4     |  i_memory2           |memory2           |    65|
+|1     |top                   |                  |   723|
+|2     |  i_iologic           |iologic           |   161|
+|3     |  i_memory1           |memory1           |   117|
+|4     |  i_memory2           |memory2           |    64|
 |5     |  i_prescaler         |prescaler         |     4|
-|6     |  i_sourcemultiplexer |sourcemultiplexer |   173|
-|7     |  i_vgacontroller     |vgacontroller     |   161|
+|6     |  i_sourcemultiplexer |sourcemultiplexer |   161|
+|7     |  i_vgacontroller     |vgacontroller     |   155|
 +------+----------------------+------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1504.086 ; gain = 520.031 ; free physical = 730 ; free virtual = 9899
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1466.746 ; gain = 482.688 ; free physical = 792 ; free virtual = 10661
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1504.086 ; gain = 135.469 ; free physical = 730 ; free virtual = 9899
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1504.094 ; gain = 520.039 ; free physical = 731 ; free virtual = 9900
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1466.746 ; gain = 98.125 ; free physical = 791 ; free virtual = 10660
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1466.754 ; gain = 482.695 ; free physical = 792 ; free virtual = 10661
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 59 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 62 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -461,8 +430,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-55 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+52 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1504.094 ; gain = 445.543 ; free physical = 731 ; free virtual = 9899
-report_utilization: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.05 . Memory (MB): peak = 1536.102 ; gain = 0.000 ; free physical = 730 ; free virtual = 9898
-INFO: [Common 17-206] Exiting Vivado at Tue Feb 27 20:43:56 2018...
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1466.754 ; gain = 408.199 ; free physical = 792 ; free virtual = 10661
+report_utilization: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.05 . Memory (MB): peak = 1498.762 ; gain = 0.000 ; free physical = 790 ; free virtual = 10660
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 28 23:54:24 2018...

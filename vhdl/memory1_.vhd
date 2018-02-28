@@ -16,6 +16,7 @@
 --                              also syntesized with success
 -- 2018.02.27   0.2     Resch   Update error in main process memory1
 --                              Update error in main process memory2
+-- 2018.02.28   0.3     Resch   New version for memory1 to increase timing
 ---------------------------------------------------------------------------- 
 
 library IEEE;

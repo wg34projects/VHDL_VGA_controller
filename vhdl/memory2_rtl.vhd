@@ -16,13 +16,12 @@
 --                              also syntesized with success
 -- 2018.02.27   0.2     Resch   Update error in main process memory1
 --                              Update error in main process memory2
+-- 2018.02.28   0.3     Resch   New version for memory1 to increase timing
 ---------------------------------------------------------------------------- 
 
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
-
--- generated IP XILINX
 
 architecture rtl of memory2 is
 
@@ -34,7 +33,7 @@ architecture rtl of memory2 is
 
 begin
 
-  P_color: process (clk_i, pixelhorizontal_i, pixelvertical_i, reset_i, data_rom2_i, countstart_i, pixelcountstore_s, pixelcount_s)
+  P_color: process (clk_i, pixelhorizontal_i, pixelvertical_i, reset_i, data_rom2_i, countstart_i, pixelcount_s)
 
   begin
 
@@ -45,6 +44,7 @@ begin
       memory2_g_o <= (others => '0');
       memory2_b_o <= (others => '0');
       pixelcount_s <= (others => '0');
+      pixelcountstore_s <= '0';
 
     elsif clk_i'event and clk_i = '1' then
 
