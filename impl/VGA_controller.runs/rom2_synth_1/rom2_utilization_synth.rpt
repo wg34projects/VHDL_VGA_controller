@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
-| Date         : Tue Feb 27 00:11:20 2018
+| Date         : Tue Mar 27 01:03:41 2018
 | Host         : localhost.localdomain running 64-bit Fedora release 27 (Twenty Seven)
 | Command      : report_utilization -file rom2_utilization_synth.rpt -pb rom2_utilization_synth.pb
 | Design       : rom2
@@ -33,8 +33,8 @@ Table of Contents
 | Slice LUTs*             |   12 |     0 |     20800 |  0.06 |
 |   LUT as Logic          |   12 |     0 |     20800 |  0.06 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |    6 |     0 |     41600 |  0.01 |
-|   Register as Flip Flop |    6 |     0 |     41600 |  0.01 |
+| Slice Registers         |    3 |     0 |     41600 | <0.01 |
+|   Register as Flip Flop |    3 |     0 |     41600 | <0.01 |
 |   Register as Latch     |    0 |     0 |     41600 |  0.00 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 6     |          Yes |       Reset |            - |
+| 3     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -152,8 +152,8 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | LUT6     |    9 |                 LUT |
-| FDRE     |    6 |        Flop & Latch |
 | RAMB36E1 |    3 |        Block Memory |
+| FDRE     |    3 |        Flop & Latch |
 | RAMB18E1 |    2 |        Block Memory |
 | LUT2     |    2 |                 LUT |
 | LUT3     |    1 |                 LUT |

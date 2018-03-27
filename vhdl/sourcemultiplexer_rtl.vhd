@@ -108,10 +108,15 @@ begin
 
         buttonstate_s <= "00";
 
-          if position_horizontal1 > "0000000000" then
+          if unsigned(position_horizontal1) > 0 then
   
             position_horizontal1 <= unsigned(position_horizontal1) - unsigned(C_movepixel);
             position_horizontal2 <= unsigned(position_horizontal2) - unsigned(C_movepixel);
+
+		  else
+
+            position_horizontal1 <= "1000011011"; -- 539
+            position_horizontal2 <= "1001111111"; -- 639
 
           end if;
       
@@ -119,10 +124,15 @@ begin
 
         buttonstate_s <= "00";
 
-          if position_horizontal2 < "1010000000" then        
+          if unsigned(position_horizontal2) < 640 then        
 
             position_horizontal1 <= unsigned(position_horizontal1) + unsigned(C_movepixel);
             position_horizontal2 <= unsigned(position_horizontal2) + unsigned(C_movepixel);
+
+		  else
+
+            position_horizontal1 <= "0000000000"; -- 0
+            position_horizontal2 <= "0001100100"; -- 100
 
           end if;
        
@@ -130,10 +140,15 @@ begin
 
         buttonstate_s <= "00"; 
 
-          if position_vertical1 > "0000001010" then    
+          if unsigned(position_vertical1) > 10 then    
 
             position_vertical1 <= unsigned(position_vertical1) - unsigned(C_movepixel);
             position_vertical2 <= unsigned(position_vertical2) - unsigned(C_movepixel);
+
+		  else
+
+            position_vertical1 <= "0101110001"; -- 369
+            position_vertical2 <= "0111010101"; -- 469
 
           end if;
 
@@ -141,10 +156,15 @@ begin
 
         buttonstate_s <= "00";
 
-          if position_vertical2 < "0111010110" then    
+          if unsigned(position_vertical2) < 470 then    
 
             position_vertical1 <= unsigned(position_vertical1) + unsigned(C_movepixel);
             position_vertical2 <= unsigned(position_vertical2) + unsigned(C_movepixel);
+
+		  else
+
+            position_vertical1 <= "0000001010";
+            position_vertical2 <= "0001101110";
 
           end if;
 
@@ -156,84 +176,201 @@ begin
 
       end if;
 
-      if sel_i = "000" then
+      if sel_i(2 downto 0) = "000" then
 
         red_mux_o <= pattern1_r_i;
         green_mux_o <= pattern1_g_i;
         blue_mux_o <= pattern1_b_i;
 
-      elsif sel_i = "001" or sel_i = "011" then
+      elsif sel_i(2 downto 0) = "001" or sel_i(2 downto 0) = "011" then
 
         red_mux_o <= memory1_r_i;
         green_mux_o <= memory1_g_i;
         blue_mux_o <= memory1_b_i;
 
-      elsif sel_i = "010" then
+      elsif sel_i(2 downto 0) = "010" then
 
         red_mux_o <= pattern2_r_i;
         green_mux_o <= pattern2_g_i;
         blue_mux_o <= pattern2_b_i;
 
-      elsif sel_i = "100" then
+      elsif sel_i(2 downto 0) = "100" then
 
-        if (pixelhorizontal_i >= position_horizontal1 and 
-            pixelhorizontal_i < position_horizontal2) and
-           (pixelvertical_i >= position_vertical1 and 
-            pixelvertical_i < position_vertical2) then
+        if (unsigned(pixelhorizontal_i) >= unsigned(position_horizontal1) and 
+            unsigned(pixelhorizontal_i) < unsigned(position_horizontal2)) and
+           (unsigned(pixelvertical_i) >= unsigned(position_vertical1) and 
+            unsigned(pixelvertical_i) < unsigned(position_vertical2)) then
 
-          red_mux_o <= memory2_r_i;
-          green_mux_o <= memory2_g_i;
-          blue_mux_o <= memory2_b_i;
           countstart_o <= '1';
+
+		  if sel_i(3) = '0' then
+
+		    if ((unsigned(memory2_r_i) = 0) and
+		       (unsigned(memory2_g_i) = 0) and
+		       (unsigned(memory2_b_i) = 0)) or
+
+		       ((unsigned(memory2_r_i) = 15) and
+		       (unsigned(memory2_g_i) = 15) and
+		       (unsigned(memory2_b_i) = 15)) then
+
+               red_mux_o <= pattern1_r_i;
+               green_mux_o <= pattern1_g_i;
+               blue_mux_o <= pattern1_b_i;
+
+		    else
+
+              red_mux_o <= memory2_r_i;
+              green_mux_o <= memory2_g_i;
+              blue_mux_o <= memory2_b_i;
+
+		    end if;
+		
+		  else
+
+	  	    if ((unsigned(memory2_r_i) = 15) and
+			   (unsigned(memory2_g_i) = 8) and
+			   (unsigned(memory2_b_i) = 0)) then
+
+		       red_mux_o <= memory2_r_i;
+		       green_mux_o <= memory2_g_i;
+		       blue_mux_o <= memory2_b_i;
+
+			  else
+
+		        red_mux_o <= pattern1_r_i;
+		        green_mux_o <= pattern1_g_i;
+		        blue_mux_o <= pattern1_b_i;
+
+			  end if;
+
+          end if;
 
         else
 
+		  countstart_o <= '0';
           red_mux_o <= pattern1_r_i;
           green_mux_o <= pattern1_g_i;
           blue_mux_o <= pattern1_b_i;
-          countstart_o <= '0';
-
+          
         end if;
 
-      elsif sel_i = "110" then
+      elsif sel_i(2 downto 0) = "110" then
 
-        if (pixelhorizontal_i >= position_horizontal1 and 
-            pixelhorizontal_i < position_horizontal2) and
-           (pixelvertical_i >= position_vertical1 and 
-            pixelvertical_i < position_vertical2) then
+        if (unsigned(pixelhorizontal_i) >= unsigned(position_horizontal1) and 
+            unsigned(pixelhorizontal_i) < unsigned(position_horizontal2)) and
+           (unsigned(pixelvertical_i) >= unsigned(position_vertical1) and 
+            unsigned(pixelvertical_i) < unsigned(position_vertical2)) then
 
-          red_mux_o <= memory2_r_i;
-          green_mux_o <= memory2_g_i;
-          blue_mux_o <= memory2_b_i;
           countstart_o <= '1';
+
+		  if sel_i(3) = '0' then
+
+		    if ((unsigned(memory2_r_i) = 0) and
+		       (unsigned(memory2_g_i) = 0) and
+		       (unsigned(memory2_b_i) = 0)) or
+
+		       ((unsigned(memory2_r_i) = 15) and
+		       (unsigned(memory2_g_i) = 15) and
+		       (unsigned(memory2_b_i) = 15)) then
+
+               red_mux_o <= pattern2_r_i;
+               green_mux_o <= pattern2_g_i;
+               blue_mux_o <= pattern2_b_i;
+
+		    else
+
+              red_mux_o <= memory2_r_i;
+              green_mux_o <= memory2_g_i;
+              blue_mux_o <= memory2_b_i;
+
+		    end if;
+		
+		  else
+
+	  	    if ((unsigned(memory2_r_i) = 15) and
+			   (unsigned(memory2_g_i) = 8) and
+			   (unsigned(memory2_b_i) = 0)) then
+
+		       red_mux_o <= memory2_r_i;
+		       green_mux_o <= memory2_g_i;
+		       blue_mux_o <= memory2_b_i;
+
+			  else
+
+		        red_mux_o <= pattern2_r_i;
+		        green_mux_o <= pattern2_g_i;
+		        blue_mux_o <= pattern2_b_i;
+
+			  end if;
+
+          end if;
 
         else
 
+          countstart_o <= '0';
           red_mux_o <= pattern2_r_i;
           green_mux_o <= pattern2_g_i;
           blue_mux_o <= pattern2_b_i;
-          countstart_o <= '0';
 
         end if;
 
-      else
+      elsif sel_i(2) = '1' and sel_i(0) = '1' then
 
-        if (pixelhorizontal_i >= position_horizontal1 and 
-            pixelhorizontal_i < position_horizontal2) and
-           (pixelvertical_i >= position_vertical1 and 
-            pixelvertical_i < position_vertical2) then
+        if (unsigned(pixelhorizontal_i) >= unsigned(position_horizontal1) and 
+            unsigned(pixelhorizontal_i) < unsigned(position_horizontal2)) and
+           (unsigned(pixelvertical_i) >= unsigned(position_vertical1) and 
+            unsigned(pixelvertical_i) < unsigned(position_vertical2)) then
 
-          red_mux_o <= memory2_r_i;
-          green_mux_o <= memory2_g_i;
-          blue_mux_o <= memory2_b_i;
           countstart_o <= '1';
+
+		  if sel_i(3) = '0' then
+
+		    if ((unsigned(memory2_r_i) = 0) and
+		       (unsigned(memory2_g_i) = 0) and
+		       (unsigned(memory2_b_i) = 0)) or
+
+		       ((unsigned(memory2_r_i) = 15) and
+		       (unsigned(memory2_g_i) = 15) and
+		       (unsigned(memory2_b_i) = 15)) then
+
+               red_mux_o <= memory1_r_i;
+               green_mux_o <= memory1_g_i;
+               blue_mux_o <= memory1_b_i;
+
+		    else
+
+              red_mux_o <= memory2_r_i;
+              green_mux_o <= memory2_g_i;
+              blue_mux_o <= memory2_b_i;
+
+		    end if;
+		
+		  else
+
+	  	    if ((unsigned(memory2_r_i) = 15) and
+			   (unsigned(memory2_g_i) = 8) and
+			   (unsigned(memory2_b_i) = 0)) then
+
+		       red_mux_o <= memory2_r_i;
+		       green_mux_o <= memory2_g_i;
+		       blue_mux_o <= memory2_b_i;
+
+			  else
+
+		        red_mux_o <= memory1_r_i;
+		        green_mux_o <= memory1_g_i;
+		        blue_mux_o <= memory1_b_i;
+
+			  end if;
+
+          end if;
 
         else
 
+          countstart_o <= '0';
           red_mux_o <= memory1_r_i;
           green_mux_o <= memory1_g_i;
           blue_mux_o <= memory1_b_i;
-          countstart_o <= '0';
 
         end if;
 

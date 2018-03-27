@@ -28,7 +28,7 @@ entity sourcemultiplexer is
   (
     clk_i : in std_logic;
     reset_i : in std_logic;
-    sel_i : in std_logic_vector(2 downto 0);
+    sel_i : in std_logic_vector(3 downto 0);
     pbsync_i : in std_logic_vector(3 downto 0);
     memory1_r_i : in std_logic_vector(3 downto 0);
     memory1_g_i : in std_logic_vector(3 downto 0);
