@@ -16,6 +16,9 @@
 -- 2018.02.20	0.2		Resch	Update to include signal-mix feature
 -- 2018.02.25	0.3		Resch	Update to include overlay feature
 -- 2018.02.27	0.4		Resch	Update to include moving overlay feature
+-- 2018.03.27	0.5		Resch	Transparency modes, left-right edge
+--	                            and top-bottom edge handling, automatic
+--                              x move with variable speed settings
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -28,7 +31,7 @@ entity prescaler is
   (
     clk_i : in std_logic;
     reset_i : in std_logic;
-	pixenable_o : out std_logic
+	pixenable_o : out std_logic		-- 25Mhz signal for VGA output
   );
 
 end prescaler;

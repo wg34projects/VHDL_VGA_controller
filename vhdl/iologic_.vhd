@@ -16,6 +16,9 @@
 -- 2018.02.20	0.2		Resch	Update to include signal-mix feature
 -- 2018.02.25	0.3		Resch	Update to include overlay feature
 -- 2018.02.27	0.4		Resch	Update to include moving overlay feature
+-- 2018.03.27	0.5		Resch	Transparency modes, left-right edge
+--	                            and top-bottom edge handling, automatic
+--                              x move with variable speed settings
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -26,12 +29,12 @@ entity iologic is
 
   port
   (
-    clk_i : in std_logic;
-    reset_i : in std_logic;
-    sw_i : in std_logic_vector(15 downto 0);
-    pb_i : in std_logic_vector(3 downto 0);
-    swsync_o : out std_logic_vector(15 downto 0);
-    pbsync_o : out std_logic_vector(3 downto 0)
+    clk_i : in std_logic;							-- main clk
+    reset_i : in std_logic;							-- main reset	
+    sw_i : in std_logic_vector(15 downto 0);		-- 16 switches
+    pb_i : in std_logic_vector(3 downto 0);			-- 4 buttons
+    swsync_o : out std_logic_vector(15 downto 0);	-- synchro 16 switches
+    pbsync_o : out std_logic_vector(3 downto 0)		-- synchro 4 buttons
   );
 
 end iologic;

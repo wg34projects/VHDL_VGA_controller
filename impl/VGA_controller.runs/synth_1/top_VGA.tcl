@@ -5,6 +5,8 @@
 set_param xicom.use_bs_reader 1
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -18,6 +20,7 @@ set_property target_language VHDL [current_project]
 add_files /home/helmutresch/WorkDir/VHDL_VGA_controller/images/Testbild_320x240.coe
 add_files /home/helmutresch/WorkDir/VHDL_VGA_controller/images/SpaceInvader_100x100.coe
 add_files /home/helmutresch/WorkDir/VHDL_VGA_controller/images/Finger_100x100.coe
+add_files /home/helmutresch/WorkDir/VHDL_VGA_controller/images/SpaceInvader_100x100_clean.coe
 add_files -quiet /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom1/rom1/rom1.dcp
 set_property used_in_implementation false [get_files /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom1/rom1/rom1.dcp]
 add_files -quiet /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom2/rom2/rom2.dcp

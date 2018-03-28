@@ -41,7 +41,6 @@
 	  105 tb_vgacontroller_sim.vhd
 	   27 tb_vgacontroller_.vhd
 	  778 insgesamt
-	~/WorkDir/VHDL_VGA_controller/tb helmutresch > 
 
 #### Status 27.02.2018 21:00 Full feature synthesized
 
@@ -67,7 +66,6 @@
 	  476 ./vhdl/vga_monitor_sim.vhd
 	   60 ./vhdl/vga_monitor_.vhd
 	 2262 insgesamt
-	~/WorkDir/VHDL_VGA_controller helmutresch > 
 
 	~/WorkDir/VHDL_VGA_controller helmutresch > wc ./tb/*.vhd -l
 	  104 ./tb/tb_iologic_sim.vhd
@@ -81,7 +79,6 @@
 	  105 ./tb/tb_vgacontroller_sim.vhd
 	   27 ./tb/tb_vgacontroller_.vhd
 	  793 insgesamt
-	~/WorkDir/VHDL_VGA_controller helmutresch > 
 
 #### Status 28.02.2018 23:00 Timing problems solved, 99% finished
 
@@ -107,7 +104,6 @@
 	  476 ./vhdl/vga_monitor_sim.vhd
 	   60 ./vhdl/vga_monitor_.vhd
 	 2327 insgesamt
-	~/WorkDir/VHDL_VGA_controller helmutresch > 
 
 	~/WorkDir/VHDL_VGA_controller helmutresch > wc ./tb/*.vhd -l
 	  104 ./tb/tb_iologic_sim.vhd
@@ -121,17 +117,47 @@
 	  105 ./tb/tb_vgacontroller_sim.vhd
 	   27 ./tb/tb_vgacontroller_.vhd
 	  793 insgesamt
-	~/WorkDir/VHDL_VGA_controller helmutresch > 
+
+#### Status 28.03.2018 23:00 new features like transparency modes, automatic move
+
+	~/WorkDir/VHDL_VGA_controller/vhdl helmutresch >  wc *.vhd -l
+	  130 iologic_rtl.vhd
+	   40 iologic_.vhd
+	  165 memory1_rtl.vhd
+	   41 memory1_.vhd
+	   83 memory2_rtl.vhd
+	   42 memory2_.vhd
+	  109 pattern1_rtl.vhd
+	   37 pattern1_.vhd
+	  145 pattern2_rtl.vhd
+	   37 pattern2_.vhd
+	   64 prescaler_rtl.vhd
+	   37 prescaler_.vhd
+	  671 sourcemultiplexer_rtl.vhd
+	   56 sourcemultiplexer_.vhd
+	  385 top_VGA_rtl.vhd
+	   40 top_VGA_.vhd
+	  121 vgacontroller_rtl.vhd
+	   38 vgacontroller_.vhd
+	  476 vga_monitor_sim.vhd
+	   60 vga_monitor_.vhd
+	 2777 insgesamt
 
 ### schematic
 
-[PDF Download VIVADO 28.02](doku/28.02.2018_schematic.pdf)
-[PDF Download VIVADO 22.02](doku/22.02.2018_schematic.pdf)
+[PDF Download VIVADO 28.03](doku/22.03.2018_schematic.pdf)  
+
+[PDF Download VIVADO 28.02](doku/28.02.2018_schematic.pdf)  
+
+[PDF Download VIVADO 22.02](doku/22.02.2018_schematic.pdf)  
 
 ### comments timing and error
 
-[PNG Download VIVADO 28.02](doku/28.02.2018_errors.png)
-[PNG Download VIVADO 22.02](doku/22.02.2018_errors.png)
+[PNG Download VIVADO 28.03](doku/28.03.2018_errors.png)  
+
+[PNG Download VIVADO 28.02](doku/28.02.2018_errors.png)  
+
+[PNG Download VIVADO 22.02](doku/22.02.2018_errors.png)  
 
 ### code parts and latest revision
 
@@ -141,21 +167,21 @@
 
 | R | U | entity | v | date | % entity | architecture | % code | remark |
 | -------- | ---- | ------ | ------- | ---- | -------- | ------------ | ------ | ------ |
-| 0 | I/O | prescaler_ | 0.4 | 27.02 | 99% | prescaler_rtl | 99% | - |
-| 0 | I/O | iologic_ | 0.4 | 27.02 | 99% | iologic_rtl | 99% | - |
-| 0 | I/O | sourcemultiplexer_ | 0.4 | 27.02 | 99% | sourcemultiplexer_rtl | 99% | - |
+| 0 | I/O | prescaler_ | 0.5 | 27.03 | 99% | prescaler_rtl | 99% | - |
+| 0 | I/O | iologic_ | 0.5 | 27.03 | 99% | iologic_rtl | 99% | - |
+| 0 | I/O | sourcemultiplexer_ | 0.5 | 27.03 | 99% | sourcemultiplexer_rtl | 99% | - |
 | 1 | VGA | vgacontroller_ | 0.3 | 22.02 | 99% | vgacontroller_rtl | 99% | - |
-| 1 | VGA | pattern1_ | 0.3 | 22.02 | 99% | pattern1_rtl | 94% | timing-check |
-| 1 | VGA | pattern2_ | 0.3 | 22.02 | 99% | pattern2_rtl | 94% | timing-check |
+| 1 | VGA | pattern1_ | 0.3 | 22.02 | 99% | pattern1_rtl | 99% | -k |
+| 1 | VGA | pattern2_ | 0.3 | 22.02 | 99% | pattern2_rtl | 99% | - |
 | 1 | VGA | top_VGA_ | 0.3 | 22.02 | 99% | top_VGA_rtl | 99% | synthesized |
-| 2 | MEM | memory1_ | 0.3 | 28.2 | 99% | memory1_rtl | 99% | timing-check |
+| 2 | MEM | memory1_ | 0.3 | 28.2 | 99% | memory1_rtl | 99% | - |
 | 2 | MEM | memory2_ | 0.3 | 28.2 | 99% | memory2_rtl | 99% | timing-check |
 
 ### output monitor FHTW
 
 | pattern | 640x480 |
 |-------- | ------- |
-| pattern 1 	| ![alt text](doku/frame01.png "pattern 1") |
+| pattern 1 | ![alt text](doku/frame01.png "pattern 1") |
 | pattern 1+2 |  ![alt text](doku/frame02.png "pattern 1+2") |
 | pattern 2 |  ![alt text](doku/frame03.png "pattern 2") |
 
@@ -184,3 +210,7 @@ https://www.youtube.com/watch?v=oO-Cmue0pPw
 ### output VGA real monitor Samsung Vienna with all features
 
 https://www.youtube.com/watch?v=A3abx1It04A
+
+### output with extra features 28.03.2018
+
+https://www.youtube.com/watch?v=eG-A7F7AeSQ&feature=youtu.be

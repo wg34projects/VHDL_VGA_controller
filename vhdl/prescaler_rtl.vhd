@@ -16,6 +16,9 @@
 -- 2018.02.20	0.2		Resch	Update to include signal-mix feature
 -- 2018.02.25	0.3		Resch	Update to include overlay feature
 -- 2018.02.27	0.4		Resch	Update to include moving overlay feature
+-- 2018.03.27	0.5		Resch	Transparency modes, left-right edge
+--	                            and top-bottom edge handling, automatic
+--                              x move with variable speed settings
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -24,9 +27,11 @@ use IEEE.std_logic_arith.all;
 
 architecture rtl of prescaler is
 
+  -- 25Mhz = 1/4 100Mhz = 2 clk high 2 clk low
   constant C_enctrval : std_logic := '1';
-  signal   s_enctr : std_logic;
-  signal   s_25mhz : std_logic;
+
+  signal   s_enctr : std_logic;				-- counter
+  signal   s_25mhz : std_logic;				-- enable signal
 
 begin
 
@@ -54,6 +59,6 @@ begin
 
   end process P_prescaler;
 
-  pixenable_o <= s_25mhz;
+  pixenable_o <= s_25mhz;					-- set outgoing signal
 
 end rtl;
