@@ -31,11 +31,11 @@ entity memory1 is
     reset_i : in std_logic;
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);
-    memory1_r_o : out std_logic_vector(3 downto 0);
+    memory1_r_o : out std_logic_vector(3 downto 0);			-- signals for multiplexer
 	memory1_g_o : out std_logic_vector(3 downto 0);
 	memory1_b_o : out std_logic_vector(3 downto 0);
-    addr_rom1_o : out std_logic_vector(16 downto 0);
-    data_rom1_i : in std_logic_vector(11 downto 0)
+    addr_rom1_o : out std_logic_vector(16 downto 0);		-- rom1 adress
+    data_rom1_i : in std_logic_vector(11 downto 0)			-- rom1 data
   );
 
 end memory1;

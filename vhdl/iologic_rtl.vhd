@@ -27,8 +27,8 @@ use IEEE.std_logic_arith.all;
 
 architecture rtl of iologic is
 
-  -- 100000 to divide 100Mhz to 1kHz
-  constant C_debounce : std_logic_vector(16 downto 0) := "11000011010100000";
+  -- 10000 to divide 100khz to 1kHz
+  constant C_debounce : std_logic_vector(16 downto 0) := "00010011100010000"; -- 10kHz
 
   signal s_enctr : std_logic_vector(16 downto 0);	-- counting signal
   signal s_1khzen : std_logic;						-- 1khz enable signal
@@ -39,7 +39,7 @@ architecture rtl of iologic is
 
 begin
 
-  -- generates 1kHz signal for debouncing issues
+  -- generates 10kHz signal for debouncing issues
   p_slowen: process (clk_i, reset_i)
 
   begin

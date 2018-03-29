@@ -26,15 +26,15 @@ entity top_VGA is
 
   port
   (
-    clk_i : in std_logic;
-    reset_i : in std_logic;
-    sw_i : in std_logic_vector(15 downto 0);
-    pb_i : in std_logic_vector(3 downto 0);
-	red_o : out std_logic_vector(3 downto 0);
-	green_o : out std_logic_vector(3 downto 0);
-	blue_o : out std_logic_vector(3 downto 0);
-    hsync_o : out std_logic;
-    vsync_o : out std_logic
+    clk_i : in std_logic;							-- main clock 100MHz
+    reset_i : in std_logic;							-- reset signal button
+    sw_i : in std_logic_vector(15 downto 0);		-- 16 switches
+    pb_i : in std_logic_vector(3 downto 0);			-- 4 buttons
+	red_o : out std_logic_vector(3 downto 0);		-- 4 bit red to VGA
+	green_o : out std_logic_vector(3 downto 0);		-- 4 bit green to VGA
+	blue_o : out std_logic_vector(3 downto 0);		-- 4 bit blue to VGA
+    hsync_o : out std_logic;						-- hsync to VGA
+    vsync_o : out std_logic							-- vsync to VGA
   );
 
 end top_VGA;

@@ -29,7 +29,7 @@ entity pattern2 is
     reset_i : in std_logic;
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);
-    pattern2_r_o : out std_logic_vector(3 downto 0);
+    pattern2_r_o : out std_logic_vector(3 downto 0);		-- signals to sourcemultiplexer
 	pattern2_g_o : out std_logic_vector(3 downto 0);
 	pattern2_b_o : out std_logic_vector(3 downto 0)
   );

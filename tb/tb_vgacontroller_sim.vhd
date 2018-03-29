@@ -98,7 +98,7 @@ begin
 
   begin
 
-    wait for 100 ms;
+    wait for 200 ms;
 
   end process run;
 

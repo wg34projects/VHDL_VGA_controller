@@ -24,18 +24,23 @@ use IEEE.std_logic_arith.all;
 
 architecture rtl of vgacontroller is
 
-  constant C_hmax : std_logic_vector(9 downto 0) := "1100011111"; -- 799
-  constant C_vmax : std_logic_vector(9 downto 0) := "1000001100"; -- 524
-  constant C_hsyncstart : std_logic_vector(9 downto 0) := "1010001111"; -- 655
-  constant C_hsyncend : std_logic_vector(9 downto 0) := "1011101111"; -- 751
-  constant C_vsyncstart : std_logic_vector(9 downto 0) := "0111101001"; -- 489
-  constant C_vsyncend : std_logic_vector(9 downto 0) := "0111101011"; -- 491
-  signal s_pixelhorizontal : std_logic_vector(9 downto 0);
-  signal s_pixelvertical : std_logic_vector(9 downto 0);
-  signal s_enable : std_logic := '0';
+  -- values 640x480 pictures according specification
+  constant C_hmax : std_logic_vector(9 downto 0) 		:= "1100011111"; -- 799
+  constant C_vmax : std_logic_vector(9 downto 0) 		:= "1000001100"; -- 524
+  constant C_hsyncstart : std_logic_vector(9 downto 0) 	:= "1010001111"; -- 655
+  constant C_hsyncend : std_logic_vector(9 downto 0)	:= "1011101111"; -- 751
+  constant C_vsyncstart : std_logic_vector(9 downto 0) 	:= "0111101001"; -- 489
+  constant C_vsyncend : std_logic_vector(9 downto 0) 	:= "0111101011"; -- 491
+  constant C_hpicture2 : std_logic_vector(9 downto 0) 	:= "1001111111"; -- 639
+  constant C_vpicture2 : std_logic_vector(9 downto 0) 	:= "0111011111"; -- 479
+
+  signal s_pixelhorizontal : std_logic_vector(9 downto 0);	-- counter horizontal
+  signal s_pixelvertical : std_logic_vector(9 downto 0);	-- counter vertical
+  signal s_enable : std_logic := '0';						-- enable signal for 1 pixel
 
 begin
 
+  -- horizontal and vertical pixel counter
   P_count: process (clk_i, reset_i)
 
   begin
@@ -48,22 +53,41 @@ begin
 
     elsif clk_i'event and clk_i = '1' then
 
+      if unsigned(s_pixelhorizontal) > unsigned(C_hpicture2) or
+         unsigned(s_pixelvertical) > unsigned(C_vpicture2) then
+
+        red_o <= (others => '0');
+	    green_o <= (others => '0');
+        blue_o <= (others => '0');
+
+      else
+
+		red_o <= red_i;
+		green_o <= green_i;
+        blue_o <= blue_i;
+
+      end if;
+
+	  -- set enable
       if pixenable_i = '1' then
 
 	  s_enable <= '1';
 
       end if;
 
+	    -- if enabled count up and reset enable
         if s_enable = '1' then
 
           s_pixelhorizontal <= unsigned(s_pixelhorizontal) + 1;
 		  s_enable <= '0';
 
+		  -- reset after last horizontal porch
 		  if s_pixelhorizontal = C_hmax then
 
 			s_pixelhorizontal <= (others => '0');
 			s_pixelvertical <= unsigned(s_pixelvertical) + 1;
 
+			-- reset after last vertical porch
     	    if s_pixelvertical = C_vmax then
 
 			  s_pixelvertical <= (others => '0');
@@ -78,37 +102,43 @@ begin
 
   end process P_count;
 
+  -- connect to output signals
   pixelhorizontal_o <= s_pixelhorizontal;
   pixelvertical_o <= s_pixelvertical;
 
+  -- generates vertical and horizontal sync signal
   P_sync: process (s_pixelhorizontal, s_pixelvertical, reset_i)
 
   begin
 
+    -- only active after reset
     if reset_i = '0' then
 
-    if (unsigned(s_pixelhorizontal) <= unsigned(C_hsyncstart)) or 
-       (unsigned(s_pixelhorizontal) > unsigned(C_hsyncend)) then
+      -- hsync according specification
+      if (unsigned(s_pixelhorizontal) <= unsigned(C_hsyncstart)) or 
+         (unsigned(s_pixelhorizontal) > unsigned(C_hsyncend)) then
 
-      hsync_o <= '0';
+        hsync_o <= '0';
 
-    else
+      else
 
-      hsync_o <= '1';
+        hsync_o <= '1';
 
-    end if;
+      end if;
 
-    if (unsigned(s_pixelvertical) <= unsigned(C_vsyncstart)) or 
-       (unsigned(s_pixelvertical) > unsigned(C_vsyncend)) then
+      -- vsync according specification
+      if (unsigned(s_pixelvertical) <= unsigned(C_vsyncstart)) or 
+         (unsigned(s_pixelvertical) > unsigned(C_vsyncend)) then
 
-      vsync_o <= '0';
+        vsync_o <= '0';
 
-    else
+      else
 
-      vsync_o <= '1';
+        vsync_o <= '1';
 
-    end if;
+      end if;
 
+	-- reset both signals
     else
   
       hsync_o <= '0';

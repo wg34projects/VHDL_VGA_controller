@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="rom2_synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1522156357">
-  <File Type="RDS-PROPCONSTRS" Name="rom2_drc_synth.rpt"/>
-  <File Type="RDS-UTIL" Name="rom2_utilization_synth.rpt"/>
-  <File Type="RDS-RDS" Name="rom2.vds"/>
-  <File Type="VDS-TIMING-PB" Name="rom2_timing_summary_synth.pb"/>
-  <File Type="PA-TCL" Name="rom2.tcl"/>
   <File Type="VDS-TIMINGSUMMARY" Name="rom2_timing_summary_synth.rpt"/>
+  <File Type="PA-TCL" Name="rom2.tcl"/>
   <File Type="RDS-DCP" Name="rom2.dcp"/>
   <File Type="RDS-UTIL-PB" Name="rom2_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="rom2_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="rom2_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="rom2.vds"/>
+  <File Type="VDS-TIMING-PB" Name="rom2_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/rom2">
     <File Path="$PPRDIR/../generate/rom2/rom2/rom2.xci">
       <FileInfo>

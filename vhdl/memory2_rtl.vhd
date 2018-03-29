@@ -25,15 +25,19 @@ use IEEE.std_logic_arith.all;
 
 architecture rtl of memory2 is
 
+  -- size of overlay
   constant C_hpicture : std_logic_vector(9 downto 0) := "0001100011"; -- 99
   constant C_vpicture : std_logic_vector(9 downto 0) := "0001100011"; -- 99
-  constant C_maxadress : std_logic_vector(13 downto 0) := "10011100001111";
+  -- max adress overlay
+  constant C_maxadress : std_logic_vector(13 downto 0) := "10011100001111"; -- 9999
+  -- pixelcounter and trigger
   signal pixelcount_s : std_logic_vector(13 downto 0);
   signal pixelcountstore_s : std_logic;
 
 begin
 
-  P_color: process (clk_i, pixelhorizontal_i, pixelvertical_i, reset_i, data_rom2_i, countstart_i, pixelcount_s)
+  -- calculates rom2 adress and reads data
+  P_color: process (clk_i, pixelhorizontal_i, pixelvertical_i, reset_i, data_rom2_i, countstart_i, pixelcount_s, pixelcountstore_s)
 
   begin
 

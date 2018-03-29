@@ -31,12 +31,12 @@ entity memory2 is
     reset_i : in std_logic;
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);
-    memory2_r_o : out std_logic_vector(3 downto 0);
+    memory2_r_o : out std_logic_vector(3 downto 0);			-- signals for multiplexer
 	memory2_g_o : out std_logic_vector(3 downto 0);
 	memory2_b_o : out std_logic_vector(3 downto 0);
-    addr_rom2_o : out std_logic_vector(13 downto 0);
-    data_rom2_i : in std_logic_vector(11 downto 0);
-    countstart_i : in std_logic
+    addr_rom2_o : out std_logic_vector(13 downto 0);		-- rom2 adress
+    data_rom2_i : in std_logic_vector(11 downto 0);			-- rom2 data
+    countstart_i : in std_logic								-- counting enable signal
   );
 
 end memory2;

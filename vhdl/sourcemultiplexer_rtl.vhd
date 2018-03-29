@@ -39,9 +39,10 @@ architecture rtl of sourcemultiplexer is
   constant C_movepixelvertical : std_logic_vector(9 downto 0)  := "0000011110";		-- 30
   constant C_movepixelhorizontal : std_logic_vector(9 downto 0) := "0000011101"; 	-- 29
   -- speed settings
-  constant C_slow : std_logic_vector(23 downto 0)    := "000011110100001001000000";	-- 1000000
-  constant C_slowmin : std_logic_vector(23 downto 0) := "100110001001011010000000"; -- 10000000
-  constant C_slowmax : std_logic_vector(23 downto 0) := "000000011000011010100000"; -- 100000
+  constant C_slow : std_logic_vector(20 downto 0)    	:= "011110100001001000000"; -- 1000000
+  constant C_slowmin : std_logic_vector(20 downto 0) 	:= "111101000010010000000"; -- 2000000
+  constant C_slowmax : std_logic_vector(20 downto 0) 	:= "000011000011010100000"; -- 100000
+  constant C_speedstep : std_logic_vector(20 downto 0) 	:= "000011000011010100000"; -- 100000
 
   -- position of overlay memory2
   signal position_horizontal1 : std_logic_vector(9 downto 0);
@@ -52,11 +53,11 @@ architecture rtl of sourcemultiplexer is
   signal buttonstate_s : std_logic_vector(1 downto 0);		-- state of pushbuttons
   signal movestate_s : std_logic_vector(2 downto 0);		-- resulting move state x, y
   signal x_s : std_logic_vector(9 downto 0);				-- counting variable automatic move
+  signal y_s : std_logic_vector(9 downto 0);
   signal updown_s : std_logic;								-- tick-tock automatic move
-  signal slow_s : std_logic_vector(23 downto 0);			-- counter speed
+  signal slow_s : std_logic_vector(20 downto 0);			-- counter speed
   signal special_s : std_logic;								-- setting special mode (moving)
-  signal speed_s : std_logic_vector(23 downto 0);			-- resulting speed
-  signal tempspeed_s : std_logic_vector(23 downto 0);		-- calculated speed
+  signal speed_s : std_logic_vector(20 downto 0);			-- resulting speed
 
 begin
 
@@ -69,6 +70,7 @@ begin
 
 	  slow_s <= (others => '0');
 	  x_s <= "1001001101"; -- 589
+	  y_s <= "0000110011"; -- 51
 	  updown_s <= '0';
 
     elsif clk_i'event and clk_i = '1' then
@@ -95,12 +97,28 @@ begin
 		  if unsigned(x_s) = 51 then		-- lowest x value - see README.md
 
  		    updown_s <= '1';				-- border to count up
+			y_s <= unsigned(y_s) + 10;
+
+			-- keep going to left until maximum bottom
+            if unsigned(position_vertical2) >= 469 then  	  -- bottom border, see README.md
+
+              y_s <= "0000110011"; -- 51 
+
+            end if;
  
 		  end if;
 
 		  if unsigned(x_s) = 589 then		-- highest x value - see README.md
 
  		    updown_s <= '0';				-- border to count down
+			y_s <= unsigned(y_s) + 10;
+
+			-- keep going to left until maximum bottom
+            if unsigned(position_vertical2) >= 469 then  	  -- bottom border, see README.md
+
+              y_s <= "0000110011"; -- 51 
+
+            end if;
  
 		  end if;
 
@@ -115,6 +133,8 @@ begin
   -- reads the button in various modes
   -- buttons only active when overlay is chosen
   p_buttons: process (clk_i, reset_i)
+
+  variable tempspeed_v : std_logic_vector(20 downto 0) := (others => '0');
 
   begin
 
@@ -272,7 +292,7 @@ begin
  
           buttonstate_s <= "00";
 
-			-- keep going to left until maimum bottom
+			-- keep going to left until maximum bottom
 
             if unsigned(position_vertical2) < 469 then  	  -- bottom border, see README.md
 
@@ -303,6 +323,10 @@ begin
    	    special_s <= '1';								-- set special mode
         position_horizontal1 <= unsigned(x_s) - 50;		-- calculate new position with offset horizontal
 		position_horizontal2 <= unsigned(x_s) + 50;
+        position_vertical1 <= unsigned(y_s) - 50;		-- calculate new position with offset horizontal
+		position_vertical2 <= unsigned(y_s) + 50;
+
+
 
 		-- button handling for automatic mode
 	
@@ -312,15 +336,17 @@ begin
 
           if movestate_s = "001" then 
 
-           buttonstate_s <= "00";
+            buttonstate_s <= "00";
 
 		    -- increase only if in valid range
 
-            if unsigned(speed_s) <= unsigned(C_slowmin) then
-  
-			  tempspeed_s <= unsigned(speed_s) + 100000;
+	  	    tempspeed_v := unsigned(speed_s) + unsigned(C_speedstep);
 
-            end if;
+            if unsigned(tempspeed_v) >= unsigned(C_slowmin) then
+
+			  tempspeed_v := C_slowmin;
+
+			end if;
 
           -- button left, decrease speed
       
@@ -330,47 +356,49 @@ begin
 
             -- decrase only in valid range
 
-            if unsigned(speed_s) >= unsigned(C_slowmax) then
+            tempspeed_v := unsigned(speed_s) - unsigned(C_speedstep);
 
-			  tempspeed_s <= unsigned(speed_s) - 100000;
+            if unsigned(tempspeed_v) <= unsigned(C_slowmax) then
 
-            end if;
-
-		  -- button up, regular handling y moving manually like before
-
-          elsif movestate_s = "011"  then
-
-          buttonstate_s <= "00"; 
-
-            if unsigned(position_vertical1) > 9 then    
-
-              position_vertical1 <= unsigned(position_vertical1) - unsigned(C_movepixelvertical);
-              position_vertical2 <= unsigned(position_vertical2) - unsigned(C_movepixelvertical);
-
-		    else
-
-              position_vertical1 <= "0101110001"; -- 369
-              position_vertical2 <= "0111010101"; -- 469
+		      tempspeed_v := C_slowmax;
 
             end if;
 
-		  -- button down, regular handling y moving manually like before
+--		  -- button up, regular handling y moving manually like before
 
-          elsif movestate_s = "100"  then 
- 
-          buttonstate_s <= "00";
+--          elsif movestate_s = "011"  then
 
-            if unsigned(position_vertical2) < 469 then    
+--          buttonstate_s <= "00"; 
 
-              position_vertical1 <= unsigned(position_vertical1) + unsigned(C_movepixelvertical);
-              position_vertical2 <= unsigned(position_vertical2) + unsigned(C_movepixelvertical);
+--            if unsigned(position_vertical1) > 9 then    
 
-	  	    else
+--              position_vertical1 <= unsigned(position_vertical1) - unsigned(C_movepixelvertical);
+--              position_vertical2 <= unsigned(position_vertical2) - unsigned(C_movepixelvertical);
 
-              position_vertical1 <= "0000001001"; -- 9
-              position_vertical2 <= "0001101101"; -- 109
+--		    else
 
-            end if;
+--              position_vertical1 <= "0101110001"; -- 369
+--              position_vertical2 <= "0111010101"; -- 469
+
+--            end if;
+
+--		  -- button down, regular handling y moving manually like before
+
+--          elsif movestate_s = "100"  then 
+-- 
+--          buttonstate_s <= "00";
+
+--            if unsigned(position_vertical2) < 469 then    
+
+--              position_vertical1 <= unsigned(position_vertical1) + unsigned(C_movepixelvertical);
+--              position_vertical2 <= unsigned(position_vertical2) + unsigned(C_movepixelvertical);
+
+--	  	    else
+
+--              position_vertical1 <= "0000001001"; -- 9
+--              position_vertical2 <= "0001101101"; -- 109
+
+--            end if;
 
          else
 
@@ -378,7 +406,7 @@ begin
 
          end if;
 
-	     speed_s <= tempspeed_s;
+	    speed_s <= tempspeed_v;
 
 		end if;
 
@@ -647,9 +675,9 @@ begin
 
           else
 
-                red_mux_o <= memory2_r_i;
-                green_mux_o <= memory2_g_i;
-                blue_mux_o <= memory2_b_i;         
+            red_mux_o <= memory2_r_i;
+            green_mux_o <= memory2_g_i;
+            blue_mux_o <= memory2_b_i;         
 
 	      end if;
 

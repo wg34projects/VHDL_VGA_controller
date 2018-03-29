@@ -28,11 +28,17 @@ entity vgacontroller is
   (
     clk_i : in std_logic;
     reset_i : in std_logic;
-	pixenable_i : in std_logic;
-	hsync_o : out std_logic;
-	vsync_o : out std_logic;
-	pixelhorizontal_o : out std_logic_vector(9 downto 0);
-	pixelvertical_o : out std_logic_vector(9 downto 0)
+	pixenable_i : in std_logic;								-- 25MHz enable
+	hsync_o : out std_logic;								-- generated hsync VGA
+	vsync_o : out std_logic;								-- generated vsync VGA
+	pixelhorizontal_o : out std_logic_vector(9 downto 0);	-- counter horizontal
+	pixelvertical_o : out std_logic_vector(9 downto 0);		-- counter vertical (lines)
+    red_i : in std_logic_vector(3 downto 0);
+    green_i : in std_logic_vector(3 downto 0);
+    blue_i : in std_logic_vector(3 downto 0);
+    red_o : out std_logic_vector(3 downto 0);
+    green_o : out std_logic_vector(3 downto 0);
+    blue_o : out std_logic_vector(3 downto 0)
   );
 
 end vgacontroller;

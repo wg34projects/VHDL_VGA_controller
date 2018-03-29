@@ -74,6 +74,7 @@ begin
     wait for 50 ns;
 
     reset_i <= '0';
+    wait for 50 ns;
 
 --	sw_i <= "0000000000000100";
 --    wait for 35 ms;
@@ -81,8 +82,7 @@ begin
 --	sw_i <= "0000000000000110";
 --    wait for 35 ms;
 
-	sw_i <= "0000000000000111";
-    wait for 35 ms;
+	sw_i <= "0000000000011111";
 
 --    pb_i <= "0001";
 --    wait for 6 ms;
