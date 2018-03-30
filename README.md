@@ -170,10 +170,10 @@
 | 0 | I/O | prescaler_ | 0.5 | 27.03 | 99% | prescaler_rtl | 99% | - |
 | 0 | I/O | iologic_ | 0.5 | 27.03 | 99% | iologic_rtl | 99% | - |
 | 0 | I/O | sourcemultiplexer_ | 0.5 | 27.03 | 99% | sourcemultiplexer_rtl | 99% | - |
-| 1 | VGA | vgacontroller_ | 0.3 | 22.02 | 99% | vgacontroller_rtl | 99% | - |
-| 1 | VGA | pattern1_ | 0.3 | 22.02 | 99% | pattern1_rtl | 99% | -k |
-| 1 | VGA | pattern2_ | 0.3 | 22.02 | 99% | pattern2_rtl | 99% | - |
-| 1 | VGA | top_VGA_ | 0.3 | 22.02 | 99% | top_VGA_rtl | 99% | synthesized |
+| 1 | VGA | vgacontroller_ | 0.4 | 27.03 | 99% | vgacontroller_rtl | 99% | - |
+| 1 | VGA | pattern1_ | 0.4 | 27.02 | 99% | pattern1_rtl | 99% | -k |
+| 1 | VGA | pattern2_ | 0.4 | 27.02 | 99% | pattern2_rtl | 99% | - |
+| 1 | VGA | top_VGA_ | 0.4 | 27.02 | 99% | top_VGA_rtl | 99% | synthesized |
 | 2 | MEM | memory1_ | 0.3 | 28.2 | 99% | memory1_rtl | 99% | - |
 | 2 | MEM | memory2_ | 0.3 | 28.2 | 99% | memory2_rtl | 99% | timing-check |
 

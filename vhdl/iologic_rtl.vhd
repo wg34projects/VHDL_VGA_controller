@@ -31,7 +31,7 @@ architecture rtl of iologic is
   constant C_debounce : std_logic_vector(16 downto 0) := "00010011100010000"; -- 10kHz
 
   signal s_enctr : std_logic_vector(16 downto 0);	-- counting signal
-  signal s_1khzen : std_logic;						-- 1khz enable signal
+  signal s_1khzen : std_logic;						-- 10khz enable signal
   signal s_swsync : std_logic_vector(15 downto 0);	-- 16 switches
   signal s_pbsync : std_logic_vector(3 downto 0);	-- 5 buttons
   signal s_debcnt : std_logic_vector(1 downto 0);	-- debouncecount

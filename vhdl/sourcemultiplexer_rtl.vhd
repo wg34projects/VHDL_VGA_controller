@@ -41,17 +41,17 @@ architecture rtl of sourcemultiplexer is
   -- speed settings
   constant C_slow : std_logic_vector(20 downto 0)    	:= "011110100001001000000"; -- 1000000
   constant C_slowmin : std_logic_vector(20 downto 0) 	:= "111101000010010000000"; -- 2000000
-  constant C_slowmax : std_logic_vector(20 downto 0) 	:= "000011000011010100000"; -- 100000
-  constant C_speedstep : std_logic_vector(20 downto 0) 	:= "000011000011010100000"; -- 100000
-
+  constant C_slowmax : std_logic_vector(20 downto 0) 	:= "000001100001101010000"; -- 50000
+  constant C_speedstep : std_logic_vector(20 downto 0) 	:= "000001100001101010000"; -- 50000
   -- position of overlay memory2
   signal position_horizontal1 : std_logic_vector(9 downto 0);
   signal position_horizontal2 : std_logic_vector(9 downto 0);
   signal position_vertical1 : std_logic_vector(9 downto 0);
   signal position_vertical2 : std_logic_vector(9 downto 0);
-
+  -- read the buttons  
   signal buttonstate_s : std_logic_vector(1 downto 0);		-- state of pushbuttons
   signal movestate_s : std_logic_vector(2 downto 0);		-- resulting move state x, y
+  -- auto mode signals to calulate postions
   signal x_s : std_logic_vector(9 downto 0);				-- counting variable automatic move
   signal y_s : std_logic_vector(9 downto 0);
   signal updown_s : std_logic;								-- tick-tock automatic move
@@ -61,7 +61,7 @@ architecture rtl of sourcemultiplexer is
 
 begin
 
-  -- slow down to 10Hz to 1000Hz
+  -- slow down from 10 to 2000Hz for overlay moe
   p_slowmove: process (clk_i, reset_i)
 
   begin
@@ -69,8 +69,8 @@ begin
     if reset_i = '1' then
 
 	  slow_s <= (others => '0');
-	  x_s <= "1001001101"; -- 589
-	  y_s <= "0000110011"; -- 51
+	  x_s <= "1001001101"; -- 589 right
+	  y_s <= "0000110011"; -- 51  top
 	  updown_s <= '0';
 
     elsif clk_i'event and clk_i = '1' then
@@ -78,7 +78,7 @@ begin
 	  -- calcualte only when automatic move chosen
       if sel_i(5) = '1' then
 
-        slow_s <= unsigned(slow_s) + 1;		-- counter
+        slow_s <= unsigned(slow_s) + 1;		-- tick counter
 
         if slow_s = speed_s then
 
@@ -323,10 +323,8 @@ begin
    	    special_s <= '1';								-- set special mode
         position_horizontal1 <= unsigned(x_s) - 50;		-- calculate new position with offset horizontal
 		position_horizontal2 <= unsigned(x_s) + 50;
-        position_vertical1 <= unsigned(y_s) - 50;		-- calculate new position with offset horizontal
+        position_vertical1 <= unsigned(y_s) - 50;		-- calculate new position with offset vetical
 		position_vertical2 <= unsigned(y_s) + 50;
-
-
 
 		-- button handling for automatic mode
 	
@@ -364,49 +362,13 @@ begin
 
             end if;
 
---		  -- button up, regular handling y moving manually like before
-
---          elsif movestate_s = "011"  then
-
---          buttonstate_s <= "00"; 
-
---            if unsigned(position_vertical1) > 9 then    
-
---              position_vertical1 <= unsigned(position_vertical1) - unsigned(C_movepixelvertical);
---              position_vertical2 <= unsigned(position_vertical2) - unsigned(C_movepixelvertical);
-
---		    else
-
---              position_vertical1 <= "0101110001"; -- 369
---              position_vertical2 <= "0111010101"; -- 469
-
---            end if;
-
---		  -- button down, regular handling y moving manually like before
-
---          elsif movestate_s = "100"  then 
--- 
---          buttonstate_s <= "00";
-
---            if unsigned(position_vertical2) < 469 then    
-
---              position_vertical1 <= unsigned(position_vertical1) + unsigned(C_movepixelvertical);
---              position_vertical2 <= unsigned(position_vertical2) + unsigned(C_movepixelvertical);
-
---	  	    else
-
---              position_vertical1 <= "0000001001"; -- 9
---              position_vertical2 <= "0001101101"; -- 109
-
---            end if;
-
          else
 
             buttonstate_s <= "00";
 
          end if;
 
-	    speed_s <= tempspeed_v;
+	    speed_s <= tempspeed_v;	-- set sigal
 
 		end if;
 
@@ -416,7 +378,7 @@ begin
 
   end process p_buttons;
 
-  -- switches signals direct without way over vga controller to output port
+  -- switches signals accoding input
   p_sourcemultiplexer: process (clk_i, reset_i)
 
   begin

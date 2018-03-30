@@ -52,16 +52,19 @@ begin
 
     elsif clk_i'event and clk_i = '1' then
 
+	  -- adress to rom2 and data from rom2
       addr_rom2_o <= pixelcount_s(13 downto 0);
-
       memory2_r_o <= data_rom2_i(11 downto 8);
       memory2_g_o <= data_rom2_i(7 downto 4);
       memory2_b_o <= data_rom2_i(3 downto 0);
 
+      -- trigger for new pixel
       if (pixelhorizontal_i(0) /= pixelcountstore_s) then
 
+	    -- start only if inside valid range
         if countstart_i = '1' then
 
+    	  -- increase only if smaller maxadress
           if unsigned(pixelcount_s) < unsigned(C_maxadress) then
 
             pixelcount_s <= unsigned(pixelcount_s) + 1;
@@ -72,12 +75,14 @@ begin
 
       end if;
 
+	  -- reset internal pixelcount only after a frame is done
       if unsigned(pixelhorizontal_i) = 0 and unsigned(pixelvertical_i) = 0 then
 
         pixelcount_s <= (others => '0');
 
       end if;
 
+	-- store last pixelcount to trigger new pixel
     pixelcountstore_s <= pixelhorizontal_i(0);
 
     end if;

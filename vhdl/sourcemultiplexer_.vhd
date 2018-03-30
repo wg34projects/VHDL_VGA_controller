@@ -45,7 +45,7 @@ entity sourcemultiplexer is
     pattern2_r_i : in std_logic_vector(3 downto 0);			-- mux input pattern2
     pattern2_g_i : in std_logic_vector(3 downto 0);
     pattern2_b_i : in std_logic_vector(3 downto 0);
-    red_mux_o : out std_logic_vector(3 downto 0);			-- mux output
+    red_mux_o : out std_logic_vector(3 downto 0);			-- mux output vgacontroller
 	green_mux_o : out std_logic_vector(3 downto 0);
 	blue_mux_o : out std_logic_vector(3 downto 0);
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);	-- counter horizontal

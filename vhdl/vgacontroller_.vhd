@@ -16,6 +16,8 @@
 -- 2018.02.21	0.2		Resch	Added Pattern Generators and TOP Design
 -- 2018.02.22	0.3		Resch	Update TOP Design and first output via
 --                              the nice vga app from FHTW to disk
+-- 2018.03.27	0.4		Resch	Update signal routing sourcemultiplexer to
+--								VGA controller
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -33,10 +35,10 @@ entity vgacontroller is
 	vsync_o : out std_logic;								-- generated vsync VGA
 	pixelhorizontal_o : out std_logic_vector(9 downto 0);	-- counter horizontal
 	pixelvertical_o : out std_logic_vector(9 downto 0);		-- counter vertical (lines)
-    red_i : in std_logic_vector(3 downto 0);
+    red_i : in std_logic_vector(3 downto 0);				-- data from sourcemultiplexer
     green_i : in std_logic_vector(3 downto 0);
     blue_i : in std_logic_vector(3 downto 0);
-    red_o : out std_logic_vector(3 downto 0);
+    red_o : out std_logic_vector(3 downto 0);				-- data to VGA
     green_o : out std_logic_vector(3 downto 0);
     blue_o : out std_logic_vector(3 downto 0)
   );

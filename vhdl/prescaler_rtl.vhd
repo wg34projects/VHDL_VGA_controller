@@ -35,6 +35,7 @@ architecture rtl of prescaler is
 
 begin
 
+  -- generates 25MHz sigal
   P_prescaler: process (clk_i, reset_i)
 
   begin

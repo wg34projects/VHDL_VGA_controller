@@ -16,6 +16,8 @@
 -- 2018.02.21	0.2		Resch	Added Pattern Generators and TOP Design
 -- 2018.02.22	0.3		Resch	Update TOP Design and first output via
 --                              the nice vga app from FHTW to disk
+-- 2018.03.27	0.4		Resch	Update signal routing sourcemultiplexer to
+--								VGA controller
 ---------------------------------------------------------------------------- 
 
 library IEEE;

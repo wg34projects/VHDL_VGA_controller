@@ -16,6 +16,8 @@
 -- 2018.02.21	0.2		Resch	Added Pattern Generators and TOP Design
 -- 2018.02.22	0.3		Resch	Update TOP Design and first output via
 --                              the nice vga app from FHTW to disk
+-- 2018.03.27	0.4		Resch	Update signal routing sourcemultiplexer to
+--								VGA controller
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -40,7 +42,29 @@ architecture rtl of vgacontroller is
 
 begin
 
-  -- horizontal and vertical pixel counter
+  -- forwards signals to VGA only if in valid range, otherwise 0
+  P_out: process (clk_i, reset_i)
+
+  begin
+
+    if unsigned(s_pixelhorizontal) > unsigned(C_hpicture2) or
+       unsigned(s_pixelvertical) > unsigned(C_vpicture2) then
+
+      red_o <= (others => '0');
+      green_o <= (others => '0');
+      blue_o <= (others => '0');
+
+    else
+
+	  red_o <= red_i;
+	  green_o <= green_i;
+      blue_o <= blue_i;
+
+    end if;
+
+  end process P_out;
+
+  -- counts horizontal and vertical pixels
   P_count: process (clk_i, reset_i)
 
   begin
@@ -53,52 +77,37 @@ begin
 
     elsif clk_i'event and clk_i = '1' then
 
-      if unsigned(s_pixelhorizontal) > unsigned(C_hpicture2) or
-         unsigned(s_pixelvertical) > unsigned(C_vpicture2) then
-
-        red_o <= (others => '0');
-	    green_o <= (others => '0');
-        blue_o <= (others => '0');
-
-      else
-
-		red_o <= red_i;
-		green_o <= green_i;
-        blue_o <= blue_i;
-
-      end if;
-
-	  -- set enable
+      -- set enable
       if pixenable_i = '1' then
 
-	  s_enable <= '1';
+	    s_enable <= '1';
 
       end if;
 
-	    -- if enabled count up and reset enable
-        if s_enable = '1' then
+	  -- if enabled count up and reset enable
+      if s_enable = '1' then
 
-          s_pixelhorizontal <= unsigned(s_pixelhorizontal) + 1;
-		  s_enable <= '0';
+        s_pixelhorizontal <= unsigned(s_pixelhorizontal) + 1;
+		s_enable <= '0';
 
-		  -- reset after last horizontal porch
-		  if s_pixelhorizontal = C_hmax then
+		-- reset after last horizontal porch
+		if s_pixelhorizontal = C_hmax then
 
-			s_pixelhorizontal <= (others => '0');
-			s_pixelvertical <= unsigned(s_pixelvertical) + 1;
+		  s_pixelhorizontal <= (others => '0');
+	      s_pixelvertical <= unsigned(s_pixelvertical) + 1;
 
-			-- reset after last vertical porch
-    	    if s_pixelvertical = C_vmax then
+		  -- reset after last vertical porch
+    	  if s_pixelvertical = C_vmax then
 
-			  s_pixelvertical <= (others => '0');
+			s_pixelvertical <= (others => '0');
 
-            end if;
+          end if;
 
-		  end if;
-
-        end if;
+		end if;
 
       end if;
+
+    end if;
 
   end process P_count;
 
