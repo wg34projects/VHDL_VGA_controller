@@ -43,7 +43,7 @@ architecture rtl of vgacontroller is
 begin
 
   -- forwards signals to VGA only if in valid range, otherwise 0
-  P_out: process (clk_i, reset_i)
+  P_out: process (clk_i, reset_i, s_pixelhorizontal, s_pixelvertical, red_i, green_i, blue_i)
 
   begin
 
