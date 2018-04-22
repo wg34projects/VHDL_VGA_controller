@@ -1,7 +1,7 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
-// Date        : Tue Mar 27 15:13:55 2018
+// Date        : Sun Apr 15 17:45:33 2018
 // Host        : localhost.localdomain running 64-bit Fedora release 27 (Twenty Seven)
 // Command     : write_verilog -force -mode funcsim
 //               /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom2/rom2/rom2_sim_netlist.v
@@ -75,7 +75,7 @@ module rom2
   (* C_HAS_ENA = "0" *) 
   (* C_HAS_ENB = "0" *) 
   (* C_HAS_INJECTERR = "0" *) 
-  (* C_HAS_MEM_OUTPUT_REGS_A = "0" *) 
+  (* C_HAS_MEM_OUTPUT_REGS_A = "1" *) 
   (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) 
   (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) 
   (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
@@ -304,97 +304,122 @@ module rom2_blk_mem_gen_mux
   wire [8:0]douta;
   wire [8:0]p_7_out;
   wire [2:0]sel_pipe;
+  wire [2:0]sel_pipe_d1;
 
   LUT6 #(
     .INIT(64'h0F004F4F0F004040)) 
     \douta[1]_INST_0 
-       (.I0(sel_pipe[0]),
+       (.I0(sel_pipe_d1[0]),
         .I1(p_7_out[0]),
-        .I2(sel_pipe[2]),
+        .I2(sel_pipe_d1[2]),
         .I3(DOADO[0]),
-        .I4(sel_pipe[1]),
+        .I4(sel_pipe_d1[1]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [0]),
         .O(douta[0]));
   LUT6 #(
     .INIT(64'h0F004F4F0F004040)) 
     \douta[2]_INST_0 
-       (.I0(sel_pipe[0]),
+       (.I0(sel_pipe_d1[0]),
         .I1(p_7_out[1]),
-        .I2(sel_pipe[2]),
+        .I2(sel_pipe_d1[2]),
         .I3(DOADO[1]),
-        .I4(sel_pipe[1]),
+        .I4(sel_pipe_d1[1]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [1]),
         .O(douta[1]));
   LUT6 #(
     .INIT(64'h0F004F4F0F004040)) 
     \douta[3]_INST_0 
-       (.I0(sel_pipe[0]),
+       (.I0(sel_pipe_d1[0]),
         .I1(p_7_out[2]),
-        .I2(sel_pipe[2]),
+        .I2(sel_pipe_d1[2]),
         .I3(DOADO[2]),
-        .I4(sel_pipe[1]),
+        .I4(sel_pipe_d1[1]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [2]),
         .O(douta[2]));
   LUT6 #(
     .INIT(64'h0F004F4F0F004040)) 
     \douta[4]_INST_0 
-       (.I0(sel_pipe[0]),
+       (.I0(sel_pipe_d1[0]),
         .I1(p_7_out[3]),
-        .I2(sel_pipe[2]),
+        .I2(sel_pipe_d1[2]),
         .I3(DOADO[3]),
-        .I4(sel_pipe[1]),
+        .I4(sel_pipe_d1[1]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [3]),
         .O(douta[3]));
   LUT6 #(
     .INIT(64'h0F004F4F0F004040)) 
     \douta[5]_INST_0 
-       (.I0(sel_pipe[0]),
+       (.I0(sel_pipe_d1[0]),
         .I1(p_7_out[4]),
-        .I2(sel_pipe[2]),
+        .I2(sel_pipe_d1[2]),
         .I3(DOADO[4]),
-        .I4(sel_pipe[1]),
+        .I4(sel_pipe_d1[1]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [4]),
         .O(douta[4]));
   LUT6 #(
     .INIT(64'h0F004F4F0F004040)) 
     \douta[6]_INST_0 
-       (.I0(sel_pipe[0]),
+       (.I0(sel_pipe_d1[0]),
         .I1(p_7_out[5]),
-        .I2(sel_pipe[2]),
+        .I2(sel_pipe_d1[2]),
         .I3(DOADO[5]),
-        .I4(sel_pipe[1]),
+        .I4(sel_pipe_d1[1]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [5]),
         .O(douta[5]));
   LUT6 #(
     .INIT(64'h0F004F4F0F004040)) 
     \douta[7]_INST_0 
-       (.I0(sel_pipe[0]),
+       (.I0(sel_pipe_d1[0]),
         .I1(p_7_out[6]),
-        .I2(sel_pipe[2]),
+        .I2(sel_pipe_d1[2]),
         .I3(DOADO[6]),
-        .I4(sel_pipe[1]),
+        .I4(sel_pipe_d1[1]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [6]),
         .O(douta[6]));
   LUT6 #(
     .INIT(64'h0F004F4F0F004040)) 
     \douta[8]_INST_0 
-       (.I0(sel_pipe[0]),
+       (.I0(sel_pipe_d1[0]),
         .I1(p_7_out[7]),
-        .I2(sel_pipe[2]),
+        .I2(sel_pipe_d1[2]),
         .I3(DOADO[7]),
-        .I4(sel_pipe[1]),
+        .I4(sel_pipe_d1[1]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [7]),
         .O(douta[7]));
   LUT6 #(
     .INIT(64'h0F004F4F0F004040)) 
     \douta[9]_INST_0 
-       (.I0(sel_pipe[0]),
+       (.I0(sel_pipe_d1[0]),
         .I1(p_7_out[8]),
-        .I2(sel_pipe[2]),
+        .I2(sel_pipe_d1[2]),
         .I3(DOPADOP),
-        .I4(sel_pipe[1]),
+        .I4(sel_pipe_d1[1]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .O(douta[8]));
+  FDRE #(
+    .INIT(1'b0)) 
+    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0] 
+       (.C(clka),
+        .CE(1'b1),
+        .D(sel_pipe[0]),
+        .Q(sel_pipe_d1[0]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1] 
+       (.C(clka),
+        .CE(1'b1),
+        .D(sel_pipe[1]),
+        .Q(sel_pipe_d1[1]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2] 
+       (.C(clka),
+        .CE(1'b1),
+        .D(sel_pipe[2]),
+        .Q(sel_pipe_d1[2]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \no_softecc_sel_reg.ce_pri.sel_pipe_reg[0] 
@@ -548,7 +573,7 @@ module rom2_blk_mem_gen_prim_wrapper_init
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB18E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -662,7 +687,7 @@ module rom2_blk_mem_gen_prim_wrapper_init
         .DOPBDOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOPBDOP_UNCONNECTED [1:0]),
         .ENARDEN(1'b1),
         .ENBWREN(1'b0),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -702,7 +727,7 @@ module rom2_blk_mem_gen_prim_wrapper_init__parameterized0
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -901,7 +926,7 @@ module rom2_blk_mem_gen_prim_wrapper_init__parameterized0
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -948,7 +973,7 @@ module rom2_blk_mem_gen_prim_wrapper_init__parameterized1
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -1147,7 +1172,7 @@ module rom2_blk_mem_gen_prim_wrapper_init__parameterized1
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -1187,7 +1212,7 @@ module rom2_blk_mem_gen_prim_wrapper_init__parameterized2
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB18E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_01(256'h0000000000000000000000000080000000000000000000000010000000000000),
@@ -1301,7 +1326,7 @@ module rom2_blk_mem_gen_prim_wrapper_init__parameterized2
         .DOPBDOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOPBDOP_UNCONNECTED [1:0]),
         .ENARDEN(ena_array),
         .ENBWREN(1'b0),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -1337,7 +1362,7 @@ module rom2_blk_mem_gen_prim_wrapper_init__parameterized3
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -1536,7 +1561,7 @@ module rom2_blk_mem_gen_prim_wrapper_init__parameterized3
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -1575,7 +1600,7 @@ endmodule
 (* C_EN_RDADDRA_CHG = "0" *) (* C_EN_RDADDRB_CHG = "0" *) (* C_EN_SAFETY_CKT = "0" *) 
 (* C_EN_SHUTDOWN_PIN = "0" *) (* C_EN_SLEEP_PIN = "0" *) (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     5.56159 mW" *) 
 (* C_FAMILY = "artix7" *) (* C_HAS_AXI_ID = "0" *) (* C_HAS_ENA = "0" *) 
-(* C_HAS_ENB = "0" *) (* C_HAS_INJECTERR = "0" *) (* C_HAS_MEM_OUTPUT_REGS_A = "0" *) 
+(* C_HAS_ENB = "0" *) (* C_HAS_INJECTERR = "0" *) (* C_HAS_MEM_OUTPUT_REGS_A = "1" *) 
 (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
 (* C_HAS_REGCEA = "0" *) (* C_HAS_REGCEB = "0" *) (* C_HAS_RSTA = "0" *) 
 (* C_HAS_RSTB = "0" *) (* C_HAS_SOFTECC_INPUT_REGS_A = "0" *) (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 

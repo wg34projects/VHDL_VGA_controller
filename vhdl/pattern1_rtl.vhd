@@ -33,11 +33,17 @@ architecture rtl of pattern1 is
 begin
 
   -- generates stripe pattern
-  P_color: process (pixelhorizontal_i, pixelvertical_i, reset_i)
+  P_color: process (clk_i, reset_i) 
 
   begin
 
-    if reset_i = '0' then
+    if reset_i = '1' then
+  
+      pattern1_r_o <= (others => '0');
+      pattern1_g_o <= (others => '0');
+      pattern1_b_o <= (others => '0');
+
+    elsif clk_i'event and clk_i = '1' then
 
 	  -- only active if in valid picture range
       if (unsigned(pixelvertical_i) <= unsigned(C_vpicture)) and 
@@ -94,20 +100,7 @@ begin
 
         end if;
 
-      else
-
-        pattern1_r_o <= (others => '0');
-        pattern1_g_o <= (others => '0');
-        pattern1_b_o <= (others => '0');
-
       end if;
-
-	-- no signal reset mode
-    else
-
-      pattern1_r_o <= (others => '0');
-      pattern1_g_o <= (others => '0');
-      pattern1_b_o <= (others => '0');
 
     end if;
 

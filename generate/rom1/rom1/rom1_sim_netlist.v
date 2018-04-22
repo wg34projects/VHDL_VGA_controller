@@ -1,7 +1,7 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
-// Date        : Tue Mar 27 01:01:56 2018
+// Date        : Sun Apr 15 17:45:51 2018
 // Host        : localhost.localdomain running 64-bit Fedora release 27 (Twenty Seven)
 // Command     : write_verilog -force -mode funcsim
 //               /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom1/rom1/rom1_sim_netlist.v
@@ -75,7 +75,7 @@ module rom1
   (* C_HAS_ENA = "0" *) 
   (* C_HAS_ENB = "0" *) 
   (* C_HAS_INJECTERR = "0" *) 
-  (* C_HAS_MEM_OUTPUT_REGS_A = "0" *) 
+  (* C_HAS_MEM_OUTPUT_REGS_A = "1" *) 
   (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) 
   (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) 
   (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
@@ -931,53 +931,54 @@ module rom1_blk_mem_gen_mux
   wire \douta[9]_INST_0_i_6_n_0 ;
   wire \douta[9]_INST_0_i_7_n_0 ;
   wire [4:0]sel_pipe;
+  wire [4:0]sel_pipe_d1;
 
   LUT5 #(
     .INIT(32'h04FF0400)) 
     \douta[0]_INST_0 
-       (.I0(sel_pipe[2]),
+       (.I0(sel_pipe_d1[2]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram ),
-        .I2(sel_pipe[3]),
-        .I3(sel_pipe[4]),
+        .I2(sel_pipe_d1[3]),
+        .I3(sel_pipe_d1[4]),
         .I4(DOUTA),
         .O(douta[0]));
   LUT5 #(
     .INIT(32'h30BB3088)) 
     \douta[10]_INST_0 
        (.I0(\douta[10]_INST_0_i_1_n_0 ),
-        .I1(sel_pipe[4]),
+        .I1(sel_pipe_d1[4]),
         .I2(\douta[10]_INST_0_i_2_n_0 ),
-        .I3(sel_pipe[3]),
+        .I3(sel_pipe_d1[3]),
         .I4(\douta[10]_INST_0_i_3_n_0 ),
         .O(douta[10]));
   LUT6 #(
     .INIT(64'h0000000033E200E2)) 
     \douta[10]_INST_0_i_1 
        (.I0(DOADO[7]),
-        .I1(sel_pipe[0]),
+        .I1(sel_pipe_d1[0]),
         .I2(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [7]),
-        .I3(sel_pipe[1]),
+        .I3(sel_pipe_d1[1]),
         .I4(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 [7]),
-        .I5(sel_pipe[2]),
+        .I5(sel_pipe_d1[2]),
         .O(\douta[10]_INST_0_i_1_n_0 ));
   MUXF7 \douta[10]_INST_0_i_2 
        (.I0(\douta[10]_INST_0_i_4_n_0 ),
         .I1(\douta[10]_INST_0_i_5_n_0 ),
         .O(\douta[10]_INST_0_i_2_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   MUXF7 \douta[10]_INST_0_i_3 
        (.I0(\douta[10]_INST_0_i_6_n_0 ),
         .I1(\douta[10]_INST_0_i_7_n_0 ),
         .O(\douta[10]_INST_0_i_3_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[10]_INST_0_i_4 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_12 [7]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_13 [7]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_14 [7]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_15 [7]),
         .O(\douta[10]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -985,9 +986,9 @@ module rom1_blk_mem_gen_mux
     \douta[10]_INST_0_i_5 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_16 [7]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_17 [7]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_18 [7]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_19 [7]),
         .O(\douta[10]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -995,9 +996,9 @@ module rom1_blk_mem_gen_mux
     \douta[10]_INST_0_i_6 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 [7]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_5 [7]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_6 [7]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_7 [7]),
         .O(\douta[10]_INST_0_i_6_n_0 ));
   LUT6 #(
@@ -1005,48 +1006,48 @@ module rom1_blk_mem_gen_mux
     \douta[10]_INST_0_i_7 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_8 [7]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_9 [7]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_10 [7]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_11 [7]),
         .O(\douta[10]_INST_0_i_7_n_0 ));
   LUT5 #(
     .INIT(32'h30BB3088)) 
     \douta[11]_INST_0 
        (.I0(\douta[11]_INST_0_i_1_n_0 ),
-        .I1(sel_pipe[4]),
+        .I1(sel_pipe_d1[4]),
         .I2(\douta[11]_INST_0_i_2_n_0 ),
-        .I3(sel_pipe[3]),
+        .I3(sel_pipe_d1[3]),
         .I4(\douta[11]_INST_0_i_3_n_0 ),
         .O(douta[11]));
   LUT6 #(
     .INIT(64'h0000000033E200E2)) 
     \douta[11]_INST_0_i_1 
        (.I0(DOPADOP),
-        .I1(sel_pipe[0]),
+        .I1(sel_pipe_d1[0]),
         .I2(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ),
-        .I3(sel_pipe[1]),
+        .I3(sel_pipe_d1[1]),
         .I4(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ),
-        .I5(sel_pipe[2]),
+        .I5(sel_pipe_d1[2]),
         .O(\douta[11]_INST_0_i_1_n_0 ));
   MUXF7 \douta[11]_INST_0_i_2 
        (.I0(\douta[11]_INST_0_i_4_n_0 ),
         .I1(\douta[11]_INST_0_i_5_n_0 ),
         .O(\douta[11]_INST_0_i_2_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   MUXF7 \douta[11]_INST_0_i_3 
        (.I0(\douta[11]_INST_0_i_6_n_0 ),
         .I1(\douta[11]_INST_0_i_7_n_0 ),
         .O(\douta[11]_INST_0_i_3_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[11]_INST_0_i_4 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_28 ),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_29 ),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_30 ),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_31 ),
         .O(\douta[11]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -1054,9 +1055,9 @@ module rom1_blk_mem_gen_mux
     \douta[11]_INST_0_i_5 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_32 ),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_33 ),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_34 ),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_35 ),
         .O(\douta[11]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -1064,9 +1065,9 @@ module rom1_blk_mem_gen_mux
     \douta[11]_INST_0_i_6 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_20 ),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_21 ),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_22 ),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_23 ),
         .O(\douta[11]_INST_0_i_6_n_0 ));
   LUT6 #(
@@ -1074,66 +1075,66 @@ module rom1_blk_mem_gen_mux
     \douta[11]_INST_0_i_7 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_24 ),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_25 ),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_26 ),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_27 ),
         .O(\douta[11]_INST_0_i_7_n_0 ));
   LUT5 #(
     .INIT(32'h04FF0400)) 
     \douta[1]_INST_0 
-       (.I0(sel_pipe[2]),
+       (.I0(sel_pipe_d1[2]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_3 [0]),
-        .I2(sel_pipe[3]),
-        .I3(sel_pipe[4]),
+        .I2(sel_pipe_d1[3]),
+        .I3(sel_pipe_d1[4]),
         .I4(\DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T ),
         .O(douta[1]));
   LUT5 #(
     .INIT(32'h04FF0400)) 
     \douta[2]_INST_0 
-       (.I0(sel_pipe[2]),
+       (.I0(sel_pipe_d1[2]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_3 [1]),
-        .I2(sel_pipe[3]),
-        .I3(sel_pipe[4]),
+        .I2(sel_pipe_d1[3]),
+        .I3(sel_pipe_d1[4]),
         .I4(\DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_0 ),
         .O(douta[2]));
   LUT5 #(
     .INIT(32'h30BB3088)) 
     \douta[3]_INST_0 
        (.I0(\douta[3]_INST_0_i_1_n_0 ),
-        .I1(sel_pipe[4]),
+        .I1(sel_pipe_d1[4]),
         .I2(\douta[3]_INST_0_i_2_n_0 ),
-        .I3(sel_pipe[3]),
+        .I3(sel_pipe_d1[3]),
         .I4(\douta[3]_INST_0_i_3_n_0 ),
         .O(douta[3]));
   LUT6 #(
     .INIT(64'h0000000033E200E2)) 
     \douta[3]_INST_0_i_1 
        (.I0(DOADO[0]),
-        .I1(sel_pipe[0]),
+        .I1(sel_pipe_d1[0]),
         .I2(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [0]),
-        .I3(sel_pipe[1]),
+        .I3(sel_pipe_d1[1]),
         .I4(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 [0]),
-        .I5(sel_pipe[2]),
+        .I5(sel_pipe_d1[2]),
         .O(\douta[3]_INST_0_i_1_n_0 ));
   MUXF7 \douta[3]_INST_0_i_2 
        (.I0(\douta[3]_INST_0_i_4_n_0 ),
         .I1(\douta[3]_INST_0_i_5_n_0 ),
         .O(\douta[3]_INST_0_i_2_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   MUXF7 \douta[3]_INST_0_i_3 
        (.I0(\douta[3]_INST_0_i_6_n_0 ),
         .I1(\douta[3]_INST_0_i_7_n_0 ),
         .O(\douta[3]_INST_0_i_3_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[3]_INST_0_i_4 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_12 [0]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_13 [0]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_14 [0]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_15 [0]),
         .O(\douta[3]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -1141,9 +1142,9 @@ module rom1_blk_mem_gen_mux
     \douta[3]_INST_0_i_5 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_16 [0]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_17 [0]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_18 [0]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_19 [0]),
         .O(\douta[3]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -1151,9 +1152,9 @@ module rom1_blk_mem_gen_mux
     \douta[3]_INST_0_i_6 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 [0]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_5 [0]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_6 [0]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_7 [0]),
         .O(\douta[3]_INST_0_i_6_n_0 ));
   LUT6 #(
@@ -1161,48 +1162,48 @@ module rom1_blk_mem_gen_mux
     \douta[3]_INST_0_i_7 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_8 [0]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_9 [0]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_10 [0]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_11 [0]),
         .O(\douta[3]_INST_0_i_7_n_0 ));
   LUT5 #(
     .INIT(32'h30BB3088)) 
     \douta[4]_INST_0 
        (.I0(\douta[4]_INST_0_i_1_n_0 ),
-        .I1(sel_pipe[4]),
+        .I1(sel_pipe_d1[4]),
         .I2(\douta[4]_INST_0_i_2_n_0 ),
-        .I3(sel_pipe[3]),
+        .I3(sel_pipe_d1[3]),
         .I4(\douta[4]_INST_0_i_3_n_0 ),
         .O(douta[4]));
   LUT6 #(
     .INIT(64'h0000000033E200E2)) 
     \douta[4]_INST_0_i_1 
        (.I0(DOADO[1]),
-        .I1(sel_pipe[0]),
+        .I1(sel_pipe_d1[0]),
         .I2(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [1]),
-        .I3(sel_pipe[1]),
+        .I3(sel_pipe_d1[1]),
         .I4(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 [1]),
-        .I5(sel_pipe[2]),
+        .I5(sel_pipe_d1[2]),
         .O(\douta[4]_INST_0_i_1_n_0 ));
   MUXF7 \douta[4]_INST_0_i_2 
        (.I0(\douta[4]_INST_0_i_4_n_0 ),
         .I1(\douta[4]_INST_0_i_5_n_0 ),
         .O(\douta[4]_INST_0_i_2_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   MUXF7 \douta[4]_INST_0_i_3 
        (.I0(\douta[4]_INST_0_i_6_n_0 ),
         .I1(\douta[4]_INST_0_i_7_n_0 ),
         .O(\douta[4]_INST_0_i_3_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[4]_INST_0_i_4 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_12 [1]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_13 [1]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_14 [1]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_15 [1]),
         .O(\douta[4]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -1210,9 +1211,9 @@ module rom1_blk_mem_gen_mux
     \douta[4]_INST_0_i_5 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_16 [1]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_17 [1]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_18 [1]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_19 [1]),
         .O(\douta[4]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -1220,9 +1221,9 @@ module rom1_blk_mem_gen_mux
     \douta[4]_INST_0_i_6 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 [1]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_5 [1]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_6 [1]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_7 [1]),
         .O(\douta[4]_INST_0_i_6_n_0 ));
   LUT6 #(
@@ -1230,48 +1231,48 @@ module rom1_blk_mem_gen_mux
     \douta[4]_INST_0_i_7 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_8 [1]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_9 [1]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_10 [1]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_11 [1]),
         .O(\douta[4]_INST_0_i_7_n_0 ));
   LUT5 #(
     .INIT(32'h30BB3088)) 
     \douta[5]_INST_0 
        (.I0(\douta[5]_INST_0_i_1_n_0 ),
-        .I1(sel_pipe[4]),
+        .I1(sel_pipe_d1[4]),
         .I2(\douta[5]_INST_0_i_2_n_0 ),
-        .I3(sel_pipe[3]),
+        .I3(sel_pipe_d1[3]),
         .I4(\douta[5]_INST_0_i_3_n_0 ),
         .O(douta[5]));
   LUT6 #(
     .INIT(64'h0000000033E200E2)) 
     \douta[5]_INST_0_i_1 
        (.I0(DOADO[2]),
-        .I1(sel_pipe[0]),
+        .I1(sel_pipe_d1[0]),
         .I2(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [2]),
-        .I3(sel_pipe[1]),
+        .I3(sel_pipe_d1[1]),
         .I4(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 [2]),
-        .I5(sel_pipe[2]),
+        .I5(sel_pipe_d1[2]),
         .O(\douta[5]_INST_0_i_1_n_0 ));
   MUXF7 \douta[5]_INST_0_i_2 
        (.I0(\douta[5]_INST_0_i_4_n_0 ),
         .I1(\douta[5]_INST_0_i_5_n_0 ),
         .O(\douta[5]_INST_0_i_2_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   MUXF7 \douta[5]_INST_0_i_3 
        (.I0(\douta[5]_INST_0_i_6_n_0 ),
         .I1(\douta[5]_INST_0_i_7_n_0 ),
         .O(\douta[5]_INST_0_i_3_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[5]_INST_0_i_4 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_12 [2]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_13 [2]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_14 [2]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_15 [2]),
         .O(\douta[5]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -1279,9 +1280,9 @@ module rom1_blk_mem_gen_mux
     \douta[5]_INST_0_i_5 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_16 [2]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_17 [2]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_18 [2]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_19 [2]),
         .O(\douta[5]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -1289,9 +1290,9 @@ module rom1_blk_mem_gen_mux
     \douta[5]_INST_0_i_6 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 [2]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_5 [2]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_6 [2]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_7 [2]),
         .O(\douta[5]_INST_0_i_6_n_0 ));
   LUT6 #(
@@ -1299,48 +1300,48 @@ module rom1_blk_mem_gen_mux
     \douta[5]_INST_0_i_7 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_8 [2]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_9 [2]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_10 [2]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_11 [2]),
         .O(\douta[5]_INST_0_i_7_n_0 ));
   LUT5 #(
     .INIT(32'h30BB3088)) 
     \douta[6]_INST_0 
        (.I0(\douta[6]_INST_0_i_1_n_0 ),
-        .I1(sel_pipe[4]),
+        .I1(sel_pipe_d1[4]),
         .I2(\douta[6]_INST_0_i_2_n_0 ),
-        .I3(sel_pipe[3]),
+        .I3(sel_pipe_d1[3]),
         .I4(\douta[6]_INST_0_i_3_n_0 ),
         .O(douta[6]));
   LUT6 #(
     .INIT(64'h0000000033E200E2)) 
     \douta[6]_INST_0_i_1 
        (.I0(DOADO[3]),
-        .I1(sel_pipe[0]),
+        .I1(sel_pipe_d1[0]),
         .I2(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [3]),
-        .I3(sel_pipe[1]),
+        .I3(sel_pipe_d1[1]),
         .I4(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 [3]),
-        .I5(sel_pipe[2]),
+        .I5(sel_pipe_d1[2]),
         .O(\douta[6]_INST_0_i_1_n_0 ));
   MUXF7 \douta[6]_INST_0_i_2 
        (.I0(\douta[6]_INST_0_i_4_n_0 ),
         .I1(\douta[6]_INST_0_i_5_n_0 ),
         .O(\douta[6]_INST_0_i_2_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   MUXF7 \douta[6]_INST_0_i_3 
        (.I0(\douta[6]_INST_0_i_6_n_0 ),
         .I1(\douta[6]_INST_0_i_7_n_0 ),
         .O(\douta[6]_INST_0_i_3_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[6]_INST_0_i_4 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_12 [3]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_13 [3]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_14 [3]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_15 [3]),
         .O(\douta[6]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -1348,9 +1349,9 @@ module rom1_blk_mem_gen_mux
     \douta[6]_INST_0_i_5 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_16 [3]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_17 [3]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_18 [3]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_19 [3]),
         .O(\douta[6]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -1358,9 +1359,9 @@ module rom1_blk_mem_gen_mux
     \douta[6]_INST_0_i_6 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 [3]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_5 [3]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_6 [3]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_7 [3]),
         .O(\douta[6]_INST_0_i_6_n_0 ));
   LUT6 #(
@@ -1368,48 +1369,48 @@ module rom1_blk_mem_gen_mux
     \douta[6]_INST_0_i_7 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_8 [3]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_9 [3]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_10 [3]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_11 [3]),
         .O(\douta[6]_INST_0_i_7_n_0 ));
   LUT5 #(
     .INIT(32'h30BB3088)) 
     \douta[7]_INST_0 
        (.I0(\douta[7]_INST_0_i_1_n_0 ),
-        .I1(sel_pipe[4]),
+        .I1(sel_pipe_d1[4]),
         .I2(\douta[7]_INST_0_i_2_n_0 ),
-        .I3(sel_pipe[3]),
+        .I3(sel_pipe_d1[3]),
         .I4(\douta[7]_INST_0_i_3_n_0 ),
         .O(douta[7]));
   LUT6 #(
     .INIT(64'h0000000033E200E2)) 
     \douta[7]_INST_0_i_1 
        (.I0(DOADO[4]),
-        .I1(sel_pipe[0]),
+        .I1(sel_pipe_d1[0]),
         .I2(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [4]),
-        .I3(sel_pipe[1]),
+        .I3(sel_pipe_d1[1]),
         .I4(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 [4]),
-        .I5(sel_pipe[2]),
+        .I5(sel_pipe_d1[2]),
         .O(\douta[7]_INST_0_i_1_n_0 ));
   MUXF7 \douta[7]_INST_0_i_2 
        (.I0(\douta[7]_INST_0_i_4_n_0 ),
         .I1(\douta[7]_INST_0_i_5_n_0 ),
         .O(\douta[7]_INST_0_i_2_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   MUXF7 \douta[7]_INST_0_i_3 
        (.I0(\douta[7]_INST_0_i_6_n_0 ),
         .I1(\douta[7]_INST_0_i_7_n_0 ),
         .O(\douta[7]_INST_0_i_3_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[7]_INST_0_i_4 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_12 [4]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_13 [4]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_14 [4]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_15 [4]),
         .O(\douta[7]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -1417,9 +1418,9 @@ module rom1_blk_mem_gen_mux
     \douta[7]_INST_0_i_5 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_16 [4]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_17 [4]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_18 [4]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_19 [4]),
         .O(\douta[7]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -1427,9 +1428,9 @@ module rom1_blk_mem_gen_mux
     \douta[7]_INST_0_i_6 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 [4]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_5 [4]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_6 [4]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_7 [4]),
         .O(\douta[7]_INST_0_i_6_n_0 ));
   LUT6 #(
@@ -1437,48 +1438,48 @@ module rom1_blk_mem_gen_mux
     \douta[7]_INST_0_i_7 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_8 [4]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_9 [4]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_10 [4]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_11 [4]),
         .O(\douta[7]_INST_0_i_7_n_0 ));
   LUT5 #(
     .INIT(32'h30BB3088)) 
     \douta[8]_INST_0 
        (.I0(\douta[8]_INST_0_i_1_n_0 ),
-        .I1(sel_pipe[4]),
+        .I1(sel_pipe_d1[4]),
         .I2(\douta[8]_INST_0_i_2_n_0 ),
-        .I3(sel_pipe[3]),
+        .I3(sel_pipe_d1[3]),
         .I4(\douta[8]_INST_0_i_3_n_0 ),
         .O(douta[8]));
   LUT6 #(
     .INIT(64'h0000000033E200E2)) 
     \douta[8]_INST_0_i_1 
        (.I0(DOADO[5]),
-        .I1(sel_pipe[0]),
+        .I1(sel_pipe_d1[0]),
         .I2(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [5]),
-        .I3(sel_pipe[1]),
+        .I3(sel_pipe_d1[1]),
         .I4(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 [5]),
-        .I5(sel_pipe[2]),
+        .I5(sel_pipe_d1[2]),
         .O(\douta[8]_INST_0_i_1_n_0 ));
   MUXF7 \douta[8]_INST_0_i_2 
        (.I0(\douta[8]_INST_0_i_4_n_0 ),
         .I1(\douta[8]_INST_0_i_5_n_0 ),
         .O(\douta[8]_INST_0_i_2_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   MUXF7 \douta[8]_INST_0_i_3 
        (.I0(\douta[8]_INST_0_i_6_n_0 ),
         .I1(\douta[8]_INST_0_i_7_n_0 ),
         .O(\douta[8]_INST_0_i_3_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[8]_INST_0_i_4 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_12 [5]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_13 [5]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_14 [5]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_15 [5]),
         .O(\douta[8]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -1486,9 +1487,9 @@ module rom1_blk_mem_gen_mux
     \douta[8]_INST_0_i_5 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_16 [5]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_17 [5]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_18 [5]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_19 [5]),
         .O(\douta[8]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -1496,9 +1497,9 @@ module rom1_blk_mem_gen_mux
     \douta[8]_INST_0_i_6 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 [5]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_5 [5]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_6 [5]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_7 [5]),
         .O(\douta[8]_INST_0_i_6_n_0 ));
   LUT6 #(
@@ -1506,48 +1507,48 @@ module rom1_blk_mem_gen_mux
     \douta[8]_INST_0_i_7 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_8 [5]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_9 [5]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_10 [5]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_11 [5]),
         .O(\douta[8]_INST_0_i_7_n_0 ));
   LUT5 #(
     .INIT(32'h30BB3088)) 
     \douta[9]_INST_0 
        (.I0(\douta[9]_INST_0_i_1_n_0 ),
-        .I1(sel_pipe[4]),
+        .I1(sel_pipe_d1[4]),
         .I2(\douta[9]_INST_0_i_2_n_0 ),
-        .I3(sel_pipe[3]),
+        .I3(sel_pipe_d1[3]),
         .I4(\douta[9]_INST_0_i_3_n_0 ),
         .O(douta[9]));
   LUT6 #(
     .INIT(64'h0000000033E200E2)) 
     \douta[9]_INST_0_i_1 
        (.I0(DOADO[6]),
-        .I1(sel_pipe[0]),
+        .I1(sel_pipe_d1[0]),
         .I2(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram [6]),
-        .I3(sel_pipe[1]),
+        .I3(sel_pipe_d1[1]),
         .I4(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 [6]),
-        .I5(sel_pipe[2]),
+        .I5(sel_pipe_d1[2]),
         .O(\douta[9]_INST_0_i_1_n_0 ));
   MUXF7 \douta[9]_INST_0_i_2 
        (.I0(\douta[9]_INST_0_i_4_n_0 ),
         .I1(\douta[9]_INST_0_i_5_n_0 ),
         .O(\douta[9]_INST_0_i_2_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   MUXF7 \douta[9]_INST_0_i_3 
        (.I0(\douta[9]_INST_0_i_6_n_0 ),
         .I1(\douta[9]_INST_0_i_7_n_0 ),
         .O(\douta[9]_INST_0_i_3_n_0 ),
-        .S(sel_pipe[2]));
+        .S(sel_pipe_d1[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[9]_INST_0_i_4 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_12 [6]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_13 [6]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_14 [6]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_15 [6]),
         .O(\douta[9]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -1555,9 +1556,9 @@ module rom1_blk_mem_gen_mux
     \douta[9]_INST_0_i_5 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_16 [6]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_17 [6]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_18 [6]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_19 [6]),
         .O(\douta[9]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -1565,9 +1566,9 @@ module rom1_blk_mem_gen_mux
     \douta[9]_INST_0_i_6 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 [6]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_5 [6]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_6 [6]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_7 [6]),
         .O(\douta[9]_INST_0_i_6_n_0 ));
   LUT6 #(
@@ -1575,11 +1576,51 @@ module rom1_blk_mem_gen_mux
     \douta[9]_INST_0_i_7 
        (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_8 [6]),
         .I1(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_9 [6]),
-        .I2(sel_pipe[1]),
+        .I2(sel_pipe_d1[1]),
         .I3(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_10 [6]),
-        .I4(sel_pipe[0]),
+        .I4(sel_pipe_d1[0]),
         .I5(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_11 [6]),
         .O(\douta[9]_INST_0_i_7_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0] 
+       (.C(clka),
+        .CE(1'b1),
+        .D(sel_pipe[0]),
+        .Q(sel_pipe_d1[0]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1] 
+       (.C(clka),
+        .CE(1'b1),
+        .D(sel_pipe[1]),
+        .Q(sel_pipe_d1[1]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2] 
+       (.C(clka),
+        .CE(1'b1),
+        .D(sel_pipe[2]),
+        .Q(sel_pipe_d1[2]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[3] 
+       (.C(clka),
+        .CE(1'b1),
+        .D(sel_pipe[3]),
+        .Q(sel_pipe_d1[3]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[4] 
+       (.C(clka),
+        .CE(1'b1),
+        .D(sel_pipe[4]),
+        .Q(sel_pipe_d1[4]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \no_softecc_sel_reg.ce_pri.sel_pipe_reg[0] 
@@ -2273,7 +2314,7 @@ module rom1_blk_mem_gen_prim_wrapper_init
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -2472,7 +2513,7 @@ module rom1_blk_mem_gen_prim_wrapper_init
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -2484,7 +2525,7 @@ module rom1_blk_mem_gen_prim_wrapper_init
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -2683,7 +2724,7 @@ module rom1_blk_mem_gen_prim_wrapper_init
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -2717,7 +2758,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized0
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB18E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -2831,7 +2872,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized0
         .DOPBDOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOPBDOP_UNCONNECTED [1:0]),
         .ENARDEN(ram_ena),
         .ENBWREN(1'b0),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -2880,7 +2921,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized1
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -3079,7 +3120,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized1
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -3091,7 +3132,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized1
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -3290,7 +3331,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized1
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -3333,7 +3374,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized10
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -3532,7 +3573,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized10
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -3573,7 +3614,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized11
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -3772,7 +3813,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized11
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -3824,7 +3865,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized12
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -4023,7 +4064,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized12
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -4066,7 +4107,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized13
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -4265,7 +4306,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized13
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -4308,7 +4349,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized14
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -4507,7 +4548,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized14
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -4550,7 +4591,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized15
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -4749,7 +4790,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized15
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -4792,7 +4833,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized16
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -4991,7 +5032,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized16
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -5034,7 +5075,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized17
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -5233,7 +5274,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized17
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -5276,7 +5317,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized18
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -5475,7 +5516,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized18
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -5518,7 +5559,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized19
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -5717,7 +5758,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized19
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -5757,7 +5798,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized2
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -5956,7 +5997,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized2
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -5997,7 +6038,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized20
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -6196,7 +6237,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized20
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -6246,7 +6287,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized21
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -6445,7 +6486,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized21
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -6495,7 +6536,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized22
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -6694,7 +6735,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized22
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -6753,7 +6794,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized3
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -6952,7 +6993,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized3
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -6964,7 +7005,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized3
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -7163,7 +7204,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized3
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -7206,7 +7247,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized4
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -7405,7 +7446,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized4
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -7448,7 +7489,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized5
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -7647,7 +7688,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized5
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -7690,7 +7731,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized6
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -7889,7 +7930,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized6
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -7932,7 +7973,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized7
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -8131,7 +8172,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized7
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -8174,7 +8215,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized8
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -8373,7 +8414,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized8
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -8416,7 +8457,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized9
   (* CLOCK_DOMAINS = "COMMON" *) 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(0),
+    .DOA_REG(1),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -8615,7 +8656,7 @@ module rom1_blk_mem_gen_prim_wrapper_init__parameterized9
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
+        .REGCEAREGCE(1'b1),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -8654,7 +8695,7 @@ endmodule
 (* C_EN_RDADDRA_CHG = "0" *) (* C_EN_RDADDRB_CHG = "0" *) (* C_EN_SAFETY_CKT = "0" *) 
 (* C_EN_SHUTDOWN_PIN = "0" *) (* C_EN_SLEEP_PIN = "0" *) (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     8.356818 mW" *) 
 (* C_FAMILY = "artix7" *) (* C_HAS_AXI_ID = "0" *) (* C_HAS_ENA = "0" *) 
-(* C_HAS_ENB = "0" *) (* C_HAS_INJECTERR = "0" *) (* C_HAS_MEM_OUTPUT_REGS_A = "0" *) 
+(* C_HAS_ENB = "0" *) (* C_HAS_INJECTERR = "0" *) (* C_HAS_MEM_OUTPUT_REGS_A = "1" *) 
 (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
 (* C_HAS_REGCEA = "0" *) (* C_HAS_REGCEB = "0" *) (* C_HAS_RSTA = "0" *) 
 (* C_HAS_RSTB = "0" *) (* C_HAS_SOFTECC_INPUT_REGS_A = "0" *) (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 

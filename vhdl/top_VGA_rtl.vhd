@@ -150,6 +150,7 @@ component pattern1
 
   port
   (
+    clk_i : in std_logic;
     reset_i : in std_logic;
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);
@@ -165,6 +166,7 @@ component pattern2
 
   port
   (
+    clk_i : in std_logic;
     reset_i : in std_logic;
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);
@@ -184,6 +186,7 @@ component memory1
     reset_i : in std_logic;
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);
+	pixenable_i : in std_logic;
     memory1_r_o : out std_logic_vector(3 downto 0);
 	memory1_g_o : out std_logic_vector(3 downto 0);
 	memory1_b_o : out std_logic_vector(3 downto 0);
@@ -202,6 +205,7 @@ component memory2
     reset_i : in std_logic;
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);
+	pixenable_i : in std_logic;
     memory2_r_o : out std_logic_vector(3 downto 0);
 	memory2_g_o : out std_logic_vector(3 downto 0);
 	memory2_b_o : out std_logic_vector(3 downto 0);
@@ -304,6 +308,7 @@ begin
 
   port map 
   (
+    clk_i => clk_i,
     reset_i => reset_i,
     pixelhorizontal_i => pixelhorizontal,
     pixelvertical_i => pixelvertical,
@@ -317,6 +322,7 @@ begin
 
   port map 
   (
+    clk_i => clk_i,
     reset_i => reset_i,
     pixelhorizontal_i => pixelhorizontal,
     pixelvertical_i => pixelvertical,
@@ -334,6 +340,7 @@ begin
     reset_i => reset_i,
 	pixelhorizontal_i => pixelhorizontal,
 	pixelvertical_i => pixelvertical,
+    pixenable_i => pixenable,
     memory1_r_o => memory1_r,
 	memory1_g_o => memory1_g,
 	memory1_b_o => memory1_b,
@@ -350,6 +357,7 @@ begin
     reset_i => reset_i,
 	pixelhorizontal_i => pixelhorizontal,
 	pixelvertical_i => pixelvertical,
+    pixenable_i => pixenable,
     memory2_r_o => memory2_r,
 	memory2_g_o => memory2_g,
 	memory2_b_o => memory2_b,

@@ -30,36 +30,25 @@ architecture rtl of memory2 is
   constant C_vpicture : std_logic_vector(9 downto 0) := "0001100011"; -- 99
   -- max adress overlay
   constant C_maxadress : std_logic_vector(13 downto 0) := "10011100001111"; -- 9999
+
   -- pixelcounter and trigger
   signal pixelcount_s : std_logic_vector(13 downto 0);
-  signal pixelcountstore_s : std_logic;
 
 begin
 
   -- calculates rom2 adress and reads data
-  P_color: process (clk_i, pixelhorizontal_i, pixelvertical_i, reset_i, data_rom2_i, countstart_i, pixelcount_s, pixelcountstore_s)
+  P_color: process (clk_i, reset_i)
 
   begin
 
     if reset_i = '1' then
 
-      addr_rom2_o <= (others => '0');
-      memory2_r_o <= (others => '0');
-      memory2_g_o <= (others => '0');
-      memory2_b_o <= (others => '0');
-      pixelcount_s <= (others => '0');
-      pixelcountstore_s <= '0';
+        pixelcount_s <= (others => '0');
 
     elsif clk_i'event and clk_i = '1' then
 
-	  -- adress to rom2 and data from rom2
-      addr_rom2_o <= pixelcount_s(13 downto 0);
-      memory2_r_o <= data_rom2_i(11 downto 8);
-      memory2_g_o <= data_rom2_i(7 downto 4);
-      memory2_b_o <= data_rom2_i(3 downto 0);
-
       -- trigger for new pixel
-      if (pixelhorizontal_i(0) /= pixelcountstore_s) then
+      if (pixenable_i = '1') then
 
 	    -- start only if inside valid range
         if countstart_i = '1' then
@@ -73,17 +62,20 @@ begin
 
         end if;
 
+    	  -- reset internal pixelcount only after a frame is done
+          if unsigned(pixelhorizontal_i) = 0 and unsigned(pixelvertical_i) = 0 then
+
+            pixelcount_s <= (others => '0');
+
+          end if;
+
       end if;
 
-	  -- reset internal pixelcount only after a frame is done
-      if unsigned(pixelhorizontal_i) = 0 and unsigned(pixelvertical_i) = 0 then
-
-        pixelcount_s <= (others => '0');
-
-      end if;
-
-	-- store last pixelcount to trigger new pixel
-    pixelcountstore_s <= pixelhorizontal_i(0);
+	  -- adress to rom2 and data from rom2
+      addr_rom2_o <= pixelcount_s(13 downto 0);
+      memory2_r_o <= data_rom2_i(11 downto 8);
+      memory2_g_o <= data_rom2_i(7 downto 4);
+      memory2_b_o <= data_rom2_i(3 downto 0);
 
     end if;
 

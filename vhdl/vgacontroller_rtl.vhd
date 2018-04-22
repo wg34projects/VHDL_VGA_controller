@@ -17,7 +17,7 @@
 -- 2018.02.22	0.3		Resch	Update TOP Design and first output via
 --                              the nice vga app from FHTW to disk
 -- 2018.03.27	0.4		Resch	Update signal routing sourcemultiplexer to
---								VGA controller
+--								  VGA controller
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -25,6 +25,15 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 
 architecture rtl of vgacontroller is
+
+  type T_vgaport is
+    record
+      hsync : std_logic;
+      vsync : std_logic;
+      red   : std_logic_vector(3 downto 0);
+      green : std_logic_vector(3 downto 0);
+      blue  : std_logic_vector(3 downto 0);
+    end record;
 
   -- values 640x480 pictures according specification
   constant C_hmax : std_logic_vector(9 downto 0) 		:= "1100011111"; -- 799
@@ -39,30 +48,45 @@ architecture rtl of vgacontroller is
   signal s_pixelhorizontal : std_logic_vector(9 downto 0);	-- counter horizontal
   signal s_pixelvertical : std_logic_vector(9 downto 0);	-- counter vertical
   signal s_enable : std_logic := '0';						-- enable signal for 1 pixel
+  signal s_vgasync : T_vgaport;
 
 begin
 
   -- forwards signals to VGA only if in valid range, otherwise 0
-  P_out: process (clk_i, reset_i, s_pixelhorizontal, s_pixelvertical, red_i, green_i, blue_i)
+  P_out: process (clk_i, reset_i)
 
   begin
 
-    if unsigned(s_pixelhorizontal) > unsigned(C_hpicture2) or
-       unsigned(s_pixelvertical) > unsigned(C_vpicture2) then
+    if reset_i = '1' then
+  
+      s_vgasync.red <= (others => '0');
+      s_vgasync.green <= (others => '0');
+      s_vgasync.blue <= (others => '0');
 
-      red_o <= (others => '0');
-      green_o <= (others => '0');
-      blue_o <= (others => '0');
+    elsif clk_i'event and clk_i = '1' then
 
-    else
+      if unsigned(s_pixelhorizontal) > unsigned(C_hpicture2) or
+         unsigned(s_pixelvertical) > unsigned(C_vpicture2) then
 
-	  red_o <= red_i;
-	  green_o <= green_i;
-      blue_o <= blue_i;
+        s_vgasync.red <= (others => '0');
+        s_vgasync.green <= (others => '0');
+        s_vgasync.blue <= (others => '0');
+
+      else
+
+        s_vgasync.red <= red_i;
+        s_vgasync.green <= green_i;
+        s_vgasync.blue <= blue_i;
+
+      end if;
 
     end if;
 
   end process P_out;
+
+  red_o <= s_vgasync.red;
+  green_o <= s_vgasync.green;
+  blue_o <= s_vgasync.blue;
 
   -- counts horizontal and vertical pixels
   P_count: process (clk_i, reset_i)
@@ -80,32 +104,32 @@ begin
       -- set enable
       if pixenable_i = '1' then
 
-	    s_enable <= '1';
+        s_enable <= '1';
 
       end if;
 
-	  -- if enabled count up and reset enable
+      -- if enabled count up and reset enable
       if s_enable = '1' then
 
         s_pixelhorizontal <= unsigned(s_pixelhorizontal) + 1;
-		s_enable <= '0';
+        s_enable <= '0';
 
-		-- reset after last horizontal porch
-		if s_pixelhorizontal = C_hmax then
+        -- reset after last horizontal porch
+        if s_pixelhorizontal = C_hmax then
 
-		  s_pixelhorizontal <= (others => '0');
-	      s_pixelvertical <= unsigned(s_pixelvertical) + 1;
+          s_pixelhorizontal <= (others => '0');
+          s_pixelvertical <= unsigned(s_pixelvertical) + 1;
 
-		  -- reset after last vertical porch
-    	  if s_pixelvertical = C_vmax then
+          -- reset after last vertical porch
+            if s_pixelvertical = C_vmax then
 
-			s_pixelvertical <= (others => '0');
+              s_pixelvertical <= (others => '0');
+
+            end if;
 
           end if;
 
-		end if;
-
-      end if;
+        end if;
 
     end if;
 
@@ -116,22 +140,26 @@ begin
   pixelvertical_o <= s_pixelvertical;
 
   -- generates vertical and horizontal sync signal
-  P_sync: process (s_pixelhorizontal, s_pixelvertical, reset_i)
+  P_sync: process (clk_i, reset_i)
 
   begin
 
-    -- only active after reset
-    if reset_i = '0' then
+    if reset_i = '1' then
+  
+      s_vgasync.vsync <= '0';
+      s_vgasync.hsync <= '0';
+
+    elsif clk_i'event and clk_i = '1' then
 
       -- hsync according specification
       if (unsigned(s_pixelhorizontal) <= unsigned(C_hsyncstart)) or 
          (unsigned(s_pixelhorizontal) > unsigned(C_hsyncend)) then
 
-        hsync_o <= '0';
+        s_vgasync.hsync <= '0';
 
       else
 
-        hsync_o <= '1';
+        s_vgasync.hsync <= '1';
 
       end if;
 
@@ -139,22 +167,19 @@ begin
       if (unsigned(s_pixelvertical) <= unsigned(C_vsyncstart)) or 
          (unsigned(s_pixelvertical) > unsigned(C_vsyncend)) then
 
-        vsync_o <= '0';
+        s_vgasync.vsync <= '0';
 
       else
 
-        vsync_o <= '1';
+        s_vgasync.vsync <= '1';
 
       end if;
-
-	-- reset both signals
-    else
-  
-      hsync_o <= '0';
-      vsync_o <= '0';
 
     end if;
 
   end process P_sync;
+
+  hsync_o <= s_vgasync.hsync;
+  vsync_o <= s_vgasync.vsync;
 
 end rtl;

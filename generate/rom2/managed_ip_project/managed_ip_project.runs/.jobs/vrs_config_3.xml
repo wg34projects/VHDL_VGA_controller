@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="rom2_synth_1" LaunchDir="/home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom2/managed_ip_project/managed_ip_project.runs/rom2_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

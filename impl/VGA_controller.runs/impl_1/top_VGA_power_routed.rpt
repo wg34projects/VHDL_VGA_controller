@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
-| Date             : Mon Apr  2 19:24:07 2018
+| Date             : Sun Apr 22 20:29:44 2018
 | Host             : localhost.localdomain running 64-bit Fedora release 27 (Twenty Seven)
 | Command          : report_power -file top_VGA_power_routed.rpt -pb top_VGA_power_summary_routed.pb -rpx top_VGA_power_routed.rpx
 | Design           : top_VGA
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.095 |
-| Dynamic (W)              | 0.021 |
+| Total On-Chip Power (W)  | 0.097 |
+| Dynamic (W)              | 0.024 |
 | Device Static (W)        | 0.073 |
 | Effective TJA (C/W)      | 5.0   |
 | Max Ambient (C)          | 84.5  |
@@ -50,17 +50,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.004 |        3 |       --- |             --- |
-| Slice Logic    |     0.002 |     1246 |       --- |             --- |
-|   LUT as Logic |     0.002 |      619 |     20800 |            2.98 |
+| Slice Logic    |     0.002 |     1287 |       --- |             --- |
+|   LUT as Logic |     0.002 |      617 |     20800 |            2.97 |
+|   Register     |    <0.001 |      366 |     41600 |            0.88 |
 |   CARRY4       |    <0.001 |       49 |      8150 |            0.60 |
-|   Register     |    <0.001 |      333 |     41600 |            0.80 |
 |   F7/F8 Muxes  |    <0.001 |       18 |     32600 |            0.06 |
-|   Others       |     0.000 |      109 |       --- |             --- |
-| Signals        |     0.003 |     1079 |       --- |             --- |
+|   Others       |     0.000 |      120 |       --- |             --- |
+| Signals        |     0.002 |     1090 |       --- |             --- |
 | Block RAM      |     0.009 |     30.5 |        50 |           61.00 |
-| I/O            |     0.004 |       36 |       106 |           33.96 |
+| I/O            |     0.007 |       36 |       106 |           33.96 |
 | Static Power   |     0.073 |          |           |                 |
-| Total          |     0.095 |          |           |                 |
+| Total          |     0.097 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Vccint    |       1.000 |     0.027 |       0.017 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
-| Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |
+| Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -139,10 +139,12 @@ Table of Contents
 +----------------------------------------------+-----------+
 | Name                                         | Power (W) |
 +----------------------------------------------+-----------+
-| top_VGA                                      |     0.021 |
+| top_VGA                                      |     0.024 |
 |   i_iologic                                  |    <0.001 |
 |   i_memory1                                  |    <0.001 |
 |   i_memory2                                  |    <0.001 |
+|   i_pattern1                                 |    <0.001 |
+|   i_pattern2                                 |    <0.001 |
 |   i_prescaler                                |    <0.001 |
 |   i_rom1                                     |     0.006 |
 |     U0                                       |     0.006 |

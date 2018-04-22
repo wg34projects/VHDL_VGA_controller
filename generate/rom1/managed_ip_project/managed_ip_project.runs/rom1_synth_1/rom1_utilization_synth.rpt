@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
-| Date         : Mon Feb 26 17:54:05 2018
+| Date         : Sun Apr 15 17:39:43 2018
 | Host         : localhost.localdomain running 64-bit Fedora release 27 (Twenty Seven)
 | Command      : report_utilization -file rom1_utilization_synth.rpt -pb rom1_utilization_synth.pb
 | Design       : rom1
@@ -151,14 +151,14 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |   64 |                 LUT |
+| LUT6     |   45 |                 LUT |
+| LUT5     |   31 |                 LUT |
 | RAMB36E1 |   26 |        Block Memory |
 | MUXF7    |   18 |               MuxFx |
-| LUT5     |   12 |                 LUT |
 | FDRE     |   10 |        Flop & Latch |
 | RAMB18E1 |    1 |        Block Memory |
-| LUT4     |    1 |                 LUT |
-| LUT2     |    1 |                 LUT |
+| LUT3     |    1 |                 LUT |
+| LUT1     |    1 |                 LUT |
 +----------+------+---------------------+
 
 

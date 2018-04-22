@@ -2,8 +2,8 @@
 # Vivado v2016.1 (64-bit)
 # SW Build 1538259 on Fri Apr  8 15:45:23 MDT 2016
 # IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
-# Start of session at: Mon Feb 26 17:52:36 2018
-# Process ID: 3853
+# Start of session at: Sun Apr 15 17:38:13 2018
+# Process ID: 2434
 # Current directory: /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom1/managed_ip_project/managed_ip_project.runs/rom1_synth_1
 # Command line: vivado -log rom1.vds -mode batch -messageDb vivado.pb -notrace -source rom1.tcl
 # Log file: /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom1/managed_ip_project/managed_ip_project.runs/rom1_synth_1/rom1.vds

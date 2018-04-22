@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1522689761">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1524421690">
   <File Type="VDS-TIMING-PB" Name="top_VGA_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="top_VGA_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="top_VGA.dcp"/>
@@ -10,7 +10,13 @@
   <File Type="PA-TCL" Name="top_VGA.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../vhdl/sourcemultiplexer_.vhd">
+    <File Path="$PPRDIR/../vhdl/memory1_.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../vhdl/prescaler_.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -22,7 +28,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../vhdl/memory1_.vhd">
+    <File Path="$PPRDIR/../vhdl/sourcemultiplexer_.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -46,19 +52,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../vhdl/prescaler_.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../vhdl/pattern1_.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../vhdl/sourcemultiplexer_rtl.vhd">
+    <File Path="$PPRDIR/../vhdl/memory1_rtl.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../vhdl/prescaler_rtl.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -70,7 +76,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../vhdl/memory1_rtl.vhd">
+    <File Path="$PPRDIR/../vhdl/sourcemultiplexer_rtl.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -101,12 +107,6 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../vhdl/pattern1_rtl.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../vhdl/prescaler_rtl.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>

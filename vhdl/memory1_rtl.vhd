@@ -14,25 +14,19 @@ architecture rtl of memory1 is
   -- signals for counters
   signal pixelcount_1_s : std_logic_vector(16 downto 0);	-- counter for left top and bottom
   signal pixelcount_2_s : std_logic_vector(16 downto 0);	-- counter for right top and bottom
-  signal pixelcountstore_s : std_logic;						-- storage last pixelcount
 
 begin
 
   -- access to memory1 
-  P_color: process (clk_i, pixelhorizontal_i, pixelvertical_i, reset_i, data_rom1_i)
-
-  variable v_tempaddr : std_logic_vector(19 downto 0) := (others => '0'); -- calculate adress variable
+  P_color: process (clk_i, reset_i)
 
   begin
 
     if reset_i = '1' then
 
-      memory1_r_o <= (others => '0');
-      memory1_g_o <= (others => '0');
-      memory1_b_o <= (others => '0');
-      addr_rom1_o <= (others => '0');
       pixelcount_1_s <= (others => '0');
       pixelcount_2_s <= (others => '0');
+--      pixelcountstore_s <= '0';
 
     elsif clk_i'event and clk_i = '1' then
 
@@ -41,7 +35,7 @@ begin
          (unsigned(pixelhorizontal_i) <= unsigned(C_hpicture1)) then
 
 	      -- trigger for new pixel
-          if (pixelhorizontal_i(0) /= pixelcountstore_s) then
+          if (pixenable_i = '1') then
 
 			-- increase only if smaller maxadress or set to 0
             if (unsigned(pixelcount_1_s) < unsigned(C_maxadress)) then
@@ -67,7 +61,12 @@ begin
             ((unsigned(pixelhorizontal_i) > unsigned(C_hpicture1)) and
              (unsigned(pixelhorizontal_i) <= unsigned(C_hpicture2))) then  
 
-          if (pixelhorizontal_i(0) /= pixelcountstore_s) then
+          addr_rom1_o <= pixelcount_2_s;
+          memory1_r_o <= data_rom1_i(11 downto 8);
+          memory1_g_o <= data_rom1_i(7 downto 4);
+          memory1_b_o <= data_rom1_i(3 downto 0);
+
+          if (pixenable_i = '1') then
 
             if (unsigned(pixelcount_2_s) < unsigned(C_maxadress)) then
 
@@ -81,17 +80,17 @@ begin
 
           end if;
 
-          addr_rom1_o <= pixelcount_2_s;
-          memory1_r_o <= data_rom1_i(11 downto 8);
-          memory1_g_o <= data_rom1_i(7 downto 4);
-          memory1_b_o <= data_rom1_i(3 downto 0);
-
 	  -- bottom left part
       elsif ((unsigned(pixelvertical_i) > unsigned(C_vpicture1)) and
              (unsigned(pixelvertical_i) <= unsigned(C_vpicture2))) and
              (unsigned(pixelhorizontal_i) <= unsigned(C_hpicture1)) then
 
-          if (pixelhorizontal_i(0) /= pixelcountstore_s) then
+          addr_rom1_o <= pixelcount_1_s;
+          memory1_r_o <= data_rom1_i(11 downto 8);
+          memory1_g_o <= data_rom1_i(7 downto 4);
+          memory1_b_o <= data_rom1_i(3 downto 0);
+
+          if (pixenable_i = '1') then
 
             if (unsigned(pixelcount_1_s) < unsigned(C_maxadress)) then
 
@@ -105,18 +104,18 @@ begin
 
           end if;
 
-          addr_rom1_o <= pixelcount_1_s;
-          memory1_r_o <= data_rom1_i(11 downto 8);
-          memory1_g_o <= data_rom1_i(7 downto 4);
-          memory1_b_o <= data_rom1_i(3 downto 0);
-
 	  -- bottom right part
       elsif ((unsigned(pixelvertical_i) > unsigned(C_vpicture1)) and
              (unsigned(pixelvertical_i) <= unsigned(C_vpicture2))) and
             ((unsigned(pixelhorizontal_i) > unsigned(C_hpicture1)) and
              (unsigned(pixelhorizontal_i) <= unsigned(C_hpicture2))) then 
 
-          if (pixelhorizontal_i(0) /= pixelcountstore_s) then
+          addr_rom1_o <= pixelcount_2_s;
+          memory1_r_o <= data_rom1_i(11 downto 8);
+          memory1_g_o <= data_rom1_i(7 downto 4);
+          memory1_b_o <= data_rom1_i(3 downto 0);
+
+          if (pixenable_i = '1') then
 
             if (unsigned(pixelcount_2_s) < unsigned(C_maxadress)) then
 
@@ -128,24 +127,9 @@ begin
 
             end if;
 
-          end if;
-
-          addr_rom1_o <= pixelcount_2_s;
-          memory1_r_o <= data_rom1_i(11 downto 8);
-          memory1_g_o <= data_rom1_i(7 downto 4);
-          memory1_b_o <= data_rom1_i(3 downto 0);
-
-      -- outside valid range signal 0
-      else
-
-        memory1_r_o <= (others => '0');
-        memory1_g_o <= (others => '0');
-        memory1_b_o <= (others => '0');
+         end if;
 
       end if;
-
-	-- store last pixelcount to trigger new pixel
-    pixelcountstore_s <= pixelhorizontal_i(0);
 
     end if;
 

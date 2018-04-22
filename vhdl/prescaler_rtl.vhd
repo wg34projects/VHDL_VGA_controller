@@ -19,6 +19,7 @@
 -- 2018.03.27	0.5		Resch	Transparency modes, left-right edge
 --	                            and top-bottom edge handling, automatic
 --                              x move with variable speed settings
+-- 2018.04.13	0.6		Resch	Update enable signal instead enable clock
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -28,10 +29,10 @@ use IEEE.std_logic_arith.all;
 architecture rtl of prescaler is
 
   -- 25Mhz = 1/4 100Mhz = 2 clk high 2 clk low
-  constant C_enctrval : std_logic := '1';
+  constant C_enctrval : std_logic_vector(1 downto 0) := "11";
 
-  signal   s_enctr : std_logic;				-- counter
-  signal   s_25mhz : std_logic;				-- enable signal
+  signal   s_enctr : std_logic_vector(1 downto 0);				-- counter
+  signal   s_25mhz : std_logic;				                -- enable signal
 
 begin
 
@@ -43,16 +44,20 @@ begin
     if reset_i = '1' then
 
       s_25mhz <= '0';
-      s_enctr <= '0';
+      s_enctr <= "00";
 
     elsif clk_i'event and clk_i = '1' then
 
-      s_enctr <= '1';
+      s_enctr <= unsigned(s_enctr) + 1;
 
-      if s_enctr = C_enctrval then
+      if unsigned(s_enctr) = unsigned(C_enctrval) then
 
-        s_25mhz <= not (s_25mhz);
-        s_enctr <= '0';
+        s_25mhz <= '1';
+        s_enctr <= "00";
+
+      else 
+
+        s_25mhz <= '0';
 
       end if;
 

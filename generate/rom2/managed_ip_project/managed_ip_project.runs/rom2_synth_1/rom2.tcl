@@ -10,6 +10,7 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom2/managed_ip_project/managed_ip_project.cache/wt [current_project]
 set_property parent.project_path /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom2/managed_ip_project/managed_ip_project.xpr [current_project]
+set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 read_ip -quiet /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom2/rom2/rom2.xci

@@ -31,6 +31,7 @@ entity memory1 is
     reset_i : in std_logic;
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);
+	pixenable_i : in std_logic;								-- 25MHz enable
     memory1_r_o : out std_logic_vector(3 downto 0);			-- signals for multiplexer
 	memory1_g_o : out std_logic_vector(3 downto 0);
 	memory1_b_o : out std_logic_vector(3 downto 0);

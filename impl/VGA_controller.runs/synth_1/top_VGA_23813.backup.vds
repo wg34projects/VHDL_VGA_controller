@@ -1,0 +1,344 @@
+#-----------------------------------------------------------
+# Vivado v2016.1 (64-bit)
+# SW Build 1538259 on Fri Apr  8 15:45:23 MDT 2016
+# IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
+# Start of session at: Sun Apr 15 19:27:25 2018
+# Process ID: 23813
+# Current directory: /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1
+# Command line: vivado -log top_VGA.vds -mode batch -messageDb vivado.pb -notrace -source top_VGA.tcl
+# Log file: /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/top_VGA.vds
+# Journal file: /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source top_VGA.tcl -notrace
+Command: synth_design -top top_VGA -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 23821 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1107.914 ; gain = 124.078 ; free physical = 1112 ; free virtual = 11063
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'top_VGA' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:27]
+INFO: [Synth 8-3491] module 'rom1' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-23813-localhost.localdomain/realtime/rom1_stub.vhdl:5' bound to instance 'i_rom1' of component 'rom1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:260]
+INFO: [Synth 8-638] synthesizing module 'rom1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-23813-localhost.localdomain/realtime/rom1_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'rom2' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-23813-localhost.localdomain/realtime/rom2_stub.vhdl:5' bound to instance 'i_rom2' of component 'rom2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:270]
+INFO: [Synth 8-638] synthesizing module 'rom2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-23813-localhost.localdomain/realtime/rom2_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'iologic' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/iologic_.vhd:28' bound to instance 'i_iologic' of component 'iologic' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:280]
+INFO: [Synth 8-638] synthesizing module 'iologic' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/iologic_rtl.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'iologic' (1#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/iologic_rtl.vhd:28]
+INFO: [Synth 8-3491] module 'prescaler' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/prescaler_.vhd:28' bound to instance 'i_prescaler' of component 'prescaler' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:292]
+INFO: [Synth 8-638] synthesizing module 'prescaler' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/prescaler_rtl.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'prescaler' (2#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/prescaler_rtl.vhd:28]
+WARNING: [Synth 8-5640] Port 'clk_i' is missing in component declaration [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:149]
+INFO: [Synth 8-3491] module 'pattern1' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern1_.vhd:27' bound to instance 'i_pattern1' of component 'pattern1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:303]
+INFO: [Synth 8-638] synthesizing module 'pattern1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern1_rtl.vhd:27]
+WARNING: [Synth 8-614] signal 'clk_i' is read in the process but is not in the sensitivity list [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern1_rtl.vhd:36]
+INFO: [Synth 8-256] done synthesizing module 'pattern1' (3#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern1_rtl.vhd:27]
+WARNING: [Synth 8-5640] Port 'clk_i' is missing in component declaration [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:164]
+INFO: [Synth 8-3491] module 'pattern2' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern2_.vhd:27' bound to instance 'i_pattern2' of component 'pattern2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:316]
+INFO: [Synth 8-638] synthesizing module 'pattern2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern2_rtl.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'pattern2' (4#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern2_rtl.vhd:27]
+INFO: [Synth 8-3491] module 'memory1' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_.vhd:26' bound to instance 'i_memory1' of component 'memory1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:329]
+INFO: [Synth 8-638] synthesizing module 'memory1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_rtl.vhd:5]
+INFO: [Synth 8-256] done synthesizing module 'memory1' (5#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_rtl.vhd:5]
+INFO: [Synth 8-3491] module 'memory2' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory2_.vhd:26' bound to instance 'i_memory2' of component 'memory2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:345]
+INFO: [Synth 8-638] synthesizing module 'memory2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory2_rtl.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'memory2' (6#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory2_rtl.vhd:26]
+INFO: [Synth 8-3491] module 'sourcemultiplexer' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/sourcemultiplexer_.vhd:28' bound to instance 'i_sourcemultiplexer' of component 'sourcemultiplexer' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:362]
+INFO: [Synth 8-638] synthesizing module 'sourcemultiplexer' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/sourcemultiplexer_rtl.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'sourcemultiplexer' (7#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/sourcemultiplexer_rtl.vhd:28]
+INFO: [Synth 8-3491] module 'vgacontroller' declared at '/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/vgacontroller_.vhd:27' bound to instance 'i_vgacontroller' of component 'vgacontroller' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:391]
+INFO: [Synth 8-638] synthesizing module 'vgacontroller' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/vgacontroller_rtl.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'vgacontroller' (8#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/vgacontroller_rtl.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'top_VGA' (9#1) [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:27]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1150.352 ; gain = 166.516 ; free physical = 1069 ; free virtual = 11021
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin i_pattern1:clk_i to constant 0 [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:303]
+WARNING: [Synth 8-3295] tying undriven pin i_pattern2:clk_i to constant 0 [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:316]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1150.352 ; gain = 166.516 ; free physical = 1069 ; free virtual = 11021
+---------------------------------------------------------------------------------
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'rom1' instantiated as 'i_rom1' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:260]
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'rom2' instantiated as 'i_rom2' [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd:270]
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-23813-localhost.localdomain/dcp/rom1_in_context.xdc] for cell 'i_rom1'
+Finished Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-23813-localhost.localdomain/dcp/rom1_in_context.xdc] for cell 'i_rom1'
+Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-23813-localhost.localdomain/dcp_2/rom2_in_context.xdc] for cell 'i_rom2'
+Finished Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/.Xil/Vivado-23813-localhost.localdomain/dcp_2/rom2_in_context.xdc] for cell 'i_rom2'
+Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.srcs/constrs_1/new/vga_constrs.xdc]
+Finished Parsing XDC File [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.srcs/constrs_1/new/vga_constrs.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.srcs/constrs_1/new/vga_constrs.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_VGA_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_VGA_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1448.828 ; gain = 0.000 ; free physical = 119 ; free virtual = 10907
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'i_rom1' at clock pin 'clka' is different from the actual clock period '10.000', this can result in different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'i_rom2' at clock pin 'clka' is different from the actual clock period '10.000', this can result in different synthesis results.
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1448.828 ; gain = 464.992 ; free physical = 110 ; free virtual = 10932
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1448.828 ; gain = 464.992 ; free physical = 109 ; free virtual = 10932
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1448.828 ; gain = 464.992 ; free physical = 109 ; free virtual = 10932
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "s_1khzen" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "s_button" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_swsync" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "pattern2_r_o" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "pattern2_r_o" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/sourcemultiplexer_rtl.vhd:87]
+INFO: [Synth 8-5544] ROM "tempspeed_v" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "speed_s" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "tempspeed_v" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "speed_s" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "s_pixelvertical" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1448.828 ; gain = 464.992 ; free physical = 692 ; free virtual = 11497
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     21 Bit       Adders := 2     
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 16    
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               31 Bit    Registers := 1     
+	               21 Bit    Registers := 2     
+	               17 Bit    Registers := 2     
+	               16 Bit    Registers := 1     
+	               14 Bit    Registers := 1     
+	               10 Bit    Registers := 8     
+	                4 Bit    Registers := 19    
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 12    
++---Muxes : 
+	   2 Input     21 Bit        Muxes := 5     
+	   3 Input     21 Bit        Muxes := 2     
+	   2 Input     17 Bit        Muxes := 4     
+	   2 Input     10 Bit        Muxes := 20    
+	   5 Input     10 Bit        Muxes := 2     
+	   3 Input     10 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 60    
+	   3 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 125   
+	  10 Input      2 Bit        Muxes := 1     
+	  11 Input      2 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 25    
+	   4 Input      1 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module iologic 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     17 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+Module prescaler 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module pattern1 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 3     
+Module pattern2 
+Detailed RTL Component Info : 
++---Registers : 
+	               31 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 2     
+	   3 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	  10 Input      2 Bit        Muxes := 1     
+	  11 Input      2 Bit        Muxes := 5     
+	   2 Input      2 Bit        Muxes := 122   
+Module memory1 
+Detailed RTL Component Info : 
++---Registers : 
+	               17 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     17 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 5     
+Module memory2 
+Detailed RTL Component Info : 
++---Registers : 
+	               14 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module sourcemultiplexer 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     21 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 14    
++---Registers : 
+	               21 Bit    Registers := 2     
+	               10 Bit    Registers := 6     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     21 Bit        Muxes := 5     
+	   3 Input     21 Bit        Muxes := 2     
+	   2 Input     10 Bit        Muxes := 20    
+	   5 Input     10 Bit        Muxes := 2     
+	   3 Input     10 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 51    
+	   5 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 13    
+	   4 Input      1 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+Module vgacontroller 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 2     
++---Registers : 
+	               10 Bit    Registers := 2     
+	                4 Bit    Registers := 3     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1448.828 ; gain = 464.992 ; free physical = 1315 ; free virtual = 11824
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "s_1khzen" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "pattern2_r_o" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "s_pixelvertical" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1448.828 ; gain = 464.992 ; free physical = 1386 ; free virtual = 11896
+---------------------------------------------------------------------------------
+Finished Parallel Reinference  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1448.828 ; gain = 464.992 ; free physical = 1386 ; free virtual = 11896
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'i_memory1/pixelcountstore_s_reg' (FDC) to 'i_memory2/pixelcountstore_s_reg'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[2]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[3]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[4]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[5]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[6]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[7]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[8]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[9]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[10]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[11]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[12]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[13]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[14]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[15]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[16]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[17]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[18]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[19]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[20]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[21]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[22]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[23]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[24]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[25]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[26]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[27]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[28]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/s_chessboardcolor_reg[29]' (FDC) to 'i_pattern2/s_chessboardcolor_reg[30]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\i_pattern2/s_chessboardcolor_reg[30] )
+INFO: [Synth 8-3886] merging instance 'i_pattern2/pattern2_b_o_reg[0]' (FDC) to 'i_pattern2/pattern2_b_o_reg[1]'
+INFO: [Synth 8-3886] merging instance 'i_pattern1/pattern1_b_o_reg[0]' (FDCE) to 'i_pattern1/pattern1_b_o_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/pattern2_b_o_reg[1]' (FDC) to 'i_pattern2/pattern2_b_o_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_pattern1/pattern1_b_o_reg[1]' (FDCE) to 'i_pattern1/pattern1_b_o_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/pattern2_b_o_reg[2]' (FDC) to 'i_pattern2/pattern2_b_o_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_pattern1/pattern1_b_o_reg[2]' (FDCE) to 'i_pattern1/pattern1_b_o_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/pattern2_g_o_reg[0]' (FDC) to 'i_pattern2/pattern2_g_o_reg[1]'
+INFO: [Synth 8-3886] merging instance 'i_pattern1/pattern1_g_o_reg[0]' (FDCE) to 'i_pattern1/pattern1_g_o_reg[1]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/pattern2_g_o_reg[1]' (FDC) to 'i_pattern2/pattern2_g_o_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_pattern1/pattern1_g_o_reg[1]' (FDCE) to 'i_pattern1/pattern1_g_o_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/pattern2_g_o_reg[2]' (FDC) to 'i_pattern2/pattern2_g_o_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_pattern1/pattern1_g_o_reg[2]' (FDCE) to 'i_pattern1/pattern1_g_o_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/pattern2_r_o_reg[0]' (FDC) to 'i_pattern2/pattern2_r_o_reg[1]'
+INFO: [Synth 8-3886] merging instance 'i_pattern1/pattern1_r_o_reg[0]' (FDCE) to 'i_pattern1/pattern1_r_o_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/pattern2_r_o_reg[1]' (FDC) to 'i_pattern2/pattern2_r_o_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_pattern1/pattern1_r_o_reg[1]' (FDCE) to 'i_pattern1/pattern1_r_o_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_pattern2/pattern2_r_o_reg[2]' (FDC) to 'i_pattern2/pattern2_r_o_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_pattern1/pattern1_r_o_reg[2]' (FDCE) to 'i_pattern1/pattern1_r_o_reg[3]'

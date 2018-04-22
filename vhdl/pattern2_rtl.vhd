@@ -33,7 +33,7 @@ architecture rtl of pattern2 is
   constant C_blockhorizontal : natural := 64;
   constant C_blockvertical : natural := 48;
   -- create natural array for color settins "chessboard"
-  type CHESSBOARD is array (0 to 9, 0 to 9) of natural;
+  type CHESSBOARD is array (0 to 9, 0 to 9) of natural range 1 to 3;
   -- in the array 1 = red, 2 = green, 3 = blue - pattern according specification
   -- signal s_chessboardcolor reflects then the correct color according array
   signal s_chessboardcolorlist : CHESSBOARD := ((1, 2, 3, 1, 2, 3, 1, 2, 3, 1),
@@ -46,12 +46,12 @@ architecture rtl of pattern2 is
                                                 (2, 3, 1, 2, 3, 1, 2, 3, 1, 2),
                                                 (3, 1, 2, 3, 1, 2, 3, 1, 2, 3),
                                                 (1, 2, 3, 1, 2, 3, 1, 2, 3, 1));
-  signal s_chessboardcolor : natural;
+  signal s_chessboardcolor : natural range 0 to 3;
 
 begin
 
   -- generates chessboardstyle pattern
-  P_chessboard: process (pixelhorizontal_i, pixelvertical_i, reset_i, s_chessboardcolorlist) 
+  P_chessboard: process (clk_i, reset_i) 
 
   -- inside process variables used for counting
   variable v_i : natural := 0;				-- loop horizontal
@@ -63,7 +63,11 @@ begin
 
   begin
 
-    if reset_i = '0' then
+    if reset_i = '1' then
+  
+      s_chessboardcolor <= 0;
+
+    elsif clk_i'event and clk_i = '1' then
 
     s_chessboardcolor <= 0;
 
@@ -109,20 +113,22 @@ begin
 
       end if;
 
-    else
-
-      s_chessboardcolor <= 0;
-
     end if;
 
   end process P_chessboard;
 
   -- output of the pattern
-  P_color: process (pixelhorizontal_i, pixelvertical_i, reset_i, s_chessboardcolor)
+  P_color: process (clk_i, reset_i) 
 
   begin
 
-    if reset_i = '0' then
+    if reset_i = '1' then
+  
+        pattern2_r_o <= (others => '0');
+        pattern2_g_o <= (others => '0');
+        pattern2_b_o <= (others => '0');
+
+    elsif clk_i'event and clk_i = '1' then
 
 	  -- red field on chessboard
       if (s_chessboardcolor = 1) then
@@ -153,13 +159,6 @@ begin
         pattern2_b_o <= (others => '0');
 
       end if;
-
-	-- no signal during reset state
-    else
-
-      pattern2_r_o <= (others => '0');
-      pattern2_g_o <= (others => '0');
-      pattern2_b_o <= (others => '0');
 
     end if;
 

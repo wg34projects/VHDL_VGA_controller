@@ -2,8 +2,8 @@
 # Vivado v2016.1 (64-bit)
 # SW Build 1538259 on Fri Apr  8 15:45:23 MDT 2016
 # IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
-# Start of session at: Mon Apr  2 19:22:41 2018
-# Process ID: 6489
+# Start of session at: Sun Apr 22 20:28:10 2018
+# Process ID: 6430
 # Current directory: /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1
 # Command line: vivado -log top_VGA.vds -mode batch -messageDb vivado.pb -notrace -source top_VGA.tcl
 # Log file: /home/helmutresch/WorkDir/VHDL_VGA_controller/impl/VGA_controller.runs/synth_1/top_VGA.vds

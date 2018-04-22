@@ -19,6 +19,7 @@
 -- 2018.03.27	0.5		Resch	Transparency modes, left-right edge
 --	                            and top-bottom edge handling, automatic
 --                              x move with variable speed settings
+-- 2018.04.13	0.6		Resch	Update enable signal instead enable clock
 ---------------------------------------------------------------------------- 
 
 library IEEE;
