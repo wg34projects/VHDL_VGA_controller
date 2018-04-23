@@ -30,6 +30,8 @@ architecture rtl of pattern1 is
   constant C_hpicture : std_logic_vector(9 downto 0) := "1001111111"; -- 639
   constant C_vpicture : std_logic_vector(9 downto 0) := "0111011111"; -- 479
 
+  signal count_s : std_logic_vector(1 downto 0);
+
 begin
 
   -- generates stripe pattern
@@ -42,6 +44,7 @@ begin
       pattern1_r_o <= (others => '0');
       pattern1_g_o <= (others => '0');
       pattern1_b_o <= (others => '0');
+      count_s <= "00";
 
     elsif clk_i'event and clk_i = '1' then
 
@@ -62,6 +65,39 @@ begin
           pattern1_r_o <= (others => '1');
           pattern1_g_o <= (others => '0');
           pattern1_b_o <= (others => '0');
+
+          if switch_i = '1' then
+          
+            count_s <= unsigned(count_s) + 1;
+
+              if count_s = "00" then
+
+          pattern1_r_o <= (others => '1');
+          pattern1_g_o <= (others => '0');
+          pattern1_b_o <= (others => '0');
+
+              elsif count_s = "01" then
+
+          pattern1_r_o <= (others => '0');
+          pattern1_g_o <= (others => '1');
+          pattern1_b_o <= (others => '0');
+    
+              elsif count_s = "10" then
+
+          pattern1_r_o <= (others => '0');
+          pattern1_g_o <= (others => '0');
+          pattern1_b_o <= (others => '1');
+            
+              else
+
+          pattern1_r_o <= (others => '1');
+          pattern1_g_o <= (others => '0');
+          pattern1_b_o <= (others => '0');
+                count_s <= "00";
+
+              end if;
+
+          end if;
 
 	    -- zones with green color
         elsif ((pixelhorizontal_i >= "0000101000") and 		-- 40

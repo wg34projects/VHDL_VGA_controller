@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
-| Date         : Sun Apr 22 20:29:19 2018
+| Date         : Mon Apr 23 23:50:13 2018
 | Host         : localhost.localdomain running 64-bit Fedora release 27 (Twenty Seven)
 | Command      : report_control_sets -verbose -file top_VGA_control_sets_placed.rpt
 | Design       : top_VGA
@@ -23,7 +23,7 @@ Table of Contents
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
 | Number of unique control sets                            |    18 |
-| Unused register locations in slices containing registers |    90 |
+| Unused register locations in slices containing registers |    87 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,11 +33,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              42 |           26 |
-| No           | No                    | Yes                    |              65 |           29 |
+| No           | No                    | No                     |              43 |           34 |
+| No           | No                    | Yes                    |              67 |           29 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              73 |           29 |
-| Yes          | No                    | Yes                    |             186 |           76 |
+| Yes          | No                    | No                     |              73 |           30 |
+| Yes          | No                    | Yes                    |             186 |           78 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -49,23 +49,23 @@ Table of Contents
 |   Clock Signal   |                Enable Signal               | Set/Reset Signal | Slice Load Count | Bel Load Count |
 +------------------+--------------------------------------------+------------------+------------------+----------------+
 |  clk_i_IBUF_BUFG | i_iologic/s_pbsync                         | reset_i_IBUF     |                2 |              5 |
-|  clk_i_IBUF_BUFG | i_iologic/E[0]                             | reset_i_IBUF     |                4 |             10 |
-|  clk_i_IBUF_BUFG | i_sourcemultiplexer/updown_s5_out          | reset_i_IBUF     |                5 |             10 |
-|  clk_i_IBUF_BUFG | i_vgacontroller/E[0]                       | reset_i_IBUF     |                5 |             10 |
 |  clk_i_IBUF_BUFG | i_vgacontroller/s_pixelvertical[9]_i_1_n_0 | reset_i_IBUF     |                4 |             10 |
+|  clk_i_IBUF_BUFG | i_vgacontroller/E[0]                       | reset_i_IBUF     |                5 |             10 |
+|  clk_i_IBUF_BUFG | i_iologic/E[0]                             | reset_i_IBUF     |                4 |             10 |
+|  clk_i_IBUF_BUFG | i_sourcemultiplexer/updown_s6_out          | reset_i_IBUF     |                6 |             10 |
 |  clk_i_IBUF_BUFG | i_memory2/pixelcount_s                     | reset_i_IBUF     |                4 |             14 |
 |  clk_i_IBUF_BUFG | i_iologic/s_swsync[15]_i_1_n_0             | reset_i_IBUF     |                6 |             16 |
 |  clk_i_IBUF_BUFG | i_vgacontroller/pixelcount_2_s             | reset_i_IBUF     |                5 |             17 |
 |  clk_i_IBUF_BUFG | i_prescaler/pixelcount_1_s_reg[0]          | reset_i_IBUF     |                5 |             17 |
-|  clk_i_IBUF_BUFG | i_sourcemultiplexer/speed_s[20]_i_1_n_0    | reset_i_IBUF     |                8 |             18 |
-|  clk_i_IBUF_BUFG | i_sourcemultiplexer/position_vertical2     | reset_i_IBUF     |                8 |             18 |
-|  clk_i_IBUF_BUFG | i_sourcemultiplexer/tempspeed_v0           |                  |                9 |             18 |
-|  clk_i_IBUF_BUFG | i_sourcemultiplexer/position_horizontal2   | reset_i_IBUF     |               14 |             20 |
-|  clk_i_IBUF_BUFG | i_iologic/Q[4]                             | reset_i_IBUF     |                6 |             21 |
-|  clk_i_IBUF_BUFG | i_memory2/p_0_in                           |                  |                9 |             26 |
-|  clk_i_IBUF_BUFG | i_vgacontroller/memory1_b_o_reg[0][0]      |                  |               11 |             29 |
-|  clk_i_IBUF_BUFG |                                            |                  |               26 |             42 |
-|  clk_i_IBUF_BUFG |                                            | reset_i_IBUF     |               29 |             65 |
+|  clk_i_IBUF_BUFG | i_sourcemultiplexer/position_vertical2     | reset_i_IBUF     |               12 |             18 |
+|  clk_i_IBUF_BUFG | i_sourcemultiplexer/speed_s[20]_i_1_n_0    | reset_i_IBUF     |                7 |             18 |
+|  clk_i_IBUF_BUFG | i_sourcemultiplexer/tempspeed_v0           |                  |               10 |             18 |
+|  clk_i_IBUF_BUFG | i_sourcemultiplexer/position_horizontal2   | reset_i_IBUF     |               12 |             20 |
+|  clk_i_IBUF_BUFG | i_iologic/Q[5]                             | reset_i_IBUF     |                6 |             21 |
+|  clk_i_IBUF_BUFG | i_memory2/p_0_in                           |                  |               10 |             26 |
+|  clk_i_IBUF_BUFG | i_vgacontroller/memory1_b_o_reg[0][0]      |                  |               10 |             29 |
+|  clk_i_IBUF_BUFG |                                            |                  |               34 |             43 |
+|  clk_i_IBUF_BUFG |                                            | reset_i_IBUF     |               29 |             67 |
 +------------------+--------------------------------------------+------------------+------------------+----------------+
 
 

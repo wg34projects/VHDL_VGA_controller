@@ -58,6 +58,8 @@ architecture rtl of sourcemultiplexer is
   signal slow_s : std_logic_vector(20 downto 0);			-- counter speed
   signal special_s : std_logic;								-- setting special mode (moving)
   signal speed_s : std_logic_vector(20 downto 0);			-- resulting speed
+  signal countstart_s : std_logic;
+  signal switch_s : std_logic;
 
 begin
 
@@ -75,10 +77,11 @@ begin
 
     elsif clk_i'event and clk_i = '1' then
 
-	  -- calcualte only when automatic move chosen
+	    -- calcualte only when automatic move chosen
       if sel_i(5) = '1' then
 
         slow_s <= unsigned(slow_s) + 1;		-- tick counter
+        switch_s <= '0';
 
         if slow_s = speed_s then
 
@@ -94,41 +97,46 @@ begin
 
           end if;
 
-		  if unsigned(x_s) = 51 then		-- lowest x value - see README.md
+		      if unsigned(x_s) = 51 then		-- lowest x value - see README.md
 
- 		    updown_s <= '1';				-- border to count up
-			y_s <= unsigned(y_s) + 10;
+     		    updown_s <= '1';				-- border to count up
+			      y_s <= unsigned(y_s) + 10;
+            
 
-			-- keep going to left until maximum bottom
-            if unsigned(position_vertical2) >= 469 then  	  -- bottom border, see README.md
+              -- keep going to left until maximum bottom
+              if unsigned(position_vertical2) >= 469 then  	  -- bottom border, see README.md
 
-              y_s <= "0000110011"; -- 51 
+                  y_s <= "0000110011"; -- 51 
+                  switch_s <= '1';
 
+              end if;
+     
+		      end if;
+
+		      if unsigned(x_s) = 589 then		-- highest x value - see README.md
+
+     		    updown_s <= '0';				-- border to count down
+			      y_s <= unsigned(y_s) + 10;
+
+			    -- keep going to left until maximum bottom
+              if unsigned(position_vertical2) >= 469 then  	  -- bottom border, see README.md
+
+                  y_s <= "0000110011"; -- 51 
+                  switch_s <= '1';
+
+              end if;
+     
             end if;
- 
-		  end if;
 
-		  if unsigned(x_s) = 589 then		-- highest x value - see README.md
+         end if;
 
- 		    updown_s <= '0';				-- border to count down
-			y_s <= unsigned(y_s) + 10;
-
-			-- keep going to left until maximum bottom
-            if unsigned(position_vertical2) >= 469 then  	  -- bottom border, see README.md
-
-              y_s <= "0000110011"; -- 51 
-
-            end if;
- 
-		  end if;
-
-        end if;
-
-	  end if;
+	    end if;
 
     end if;
 
   end process p_slowmove;
+
+  switch_o <= switch_s;
 
   -- reads the button in various modes
   -- buttons only active when overlay is chosen
@@ -146,7 +154,7 @@ begin
       position_horizontal2 <= C_middle_horizontal2;
       position_vertical1 <= C_middle_vertical1;
       position_vertical2 <= C_middle_vertical2;
-	  special_s <= '0';
+      special_s <= '0';
       speed_s <= C_slow;
 
     elsif clk_i'event and clk_i = '1' then
@@ -322,9 +330,9 @@ begin
 
    	    special_s <= '1';								-- set special mode
         position_horizontal1 <= unsigned(x_s) - 50;		-- calculate new position with offset horizontal
-		position_horizontal2 <= unsigned(x_s) + 50;
+		    position_horizontal2 <= unsigned(x_s) + 50;
         position_vertical1 <= unsigned(y_s) - 50;		-- calculate new position with offset vetical
-		position_vertical2 <= unsigned(y_s) + 50;
+		    position_vertical2 <= unsigned(y_s) + 50;
 
 		-- button handling for automatic mode
 	
@@ -342,9 +350,9 @@ begin
 
             if unsigned(tempspeed_v) >= unsigned(C_slowmin) then
 
-			  tempspeed_v := C_slowmin;
+			      tempspeed_v := C_slowmin;
 
-			end if;
+			      end if;
 
           -- button left, decrease speed
       
@@ -358,7 +366,7 @@ begin
 
             if unsigned(tempspeed_v) <= unsigned(C_slowmax) then
 
-		      tempspeed_v := C_slowmax;
+		          tempspeed_v := C_slowmax;
 
             end if;
 
@@ -368,15 +376,45 @@ begin
 
          end if;
 
-	    speed_s <= tempspeed_v;	-- set sigal
+	        speed_s <= tempspeed_v;	-- set sigal
 
-		end if;
+		    end if;
 
       end if;
 
     end if;
 
   end process p_buttons;
+
+
+  p_countstart: process (clk_i, reset_i)
+
+  begin
+
+    if reset_i = '1' then
+
+      countstart_s <= '0';
+
+    elsif clk_i'event and clk_i = '1' then
+
+        if (unsigned(pixelhorizontal_i) >= (unsigned(position_horizontal1)) and 
+            unsigned(pixelhorizontal_i) < (unsigned(position_horizontal2))) and
+           (unsigned(pixelvertical_i) >= unsigned(position_vertical1) and 
+            unsigned(pixelvertical_i) < unsigned(position_vertical2)) then
+
+          countstart_s <= '1';	-- memory2 can start upcounting
+
+        else
+
+          countstart_s <= '0';
+
+        end if;
+
+      end if;
+
+  end process p_countstart;
+
+  countstart_o <= countstart_s;
 
   -- switches signals accoding input
   p_sourcemultiplexer: process (clk_i, reset_i)
@@ -388,7 +426,6 @@ begin
       red_mux_o <= (others => '0');
       green_mux_o <= (others => '0');
       blue_mux_o <= (others => '0');
-      countstart_o <= '0';
 
     elsif clk_i'event and clk_i = '1' then
 
@@ -418,12 +455,7 @@ begin
 
 		-- if in range of overlay 100x100
 
-        if (unsigned(pixelhorizontal_i) >= unsigned(position_horizontal1) and 
-            unsigned(pixelhorizontal_i) < unsigned(position_horizontal2)) and
-           (unsigned(pixelvertical_i) >= unsigned(position_vertical1) and 
-            unsigned(pixelvertical_i) < unsigned(position_vertical2)) then
-
-          countstart_o <= '1';	-- memory2 can start upcounting
+        if countstart_s = '1' then
 
 		  -- mode overlay
 
@@ -436,12 +468,12 @@ begin
 			  -- filter white = 0 and black = 2^4-1	
 
               if ((unsigned(memory2_r_i) = 0) and
-				  (unsigned(memory2_g_i) = 0) and
-				  (unsigned(memory2_b_i) = 0)) or
+				          (unsigned(memory2_g_i) = 0) and
+				          (unsigned(memory2_b_i) = 0)) or
 
-				 ((unsigned(memory2_r_i) = 15) and
-				  (unsigned(memory2_g_i) = 15) and
-				  (unsigned(memory2_b_i) = 15)) then
+				         ((unsigned(memory2_r_i) = 15) and
+				          (unsigned(memory2_g_i) = 15) and
+				          (unsigned(memory2_b_i) = 15)) then
 
 				-- output pattern if transparent
 
@@ -467,7 +499,7 @@ begin
 
               if ((unsigned(memory2_r_i) = 15) and
                   (unsigned(memory2_g_i) = 8) and
-				  (unsigned(memory2_b_i) = 0)) then
+				          (unsigned(memory2_b_i) = 0)) then
 
 			    -- output from memory2
 
@@ -501,7 +533,7 @@ begin
 
 		  -- output outside overlay
 
-		  countstart_o <= '0';
+--		      countstart_o <= '0';
           red_mux_o <= pattern1_r_i;
           green_mux_o <= pattern1_g_i;
           blue_mux_o <= pattern1_b_i;
@@ -512,24 +544,19 @@ begin
 	  -- same combinatoric as pattern1
       elsif sel_i(2 downto 0) = "110" then
 
-        if (unsigned(pixelhorizontal_i) >= unsigned(position_horizontal1) and 
-            unsigned(pixelhorizontal_i) < unsigned(position_horizontal2)) and
-           (unsigned(pixelvertical_i) >= unsigned(position_vertical1) and 
-            unsigned(pixelvertical_i) < unsigned(position_vertical2)) then
-
-          countstart_o <= '1';
+        if countstart_s = '1' then
 
           if sel_i(3) = '1' then
 
             if sel_i(4) = '0' then
 
               if ((unsigned(memory2_r_i) = 0) and
-				  (unsigned(memory2_g_i) = 0) and
-				  (unsigned(memory2_b_i) = 0)) or
+				          (unsigned(memory2_g_i) = 0) and
+				          (unsigned(memory2_b_i) = 0)) or
 
-				 ((unsigned(memory2_r_i) = 15) and
-				  (unsigned(memory2_g_i) = 15) and
-				  (unsigned(memory2_b_i) = 15)) then
+				         ((unsigned(memory2_r_i) = 15) and
+				          (unsigned(memory2_g_i) = 15) and
+				          (unsigned(memory2_b_i) = 15)) then
 
                 red_mux_o <= pattern2_r_i;
                 green_mux_o <= pattern2_g_i;
@@ -547,7 +574,7 @@ begin
 
               if ((unsigned(memory2_r_i) = 15) and
                   (unsigned(memory2_g_i) = 8) and
-				  (unsigned(memory2_b_i) = 0)) then
+				          (unsigned(memory2_b_i) = 0)) then
 
                 red_mux_o <= memory2_r_i;
                 green_mux_o <= memory2_g_i;
@@ -573,7 +600,6 @@ begin
 
         else
 
-          countstart_o <= '0';
           red_mux_o <= pattern2_r_i;
           green_mux_o <= pattern2_g_i;
           blue_mux_o <= pattern2_b_i;
@@ -584,24 +610,19 @@ begin
 	  -- same combinatoric as pattern1
       elsif sel_i(2) = '1' and sel_i(0) = '1' then
 
-        if (unsigned(pixelhorizontal_i) >= unsigned(position_horizontal1) and 
-            unsigned(pixelhorizontal_i) < unsigned(position_horizontal2)) and
-           (unsigned(pixelvertical_i) >= unsigned(position_vertical1) and 
-            unsigned(pixelvertical_i) < unsigned(position_vertical2)) then
-
-          countstart_o <= '1';
+        if countstart_s = '1' then
 
           if sel_i(3) = '1' then
 
             if sel_i(4) = '0' then
 
               if ((unsigned(memory2_r_i) = 0) and
-				  (unsigned(memory2_g_i) = 0) and
-				  (unsigned(memory2_b_i) = 0)) or
+				          (unsigned(memory2_g_i) = 0) and
+				          (unsigned(memory2_b_i) = 0)) or
 
-				 ((unsigned(memory2_r_i) = 15) and
-				  (unsigned(memory2_g_i) = 15) and
-				  (unsigned(memory2_b_i) = 15)) then
+				         ((unsigned(memory2_r_i) = 15) and
+				          (unsigned(memory2_g_i) = 15) and
+				          (unsigned(memory2_b_i) = 15)) then
 
                 red_mux_o <= memory1_r_i;
                 green_mux_o <= memory1_g_i;
@@ -619,7 +640,7 @@ begin
 
               if ((unsigned(memory2_r_i) = 15) and
                   (unsigned(memory2_g_i) = 8) and
-				  (unsigned(memory2_b_i) = 0)) then
+				          (unsigned(memory2_b_i) = 0)) then
 
                 red_mux_o <= memory2_r_i;
                 green_mux_o <= memory2_g_i;
@@ -645,7 +666,7 @@ begin
 
         else
 
-          countstart_o <= '0';
+--          countstart_o <= '0';
           red_mux_o <= memory1_r_i;
           green_mux_o <= memory1_g_i;
           blue_mux_o <= memory1_b_i;

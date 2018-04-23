@@ -50,7 +50,8 @@ entity sourcemultiplexer is
 	blue_mux_o : out std_logic_vector(3 downto 0);
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);	-- counter horizontal
 	pixelvertical_i : in std_logic_vector(9 downto 0);		-- counter vertical
-    countstart_o : out std_logic							-- enable counting for memory2
+    countstart_o : out std_logic;							-- enable counting for memory2
+    switch_o : out std_logic
   );
 
 end sourcemultiplexer;

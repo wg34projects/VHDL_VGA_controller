@@ -103,7 +103,8 @@ component sourcemultiplexer is
 	blue_mux_o : out std_logic_vector(3 downto 0);
 	pixelhorizontal_i : in std_logic_vector(9 downto 0);
 	pixelvertical_i : in std_logic_vector(9 downto 0);
-    countstart_o : out std_logic
+    countstart_o : out std_logic;
+    switch_o : out std_logic
   );
 
 end component;
@@ -156,7 +157,8 @@ component pattern1
 	pixelvertical_i : in std_logic_vector(9 downto 0);
     pattern1_r_o : out std_logic_vector(3 downto 0);
 	pattern1_g_o : out std_logic_vector(3 downto 0);
-	pattern1_b_o : out std_logic_vector(3 downto 0)
+	pattern1_b_o : out std_logic_vector(3 downto 0);
+    switch_i : in std_logic
   );
 
 end component;
@@ -257,6 +259,7 @@ signal vsync : std_logic;
 signal pixelhorizontal : std_logic_vector(9 downto 0);
 signal pixelvertical : std_logic_vector(9 downto 0);
 signal countstart : std_logic;
+signal switch : std_logic;
 
 begin
 
@@ -314,7 +317,8 @@ begin
     pixelvertical_i => pixelvertical,
     pattern1_r_o => pattern1_r,
     pattern1_g_o => pattern1_g,
-    pattern1_b_o => pattern1_b
+    pattern1_b_o => pattern1_b,
+    switch_i => switch
    );
 
   -- connection pattern2 generator
@@ -392,7 +396,8 @@ begin
     blue_mux_o => bluevga,
     pixelhorizontal_i => pixelhorizontal,
     pixelvertical_i => pixelvertical,
-    countstart_o => countstart
+    countstart_o => countstart,
+    switch_o => switch
   );
 
   -- connection vga controller with sync signals and counters
