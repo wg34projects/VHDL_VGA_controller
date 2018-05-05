@@ -1,0 +1,94 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/helmutresch/WorkDir/VHDL_VGA_controller/msim/io_logic
+Eiologic
+w1525476188
+Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+8../../vhdl/iologic_.vhd
+F../../vhdl/iologic_.vhd
+l0
+L31
+VUd[L?kY340[HVVIU78=O^2
+!s100 kbRjUG3MUEQRAMSU2b3Ph2
+Z4 OV;C;10.5b;63
+32
+!s110 1525515851
+!i10b 1
+Z5 !s108 1525515851.000000
+!s90 -reportprogress|300|../../vhdl/iologic_.vhd|
+!s107 ../../vhdl/iologic_.vhd|
+!i113 1
+Z6 tExplicit 1 CvgOpt 0
+Artl
+w1525477089
+DEx4 work 7 iologic 0 22 Ud[L?kY340[HVVIU78=O^2
+R1
+R2
+R3
+8../../vhdl/iologic_rtl.vhd
+F../../vhdl/iologic_rtl.vhd
+l45
+L31
+VQ]jcmfO]ao3?@M=6c0NPQ2
+!s100 F>3CJOHdZ[YEGcFD]PLaO3
+R4
+32
+Z7 !s110 1525515852
+!i10b 1
+R5
+!s90 -reportprogress|300|../../vhdl/iologic_rtl.vhd|
+!s107 ../../vhdl/iologic_rtl.vhd|
+!i113 1
+R6
+Etb_iologic
+w1525477746
+R1
+R2
+R3
+R0
+8../../tb/tb_iologic_.vhd
+F../../tb/tb_iologic_.vhd
+l0
+L23
+V8F<RR5;Nzz?_fgdXH9NkS1
+!s100 R`UUbUOLz3kZRGL?ZDcA=2
+R4
+32
+R7
+!i10b 1
+Z8 !s108 1525515852.000000
+!s90 -reportprogress|300|../../tb/tb_iologic_.vhd|
+!s107 ../../tb/tb_iologic_.vhd|
+!i113 1
+R6
+Asim
+Z9 w1525477770
+Z10 DEx4 work 10 tb_iologic 0 22 8F<RR5;Nzz?_fgdXH9NkS1
+R1
+R2
+R3
+Z11 8../../tb/tb_iologic_sim.vhd
+Z12 F../../tb/tb_iologic_sim.vhd
+l46
+L23
+Z13 V6hES:T3C56VzQ=5lb]O[V3
+Z14 !s100 AUO1[glMNaiZhS6TjCEDa3
+R4
+32
+R7
+!i10b 1
+R8
+Z15 !s90 -reportprogress|300|../../tb/tb_iologic_sim.vhd|
+!s107 ../../tb/tb_iologic_sim.vhd|
+!i113 1
+R6

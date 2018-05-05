@@ -5,20 +5,21 @@
 -- File : vgacontroller_rtl.vhd
 -- Author : Resch
 -- Company : FHTW
--- Last update: 19.02.2018
+-- Last update: 01.05.2018
 -- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
 ----------------------------------------------------------------------------
 -- Description: ARCHITECTURE RTL VGA Controller
 ----------------------------------------------------------------------------
 -- Revisions : 1
--- Date 		Version	Author 	Description
--- 2018.02.19	0.1		Resch	Projectstart VGA Controller, first Timings
--- 2018.02.21	0.2		Resch	Added Pattern Generators and TOP Design
--- 2018.02.22	0.3		Resch	Update TOP Design and first output via
---                              the nice vga app from FHTW to disk
--- 2018.03.27	0.4		Resch	Update signal routing sourcemultiplexer to
---								  VGA controller
----------------------------------------------------------------------------- 
+-- Date       Version Author  Description
+-- 2018.02.19 0.1     Resch   Projectstart VGA Controller, first Timings
+-- 2018.02.21 0.2     Resch   Added Pattern Generators and TOP Design
+-- 2018.02.22 0.3     Resch   Update TOP Design and first output via
+--                            the nice vga app from FHTW to disk
+-- 2018.03.27 0.4     Resch   Update signal routing sourcemultiplexer to
+--                            VGA controller
+-- 2018.05.01 0.5     Resch   final code style check and comments
+----------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -36,19 +37,18 @@ architecture rtl of vgacontroller is
     end record;
 
   -- values 640x480 pictures according specification
-  constant C_hmax : std_logic_vector(9 downto 0) 		:= "1100011111"; -- 799
-  constant C_vmax : std_logic_vector(9 downto 0) 		:= "1000001100"; -- 524
-  constant C_hsyncstart : std_logic_vector(9 downto 0) 	:= "1010001111"; -- 655
-  constant C_hsyncend : std_logic_vector(9 downto 0)	:= "1011101111"; -- 751
-  constant C_vsyncstart : std_logic_vector(9 downto 0) 	:= "0111101001"; -- 489
-  constant C_vsyncend : std_logic_vector(9 downto 0) 	:= "0111101011"; -- 491
-  constant C_hpicture2 : std_logic_vector(9 downto 0) 	:= "1001111111"; -- 639
-  constant C_vpicture2 : std_logic_vector(9 downto 0) 	:= "0111011111"; -- 479
+  constant C_hmax : std_logic_vector(9 downto 0) 		:= "1100011111";      -- 799
+  constant C_vmax : std_logic_vector(9 downto 0) 		:= "1000001100";      -- 524
+  constant C_hsyncstart : std_logic_vector(9 downto 0) 	:= "1010001111";  -- 655
+  constant C_hsyncend : std_logic_vector(9 downto 0)	:= "1011101111";    -- 751
+  constant C_vsyncstart : std_logic_vector(9 downto 0) 	:= "0111101001";  -- 489
+  constant C_vsyncend : std_logic_vector(9 downto 0) 	:= "0111101011";    -- 491
+  constant C_hpicture2 : std_logic_vector(9 downto 0) 	:= "1001111111";  -- 639
+  constant C_vpicture2 : std_logic_vector(9 downto 0) 	:= "0111011111";  -- 479
 
-  signal s_pixelhorizontal : std_logic_vector(9 downto 0);	-- counter horizontal
-  signal s_pixelvertical : std_logic_vector(9 downto 0);	-- counter vertical
-  signal s_enable : std_logic := '0';						-- enable signal for 1 pixel
-  signal s_vgasync : T_vgaport;
+  signal s_pixelhorizontal : std_logic_vector(9 downto 0);  -- counter horizontal
+  signal s_pixelvertical : std_logic_vector(9 downto 0);    -- counter vertical
+  signal s_vgasync : T_vgaport;                             -- record for output
 
 begin
 
@@ -94,25 +94,16 @@ begin
   begin
 
     if reset_i = '1' then
-  
+
       s_pixelhorizontal <= (others => '0');
       s_pixelvertical <= (others => '0');
-      s_enable <= '0';
 
     elsif clk_i'event and clk_i = '1' then
 
-      -- set enable
+      -- if enabled count up and reset enable
       if pixenable_i = '1' then
 
-        s_enable <= '1';
-
-      end if;
-
-      -- if enabled count up and reset enable
-      if s_enable = '1' then
-
         s_pixelhorizontal <= unsigned(s_pixelhorizontal) + 1;
-        s_enable <= '0';
 
         -- reset after last horizontal porch
         if s_pixelhorizontal = C_hmax then
@@ -121,15 +112,15 @@ begin
           s_pixelvertical <= unsigned(s_pixelvertical) + 1;
 
           -- reset after last vertical porch
-            if s_pixelvertical = C_vmax then
+          if s_pixelvertical = C_vmax then
 
               s_pixelvertical <= (others => '0');
-
-            end if;
 
           end if;
 
         end if;
+
+      end if;
 
     end if;
 
@@ -145,7 +136,7 @@ begin
   begin
 
     if reset_i = '1' then
-  
+
       s_vgasync.vsync <= '0';
       s_vgasync.hsync <= '0';
 

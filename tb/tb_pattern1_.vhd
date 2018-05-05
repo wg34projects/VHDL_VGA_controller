@@ -1,0 +1,25 @@
+----------------------------------------------------------------------------
+-- Title : VGA Controller
+-- Project : Chip Design BEL4
+----------------------------------------------------------------------------
+-- File : tb_pattern1_.vhd
+-- Author : Resch
+-- Company : FHTW
+-- Last update: 01.05.2018
+-- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
+----------------------------------------------------------------------------
+-- Description: TESTBENCH ENTITY Pattern1
+----------------------------------------------------------------------------
+-- Revisions : 1
+-- Date       Version Author  Description
+-- 2018.02.18 0.1     Resch   Projectstart
+-- 2018.05.01 0.2     Resch   final code style check and comments
+---------------------------------------------------------------------------- 
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+
+entity tb_pattern1 is
+
+end tb_pattern1;

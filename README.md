@@ -1,216 +1,196 @@
-# CHD - BEL4 - VGA Controller
+# CHD - BEL4 - VGA Controller - Helmut Resch
 
-## misc. status reports
+## the goal
 
-### the goal
-
-| Description |
-|--------------------|
+| Description                           |
+| ------------------------------------- |
 | ![alt text](doku/goal.png "goal VGA") |
 
-### wordcount / linecount
 
-#### Status 23.02.2018 23:00 Output is working
+# code parts and latest revisions
 
-	~/WorkDir/VHDL_VGA_controller/vhdl helmutresch > wc *.vhd -l
-	  116 iologic_rtl.vhd
-	   34 iologic_.vhd
-	  109 pattern1_rtl.vhd
-	   37 pattern1_.vhd
-	  145 pattern2_rtl.vhd
-	   37 pattern2_.vhd
-	   56 prescaler_rtl.vhd
-	   31 prescaler_.vhd
-	   75 sourcemultiplexer_rtl.vhd
-	   47 sourcemultiplexer_.vhd
-	  267 top_VGA_rtl.vhd
-	   40 top_VGA_.vhd
-	  121 vgacontroller_rtl.vhd
-	   38 vgacontroller_.vhd
-	 1153 insgesamt
+## VHDL entities and architectures RTL + STRUC
 
-	~/WorkDir/VHDL_VGA_controller/tb helmutresch > wc *.vhd -l
-	  104 tb_iologic_sim.vhd
-	   24 tb_iologic_.vhd
-	   73 tb_prescaler_sim.vhd
-	   24 tb_prescaler_.vhd
-	  275 tb_sourcemultiplexer_sim.vhd
-	   25 tb_sourcemultiplexer_.vhd
-	   94 tb_top_VGA_sim.vhd
-	   27 tb_top_VGA_.vhd
-	  105 tb_vgacontroller_sim.vhd
-	   27 tb_vgacontroller_.vhd
-	  778 insgesamt
+| R   | U   | entity             | v   | date  | % entity | architecture rtl      | % code |
+| --- | --- | ------------------ | --- | ----- | -------- | --------------------- | ------ |
+| 0   | I/O | iologic_           | 0.7 | 01.05 | 100%     | iologic_rtl           | 100%   |
+| 0   | I/O | prescaler_         | 0.7 | 01.05 | 100%     | prescaler_rtl         | 100%   |
+| 0   | I/O | sourcemultiplexer_ | 0.7 | 01.05 | 100%     | sourcemultiplexer_rtl | 100%   |
+| 1   | VGA | vgacontroller_     | 0.5 | 01.05 | 100%     | vgacontroller_rtl     | 100%   |
+| 1   | VGA | pattern1_          | 0.5 | 01.05 | 100%     | pattern1_rtl          | 100%   |
+| 1   | VGA | pattern2_          | 0.5 | 01.05 | 100%     | pattern2_rtl          | 100%   |
+| 1   | VGA | top_VGA\_          | 0.5 | 01.05 | 100%     | top_VGA_rtl           | 100%   |
+| 2   | MEM | memory1_           | 0.4 | 01.05 | 100%     | memory1_rtl           | 100%   |
+| 2   | MEM | memory2_           | 0.4 | 01.05 | 100%     | memory2_rtl           | 100%   |
 
-#### Status 27.02.2018 21:00 Full feature synthesized
+## VHDL TESTBENCH entities and architectures SIM
 
-	~/WorkDir/VHDL_VGA_controller helmutresch > wc ./vhdl/*.vhd -l
-	  119 ./vhdl/iologic_rtl.vhd
-	   37 ./vhdl/iologic_.vhd
-	  102 ./vhdl/memory1_rtl.vhd
-	   40 ./vhdl/memory1_.vhd
-	   83 ./vhdl/memory2_rtl.vhd
-	   41 ./vhdl/memory2_.vhd
-	  109 ./vhdl/pattern1_rtl.vhd
-	   37 ./vhdl/pattern1_.vhd
-	  145 ./vhdl/pattern2_rtl.vhd
-	   37 ./vhdl/pattern2_.vhd
-	   59 ./vhdl/prescaler_rtl.vhd
-	   34 ./vhdl/prescaler_.vhd
-	  246 ./vhdl/sourcemultiplexer_rtl.vhd
-	   53 ./vhdl/sourcemultiplexer_.vhd
-	  385 ./vhdl/top_VGA_rtl.vhd
-	   40 ./vhdl/top_VGA_.vhd
-	  121 ./vhdl/vgacontroller_rtl.vhd
-	   38 ./vhdl/vgacontroller_.vhd
-	  476 ./vhdl/vga_monitor_sim.vhd
-	   60 ./vhdl/vga_monitor_.vhd
-	 2262 insgesamt
+| R   | U   | entity                | v   | date  | % entity | architecture sim         | % code |
+| --- | --- | --------------------- | --- | ----- | -------- | ------------------------ | ------ |
+| 0   | I/O | tb_iologic_           | 0.2 | 01.05 | 100%     | tb_iologic_sim           | 100%   |
+| 0   | I/O | tb_prescaler_         | 0.2 | 01.05 | 100%     | tb_prescaler_sim         | 100%   |
+| 0   | I/O | tb_sourcemultiplexer_ | 0.2 | 01.05 | 100%     | tb_sourcemultiplexer_sim | 100%   |
+| 1   | VGA | tb_vgacontroller_     | 0.2 | 01.05 | 100%     | tb_vgacontroller_sim     | 100%   |
+| 1   | VGA | tb_pattern1_          | 0.2 | 01.05 | 100%     | tb_pattern1_sim          | 100%   |
+| 1   | VGA | tb_pattern2_          | 0.2 | 01.05 | 100%     | tb_pattern2_sim          | 100%   |
+| 1   | VGA | tb_top_VGA_           | 0.2 | 01.05 | 100%     | tb_top_VGA_rtl           | 100%   |
 
-	~/WorkDir/VHDL_VGA_controller helmutresch > wc ./tb/*.vhd -l
-	  104 ./tb/tb_iologic_sim.vhd
-	   24 ./tb/tb_iologic_.vhd
-	   73 ./tb/tb_prescaler_sim.vhd
-	   24 ./tb/tb_prescaler_.vhd
-	  279 ./tb/tb_sourcemultiplexer_sim.vhd
-	   25 ./tb/tb_sourcemultiplexer_.vhd
-	  105 ./tb/tb_top_VGA_sim.vhd
-	   27 ./tb/tb_top_VGA_.vhd
-	  105 ./tb/tb_vgacontroller_sim.vhd
-	   27 ./tb/tb_vgacontroller_.vhd
-	  793 insgesamt
+The testbench for memory1 and memory are included in the top_VGA testbench!
 
-#### Status 28.02.2018 23:00 Timing problems solved, 99% finished
+# schematic drawings
 
-	~/WorkDir/VHDL_VGA_controller helmutresch > wc ./vhdl/*.vhd -l
-	  119 ./vhdl/iologic_rtl.vhd
-	   37 ./vhdl/iologic_.vhd
-	  165 ./vhdl/memory1_rtl.vhd
-	   41 ./vhdl/memory1_.vhd
-	   83 ./vhdl/memory2_rtl.vhd
-	   42 ./vhdl/memory2_.vhd
-	  109 ./vhdl/pattern1_rtl.vhd
-	   37 ./vhdl/pattern1_.vhd
-	  145 ./vhdl/pattern2_rtl.vhd
-	   37 ./vhdl/pattern2_.vhd
-	   59 ./vhdl/prescaler_rtl.vhd
-	   34 ./vhdl/prescaler_.vhd
-	  246 ./vhdl/sourcemultiplexer_rtl.vhd
-	   53 ./vhdl/sourcemultiplexer_.vhd
-	  385 ./vhdl/top_VGA_rtl.vhd
-	   40 ./vhdl/top_VGA_.vhd
-	  121 ./vhdl/vgacontroller_rtl.vhd
-	   38 ./vhdl/vgacontroller_.vhd
-	  476 ./vhdl/vga_monitor_sim.vhd
-	   60 ./vhdl/vga_monitor_.vhd
-	 2327 insgesamt
+## RTL level
 
-	~/WorkDir/VHDL_VGA_controller helmutresch > wc ./tb/*.vhd -l
-	  104 ./tb/tb_iologic_sim.vhd
-	   24 ./tb/tb_iologic_.vhd
-	   73 ./tb/tb_prescaler_sim.vhd
-	   24 ./tb/tb_prescaler_.vhd
-	  279 ./tb/tb_sourcemultiplexer_sim.vhd
-	   25 ./tb/tb_sourcemultiplexer_.vhd
-	  105 ./tb/tb_top_VGA_sim.vhd
-	   27 ./tb/tb_top_VGA_.vhd
-	  105 ./tb/tb_vgacontroller_sim.vhd
-	   27 ./tb/tb_vgacontroller_.vhd
-	  793 insgesamt
+[PDF Download](doku/rtl_analysis_schematic.pdf)
 
-#### Status 28.03.2018 23:00 new features like transparency modes, automatic move
+## NETLIST level
 
-	~/WorkDir/VHDL_VGA_controller/vhdl helmutresch >  wc *.vhd -l
-	  130 iologic_rtl.vhd
-	   40 iologic_.vhd
-	  165 memory1_rtl.vhd
-	   41 memory1_.vhd
-	   83 memory2_rtl.vhd
-	   42 memory2_.vhd
-	  109 pattern1_rtl.vhd
-	   37 pattern1_.vhd
-	  145 pattern2_rtl.vhd
-	   37 pattern2_.vhd
-	   64 prescaler_rtl.vhd
-	   37 prescaler_.vhd
-	  671 sourcemultiplexer_rtl.vhd
-	   56 sourcemultiplexer_.vhd
-	  385 top_VGA_rtl.vhd
-	   40 top_VGA_.vhd
-	  121 vgacontroller_rtl.vhd
-	   38 vgacontroller_.vhd
-	  476 vga_monitor_sim.vhd
-	   60 vga_monitor_.vhd
-	 2777 insgesamt
+[PDF Download](doku/post_synthesis_schematic.pdf)  
 
-### schematic
+# timing memory1 and memory2
 
-[PDF Download VIVADO 28.03](doku/22.03.2018_schematic.pdf)  
+| timing   | memory                                       |
+| -------- | -------------------------------------------- |
+| memory 1 | ![alt text](doku/timing_mem1.png "memory 1") |
+| memory 2 | ![alt text](doku/timing_mem2.png "memory 2") |
 
-[PDF Download VIVADO 28.02](doku/28.02.2018_schematic.pdf)  
+The "adress_in to data_out"-time is according the simulation model for both ROMs 20ns.
 
-[PDF Download VIVADO 22.02](doku/22.02.2018_schematic.pdf)  
+# Screenshot Vivado Utilization and Timing
 
-### comments timing and error
+| Vivado                                               |
+| ---------------------------------------------------- |
+| ![alt text](doku/design_timing_summary.png "timing") |
 
-[PNG Download VIVADO 28.03](doku/28.03.2018_errors.png)  
+[PNG Download](doku/vivado.png)  
 
-[PNG Download VIVADO 28.02](doku/28.02.2018_errors.png)  
+All user specified timing constraints are met.
 
-[PNG Download VIVADO 22.02](doku/22.02.2018_errors.png)  
+# errors
 
-### code parts and latest revision
+| description           | amount       |
+| --------------------- | ------------ |
+| Synthesis ROM related | 204          |
+| Synthesis not used    | 28           |
+| TOTAL                 | 232 warnings |
 
-- 1% for documentation (code style check, comments, header)
-- R = revision in header = used to divide project into units
-- U = unit = steps in the project
+The not used connections / ports are due to optimization by VIVADO.
 
-| R | U | entity | v | date | % entity | architecture | % code | remark |
-| -------- | ---- | ------ | ------- | ---- | -------- | ------------ | ------ | ------ |
-| 0 | I/O | prescaler_ | 0.5 | 27.03 | 99% | prescaler_rtl | 99% | - |
-| 0 | I/O | iologic_ | 0.5 | 27.03 | 99% | iologic_rtl | 99% | - |
-| 0 | I/O | sourcemultiplexer_ | 0.5 | 27.03 | 99% | sourcemultiplexer_rtl | 99% | - |
-| 1 | VGA | vgacontroller_ | 0.4 | 27.03 | 99% | vgacontroller_rtl | 99% | - |
-| 1 | VGA | pattern1_ | 0.4 | 27.03 | 99% | pattern1_rtl | 99% | - |
-| 1 | VGA | pattern2_ | 0.4 | 27.03 | 99% | pattern2_rtl | 99% | - |
-| 1 | VGA | top_VGA_ | 0.4 | 27.03 | 99% | top_VGA_rtl | 99% | synthesized |
-| 2 | MEM | memory1_ | 0.3 | 28.02 | 99% | memory1_rtl | 99% | - |
-| 2 | MEM | memory2_ | 0.3 | 28.02 | 99% | memory2_rtl | 99% | timing-check |
+## Vivado Commands
 
-### output monitor FHTW
+	refresh_hw_device -update_hw_probes false [lindex [get_hw_devices] 0]
 
-| pattern | 640x480 |
-|-------- | ------- |
-| pattern 1 | ![alt text](doku/frame01.png "pattern 1") |
-| pattern 1+2 |  ![alt text](doku/frame02.png "pattern 1+2") |
-| pattern 2 |  ![alt text](doku/frame03.png "pattern 2") |
+	[Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+	Resolution: 
+	1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+	2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
 
-### output VGA real monitor Samsung Vienna
+	refresh_hw_device [lindex [get_hw_devices] 0]
 
-https://www.youtube.com/watch?v=7fyMXrCMvPQ&feature=youtu.be
+	[Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+	Resolution: 
+	1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+	2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
 
-### output VGA real monitor Samsung Styria
+## Synthesis
 
-| pattern | 640x480 |
-|-------- | ------- |
-| pattern 1 | ![alt text](doku/fotopattern01.jpg "pattern 1") |
-| pattern 2 | ![alt text](doku/fotopattern02.jpg "pattern 2") |
+### ROM related
 
-### output monitor FHTW with testpicture from ROM
+	Out-of-Context Module Runs
+	rom1_synth_1
+	[Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MUX_RST[0]
 
-| pattern | 640x480 |
-|-------- | ------- |
-| pattern 2+3 | ![alt text](doku/frame04.png "pattern 1") |
-| pattern 3 |  ![alt text](doku/frame05.png "pattern 1+2") |
+	rom2_synth_1
+	[Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MUX_RST[0]
 
-### output VGA real monitor Samsung Vienna with testpicture from ROM
+	synth_1
+	[Project 1-486] Could not resolve non-primitive black box cell 'rom1' instantiated as 'i_rom1' ["/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd":266]
 
-https://www.youtube.com/watch?v=oO-Cmue0pPw
+	[Project 1-486] Could not resolve non-primitive black box cell 'rom2' instantiated as 'i_rom2' ["/home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd":276]
 
-### output VGA real monitor Samsung Vienna with all features
+	[Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'i_rom1' at clock pin 'clka' is different from the actual clock period '10.000', this can result in different synthesis results.
 
-https://www.youtube.com/watch?v=A3abx1It04A
+	[Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'i_rom2' at clock pin 'clka' is different from the actual clock period '10.000', this can result in different synthesis results.
 
-### output with extra features 28.03.2018
+### not used and optimized by Vivado
 
-https://www.youtube.com/watch?v=eG-A7F7AeSQ&feature=youtu.be
+	[Synth 8-3332] Sequential element (i_pattern1/pattern1_r_o_reg[2]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern1/pattern1_r_o_reg[1]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern1/pattern1_r_o_reg[0]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern1/pattern1_g_o_reg[2]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern1/pattern1_g_o_reg[1]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern1/pattern1_g_o_reg[0]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern1/pattern1_b_o_reg[2]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern1/pattern1_b_o_reg[1]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern1/pattern1_b_o_reg[0]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern2/pattern2_r_o_reg[2]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern2/pattern2_r_o_reg[1]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern2/pattern2_r_o_reg[0]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern2/pattern2_g_o_reg[2]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern2/pattern2_g_o_reg[1]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern2/pattern2_g_o_reg[0]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern2/pattern2_b_o_reg[2]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern2/pattern2_b_o_reg[1]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern2/pattern2_b_o_reg[0]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_sourcemultiplexer/s_y_reg[0]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_sourcemultiplexer/s_position_vertical1_reg[0]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_sourcemultiplexer/s_position_vertical2_reg[0]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_pattern1/v_count_reg[2]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_sourcemultiplexer/v_tempspeed_reg[2]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_sourcemultiplexer/v_tempspeed_reg[1]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_sourcemultiplexer/v_tempspeed_reg[0]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_sourcemultiplexer/s_speed_reg[2]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_sourcemultiplexer/s_speed_reg[1]) is unused and will be removed from module top_VGA.
+
+	[Synth 8-3332] Sequential element (i_sourcemultiplexer/s_speed_reg[0]) is unused and will be removed from module top_VGA.
+
+# test output monitor FHTW
+
+| pattern   | overlay | transparency | 640x480                                    |
+| --------- | ------- | ------------ | ------------------------------------------ |
+| pattern 1 | none    | none         | ![alt text](doku/frame-0.png "pattern 1")  |
+| pattern 2 | none    | none         | ![alt text](doku/frame-1.png "pattern 1")  |
+| memory 1  | none    | none         | ![alt text](doku/frame-2.png "pattern 1")  |
+| pattern 1 | yes     | none         | ![alt text](doku/frame-3.png "pattern 1")  |
+| pattern 2 | yes     | none         | ![alt text](doku/frame-4.png "pattern 1")  |
+| memory 1  | yes     | none         | ![alt text](doku/frame-5.png "pattern 1")  |
+| pattern 1 | yes     | b/w          | ![alt text](doku/frame-6.png "pattern 1")  |
+| pattern 2 | yes     | b/w          | ![alt text](doku/frame-7.png "pattern 1")  |
+| memory 1  | yes     | b/w          | ![alt text](doku/frame-8.png "pattern 1")  |
+| pattern 1 | yes     | spaceinvador | ![alt text](doku/frame-9.png "pattern 1")  |
+| pattern 2 | yes     | spaceinvador | ![alt text](doku/frame-10.png "pattern 1") |
+| memory 1  | yes     | spaceinvador | ![alt text](doku/frame-11.png "pattern 1") |
+
+# Conclusion
+
+A challenging and interesting project!
+
+# Improvements
+
+- include mcp8051 uC and generate move patterns

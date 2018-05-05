@@ -5,17 +5,15 @@
 -- File : tb_vgacontroller_sim.vhd
 -- Author : Resch
 -- Company : FHTW
--- Last update: 19.02.2018
+-- Last update: 01.05.2018
 -- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
 ----------------------------------------------------------------------------
 -- Description: TESTBENCH ARCHITECTURE SIM VGA Controller
 ----------------------------------------------------------------------------
 -- Revisions : 1
--- Date 		Version	Author 	Description
--- 2018.02.19	0.1		Resch	Projectstart VGA Controller, first Timings
--- 2018.02.21	0.2		Resch	Added Pattern Generators and TOP Design
--- 2018.02.22	0.3		Resch	Update TOP Design and first output via
---                              the nice vga app from FHTW to disk
+-- Date       Version Author  Description
+-- 2018.02.18 0.1     Resch   Projectstart
+-- 2018.05.01 0.2     Resch   final code style check and comments
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -25,15 +23,21 @@ use IEEE.std_logic_arith.all;
 architecture sim of tb_vgacontroller is
 
 component vgacontroller
-  port 
+  port
   (
     clk_i : in std_logic;
     reset_i : in std_logic;
-	pixenable_i : in std_logic;
-	hsync_o : out std_logic;
-	vsync_o : out std_logic;
-	pixelhorizontal_o : out std_logic_vector(9 downto 0);
-	pixelvertical_o : out std_logic_vector(9 downto 0)
+    pixenable_i : in std_logic;                           -- 25MHz enable
+    hsync_o : out std_logic;                              -- generated hsync VGA
+    vsync_o : out std_logic;                              -- generated vsync VGA
+    pixelhorizontal_o : out std_logic_vector(9 downto 0); -- counter horizontal
+    pixelvertical_o : out std_logic_vector(9 downto 0);   -- counter vertical (lines)
+    red_i : in std_logic_vector(3 downto 0);              -- data from sourcemultiplexer
+    green_i : in std_logic_vector(3 downto 0);
+    blue_i : in std_logic_vector(3 downto 0);
+    red_o : out std_logic_vector(3 downto 0);             -- data to VGA
+    green_o : out std_logic_vector(3 downto 0);
+    blue_o : out std_logic_vector(3 downto 0)
   );
 end component;
 
@@ -44,6 +48,12 @@ signal hsync_o : std_logic;
 signal vsync_o : std_logic;
 signal pixelhorizontal_o : std_logic_vector(9 downto 0);
 signal pixelvertical_o : std_logic_vector(9 downto 0);
+signal red_i : std_logic_vector(3 downto 0);
+signal green_i : std_logic_vector(3 downto 0);
+signal blue_i : std_logic_vector(3 downto 0);
+signal red_o : std_logic_vector(3 downto 0);
+signal green_o : std_logic_vector(3 downto 0);
+signal blue_o : std_logic_vector(3 downto 0);
 
 begin
 
@@ -57,10 +67,16 @@ begin
     hsync_o => hsync_o,
     vsync_o => vsync_o,
     pixelhorizontal_o => pixelhorizontal_o,
-    pixelvertical_o => pixelvertical_o
+    pixelvertical_o => pixelvertical_o,
+    red_i => red_i,
+    green_i => green_i,
+    blue_i => blue_i,
+    red_o => red_o,
+    green_o => green_o,
+    blue_o => blue_o
    );
 
-  p_clk : process
+  P_clk : process
 
   begin
 
@@ -69,9 +85,9 @@ begin
     clk_i <= '0';
     wait for 5 ns;
 
-  end process p_clk;
+  end process P_clk;
 
-  p_enable : process
+  P_enable : process
 
   begin
 
@@ -80,26 +96,32 @@ begin
     pixenable_i <= '0';
     wait for 20 ns;
 
-  end process p_enable;
+  end process P_enable;
 
-  reset : process
+  P_reset : process
 
   begin
 
     reset_i <= '1';
+    red_i <= "0000";
+    green_i <= "0000";
+    blue_i <= "0000";
     wait for 35 ns;
 
     reset_i <= '0';
+    red_i <= "0100";
+    green_i <= "0010";
+    blue_i <= "0001";
     wait for 100 ms;
 
-  end process reset;
+  end process P_reset;
 
-  run : process
+  P_run : process
 
   begin
 
     wait for 200 ms;
 
-  end process run;
+  end process P_run;
 
 end sim;

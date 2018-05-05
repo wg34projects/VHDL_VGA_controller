@@ -5,14 +5,15 @@
 -- File : tb_iologic_sim.vhd
 -- Author : Resch
 -- Company : FHTW
--- Last update: 19.02.2018
+-- Last update: 01.05.2018
 -- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
 ----------------------------------------------------------------------------
--- Description: TESTBENCH ENTITY IOLogic for buttons and switches
+-- Description: TESTBENCH ARCHITECTURE SIM IOLogic for buttons and switches
 ----------------------------------------------------------------------------
 -- Revisions : 0
--- Date 		Version	Author 	Description
--- 2018.02.18	0.1		Resch	Projectstart
+-- Date         Version	Author  Description
+-- 2018.02.18   0.1     Resch   Projectstart
+-- 2018.05.01   0.2     Resch   final code style check and comments
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -56,7 +57,7 @@ begin
     pbsync_o => pbsync_o
   );
 
-  p_clk : process
+  P_clk : process
 
   begin
 
@@ -65,9 +66,9 @@ begin
     clk_i <= '1';
     wait for 5 ns;
 
-  end process p_clk;
+  end process P_clk;
 
-  run : process
+  P_run : process
 
   begin
 
@@ -99,6 +100,6 @@ begin
     pb_i <= "1111";
     wait for 2 ms;
 
-  end process run;
+  end process P_run;
 
 end sim;

@@ -1,0 +1,135 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/helmutresch/WorkDir/VHDL_VGA_controller/msim/vgacontroller
+Etb_vgacontroller
+w1525485003
+Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+8../../tb/tb_vgacontroller_.vhd
+F../../tb/tb_vgacontroller_.vhd
+l0
+L23
+V;lGhHe<8Bn:n]@7GK:I@m3
+!s100 hgRMJbH2hJ>iXfZ[`Hn7B3
+Z4 OV;C;10.5b;63
+32
+Z5 !s110 1525516013
+!i10b 1
+Z6 !s108 1525516013.000000
+!s90 -reportprogress|300|../../tb/tb_vgacontroller_.vhd|
+!s107 ../../tb/tb_vgacontroller_.vhd|
+!i113 1
+Z7 tExplicit 1 CvgOpt 0
+Asim
+Z8 w1525485741
+Z9 DEx4 work 16 tb_vgacontroller 0 22 ;lGhHe<8Bn:n]@7GK:I@m3
+R1
+R2
+R3
+Z10 8../../tb/tb_vgacontroller_sim.vhd
+Z11 F../../tb/tb_vgacontroller_sim.vhd
+l58
+L23
+Z12 V8bdQlCFmi^1WM6a87=VRP0
+Z13 !s100 _1j1JH8fcXTWed?e8P?Yz2
+R4
+32
+R5
+!i10b 1
+R6
+Z14 !s90 -reportprogress|300|../../tb/tb_vgacontroller_sim.vhd|
+!s107 ../../tb/tb_vgacontroller_sim.vhd|
+!i113 1
+R7
+Evga_monitor
+Z15 w1525509138
+R2
+R3
+R0
+8../../vhdl/vga_monitor_.vhd
+F../../vhdl/vga_monitor_.vhd
+l0
+L47
+VOJkz8c>58c@AQbhXY9hBS0
+!s100 [15`O[Dn<z>?eP<D_:MdT0
+R4
+32
+R5
+!i10b 1
+R6
+!s90 -reportprogress|300|../../vhdl/vga_monitor_.vhd|
+!s107 ../../vhdl/vga_monitor_.vhd|
+!i113 1
+R7
+Asim
+DEx4 work 11 vga_monitor 0 22 OJkz8c>58c@AQbhXY9hBS0
+R1
+DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R2
+R3
+8../../vhdl/vga_monitor_sim.vhd
+F../../vhdl/vga_monitor_sim.vhd
+l63
+L23
+VLi21]]zmRg^3f@62oAX7[1
+!s100 OG>ahBGUO`eeS5NMdMjiO3
+R4
+32
+R5
+!i10b 1
+R6
+!s90 -reportprogress|300|../../vhdl/vga_monitor_sim.vhd|
+!s107 ../../vhdl/vga_monitor_sim.vhd|
+!i113 1
+R7
+Evgacontroller
+w1525485022
+R1
+R2
+R3
+R0
+8../../vhdl/vgacontroller_.vhd
+F../../vhdl/vgacontroller_.vhd
+l0
+L28
+VLHm7Ij>78lhUmn`]>EY`P0
+!s100 2hXd^zRV;Dob?e]0Q?1cS1
+R4
+32
+R5
+!i10b 1
+R6
+!s90 -reportprogress|300|../../vhdl/vgacontroller_.vhd|
+!s107 ../../vhdl/vgacontroller_.vhd|
+!i113 1
+R7
+Artl
+w1525485143
+DEx4 work 13 vgacontroller 0 22 LHm7Ij>78lhUmn`]>EY`P0
+R1
+R2
+R3
+8../../vhdl/vgacontroller_rtl.vhd
+F../../vhdl/vgacontroller_rtl.vhd
+l53
+L28
+VN3blgVO`?OA?z>Mg3FXX;1
+!s100 LJn;=MBRn]<8j?YIP5^@O1
+R4
+32
+R5
+!i10b 1
+R6
+!s90 -reportprogress|300|../../vhdl/vgacontroller_rtl.vhd|
+!s107 ../../vhdl/vgacontroller_rtl.vhd|
+!i113 1
+R7

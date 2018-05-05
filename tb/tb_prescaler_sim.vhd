@@ -5,14 +5,15 @@
 -- File : tb_prescaler_sim.vhd
 -- Author : Resch
 -- Company : FHTW
--- Last update: 19.02.2018
+-- Last update: 01.05.2018
 -- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
 ----------------------------------------------------------------------------
 -- Description: ARCHITECTURE SIM Prescaler to generate 25MHz signal
 ----------------------------------------------------------------------------
 -- Revisions : 0
--- Date 		Version	Author 	Description
--- 2018.02.18	0.1		Resch	Projectstart
+-- Date         Version	Author  Description
+-- 2018.02.18   0.1     Resch   Projectstart
+-- 2018.05.01   0.2     Resch   final code style check and comments
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -27,7 +28,7 @@ component prescaler
   (
     clk_i : in std_logic;
     reset_i : in std_logic;
-	pixenable_o : out std_logic
+    pixenable_o : out std_logic
   );
 
 end component;
@@ -47,7 +48,7 @@ begin
     pixenable_o => pixenable_o
   );
 
-  p_clk : process
+  P_clk : process
 
   begin
 
@@ -56,9 +57,9 @@ begin
     clk_i <= '1';
     wait for 5 ns;
 
-  end process p_clk;
+  end process P_clk;
 
-  run : process
+  P_run : process
 
   begin
 
@@ -68,6 +69,6 @@ begin
     reset_i <= '0';
     wait for 1 ms;
 
-  end process run;
+  end process P_run;
 
 end sim;

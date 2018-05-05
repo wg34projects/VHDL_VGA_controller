@@ -5,6 +5,9 @@
 set_param xicom.use_bs_reader 1
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
+set_msg_config  -ruleid {3}  -string {{Vivado Commands}}  -suppress 
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -25,14 +28,15 @@ add_files -quiet /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom2/rom
 set_property used_in_implementation false [get_files /home/helmutresch/WorkDir/VHDL_VGA_controller/generate/rom2/rom2/rom2.dcp]
 read_vhdl -library xil_defaultlib {
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/sourcemultiplexer_.vhd
+  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern1_.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/prescaler_.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/vgacontroller_.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory2_.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern2_.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/iologic_.vhd
-  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern1_.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/sourcemultiplexer_rtl.vhd
+  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern1_rtl.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/memory1_rtl.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/prescaler_rtl.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/vgacontroller_rtl.vhd
@@ -40,7 +44,6 @@ read_vhdl -library xil_defaultlib {
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/iologic_rtl.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern2_rtl.vhd
-  /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/pattern1_rtl.vhd
   /home/helmutresch/WorkDir/VHDL_VGA_controller/vhdl/top_VGA_rtl.vhd
 }
 foreach dcp [get_files -quiet -all *.dcp] {

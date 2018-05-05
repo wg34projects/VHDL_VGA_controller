@@ -47,7 +47,7 @@ use IEEE.std_logic_1164.all;
 entity vga_monitor is
   generic(
     g_no_frames : integer range 1 to 99 := 99;
-    g_path      : string                := "vga_output/"
+    g_path      : string                := "../vga_output/"
     );
   port(
     s_reset_i     : in std_logic;

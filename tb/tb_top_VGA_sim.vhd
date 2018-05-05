@@ -5,17 +5,15 @@
 -- File : tb_top_VGA_sim.vhd
 -- Author : Resch
 -- Company : FHTW
--- Last update: 19.02.2018
+-- Last update: 01.05.2018
 -- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
 ----------------------------------------------------------------------------
 -- Description: TESTBENCH ARCHITECTURE SIM TOP Design VGA
 ----------------------------------------------------------------------------
 -- Revisions : 1
--- Date 		Version	Author 	Description
--- 2018.02.19	0.1		Resch	Projectstart VGA Controller, first Timings
--- 2018.02.21	0.2		Resch	Added Pattern Generators and TOP Design
--- 2018.02.22	0.3		Resch	Update TOP Design and first output via
---                              the nice vga app from FHTW to disk
+-- Date       Version Author  Description
+-- 2018.02.18 0.1     Resch   Projectstart
+-- 2018.05.01 0.2     Resch   final code style check and comments
 ---------------------------------------------------------------------------- 
 
 library IEEE;
@@ -73,32 +71,49 @@ begin
     reset_i <= '1';
     wait for 50 ns;
 
+    -- all possible combination without move
+    -- pattern1, pattern2, memory1
+    -- overlay normal pattern1, pattern2, memory1
+    -- overlay transparent pattern1, pattern2, memory1
+    -- overlay spaceinvadorspecial pattern1, pattern2, memory1
     reset_i <= '0';
     wait for 50 ns;
 
---	sw_i <= "0000000000000100";
---    wait for 35 ms;
+    sw_i <= "0000000000000000";
+    wait for 35 ms;
 
---	sw_i <= "0000000000000110";
---    wait for 35 ms;
+    sw_i <= "0000000000000010";
+    wait for 35 ms;
 
-	sw_i <= "0000000000000110";
+    sw_i <= "0000000000000011";
+    wait for 35 ms;
 
---    pb_i <= "0001";
---    wait for 6 ms;
---    pb_i <= "0000";
---    wait for 6 ms;
---    pb_i <= "0001";
---    wait for 6 ms;
---    pb_i <= "0000";
---    pb_i <= "0100";
---    wait for 6 ms;
---    pb_i <= "0000";
+    sw_i <= "0000000000000100";
+    wait for 35 ms;
 
---	sw_i <= "0000000000000000";
---    wait for 35 ms;
+    sw_i <= "0000000000000110";
+    wait for 35 ms;
 
-    wait for 1000 ms;
+    sw_i <= "0000000000000111";
+    wait for 35 ms;
+
+    sw_i <= "0000000000001100";
+    wait for 35 ms;
+
+    sw_i <= "0000000000001110";
+    wait for 35 ms;
+
+    sw_i <= "0000000000001111";
+    wait for 35 ms;
+
+    sw_i <= "0000000000011100";
+    wait for 35 ms;
+
+    sw_i <= "0000000000011110";
+    wait for 35 ms;
+
+    sw_i <= "0000000000011111";
+    wait for 35 ms;
 
   end process run;
 

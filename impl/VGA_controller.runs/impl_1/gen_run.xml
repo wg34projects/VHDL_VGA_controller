@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1524520151">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1525516382">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="RDI-RDI" Name="top_VGA.vdi"/>
   <File Type="BG-DRC" Name="top_VGA.drc"/>
@@ -65,6 +65,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../vhdl/pattern1_.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../vhdl/memory1_.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -101,13 +107,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../vhdl/pattern1_.vhd">
+    <File Path="$PPRDIR/../vhdl/sourcemultiplexer_rtl.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../vhdl/sourcemultiplexer_rtl.vhd">
+    <File Path="$PPRDIR/../vhdl/pattern1_rtl.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -150,12 +156,6 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../vhdl/pattern2_rtl.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../vhdl/pattern1_rtl.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>

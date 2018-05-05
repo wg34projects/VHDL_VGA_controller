@@ -5,20 +5,21 @@
 -- File : top_VGA_rtl.vhd
 -- Author : Resch
 -- Company : FHTW
--- Last update: 19.02.2018
+-- Last update: 01.05.2018
 -- Platform : VHDL, Modelsim 10.5b, Xilinx Vivado 2016.1
 ----------------------------------------------------------------------------
--- Description: ARCHITECTURE RTL TOP Design VGA
+-- Description: ARCHITECTURE STRUC TOP Design VGA
 ----------------------------------------------------------------------------
 -- Revisions : 1
--- Date 		Version	Author 	Description
--- 2018.02.19	0.1		Resch	Projectstart VGA Controller, first Timings
--- 2018.02.21	0.2		Resch	Added Pattern Generators and TOP Design
--- 2018.02.22	0.3		Resch	Update TOP Design and first output via
---                              the nice vga app from FHTW to disk
--- 2018.03.27	0.4		Resch	Update signal routing sourcemultiplexer to
---								VGA controller
----------------------------------------------------------------------------- 
+-- Date       Version Author  Description
+-- 2018.02.19 0.1     Resch   Projectstart VGA Controller, first Timings
+-- 2018.02.21 0.2     Resch   Added Pattern Generators and TOP Design
+-- 2018.02.22 0.3     Resch   Update TOP Design and first output via
+--                            the nice vga app from FHTW to disk
+-- 2018.03.27 0.4     Resch   Update signal routing sourcemultiplexer to
+--                            VGA controller
+-- 2018.05.01 0.5     Resch   final code style check and comments
+----------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -65,14 +66,14 @@ component iologic is
 
 end component;
 
--- 25MHz VGA signal
+-- 25MHz VGA enable signal
 component prescaler is
 
   port
   (
     clk_i : in std_logic;
     reset_i : in std_logic;
-	pixenable_o : out std_logic
+    pixenable_o : out std_logic
   );
 
 end component;
@@ -99,28 +100,28 @@ component sourcemultiplexer is
     pattern2_g_i : in std_logic_vector(3 downto 0);
     pattern2_b_i : in std_logic_vector(3 downto 0);
     red_mux_o : out std_logic_vector(3 downto 0);
-	green_mux_o : out std_logic_vector(3 downto 0);
-	blue_mux_o : out std_logic_vector(3 downto 0);
-	pixelhorizontal_i : in std_logic_vector(9 downto 0);
-	pixelvertical_i : in std_logic_vector(9 downto 0);
+    green_mux_o : out std_logic_vector(3 downto 0);
+    blue_mux_o : out std_logic_vector(3 downto 0);
+    pixelhorizontal_i : in std_logic_vector(9 downto 0);
+    pixelvertical_i : in std_logic_vector(9 downto 0);
     countstart_o : out std_logic;
     switch_o : out std_logic
   );
 
 end component;
 
--- counter for hsync and vsync
+-- counter for hsync and vsync and output control
 component vgacontroller
 
   port 
   (
     clk_i : in std_logic;
     reset_i : in std_logic;
-	pixenable_i : in std_logic;
-	hsync_o : out std_logic;
-	vsync_o : out std_logic;
-	pixelhorizontal_o : out std_logic_vector(9 downto 0);
-	pixelvertical_o : out std_logic_vector(9 downto 0);
+    pixenable_i : in std_logic;
+    hsync_o : out std_logic;
+    vsync_o : out std_logic;
+    pixelhorizontal_o : out std_logic_vector(9 downto 0);
+    pixelvertical_o : out std_logic_vector(9 downto 0);
     red_i : in std_logic_vector(3 downto 0);
     green_i : in std_logic_vector(3 downto 0);
     blue_i : in std_logic_vector(3 downto 0);
@@ -131,7 +132,7 @@ component vgacontroller
 
 end component;
 
----- vga monitor FHTW - commented out for output
+-- vga monitor FHTW for testing purposes
 --component vga_monitor
 
 --  port
@@ -142,7 +143,7 @@ end component;
 --    s_vga_blue_i  : in std_logic_vector(3 downto 0);
 --    s_vga_hsync_i : in std_logic;
 --    s_vga_vsync_i : in std_logic
---    ); 
+--  ); 
 
 --end component;
 
@@ -153,11 +154,10 @@ component pattern1
   (
     clk_i : in std_logic;
     reset_i : in std_logic;
-	pixelhorizontal_i : in std_logic_vector(9 downto 0);
-	pixelvertical_i : in std_logic_vector(9 downto 0);
+    pixelhorizontal_i : in std_logic_vector(9 downto 0);
     pattern1_r_o : out std_logic_vector(3 downto 0);
-	pattern1_g_o : out std_logic_vector(3 downto 0);
-	pattern1_b_o : out std_logic_vector(3 downto 0);
+    pattern1_g_o : out std_logic_vector(3 downto 0);
+    pattern1_b_o : out std_logic_vector(3 downto 0);
     switch_i : in std_logic
   );
 
@@ -170,11 +170,11 @@ component pattern2
   (
     clk_i : in std_logic;
     reset_i : in std_logic;
-	pixelhorizontal_i : in std_logic_vector(9 downto 0);
-	pixelvertical_i : in std_logic_vector(9 downto 0);
+    pixelhorizontal_i : in std_logic_vector(9 downto 0);
+    pixelvertical_i : in std_logic_vector(9 downto 0);
     pattern2_r_o : out std_logic_vector(3 downto 0);
-	pattern2_g_o : out std_logic_vector(3 downto 0);
-	pattern2_b_o : out std_logic_vector(3 downto 0)
+    pattern2_g_o : out std_logic_vector(3 downto 0);
+    pattern2_b_o : out std_logic_vector(3 downto 0)
   );
 
 end component;
@@ -186,12 +186,12 @@ component memory1
   (
     clk_i : in std_logic;
     reset_i : in std_logic;
-	pixelhorizontal_i : in std_logic_vector(9 downto 0);
-	pixelvertical_i : in std_logic_vector(9 downto 0);
-	pixenable_i : in std_logic;
+    pixelhorizontal_i : in std_logic_vector(9 downto 0);
+    pixelvertical_i : in std_logic_vector(9 downto 0);
+    pixenable_i : in std_logic;
     memory1_r_o : out std_logic_vector(3 downto 0);
-	memory1_g_o : out std_logic_vector(3 downto 0);
-	memory1_b_o : out std_logic_vector(3 downto 0);
+    memory1_g_o : out std_logic_vector(3 downto 0);
+    memory1_b_o : out std_logic_vector(3 downto 0);
     addr_rom1_o : out std_logic_vector(16 downto 0);
     data_rom1_i : in std_logic_vector(11 downto 0)
   );
@@ -205,12 +205,12 @@ component memory2
   (
     clk_i : in std_logic;
     reset_i : in std_logic;
-	pixelhorizontal_i : in std_logic_vector(9 downto 0);
-	pixelvertical_i : in std_logic_vector(9 downto 0);
-	pixenable_i : in std_logic;
+    pixelhorizontal_i : in std_logic_vector(9 downto 0);
+    pixelvertical_i : in std_logic_vector(9 downto 0);
+    pixenable_i : in std_logic;
     memory2_r_o : out std_logic_vector(3 downto 0);
-	memory2_g_o : out std_logic_vector(3 downto 0);
-	memory2_b_o : out std_logic_vector(3 downto 0);
+    memory2_g_o : out std_logic_vector(3 downto 0);
+    memory2_b_o : out std_logic_vector(3 downto 0);
     addr_rom2_o : out std_logic_vector(13 downto 0);
     data_rom2_i : in std_logic_vector(11 downto 0);
     countstart_i : in std_logic
@@ -219,47 +219,46 @@ component memory2
 end component;
 
 -- connection signals switches, buttons
-signal swsync : std_logic_vector(15 downto 0);
-signal pbsync : std_logic_vector(3 downto 0);
--- 25MHz signal
-signal pixenable : std_logic;
+signal s_swsync : std_logic_vector(15 downto 0);
+signal s_pbsync : std_logic_vector(3 downto 0);
+-- 25MHz pixel enable
+signal s_pixenable : std_logic;
 -- memory1 connection
-signal memory1_r : std_logic_vector(3 downto 0);
-signal memory1_g : std_logic_vector(3 downto 0);
-signal memory1_b : std_logic_vector(3 downto 0);
-signal data_rom1 : std_logic_vector(11 downto 0);
-signal addr_rom1 : std_logic_vector(16 downto 0);
+signal s_memory1_r : std_logic_vector(3 downto 0);
+signal s_memory1_g : std_logic_vector(3 downto 0);
+signal s_memory1_b : std_logic_vector(3 downto 0);
+signal s_data_rom1 : std_logic_vector(11 downto 0);
+signal s_addr_rom1 : std_logic_vector(16 downto 0);
 -- memory2 connection
-signal memory2_r : std_logic_vector(3 downto 0);
-signal memory2_g : std_logic_vector(3 downto 0);
-signal memory2_b : std_logic_vector(3 downto 0);
-signal data_rom2 : std_logic_vector(11 downto 0);
-signal addr_rom2 : std_logic_vector(13 downto 0);
+signal s_memory2_r : std_logic_vector(3 downto 0);
+signal s_memory2_g : std_logic_vector(3 downto 0);
+signal s_memory2_b : std_logic_vector(3 downto 0);
+signal s_data_rom2 : std_logic_vector(11 downto 0);
+signal s_addr_rom2 : std_logic_vector(13 downto 0);
 -- pattern1 connection
-signal pattern1_r : std_logic_vector(3 downto 0);
-signal pattern1_g : std_logic_vector(3 downto 0);
-signal pattern1_b : std_logic_vector(3 downto 0);
+signal s_pattern1_r : std_logic_vector(3 downto 0);
+signal s_pattern1_g : std_logic_vector(3 downto 0);
+signal s_pattern1_b : std_logic_vector(3 downto 0);
 -- pattern2 connection
-signal pattern2_r : std_logic_vector(3 downto 0);
-signal pattern2_g : std_logic_vector(3 downto 0);
-signal pattern2_b : std_logic_vector(3 downto 0);
--- RGB signals to VGA
-signal red : std_logic_vector(3 downto 0);
-signal green : std_logic_vector(3 downto 0);
-signal blue : std_logic_vector(3 downto 0);
-
-signal redvga : std_logic_vector(3 downto 0);
-signal greenvga : std_logic_vector(3 downto 0);
-signal bluevga : std_logic_vector(3 downto 0);
-
+signal s_pattern2_r : std_logic_vector(3 downto 0);
+signal s_pattern2_g : std_logic_vector(3 downto 0);
+signal s_pattern2_b : std_logic_vector(3 downto 0);
+-- RGB signals to VGA port
+signal s_red : std_logic_vector(3 downto 0);
+signal s_green : std_logic_vector(3 downto 0);
+signal s_blue : std_logic_vector(3 downto 0);
+-- RGB signal for internal connection with mux
+signal s_redvga : std_logic_vector(3 downto 0);
+signal s_greenvga : std_logic_vector(3 downto 0);
+signal s_bluevga : std_logic_vector(3 downto 0);
 -- sync signals to VGA
-signal hsync : std_logic;
-signal vsync : std_logic;
+signal s_hsync : std_logic;
+signal s_vsync : std_logic;
 -- connection pixelcounters
-signal pixelhorizontal : std_logic_vector(9 downto 0);
-signal pixelvertical : std_logic_vector(9 downto 0);
-signal countstart : std_logic;
-signal switch : std_logic;
+signal s_pixelhorizontal : std_logic_vector(9 downto 0);
+signal s_pixelvertical : std_logic_vector(9 downto 0);
+signal s_countstart : std_logic;
+signal s_switch : std_logic;
 
 begin
 
@@ -269,8 +268,8 @@ begin
   port map
   (
     clka => clk_i,
-    addra => addr_rom1,
-    douta => data_rom1
+    addra => s_addr_rom1,
+    douta => s_data_rom1
   );
 
   -- connection memory2
@@ -279,8 +278,8 @@ begin
   port map
   (
     clka => clk_i,
-    addra => addr_rom2,
-    douta => data_rom2
+    addra => s_addr_rom2,
+    douta => s_data_rom2
   );
 
   -- connection buttons and switches
@@ -292,18 +291,18 @@ begin
     reset_i => reset_i,
     sw_i => sw_i,
     pb_i => pb_i,
-    swsync_o => swsync,
-    pbsync_o => pbsync
+    swsync_o => s_swsync,
+    pbsync_o => s_pbsync
   );
 
   i_prescaler : prescaler
 
-  -- connection prescaler 25MHz signal
+  -- connection prescaler 25MHz enable signal
   port map
   (
     clk_i => clk_i,
     reset_i => reset_i,
-    pixenable_o => pixenable
+    pixenable_o => s_pixenable
   );
 
   -- connection pattern1 generator
@@ -313,12 +312,11 @@ begin
   (
     clk_i => clk_i,
     reset_i => reset_i,
-    pixelhorizontal_i => pixelhorizontal,
-    pixelvertical_i => pixelvertical,
-    pattern1_r_o => pattern1_r,
-    pattern1_g_o => pattern1_g,
-    pattern1_b_o => pattern1_b,
-    switch_i => switch
+    pixelhorizontal_i => s_pixelhorizontal,
+    pattern1_r_o => s_pattern1_r,
+    pattern1_g_o => s_pattern1_g,
+    pattern1_b_o => s_pattern1_b,
+    switch_i => s_switch
    );
 
   -- connection pattern2 generator
@@ -328,76 +326,76 @@ begin
   (
     clk_i => clk_i,
     reset_i => reset_i,
-    pixelhorizontal_i => pixelhorizontal,
-    pixelvertical_i => pixelvertical,
-    pattern2_r_o => pattern2_r,
-    pattern2_g_o => pattern2_g,
-    pattern2_b_o => pattern2_b
+    pixelhorizontal_i => s_pixelhorizontal,
+    pixelvertical_i => s_pixelvertical,
+    pattern2_r_o => s_pattern2_r,
+    pattern2_g_o => s_pattern2_g,
+    pattern2_b_o => s_pattern2_b
    );
 
-  -- connection memory1 reading
+  -- connection memory1 module
   i_memory1 : memory1
 
   port map
   (
     clk_i => clk_i,
     reset_i => reset_i,
-	pixelhorizontal_i => pixelhorizontal,
-	pixelvertical_i => pixelvertical,
-    pixenable_i => pixenable,
-    memory1_r_o => memory1_r,
-	memory1_g_o => memory1_g,
-	memory1_b_o => memory1_b,
-    addr_rom1_o => addr_rom1,
-    data_rom1_i => data_rom1
+    pixelhorizontal_i => s_pixelhorizontal,
+    pixelvertical_i => s_pixelvertical,
+    pixenable_i => s_pixenable,
+    memory1_r_o => s_memory1_r,
+    memory1_g_o => s_memory1_g,
+    memory1_b_o => s_memory1_b,
+    addr_rom1_o => s_addr_rom1,
+    data_rom1_i => s_data_rom1
   );
 
-  -- connection memory2 reading
+  -- connection memory2 module
   i_memory2 : memory2
 
   port map
   (
     clk_i => clk_i,
     reset_i => reset_i,
-	pixelhorizontal_i => pixelhorizontal,
-	pixelvertical_i => pixelvertical,
-    pixenable_i => pixenable,
-    memory2_r_o => memory2_r,
-	memory2_g_o => memory2_g,
-	memory2_b_o => memory2_b,
-    countstart_i => countstart,
-    addr_rom2_o => addr_rom2,
-    data_rom2_i => data_rom2
+    pixelhorizontal_i => s_pixelhorizontal,
+    pixelvertical_i => s_pixelvertical,
+    pixenable_i => s_pixenable,
+    memory2_r_o => s_memory2_r,
+    memory2_g_o => s_memory2_g,
+    memory2_b_o => s_memory2_b,
+    countstart_i => s_countstart,
+    addr_rom2_o => s_addr_rom2,
+    data_rom2_i => s_data_rom2
   );
 
-  -- connection multiplexer output
+  -- connection multiplexer
   i_sourcemultiplexer : sourcemultiplexer
 
   port map
   (
     clk_i => clk_i,
     reset_i => reset_i,
-    sel_i => swsync(5 downto 0),	-- only 6 switches used
-    pbsync_i => pbsync,				-- all 4 buttons
-    memory1_r_i => memory1_r,
-    memory1_g_i => memory1_g,
-    memory1_b_i => memory1_b,
-    memory2_r_i => memory2_r,
-    memory2_g_i => memory2_g,
-    memory2_b_i => memory2_b,
-    pattern1_r_i => pattern1_r,
-    pattern1_g_i => pattern1_g,
-    pattern1_b_i => pattern1_b,
-    pattern2_r_i => pattern2_r,
-    pattern2_g_i => pattern2_g,
-    pattern2_b_i => pattern2_b,
-    red_mux_o => redvga,
-    green_mux_o => greenvga,
-    blue_mux_o => bluevga,
-    pixelhorizontal_i => pixelhorizontal,
-    pixelvertical_i => pixelvertical,
-    countstart_o => countstart,
-    switch_o => switch
+    sel_i => s_swsync(5 downto 0),	-- first 6 switches used
+    pbsync_i => s_pbsync,           -- 4 buttons used
+    memory1_r_i => s_memory1_r,
+    memory1_g_i => s_memory1_g,
+    memory1_b_i => s_memory1_b,
+    memory2_r_i => s_memory2_r,
+    memory2_g_i => s_memory2_g,
+    memory2_b_i => s_memory2_b,
+    pattern1_r_i => s_pattern1_r,
+    pattern1_g_i => s_pattern1_g,
+    pattern1_b_i => s_pattern1_b,
+    pattern2_r_i => s_pattern2_r,
+    pattern2_g_i => s_pattern2_g,
+    pattern2_b_i => s_pattern2_b,
+    red_mux_o => s_redvga,
+    green_mux_o => s_greenvga,
+    blue_mux_o => s_bluevga,
+    pixelhorizontal_i => s_pixelhorizontal,
+    pixelvertical_i => s_pixelvertical,
+    countstart_o => s_countstart,
+    switch_o => s_switch
   );
 
   -- connection vga controller with sync signals and counters
@@ -407,17 +405,17 @@ begin
   (
     clk_i => clk_i,
     reset_i => reset_i,
-    pixenable_i => pixenable,
-    hsync_o => hsync,
-    vsync_o => vsync,
-    pixelhorizontal_o => pixelhorizontal,
-    pixelvertical_o => pixelvertical,
-	red_i => redvga,
-	green_i => greenvga,
-	blue_i => bluevga,
- 	red_o => red,
-	green_o => green,
-	blue_o => blue
+    pixenable_i => s_pixenable,
+    hsync_o => s_hsync,
+    vsync_o => s_vsync,
+    pixelhorizontal_o => s_pixelhorizontal,
+    pixelvertical_o => s_pixelvertical,
+    red_i => s_redvga,
+    green_i => s_greenvga,
+    blue_i => s_bluevga,
+    red_o => s_red,
+    green_o => s_green,
+    blue_o => s_blue
    );
 
 -- connection with vga monitor FHTW
@@ -426,18 +424,18 @@ begin
 --  port map 
 --  (
 --    s_reset_i => reset_i,
---    s_vga_red_i => red,
---    s_vga_green_i => green,
---    s_vga_blue_i => blue,
---    s_vga_hsync_i => hsync,
---    s_vga_vsync_i => vsync
+--    s_vga_red_i => s_red,
+--    s_vga_green_i => s_green,
+--    s_vga_blue_i => s_blue,
+--    s_vga_hsync_i => s_hsync,
+--    s_vga_vsync_i => s_vsync
 --  );
 
   -- final connection of 4 bit RGB and sync signals
-  red_o <= red;
-  green_o <= green;
-  blue_o <= blue;
-  hsync_o <= hsync;
-  vsync_o <= vsync;
+  red_o <= s_red;
+  green_o <= s_green;
+  blue_o <= s_blue;
+  hsync_o <= s_hsync;
+  vsync_o <= s_vsync;
 
 end struc;
