@@ -22,9 +22,9 @@ V;lGhHe<8Bn:n]@7GK:I@m3
 !s100 hgRMJbH2hJ>iXfZ[`Hn7B3
 Z4 OV;C;10.5b;63
 32
-Z5 !s110 1525516013
+Z5 !s110 1525632817
 !i10b 1
-Z6 !s108 1525516013.000000
+Z6 !s108 1525632817.000000
 !s90 -reportprogress|300|../../tb/tb_vgacontroller_.vhd|
 !s107 ../../tb/tb_vgacontroller_.vhd|
 !i113 1
@@ -63,9 +63,9 @@ VOJkz8c>58c@AQbhXY9hBS0
 !s100 [15`O[Dn<z>?eP<D_:MdT0
 R4
 32
-R5
+!s110 1525632816
 !i10b 1
-R6
+!s108 1525632816.000000
 !s90 -reportprogress|300|../../vhdl/vga_monitor_.vhd|
 !s107 ../../vhdl/vga_monitor_.vhd|
 !i113 1

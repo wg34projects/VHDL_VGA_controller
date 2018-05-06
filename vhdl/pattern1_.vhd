@@ -34,8 +34,7 @@ entity pattern1 is
     pixelhorizontal_i : in std_logic_vector(9 downto 0);
     pattern1_r_o : out std_logic_vector(3 downto 0);      -- signals to sourcemultiplexer
     pattern1_g_o : out std_logic_vector(3 downto 0);
-    pattern1_b_o : out std_logic_vector(3 downto 0);
-    switch_i : in std_logic
+    pattern1_b_o : out std_logic_vector(3 downto 0)
   );
 
 end pattern1;

@@ -47,8 +47,7 @@ port
   blue_mux_o : out std_logic_vector(3 downto 0);
   pixelhorizontal_i : in std_logic_vector(9 downto 0);  -- counter horizontal
   pixelvertical_i : in std_logic_vector(9 downto 0);    -- counter vertical
-  countstart_o : out std_logic;                         -- enable counting for memory2
-  switch_o : out std_logic                              -- enable pattern switch "hypno mode"
+  countstart_o : out std_logic                         -- enable counting for memory2
 );
 
 end component;
@@ -75,7 +74,6 @@ signal blue_mux_o : std_logic_vector(3 downto 0);
 signal pixelhorizontal_i : std_logic_vector(9 downto 0);
 signal pixelvertical_i : std_logic_vector(9 downto 0);
 signal countstart_o : std_logic;
-signal switch_o : std_logic;
 
 begin
 
@@ -104,8 +102,7 @@ begin
     blue_mux_o => blue_mux_o,
     pixelhorizontal_i => pixelhorizontal_i,
     pixelvertical_i => pixelvertical_i,
-    countstart_o => countstart_o,
-    switch_o => switch_o
+    countstart_o => countstart_o
   );
 
   P_clk : process

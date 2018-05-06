@@ -1,11 +1,31 @@
 # CHD - BEL4 - VGA Controller - Helmut Resch
 
-## the goal
+## the task
 
 | Description                           |
 | ------------------------------------- |
 | ![alt text](doku/goal.png "goal VGA") |
 
+## the resulting task
+
+All features according specification included and some extra features addes
+
+Total 6 switches in use. 0 = off / 1 = on / X = don't care
+
+| 05 | 04 | 03 | 02 | 01 | 00 | feature                               | basic | extra |
+| -- | -- | -- | -- | -- | -- | ------------------------------------- | ----- | ----- |
+| 0  | 0  | 0  | 0  | 0  | 0  | pattern1                              | yes   | -     |
+| 0  | 0  | 0  | 0  | 1  | 0  | pattern2                              | yes   | -     |
+| 0  | 0  | 0  | 0  | X  | 1  | memory1                               | yes   | -     |
+| 0  | 0  | 0  | 1  | X  | X  | overlay spaceinvador                  | yes   | -     |
+| 0  | 0  | 1  | 1  | X  | X  | overlay spaceinvador b/w transparency | -     | yes   |
+| 0  | 1  | 1  | 1  | X  | X  | overlay spaceinvador orange only      | -     | yes   |
+| 1  | X  | X  | X  | X  | X  | overlay spaceinvador automatic move   | -     | yes   |
+
+The buttons to move the overlay spaceinvador are supported like in basic specification.
+As extra feature it is possible to move the overlay spaceinvador over the "borders" to the opposite side.
+
+In the automatic move mode it is possible to increase and decrease the spaceinvador's speed with the left/right button.
 
 # code parts and latest revisions
 
@@ -71,8 +91,8 @@ All user specified timing constraints are met.
 | description           | amount       |
 | --------------------- | ------------ |
 | Synthesis ROM related | 204          |
-| Synthesis not used    | 28           |
-| TOTAL                 | 232 warnings |
+| Synthesis not used    | 27           |
+| TOTAL                 | 231 warnings |
 
 The not used connections / ports are due to optimization by VIVADO.
 
@@ -155,8 +175,6 @@ The not used connections / ports are due to optimization by VIVADO.
 	[Synth 8-3332] Sequential element (i_sourcemultiplexer/s_position_vertical1_reg[0]) is unused and will be removed from module top_VGA.
 
 	[Synth 8-3332] Sequential element (i_sourcemultiplexer/s_position_vertical2_reg[0]) is unused and will be removed from module top_VGA.
-
-	[Synth 8-3332] Sequential element (i_pattern1/v_count_reg[2]) is unused and will be removed from module top_VGA.
 
 	[Synth 8-3332] Sequential element (i_sourcemultiplexer/v_tempspeed_reg[2]) is unused and will be removed from module top_VGA.
 

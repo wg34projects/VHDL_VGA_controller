@@ -1,0 +1,1558 @@
+ls
+# io_logic
+# pattern1
+# pattern2
+# prescaler
+# sourcemultiplexer
+# top_VGA
+# transcript
+# vgacontroller
+# vga_output
+# ERROR: ld.so: object '/home/helmutresch/intelFPGA/16.1/modelsim_ase/lib/libfreetype.so.6' from LD_PRELOAD cannot be preloaded (wrong ELF class: ELFCLASS32): ignored.
+cd io_logic
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:45:36 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/iologic_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity iologic
+# End time: 20:45:36 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:45:36 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/iologic_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of iologic
+# -- Loading entity iologic
+# End time: 20:45:37 on May 06,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:45:37 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_iologic_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_iologic
+# End time: 20:45:37 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:45:37 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_iologic_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_iologic
+# -- Loading entity tb_iologic
+# End time: 20:45:37 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# vsim -t ns -novopt -lib work work.tb_iologic 
+# Start time: 20:45:39 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_iologic(sim)
+# Loading work.iologic(rtl)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+quit -sim
+# End time: 20:46:05 on May 06,2018, Elapsed time: 0:00:26
+# Errors: 0, Warnings: 1
+cd ..
+dir
+# io_logic  pattern2   sourcemultiplexer	transcript     vga_output
+# pattern1  prescaler  top_VGA		vgacontroller
+# ERROR: ld.so: object '/home/helmutresch/intelFPGA/16.1/modelsim_ase/lib/libfreetype.so.6' from LD_PRELOAD cannot be preloaded (wrong ELF class: ELFCLASS32): ignored.
+cd prescaler
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:46:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/prescaler_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity prescaler
+# End time: 20:46:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:46:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/prescaler_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of prescaler
+# -- Loading entity prescaler
+# End time: 20:46:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:46:15 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_prescaler_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_prescaler
+# End time: 20:46:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:46:16 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_prescaler_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_prescaler
+# -- Loading entity tb_prescaler
+# End time: 20:46:16 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# vsim -t ns -novopt -lib work work.tb_prescaler 
+# Start time: 20:46:17 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_prescaler(sim)
+# Loading work.prescaler(rtl)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+quit -sim
+# End time: 20:46:28 on May 06,2018, Elapsed time: 0:00:11
+# Errors: 0, Warnings: 1
+cd ..
+dir
+# io_logic  pattern2   sourcemultiplexer	transcript     vga_output
+# pattern1  prescaler  top_VGA		vgacontroller
+# ERROR: ld.so: object '/home/helmutresch/intelFPGA/16.1/modelsim_ase/lib/libfreetype.so.6' from LD_PRELOAD cannot be preloaded (wrong ELF class: ELFCLASS32): ignored.
+cd sourcemultiplexer
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:46:38 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity sourcemultiplexer
+# End time: 20:46:38 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:46:38 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of sourcemultiplexer
+# -- Loading entity sourcemultiplexer
+# End time: 20:46:38 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:46:38 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_sourcemultiplexer
+# End time: 20:46:38 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:46:38 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_sourcemultiplexer_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_sourcemultiplexer
+# -- Loading entity tb_sourcemultiplexer
+# End time: 20:46:38 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# vsim -t ns -novopt -lib work work.tb_sourcemultiplexer 
+# Start time: 20:46:40 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_sourcemultiplexer(sim)
+# Loading work.sourcemultiplexer(rtl)
+# ** Error: (vsim-3732) ../../tb/tb_sourcemultiplexer_sim.vhd(109): No default binding for component instance 'i_sourcemultiplexer'.
+#    The following component port is not on the entity:
+#           switch_o
+#    Time: 0 ns  Iteration: 0  Instance: /tb_sourcemultiplexer/i_sourcemultiplexer File: ../../vhdl/sourcemultiplexer_rtl.vhd
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./sim.do PAUSED at line 1
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:48:54 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity sourcemultiplexer
+# End time: 20:48:54 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:48:54 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of sourcemultiplexer
+# -- Loading entity sourcemultiplexer
+# End time: 20:48:54 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:48:54 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_sourcemultiplexer
+# End time: 20:48:54 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:48:54 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_sourcemultiplexer_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_sourcemultiplexer
+# -- Loading entity tb_sourcemultiplexer
+# End time: 20:48:54 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# vsim -t ns -novopt -lib work work.tb_sourcemultiplexer 
+# Start time: 20:46:40 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_sourcemultiplexer(sim)
+# Loading work.sourcemultiplexer(rtl)
+# ** Error: (vish-4014) No objects found matching '/tb_sourcemultiplexer/switch_o'.
+# Executing ONERROR command at macro ./wave.do line 30
+# ** Error: (vish-4014) No objects found matching 'tb_sourcemultiplexer/i_sourcemultiplexer/s_switch'.
+# Executing ONERROR command at macro ./wave.do line 40
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:18 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity sourcemultiplexer
+# End time: 20:49:18 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:18 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of sourcemultiplexer
+# -- Loading entity sourcemultiplexer
+# End time: 20:49:18 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:18 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_sourcemultiplexer
+# End time: 20:49:18 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:18 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_sourcemultiplexer_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_sourcemultiplexer
+# -- Loading entity tb_sourcemultiplexer
+# End time: 20:49:18 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# End time: 20:49:20 on May 06,2018, Elapsed time: 0:02:40
+# Errors: 7, Warnings: 1
+# vsim -t ns -novopt -lib work work.tb_sourcemultiplexer 
+# Start time: 20:49:20 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_sourcemultiplexer(sim)
+# Loading work.sourcemultiplexer(rtl)
+# ** Error: (vish-4014) No objects found matching '/tb_sourcemultiplexer/switch_o'.
+# Executing ONERROR command at macro ./wave.do line 30
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:38 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity sourcemultiplexer
+# End time: 20:49:38 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:38 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of sourcemultiplexer
+# -- Loading entity sourcemultiplexer
+# End time: 20:49:38 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:38 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_sourcemultiplexer
+# End time: 20:49:38 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:38 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_sourcemultiplexer_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_sourcemultiplexer
+# -- Loading entity tb_sourcemultiplexer
+# End time: 20:49:38 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# End time: 20:49:40 on May 06,2018, Elapsed time: 0:00:20
+# Errors: 3, Warnings: 1
+# vsim -t ns -novopt -lib work work.tb_sourcemultiplexer 
+# Start time: 20:49:40 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_sourcemultiplexer(sim)
+# Loading work.sourcemultiplexer(rtl)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+quit -sim
+# End time: 20:50:11 on May 06,2018, Elapsed time: 0:00:31
+# Errors: 0, Warnings: 1
+cd ..
+cd io_logic
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:50:19 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/iologic_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity iologic
+# End time: 20:50:19 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:50:19 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/iologic_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of iologic
+# -- Loading entity iologic
+# End time: 20:50:19 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:50:19 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_iologic_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_iologic
+# End time: 20:50:19 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:50:19 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_iologic_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_iologic
+# -- Loading entity tb_iologic
+# End time: 20:50:19 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# vsim -t ns -novopt -lib work work.tb_iologic 
+# Start time: 20:50:21 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_iologic(sim)
+# Loading work.iologic(rtl)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+quit -sim
+# End time: 20:50:31 on May 06,2018, Elapsed time: 0:00:10
+# Errors: 0, Warnings: 1
+cd ..
+cd prescaler
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:50:44 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/prescaler_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity prescaler
+# End time: 20:50:44 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:50:44 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/prescaler_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of prescaler
+# -- Loading entity prescaler
+# End time: 20:50:44 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:50:44 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_prescaler_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_prescaler
+# End time: 20:50:44 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:50:44 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_prescaler_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_prescaler
+# -- Loading entity tb_prescaler
+# End time: 20:50:44 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# vsim -t ns -novopt -lib work work.tb_prescaler 
+# Start time: 20:50:46 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_prescaler(sim)
+# Loading work.prescaler(rtl)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+quit -sim
+# End time: 20:51:00 on May 06,2018, Elapsed time: 0:00:14
+# Errors: 0, Warnings: 1
+cd ..
+cd sourcemultiplexer
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:51:09 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity sourcemultiplexer
+# End time: 20:51:09 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:51:09 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of sourcemultiplexer
+# -- Loading entity sourcemultiplexer
+# End time: 20:51:09 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:51:09 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_sourcemultiplexer
+# End time: 20:51:09 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:51:09 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_sourcemultiplexer_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_sourcemultiplexer
+# -- Loading entity tb_sourcemultiplexer
+# End time: 20:51:09 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# vsim -t ns -novopt -lib work work.tb_sourcemultiplexer 
+# Start time: 20:51:10 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_sourcemultiplexer(sim)
+# Loading work.sourcemultiplexer(rtl)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+quit -sim
+# End time: 20:51:24 on May 06,2018, Elapsed time: 0:00:14
+# Errors: 0, Warnings: 1
+cd ..
+cd pattern
+# couldn't change working directory to "pattern": no such file or directory
+cd pattern1
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:51:33 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern1_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity pattern1
+# End time: 20:51:33 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:51:33 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern1_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of pattern1
+# -- Loading entity pattern1
+# End time: 20:51:34 on May 06,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:51:34 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_pattern1_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_pattern1
+# End time: 20:51:34 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:51:34 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_pattern1_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_pattern1
+# -- Loading entity tb_pattern1
+# End time: 20:51:34 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# vsim -t ns -novopt -lib work work.tb_pattern1 
+# Start time: 20:51:35 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_pattern1(sim)
+# Loading work.pattern1(rtl)
+# ** Error: (vish-4014) No objects found matching '/tb_pattern1/switch_i'.
+# Executing ONERROR command at macro ./wave.do line 10
+# ** Error: (vish-4014) No objects found matching '/tb_pattern1/i_pattern1/P_color/v_count'.
+# Executing ONERROR command at macro ./wave.do line 18
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:52:30 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern1_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity pattern1
+# End time: 20:52:30 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:52:30 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern1_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of pattern1
+# -- Loading entity pattern1
+# End time: 20:52:30 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:52:30 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_pattern1_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_pattern1
+# End time: 20:52:30 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:52:30 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_pattern1_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_pattern1
+# -- Loading entity tb_pattern1
+# End time: 20:52:30 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# End time: 20:52:32 on May 06,2018, Elapsed time: 0:00:57
+# Errors: 6, Warnings: 1
+# vsim -t ns -novopt -lib work work.tb_pattern1 
+# Start time: 20:52:32 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_pattern1(sim)
+# Loading work.pattern1(rtl)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+cd ..
+# Cannot change directory while a simulation is in progress.
+# Use the "quit -sim" command to unload the design first.
+quit -sim
+# End time: 20:52:39 on May 06,2018, Elapsed time: 0:00:07
+# Errors: 1, Warnings: 1
+cd ..
+cd sourcemultiplexer
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:52:45 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity sourcemultiplexer
+# End time: 20:52:45 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:52:45 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of sourcemultiplexer
+# -- Loading entity sourcemultiplexer
+# End time: 20:52:45 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:52:45 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_sourcemultiplexer
+# End time: 20:52:45 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:52:45 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_sourcemultiplexer_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_sourcemultiplexer
+# -- Loading entity tb_sourcemultiplexer
+# End time: 20:52:45 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# vsim -t ns -novopt -lib work work.tb_sourcemultiplexer 
+# Start time: 20:52:48 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_sourcemultiplexer(sim)
+# Loading work.sourcemultiplexer(rtl)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+quit -sim
+# End time: 20:52:54 on May 06,2018, Elapsed time: 0:00:06
+# Errors: 0, Warnings: 1
+cd pattern2
+# couldn't change working directory to "pattern2": no such file or directory
+cd ..
+dir
+# io_logic  pattern2   sourcemultiplexer	transcript     vga_output
+# pattern1  prescaler  top_VGA		vgacontroller
+# ERROR: ld.so: object '/home/helmutresch/intelFPGA/16.1/modelsim_ase/lib/libfreetype.so.6' from LD_PRELOAD cannot be preloaded (wrong ELF class: ELFCLASS32): ignored.
+cd pattern2
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:53:05 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern2_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity pattern2
+# End time: 20:53:05 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:53:05 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern2_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of pattern2
+# -- Loading entity pattern2
+# End time: 20:53:05 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:53:05 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_pattern2_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_pattern2
+# End time: 20:53:05 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:53:05 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_pattern2_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_pattern2
+# -- Loading entity tb_pattern2
+# End time: 20:53:05 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# vsim -t ns -novopt -lib work work.tb_pattern2 
+# Start time: 20:53:06 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_pattern2(sim)
+# Loading work.pattern2(rtl)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+quit -sim
+# End time: 20:53:17 on May 06,2018, Elapsed time: 0:00:11
+# Errors: 0, Warnings: 1
+cd ..
+dir
+# io_logic  pattern2   sourcemultiplexer	transcript     vga_output
+# pattern1  prescaler  top_VGA		vgacontroller
+# ERROR: ld.so: object '/home/helmutresch/intelFPGA/16.1/modelsim_ase/lib/libfreetype.so.6' from LD_PRELOAD cannot be preloaded (wrong ELF class: ELFCLASS32): ignored.
+cd vgacontroller
+dir
+# compile.do  sim.do  vsim.wlf  wave.do  work
+# ERROR: ld.so: object '/home/helmutresch/intelFPGA/16.1/modelsim_ase/lib/libfreetype.so.6' from LD_PRELOAD cannot be preloaded (wrong ELF class: ELFCLASS32): ignored.
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:53:36 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/vga_monitor_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity vga_monitor
+# End time: 20:53:36 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:53:37 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/vga_monitor_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling architecture sim of vga_monitor
+# -- Loading entity vga_monitor
+# End time: 20:53:37 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:53:37 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/vgacontroller_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity vgacontroller
+# End time: 20:53:37 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:53:37 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/vgacontroller_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of vgacontroller
+# -- Loading entity vgacontroller
+# End time: 20:53:37 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:53:37 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_vgacontroller_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_vgacontroller
+# End time: 20:53:37 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:53:37 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_vgacontroller_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_vgacontroller
+# -- Loading entity tb_vgacontroller
+# End time: 20:53:37 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# vsim -t ns -novopt -lib work work.tb_vgacontroller 
+# Start time: 20:53:39 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_vgacontroller(sim)
+# Loading work.vgacontroller(rtl)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+quit -sim
+# End time: 20:54:05 on May 06,2018, Elapsed time: 0:00:26
+# Errors: 0, Warnings: 1
+cd ..
+cd top_VGA
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:14 on May 06,2018
+# vlog -reportprogress 300 ../../generate/rom1/rom1/blk_mem_gen_v8_3_2/simulation/blk_mem_gen_v8_3.v 
+# -- Compiling module STATE_LOGIC_v8_3
+# -- Compiling module beh_vlog_muxf7_v8_3
+# -- Compiling module beh_vlog_ff_clr_v8_3
+# -- Compiling module beh_vlog_ff_pre_v8_3
+# -- Compiling module beh_vlog_ff_ce_clr_v8_3
+# -- Compiling module write_netlist_v8_3
+# -- Compiling module read_netlist_v8_3
+# -- Compiling module blk_mem_axi_write_wrapper_beh_v8_3
+# -- Compiling module blk_mem_axi_read_wrapper_beh_v8_3
+# -- Compiling module blk_mem_axi_regs_fwd_v8_3
+# -- Compiling module blk_mem_gen_v8_3_2_output_stage
+# -- Compiling module blk_mem_gen_v8_3_2_softecc_output_reg_stage
+# -- Compiling module blk_mem_gen_v8_3_2_mem_module
+# -- Compiling module blk_mem_gen_v8_3_2
+# 
+# Top level modules:
+# 	blk_mem_gen_v8_3_2
+# End time: 20:54:14 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:14 on May 06,2018
+# vcom -reportprogress 300 ../../generate/rom1/rom1/synth/rom1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity rom1
+# -- Compiling architecture rom1_arch of rom1
+# End time: 20:54:14 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:14 on May 06,2018
+# vlog -reportprogress 300 ../../generate/rom2/rom2/blk_mem_gen_v8_3_2/simulation/blk_mem_gen_v8_3.v 
+# -- Compiling module STATE_LOGIC_v8_3
+# -- Compiling module beh_vlog_muxf7_v8_3
+# -- Compiling module beh_vlog_ff_clr_v8_3
+# -- Compiling module beh_vlog_ff_pre_v8_3
+# -- Compiling module beh_vlog_ff_ce_clr_v8_3
+# -- Compiling module write_netlist_v8_3
+# -- Compiling module read_netlist_v8_3
+# -- Compiling module blk_mem_axi_write_wrapper_beh_v8_3
+# -- Compiling module blk_mem_axi_read_wrapper_beh_v8_3
+# -- Compiling module blk_mem_axi_regs_fwd_v8_3
+# -- Compiling module blk_mem_gen_v8_3_2_output_stage
+# -- Compiling module blk_mem_gen_v8_3_2_softecc_output_reg_stage
+# -- Compiling module blk_mem_gen_v8_3_2_mem_module
+# -- Compiling module blk_mem_gen_v8_3_2
+# 
+# Top level modules:
+# 	blk_mem_gen_v8_3_2
+# End time: 20:54:14 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:14 on May 06,2018
+# vcom -reportprogress 300 ../../generate/rom2/rom2/synth/rom2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity rom2
+# -- Compiling architecture rom2_arch of rom2
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vlog -reportprogress 300 ../../generate/glbl.v 
+# -- Compiling module glbl
+# 
+# Top level modules:
+# 	glbl
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/memory1_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity memory1
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/memory1_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of memory1
+# -- Loading entity memory1
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/memory2_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity memory2
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/memory2_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of memory2
+# -- Loading entity memory2
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern1_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity pattern1
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern1_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of pattern1
+# -- Loading entity pattern1
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern2_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity pattern2
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern2_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of pattern2
+# -- Loading entity pattern2
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity sourcemultiplexer
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of sourcemultiplexer
+# -- Loading entity sourcemultiplexer
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/iologic_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity iologic
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/iologic_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of iologic
+# -- Loading entity iologic
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/prescaler_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity prescaler
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/prescaler_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of prescaler
+# -- Loading entity prescaler
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/vga_monitor_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity vga_monitor
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/vga_monitor_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling architecture sim of vga_monitor
+# -- Loading entity vga_monitor
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/vgacontroller_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity vgacontroller
+# End time: 20:54:15 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:15 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/vgacontroller_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of vgacontroller
+# -- Loading entity vgacontroller
+# End time: 20:54:16 on May 06,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:16 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/top_VGA_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity top_VGA
+# End time: 20:54:16 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:16 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/top_VGA_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture struc of top_VGA
+# -- Loading entity top_VGA
+# End time: 20:54:16 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:16 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_top_VGA_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_top_VGA
+# End time: 20:54:16 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:54:16 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_top_VGA_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_top_VGA
+# -- Loading entity tb_top_VGA
+# End time: 20:54:16 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# vsim -t ns -novopt -lib work work.tb_top_VGA 
+# Start time: 20:54:18 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_top_vga(sim)
+# Loading work.top_vga(struc)
+# Loading ieee.numeric_std(body)
+# Loading work.rom1(rom1_arch)
+# Loading work.blk_mem_gen_v8_3_2
+# Loading work.blk_mem_gen_v8_3_2_mem_module
+# Loading work.blk_mem_gen_v8_3_2_output_stage
+# Loading work.blk_mem_gen_v8_3_2_softecc_output_reg_stage
+# Loading work.rom2(rom2_arch)
+# Loading work.iologic(rtl)
+# Loading work.prescaler(rtl)
+# Loading work.pattern1(rtl)
+# Loading work.pattern2(rtl)
+# Loading work.memory1(rtl)
+# Loading work.memory2(rtl)
+# Loading work.sourcemultiplexer(rtl)
+# Loading work.vgacontroller(rtl)
+# ** Error: (vish-4014) No objects found matching '/tb_top_VGA/i_top_VGA/s_switch'.
+# Executing ONERROR command at macro ./wave.do line 23
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+#  Block Memory Generator module loading initial data...
+#  Block Memory Generator data initialization complete.
+# Block Memory Generator module tb_top_vga.i_top_VGA.i_rom1.U0.native_mem_module.blk_mem_gen_v8_3_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+#  Block Memory Generator module loading initial data...
+#  Block Memory Generator data initialization complete.
+# Block Memory Generator module tb_top_vga.i_top_VGA.i_rom2.U0.native_mem_module.blk_mem_gen_v8_3_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+do compile.do
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:19 on May 06,2018
+# vlog -reportprogress 300 ../../generate/rom1/rom1/blk_mem_gen_v8_3_2/simulation/blk_mem_gen_v8_3.v 
+# -- Compiling module STATE_LOGIC_v8_3
+# -- Compiling module beh_vlog_muxf7_v8_3
+# -- Compiling module beh_vlog_ff_clr_v8_3
+# -- Compiling module beh_vlog_ff_pre_v8_3
+# -- Compiling module beh_vlog_ff_ce_clr_v8_3
+# -- Compiling module write_netlist_v8_3
+# -- Compiling module read_netlist_v8_3
+# -- Compiling module blk_mem_axi_write_wrapper_beh_v8_3
+# -- Compiling module blk_mem_axi_read_wrapper_beh_v8_3
+# -- Compiling module blk_mem_axi_regs_fwd_v8_3
+# -- Compiling module blk_mem_gen_v8_3_2_output_stage
+# -- Compiling module blk_mem_gen_v8_3_2_softecc_output_reg_stage
+# -- Compiling module blk_mem_gen_v8_3_2_mem_module
+# -- Compiling module blk_mem_gen_v8_3_2
+# 
+# Top level modules:
+# 	blk_mem_gen_v8_3_2
+# End time: 20:55:19 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../generate/rom1/rom1/synth/rom1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity rom1
+# -- Compiling architecture rom1_arch of rom1
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vlog -reportprogress 300 ../../generate/rom2/rom2/blk_mem_gen_v8_3_2/simulation/blk_mem_gen_v8_3.v 
+# -- Compiling module STATE_LOGIC_v8_3
+# -- Compiling module beh_vlog_muxf7_v8_3
+# -- Compiling module beh_vlog_ff_clr_v8_3
+# -- Compiling module beh_vlog_ff_pre_v8_3
+# -- Compiling module beh_vlog_ff_ce_clr_v8_3
+# -- Compiling module write_netlist_v8_3
+# -- Compiling module read_netlist_v8_3
+# -- Compiling module blk_mem_axi_write_wrapper_beh_v8_3
+# -- Compiling module blk_mem_axi_read_wrapper_beh_v8_3
+# -- Compiling module blk_mem_axi_regs_fwd_v8_3
+# -- Compiling module blk_mem_gen_v8_3_2_output_stage
+# -- Compiling module blk_mem_gen_v8_3_2_softecc_output_reg_stage
+# -- Compiling module blk_mem_gen_v8_3_2_mem_module
+# -- Compiling module blk_mem_gen_v8_3_2
+# 
+# Top level modules:
+# 	blk_mem_gen_v8_3_2
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../generate/rom2/rom2/synth/rom2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity rom2
+# -- Compiling architecture rom2_arch of rom2
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vlog -reportprogress 300 ../../generate/glbl.v 
+# -- Compiling module glbl
+# 
+# Top level modules:
+# 	glbl
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/memory1_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity memory1
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/memory1_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of memory1
+# -- Loading entity memory1
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/memory2_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity memory2
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/memory2_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of memory2
+# -- Loading entity memory2
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern1_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity pattern1
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern1_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of pattern1
+# -- Loading entity pattern1
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern2_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity pattern2
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/pattern2_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of pattern2
+# -- Loading entity pattern2
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity sourcemultiplexer
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/sourcemultiplexer_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of sourcemultiplexer
+# -- Loading entity sourcemultiplexer
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/iologic_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity iologic
+# End time: 20:55:20 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:20 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/iologic_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of iologic
+# -- Loading entity iologic
+# End time: 20:55:21 on May 06,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:21 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/prescaler_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity prescaler
+# End time: 20:55:21 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:21 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/prescaler_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of prescaler
+# -- Loading entity prescaler
+# End time: 20:55:21 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:21 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/vga_monitor_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity vga_monitor
+# End time: 20:55:21 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:21 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/vga_monitor_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling architecture sim of vga_monitor
+# -- Loading entity vga_monitor
+# End time: 20:55:21 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:21 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/vgacontroller_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity vgacontroller
+# End time: 20:55:21 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:21 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/vgacontroller_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture rtl of vgacontroller
+# -- Loading entity vgacontroller
+# End time: 20:55:21 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:21 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/top_VGA_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity top_VGA
+# End time: 20:55:21 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:21 on May 06,2018
+# vcom -reportprogress 300 ../../vhdl/top_VGA_rtl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture struc of top_VGA
+# -- Loading entity top_VGA
+# End time: 20:55:21 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:21 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_top_VGA_.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity tb_top_VGA
+# End time: 20:55:21 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:55:21 on May 06,2018
+# vcom -reportprogress 300 ../../tb/tb_top_VGA_sim.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture sim of tb_top_VGA
+# -- Loading entity tb_top_VGA
+# End time: 20:55:21 on May 06,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do sim.do
+# End time: 20:55:23 on May 06,2018, Elapsed time: 0:01:05
+# Errors: 3, Warnings: 1
+# vsim -t ns -novopt -lib work work.tb_top_VGA 
+# Start time: 20:55:23 on May 06,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.tb_top_vga(sim)
+# Loading work.top_vga(struc)
+# Loading ieee.numeric_std(body)
+# Loading work.rom1(rom1_arch)
+# Loading work.blk_mem_gen_v8_3_2
+# Loading work.blk_mem_gen_v8_3_2_mem_module
+# Loading work.blk_mem_gen_v8_3_2_output_stage
+# Loading work.blk_mem_gen_v8_3_2_softecc_output_reg_stage
+# Loading work.rom2(rom2_arch)
+# Loading work.iologic(rtl)
+# Loading work.prescaler(rtl)
+# Loading work.pattern1(rtl)
+# Loading work.pattern2(rtl)
+# Loading work.memory1(rtl)
+# Loading work.memory2(rtl)
+# Loading work.sourcemultiplexer(rtl)
+# Loading work.vgacontroller(rtl)
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+#  Block Memory Generator module loading initial data...
+#  Block Memory Generator data initialization complete.
+# Block Memory Generator module tb_top_vga.i_top_VGA.i_rom1.U0.native_mem_module.blk_mem_gen_v8_3_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+#  Block Memory Generator module loading initial data...
+#  Block Memory Generator data initialization complete.
+# Block Memory Generator module tb_top_vga.i_top_VGA.i_rom2.U0.native_mem_module.blk_mem_gen_v8_3_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+quit -sim
+# End time: 20:57:17 on May 06,2018, Elapsed time: 0:01:54
+# Errors: 0, Warnings: 1
+quit 

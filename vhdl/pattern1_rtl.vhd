@@ -32,8 +32,6 @@ begin
   -- generates stripe pattern
   P_color: process (clk_i, reset_i) 
 
-  variable v_count : std_logic_vector(2 downto 0);
-
   begin
 
     if reset_i = '1' then
@@ -41,18 +39,10 @@ begin
       pattern1_r_o <= (others => '0');
       pattern1_g_o <= (others => '0');
       pattern1_b_o <= (others => '0');
-      v_count := "000";
       
     elsif clk_i'event and clk_i = '1' then
 
-      if unsigned(v_count) = 3 then
-
-        v_count := "000";
-
-      end if;
-
       -- zones with red color start
-      -- with "hypno mode" shiftet to g b s 
       if ((pixelhorizontal_i >= "0000000000") and     -- 0
           (pixelhorizontal_i <  "0000101000")) or     -- 40
          ((pixelhorizontal_i >= "0010100000") and     -- 160
@@ -62,34 +52,11 @@ begin
          ((pixelhorizontal_i >= "0111100000") and     -- 480
           (pixelhorizontal_i <  "1000001000")) then   -- 520
 
-        if unsigned(v_count) = 0 then  
-
-            pattern1_r_o <= (others => '1');
-            pattern1_g_o <= (others => '0');
-            pattern1_b_o <= (others => '0');
-
-        elsif unsigned(v_count) = 1 then
-          
-            pattern1_r_o <= (others => '0');
-            pattern1_g_o <= (others => '1');
-            pattern1_b_o <= (others => '0');
-
-        elsif unsigned(v_count) = 2 then
-
-            pattern1_r_o <= (others => '0');
-            pattern1_g_o <= (others => '0');
-            pattern1_b_o <= (others => '1');
-
-        elsif unsigned(v_count) = 3 then
-
-            pattern1_r_o <= (others => '0');
-            pattern1_g_o <= (others => '0');
-            pattern1_b_o <= (others => '0');
-
-        end if;
+        pattern1_r_o <= (others => '1');
+        pattern1_g_o <= (others => '0');
+        pattern1_b_o <= (others => '0');
 
       -- zones with green color start
-      -- with "hypno mode" shiftet to b s r
       elsif ((pixelhorizontal_i >= "0000101000") and    -- 40
              (pixelhorizontal_i <  "0001010000")) or    -- 80
             ((pixelhorizontal_i >= "0011001000") and    -- 200
@@ -99,34 +66,12 @@ begin
             ((pixelhorizontal_i >= "1000001000") and    -- 520
              (pixelhorizontal_i <  "1000110000")) then  -- 560
 
-        if unsigned(v_count) = 0 then  
 
-          pattern1_r_o <= (others => '0');
-          pattern1_g_o <= (others => '1');
-          pattern1_b_o <= (others => '0');
-   
-        elsif unsigned(v_count) = 1 then
-             
-          pattern1_r_o <= (others => '0');
-          pattern1_g_o <= (others => '0');
-          pattern1_b_o <= (others => '1');
-   
-        elsif unsigned(v_count) = 2 then
-   
-          pattern1_r_o <= (others => '0');
-          pattern1_g_o <= (others => '0');
-          pattern1_b_o <= (others => '0');
-   
-        elsif unsigned(v_count) = 3 then
-   
-          pattern1_r_o <= (others => '1');
-          pattern1_g_o <= (others => '0');
-          pattern1_b_o <= (others => '0');
-
-        end if;
+        pattern1_r_o <= (others => '0');
+        pattern1_g_o <= (others => '1');
+        pattern1_b_o <= (others => '0');
 
       -- zones with blue color start
-      -- with "hypno mode" shiftet to s r g
       elsif ((pixelhorizontal_i >= "0001010000") and    -- 80
              (pixelhorizontal_i <  "0001111000")) or    -- 120
             ((pixelhorizontal_i >= "0011110000") and    -- 240
@@ -136,34 +81,12 @@ begin
             ((pixelhorizontal_i >= "1000110000") and    -- 560
              (pixelhorizontal_i <  "1001011000")) then  -- 600
 
-        if unsigned(v_count) = 0 then
 
-          pattern1_r_o <= (others => '0');
-          pattern1_g_o <= (others => '0');
-          pattern1_b_o <= (others => '1');
-   
-        elsif unsigned(v_count) = 1 then
-
-          pattern1_r_o <= (others => '0');
-          pattern1_g_o <= (others => '0');
-          pattern1_b_o <= (others => '0');
-   
-        elsif unsigned(v_count) = 2 then
-
-          pattern1_r_o <= (others => '1');
-          pattern1_g_o <= (others => '0');
-          pattern1_b_o <= (others => '0');
-
-        elsif unsigned(v_count) = 3 then
-
-          pattern1_r_o <= (others => '0');
-          pattern1_g_o <= (others => '1');
-          pattern1_b_o <= (others => '0');
-
-        end if;
+        pattern1_r_o <= (others => '0');
+        pattern1_g_o <= (others => '0');
+        pattern1_b_o <= (others => '1');
 
       -- zones with blk color start
-      -- with "hypno mode" shiftet to r g b
       elsif  ((pixelhorizontal_i >= "0001111000") and     -- 120
               (pixelhorizontal_i <  "0010100000")) or     -- 160
              ((pixelhorizontal_i >= "0100011000") and     -- 280
@@ -173,37 +96,10 @@ begin
              ((pixelhorizontal_i >= "1001011000") and     -- 600
               (pixelhorizontal_i <  "1010000000")) then   -- 640
 
-        if unsigned(v_count) = 0 then  
 
-          pattern1_r_o <= (others => '0');
-          pattern1_g_o <= (others => '0');
-          pattern1_b_o <= (others => '0');
-
-        elsif unsigned(v_count) = 1 then
-             
-          pattern1_r_o <= (others => '1');
-          pattern1_g_o <= (others => '0');
-          pattern1_b_o <= (others => '0');
-   
-        elsif unsigned(v_count) = 2 then
-   
-          pattern1_r_o <= (others => '0');
-          pattern1_g_o <= (others => '1');
-          pattern1_b_o <= (others => '0');
-
-        elsif unsigned(v_count) = 3 then
-
-          pattern1_r_o <= (others => '0');
-          pattern1_g_o <= (others => '0');
-          pattern1_b_o <= (others => '1');
-
-        end if;
-
-      end if;
-
-      if switch_i = '1' then
-
-        v_count := unsigned(v_count) + 1;
+        pattern1_r_o <= (others => '0');
+        pattern1_g_o <= (others => '0');
+        pattern1_b_o <= (others => '0');
 
       end if;
 

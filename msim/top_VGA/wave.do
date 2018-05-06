@@ -20,7 +20,6 @@ add wave -noupdate -height 30 -format Logic /tb_top_VGA/i_top_VGA/s_swsync
 add wave -noupdate -height 30 -format Logic /tb_top_VGA/i_top_VGA/s_pbsync
 add wave -noupdate -height 30 -format Logic /tb_top_VGA/i_top_VGA/s_pixenable
 add wave -noupdate -height 30 -format Logic /tb_top_VGA/i_top_VGA/s_countstart
-add wave -noupdate -height 30 -format Logic /tb_top_VGA/i_top_VGA/s_switch
 add wave -noupdate -height 30 -radix Unsigned /tb_top_vga/i_top_VGA/s_pixelhorizontal
 add wave -noupdate -height 30 -radix Unsigned /tb_top_vga/i_top_VGA/s_pixelvertical
 

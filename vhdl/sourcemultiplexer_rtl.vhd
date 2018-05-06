@@ -62,7 +62,6 @@ architecture rtl of sourcemultiplexer is
   signal s_special : std_logic;                   -- enable special mode (moving)
   signal s_speed : std_logic_vector(20 downto 0); -- resulting speed
   signal s_countstart : std_logic;                -- trigger overlay adress counter
-  signal s_switch : std_logic;                    -- trigger "hypno mode"
 
 begin
 
@@ -78,7 +77,6 @@ begin
       s_x <= "0011001000"; -- 200 right
       s_y <= "0000110011"; -- 51 top
       s_updown <= '0';
-      s_switch <= '0';
 
     elsif clk_i'event and clk_i = '1' then
 
@@ -108,13 +106,6 @@ begin
             s_updown <= '1';            -- border to count up
             s_y <= unsigned(s_y) + 10;  -- move down 10 pixel
 
-            -- "hypno mode" only in case of moving space invador
-            if sel_i(1) = '0' and sel_i(2) = '1' then
-
-              s_switch <= '1';
-
-            end if;
-
             -- maximum bottom reset
             if unsigned(s_position_vertical2) >= 469 then     -- bottom border
 
@@ -128,13 +119,6 @@ begin
             s_updown <= '0';            -- border to count down
             s_y <= unsigned(s_y) + 10;  -- move down 10 pixel
 
-            -- "hypno mode" only in case of moving space invador
-            if sel_i(1) = '0' and sel_i(2) = '1' then
-
-              s_switch <= '1';  
-
-            end if;
-
             -- maximum bottom reset
             if unsigned(s_position_vertical2) >= 469 then   -- bottom border, see README.md
 
@@ -142,17 +126,9 @@ begin
 
             end if;
             
-          else
-
-            s_switch <= '0';
-
           end if;
 
         end if;
-
-      else
-
-        s_switch <= '0';
 
       end if;
 
@@ -160,8 +136,6 @@ begin
 
   end process P_slowmove;  
 
-  switch_o <= s_switch;
-  
   -- reads the button in various modes
   -- buttons only active when overlay is chosen
   P_buttons: process (clk_i, reset_i)
@@ -402,7 +376,7 @@ begin
       -- count only when overlay is chosen
       if sel_i(2 downto 0) = "100" or
          sel_i(2 downto 0) = "110" or
-         (sel_i(2) = '1' and sel_i(0) = '1') then
+        (sel_i(2) = '1' and sel_i(0) = '1') then
 
         if (unsigned(pixelhorizontal_i) >= (unsigned(s_position_horizontal1)) and 
             unsigned(pixelhorizontal_i) < (unsigned(s_position_horizontal2))) and

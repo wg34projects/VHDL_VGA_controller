@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/home/helmutresch/WorkDir/VHDL_VGA_controller/msim/top_VGA
 vbeh_vlog_ff_ce_clr_v8_3
-Z1 !s110 1525516132
+Z1 !s110 1525632920
 !i10b 1
 !s100 g9kkk:j?QzoJ@Pk9U6SAP0
 IoWeFniB]BLOn^14EHg[<C1
@@ -23,7 +23,7 @@ Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1525516132.000000
+Z7 !s108 1525632920.000000
 Z8 !s107 ../../generate/rom2/rom2/blk_mem_gen_v8_3_2/simulation/blk_mem_gen_v8_3.v|
 Z9 !s90 -reportprogress|300|../../generate/rom2/rom2/blk_mem_gen_v8_3_2/simulation/blk_mem_gen_v8_3.v|
 !i113 1
@@ -262,13 +262,13 @@ VUd[L?kY340[HVVIU78=O^2
 !s100 kbRjUG3MUEQRAMSU2b3Ph2
 Z14 OV;C;10.5b;63
 32
-Z15 !s110 1525516133
+R1
 !i10b 1
-Z16 !s108 1525516133.000000
+R7
 !s90 -reportprogress|300|../../vhdl/iologic_.vhd|
 !s107 ../../vhdl/iologic_.vhd|
 !i113 1
-Z17 tExplicit 1 CvgOpt 0
+Z15 tExplicit 1 CvgOpt 0
 Artl
 w1525477089
 DEx4 work 7 iologic 0 22 Ud[L?kY340[HVVIU78=O^2
@@ -283,15 +283,15 @@ VQ]jcmfO]ao3?@M=6c0NPQ2
 !s100 F>3CJOHdZ[YEGcFD]PLaO3
 R14
 32
-R15
+Z16 !s110 1525632921
 !i10b 1
-R16
+R7
 !s90 -reportprogress|300|../../vhdl/iologic_rtl.vhd|
 !s107 ../../vhdl/iologic_rtl.vhd|
 !i113 1
-R17
+R15
 Ememory1
-Z18 w1525511250
+Z17 w1525511250
 R11
 R12
 R13
@@ -310,7 +310,7 @@ R7
 !s90 -reportprogress|300|../../vhdl/memory1_.vhd|
 !s107 ../../vhdl/memory1_.vhd|
 !i113 1
-R17
+R15
 Artl
 DEx4 work 7 memory1 0 22 Q]:Y>7Y0HTcYJ0PBGE23f1
 R11
@@ -330,7 +330,7 @@ R7
 !s90 -reportprogress|300|../../vhdl/memory1_rtl.vhd|
 !s107 ../../vhdl/memory1_rtl.vhd|
 !i113 1
-R17
+R15
 Ememory2
 w1525511302
 R11
@@ -345,13 +345,13 @@ VE`odIS`hl`RF[]`zm2iQn2
 !s100 ocCBCYITL:kn7jH=>Ao?W0
 R14
 32
-R15
+R1
 !i10b 1
-R16
+R7
 !s90 -reportprogress|300|../../vhdl/memory2_.vhd|
 !s107 ../../vhdl/memory2_.vhd|
 !i113 1
-R17
+R15
 Artl
 w1525511382
 DEx4 work 7 memory2 0 22 E`odIS`hl`RF[]`zm2iQn2
@@ -366,15 +366,15 @@ VLkX7K=JOJBL99hhOhDZ>i0
 !s100 mcaW9g93ikzcZE9XX5AA20
 R14
 32
-R15
+R1
 !i10b 1
-R16
+R7
 !s90 -reportprogress|300|../../vhdl/memory2_rtl.vhd|
 !s107 ../../vhdl/memory2_rtl.vhd|
 !i113 1
-R17
+R15
 Epattern1
-w1525454621
+w1525632000
 R11
 R12
 R13
@@ -383,20 +383,20 @@ R0
 F../../vhdl/pattern1_.vhd
 l0
 L28
-V[UgzC6L7cd0]PP9cPoWBS0
-!s100 4XA=Ze3^Gk[F8]ITH?Y:E3
+VlN6lO@HR>EQWPi66=Tg>=1
+!s100 HSh;BhcQlA@N@OR83CaBF0
 R14
 32
-R15
+R1
 !i10b 1
-R16
+R7
 !s90 -reportprogress|300|../../vhdl/pattern1_.vhd|
 !s107 ../../vhdl/pattern1_.vhd|
 !i113 1
-R17
+R15
 Artl
-w1525486379
-DEx4 work 8 pattern1 0 22 [UgzC6L7cd0]PP9cPoWBS0
+w1525632144
+DEx4 work 8 pattern1 0 22 lN6lO@HR>EQWPi66=Tg>=1
 R11
 R12
 R13
@@ -404,17 +404,17 @@ R13
 F../../vhdl/pattern1_rtl.vhd
 l30
 L28
-V:S6m@KTW:go]<eShz@<_o3
-!s100 aJEXV]Noo<;7@d3EVbei]0
+V2n04jCV_UhLZc5A0i:gZO0
+!s100 i>f6HG<^TTLnoiMgbg]U;2
 R14
 32
-R15
+R1
 !i10b 1
-R16
+R7
 !s90 -reportprogress|300|../../vhdl/pattern1_rtl.vhd|
 !s107 ../../vhdl/pattern1_rtl.vhd|
 !i113 1
-R17
+R15
 Epattern2
 w1525490165
 R11
@@ -429,13 +429,13 @@ V4KNC7H<P6KjX4Lkz>??A`1
 !s100 1gATJcLAAAQ9]BP9RFiL:3
 R14
 32
-R15
+R1
 !i10b 1
-R16
+R7
 !s90 -reportprogress|300|../../vhdl/pattern2_.vhd|
 !s107 ../../vhdl/pattern2_.vhd|
 !i113 1
-R17
+R15
 Artl
 w1525490771
 DEx4 work 8 pattern2 0 22 4KNC7H<P6KjX4Lkz>??A`1
@@ -450,13 +450,13 @@ VEGcUzD9_^31z`=kl_SZ081
 !s100 i5Y;@>jW[Qe[9k_o5D88D2
 R14
 32
-R15
+R1
 !i10b 1
-R16
+R7
 !s90 -reportprogress|300|../../vhdl/pattern2_rtl.vhd|
 !s107 ../../vhdl/pattern2_rtl.vhd|
 !i113 1
-R17
+R15
 Eprescaler
 w1525477150
 R11
@@ -471,13 +471,13 @@ V91H7IUjhj@60o]Ae<keWO2
 !s100 G;nCMFm6E_:PG:_mF:NPP1
 R14
 32
-R15
-!i10b 1
 R16
+!i10b 1
+Z18 !s108 1525632921.000000
 !s90 -reportprogress|300|../../vhdl/prescaler_.vhd|
 !s107 ../../vhdl/prescaler_.vhd|
 !i113 1
-R17
+R15
 Artl
 w1525477938
 DEx4 work 9 prescaler 0 22 91H7IUjhj@60o]Ae<keWO2
@@ -492,13 +492,13 @@ VN>T_P=Skl3DJ2T=fgiDk@1
 !s100 eW4A2S0RRX]Oi`CmGmK`W2
 R14
 32
-R15
-!i10b 1
 R16
+!i10b 1
+R18
 !s90 -reportprogress|300|../../vhdl/prescaler_rtl.vhd|
 !s107 ../../vhdl/prescaler_rtl.vhd|
 !i113 1
-R17
+R15
 vread_netlist_v8_3
 R1
 !i10b 1
@@ -539,7 +539,7 @@ R7
 Z23 !s90 -reportprogress|300|../../generate/rom1/rom1/synth/rom1.vhd|
 Z24 !s107 ../../generate/rom1/rom1/synth/rom1.vhd|
 !i113 1
-R17
+R15
 Arom1_arch
 R20
 R12
@@ -557,7 +557,7 @@ R7
 R23
 R24
 !i113 1
-R17
+R15
 Erom2
 R3
 R20
@@ -578,7 +578,7 @@ R7
 Z27 !s90 -reportprogress|300|../../generate/rom2/rom2/synth/rom2.vhd|
 Z28 !s107 ../../generate/rom2/rom2/synth/rom2.vhd|
 !i113 1
-R17
+R15
 Arom2_arch
 R20
 R12
@@ -596,9 +596,9 @@ R7
 R27
 R28
 !i113 1
-R17
+R15
 Esourcemultiplexer
-w1525484295
+Z29 w1525632264
 R11
 R12
 R13
@@ -607,38 +607,37 @@ R0
 F../../vhdl/sourcemultiplexer_.vhd
 l0
 L31
-VX<cBBmoP=ggh`CQQglWXA3
-!s100 VzHLg=jUB?@fa^K@>oKc@0
+V25jh19[Z:_O<g88_m0h3]2
+!s100 8^YS0NkKLnDHKPXPS8j;W0
 R14
 32
-R15
+R1
 !i10b 1
-R16
+R7
 !s90 -reportprogress|300|../../vhdl/sourcemultiplexer_.vhd|
 !s107 ../../vhdl/sourcemultiplexer_.vhd|
 !i113 1
-R17
+R15
 Artl
-w1525484570
-DEx4 work 17 sourcemultiplexer 0 22 X<cBBmoP=ggh`CQQglWXA3
+DEx4 work 17 sourcemultiplexer 0 22 25jh19[Z:_O<g88_m0h3]2
 R11
 R12
 R13
 8../../vhdl/sourcemultiplexer_rtl.vhd
 F../../vhdl/sourcemultiplexer_rtl.vhd
-l67
+l66
 L31
-ViG>zl<gW0i@Z5=Bg9RD8D0
-!s100 FSGXeHPD0VGf^^mFX_?OH2
+VLQ0c9ijBCXOK>HzY`fIi?2
+!s100 ?L86JkjOBL>@eDk1c781g1
 R14
 32
-R15
+R1
 !i10b 1
-R16
+R7
 !s90 -reportprogress|300|../../vhdl/sourcemultiplexer_rtl.vhd|
 !s107 ../../vhdl/sourcemultiplexer_rtl.vhd|
 !i113 1
-R17
+R15
 vSTATE_LOGIC_v8_3
 R1
 !i10b 1
@@ -674,34 +673,34 @@ V<1]b20g^UNjg0R1dikWH30
 !s100 fnl_kz`X1PZ=[QQQae@VP3
 R14
 32
-Z29 !s110 1525516134
+R16
 !i10b 1
-Z30 !s108 1525516134.000000
+R18
 !s90 -reportprogress|300|../../tb/tb_top_VGA_.vhd|
 !s107 ../../tb/tb_top_VGA_.vhd|
 !i113 1
-R17
+R15
 Asim
-Z31 w1525510947
-Z32 DEx4 work 10 tb_top_vga 0 22 <1]b20g^UNjg0R1dikWH30
+Z30 w1525510947
+Z31 DEx4 work 10 tb_top_vga 0 22 <1]b20g^UNjg0R1dikWH30
 R11
 R12
 R13
-Z33 8../../tb/tb_top_VGA_sim.vhd
-Z34 F../../tb/tb_top_VGA_sim.vhd
+Z32 8../../tb/tb_top_VGA_sim.vhd
+Z33 F../../tb/tb_top_VGA_sim.vhd
 l42
 L23
-Z35 V2e;:;PBEk0abVhez0?^=a0
-Z36 !s100 SG1]M^`beY>32k0]UiXW^1
+Z34 V2e;:;PBEk0abVhez0?^=a0
+Z35 !s100 SG1]M^`beY>32k0]UiXW^1
 R14
 32
-R29
+R16
 !i10b 1
-R30
-Z37 !s90 -reportprogress|300|../../tb/tb_top_VGA_sim.vhd|
+R18
+Z36 !s90 -reportprogress|300|../../tb/tb_top_VGA_sim.vhd|
 !s107 ../../tb/tb_top_VGA_sim.vhd|
 !i113 1
-R17
+R15
 Etop_vga
 w1525081039
 R11
@@ -716,36 +715,36 @@ V=fa4@^oeK]3UfMzJh02582
 !s100 5dJgNQP7JJB[e;lReXc8Y1
 R14
 32
-R29
+R16
 !i10b 1
-R30
+R18
 !s90 -reportprogress|300|../../vhdl/top_VGA_.vhd|
 !s107 ../../vhdl/top_VGA_.vhd|
 !i113 1
-R17
+R15
 Astruc
-w1525510856
+w1525632309
 DEx4 work 7 top_vga 0 22 =fa4@^oeK]3UfMzJh02582
 R11
 R12
 R13
 8../../vhdl/top_VGA_rtl.vhd
 F../../vhdl/top_VGA_rtl.vhd
-l263
+l260
 L28
-V:H8>k1Z6:S8f4@H[cYUYa2
-!s100 JCNVhDF4Q3n;P@GMMUdJK2
+VDN?L;Doh[6hAEB2Wk>Dhm2
+!s100 Y:kV@D[POF=QYK4=P:>N42
 R14
 32
-R29
+R16
 !i10b 1
-R30
+R18
 !s90 -reportprogress|300|../../vhdl/top_VGA_rtl.vhd|
 !s107 ../../vhdl/top_VGA_rtl.vhd|
 !i113 1
-R17
+R15
 Evga_monitor
-Z38 w1525509138
+Z37 w1525509138
 R12
 R13
 R0
@@ -757,13 +756,13 @@ VOJkz8c>58c@AQbhXY9hBS0
 !s100 [15`O[Dn<z>?eP<D_:MdT0
 R14
 32
-R15
-!i10b 1
 R16
+!i10b 1
+R18
 !s90 -reportprogress|300|../../vhdl/vga_monitor_.vhd|
 !s107 ../../vhdl/vga_monitor_.vhd|
 !i113 1
-R17
+R15
 Asim
 DEx4 work 11 vga_monitor 0 22 OJkz8c>58c@AQbhXY9hBS0
 R11
@@ -778,13 +777,13 @@ VLi21]]zmRg^3f@62oAX7[1
 !s100 OG>ahBGUO`eeS5NMdMjiO3
 R14
 32
-R15
-!i10b 1
 R16
+!i10b 1
+R18
 !s90 -reportprogress|300|../../vhdl/vga_monitor_sim.vhd|
 !s107 ../../vhdl/vga_monitor_sim.vhd|
 !i113 1
-R17
+R15
 Evgacontroller
 w1525485022
 R11
@@ -799,13 +798,13 @@ VLHm7Ij>78lhUmn`]>EY`P0
 !s100 2hXd^zRV;Dob?e]0Q?1cS1
 R14
 32
-R15
-!i10b 1
 R16
+!i10b 1
+R18
 !s90 -reportprogress|300|../../vhdl/vgacontroller_.vhd|
 !s107 ../../vhdl/vgacontroller_.vhd|
 !i113 1
-R17
+R15
 Artl
 w1525485143
 DEx4 work 13 vgacontroller 0 22 LHm7Ij>78lhUmn`]>EY`P0
@@ -820,13 +819,13 @@ VN3blgVO`?OA?z>Mg3FXX;1
 !s100 LJn;=MBRn]<8j?YIP5^@O1
 R14
 32
-R29
-!i10b 1
 R16
+!i10b 1
+R18
 !s90 -reportprogress|300|../../vhdl/vgacontroller_rtl.vhd|
 !s107 ../../vhdl/vgacontroller_rtl.vhd|
 !i113 1
-R17
+R15
 vwrite_netlist_v8_3
 R1
 !i10b 1

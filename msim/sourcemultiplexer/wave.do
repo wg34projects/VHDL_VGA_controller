@@ -27,7 +27,6 @@ add wave -noupdate -height 30 -format Logic /tb_sourcemultiplexer/red_mux_o
 add wave -noupdate -height 30 -format Logic /tb_sourcemultiplexer/green_mux_o
 add wave -noupdate -height 30 -format Logic /tb_sourcemultiplexer/blue_mux_o
 add wave -noupdate -height 30 -format Logic /tb_sourcemultiplexer/countstart_o
-add wave -noupdate -height 30 -format Logic /tb_sourcemultiplexer/switch_o
 
 add wave -divider -height 30 "INTERNAL"
 add wave -noupdate -height 30 -radix Unsigned tb_sourcemultiplexer/i_sourcemultiplexer/s_x
@@ -37,7 +36,6 @@ add wave -noupdate -height 30 -radix Unsigned tb_sourcemultiplexer/i_sourcemulti
 add wave -noupdate -height 30 -format Logic tb_sourcemultiplexer/i_sourcemultiplexer/s_special
 add wave -noupdate -height 30 -radix Unsigned tb_sourcemultiplexer/i_sourcemultiplexer/s_speed
 add wave -noupdate -height 30 -format Logic tb_sourcemultiplexer/i_sourcemultiplexer/s_countstart
-add wave -noupdate -height 30 -format Logic tb_sourcemultiplexer/i_sourcemultiplexer/s_switch
 
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {0 ps}

@@ -30,8 +30,7 @@ component pattern1
     pixelhorizontal_i : in std_logic_vector(9 downto 0);
     pattern1_r_o : out std_logic_vector(3 downto 0);      -- signals to sourcemultiplexer
     pattern1_g_o : out std_logic_vector(3 downto 0);
-    pattern1_b_o : out std_logic_vector(3 downto 0);
-    switch_i : in std_logic
+    pattern1_b_o : out std_logic_vector(3 downto 0)
     );
 end component;
 
@@ -41,7 +40,6 @@ signal pixelhorizontal_i : std_logic_vector(9 downto 0);
 signal pattern1_r_o : std_logic_vector(3 downto 0);
 signal pattern1_g_o : std_logic_vector(3 downto 0);
 signal pattern1_b_o : std_logic_vector(3 downto 0);
-signal switch_i : std_logic;
 
 begin
 
@@ -54,8 +52,7 @@ begin
     pixelhorizontal_i => pixelhorizontal_i,
     pattern1_r_o => pattern1_r_o,
     pattern1_g_o => pattern1_g_o,
-    pattern1_b_o => pattern1_b_o,
-    switch_i => switch_i
+    pattern1_b_o => pattern1_b_o
    );
 
   P_clk : process
@@ -75,34 +72,21 @@ begin
 
     reset_i <= '1';
     pixelhorizontal_i <= "0000000000";
-    switch_i <= '0';
     wait for 5 ns;
 
     reset_i <= '0';
 
-    switch_i <= '1';
     pixelhorizontal_i <= "0000000000";
-    wait for 10 ns;
-    switch_i <= '0';
-    wait for 40 ns;
+    wait for 50 ns;
 
-    switch_i <= '1';
     pixelhorizontal_i <= "0000100000";
-    wait for 10 ns;
-    switch_i <= '0';
-    wait for 40 ns;
+    wait for 50 ns;
 
-    switch_i <= '1';
     pixelhorizontal_i <= "0000100010";
-    wait for 10 ns;
-    switch_i <= '0';
-    wait for 40 ns;
+    wait for 50 ns;
 
-    switch_i <= '1';
     pixelhorizontal_i <= "0100100010";
-    wait for 10 ns;
-    switch_i <= '0';
-    wait for 40 ns;
+    wait for 50 ns;
 
     wait;
     
